@@ -1,0 +1,9 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<bean name="myRequestParser" type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" class="com.huateng.core.adaper.RequestParseWrapper"
+		scope="default" optional="true"></bean>
+	<constant name="struts.multipart.handler" value="myRequestParser" />
+	<include file="bank-struts.xml"></include>
+</struts>

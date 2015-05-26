@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+				
+	<bean name="/BankRemoting" class="com.huateng.core.common.AuthHessianServiceExporter">
+		<property name="service" ref="bankRemoting" />
+		<property name="serviceInterface" value="com.huateng.core.remoting.BankRemoting"/>
+	</bean> 
+			
+	<!-- <bean id="bankRemoting" class="com.huateng.core.remoting.impl.BankRemotingImpl">
+		<property name="remoteService" ref="bankSecurityRemoting"></property>
+		<property name="bankSecurityHandle" ref="bankEncryptRemoting"></property>
+		<property name="connTimeout" value="60000"/>
+		<property name="revTimeout" value="60000"/>
+		<property name="logHandle"  ref="logHandle"/>	
+	</bean> -->
+</beans>

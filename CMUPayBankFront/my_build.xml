@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="gb2312"?>
+<project basedir="." default="init" name="upaycore">
+
+	<property name="debug" value="off" />
+	<property name="optimize" value="on" />
+	<property name="deprecation" value="on" />
+	<!--war包名字 -->
+	<property name="war.name" value="CMUPayBankFront.war" />
+
+	<property name="CMUPayBankFront.dir" value="./CMUPayBankFront" />
+	<property name="CMUPayBankFront.src.dir" value="./CMUPayBankFront/src" />
+	<property name="CMUPayBankFront.web-inf.dir" value="${CMUPayBankFront.dir}/WEB-INF" />
+	<property name="CMUPayBankFront.web-inf.classes.dir" value="${CMUPayBankFront.dir}/WEB-INF/classes" />
+	<property name="CMUPayBankFront.web-inf.lib.dir" value="${CMUPayBankFront.dir}/WEB-INF/lib" />
+	<property name="src.java" value="./src/main/java" />
+	<property name="src.resources" value="./src/main/resources" />
+	<property name="src.web-inf" value="./src/main/webapp/WEB-INF" />
+	<property name="src.lib" value="./src/main/webapp/WEB-INF/lib"/>
+	<property name="war.dir" value="./war" />
+	<!--其他jar包路径 -->
+	<path id="lib">
+		<fileset dir="${src.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<target name="init">
+		<delete dir="${CMUPayBankFront.dir}" />
+
+		<mkdir dir="${CMUPayBankFront.dir}" />
+		<mkdir dir="${CMUPayBankFront.src.dir}" />
+		<mkdir dir="${CMUPayBankFront.web-inf.dir}" />
+		<mkdir dir="${CMUPayBankFront.web-inf.classes.dir}" />
+		<mkdir dir="${CMUPayBankFront.web-inf.lib.dir}" />
+
+		<copy todir="${CMUPayBankFront.src.dir}">
+			<fileset dir="${src.java}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+
+		<javac encoding="UTF-8" fork="true" memoryInitialSize="256m" memoryMaximumSize="256m" includeantruntime="false" debug="on" optimize="${optimize}" destdir="${CMUPayBankFront.web-inf.classes.dir}" srcdir="${CMUPayBankFront.src.dir}">
+			<classpath refid="lib" />
+		</javac>
+
+		<copy todir="${CMUPayBankFront.web-inf.lib.dir}">
+			<fileset dir="${src.lib}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+
+		<copy todir="${CMUPayBankFront.web-inf.dir}">
+			<fileset dir="${src.web-inf}">
+				<include name="web.xml" />
+			</fileset>
+		</copy>
+
+		<copy todir="${CMUPayBankFront.web-inf.classes.dir}">
+			<fileset dir="${src.resources}">
+				<include name="**/*.xml" />
+			</fileset>
+			<fileset dir="${src.resources}">
+				<include name="**/*.properties" />
+			</fileset>
+		</copy>
+		<delete dir="${CMUPayBankFront.src.dir}" />
+
+		<war warfile="${CMUPayBankFront.dir}/CMUPayBankFront.war" webxml="${CMUPayBankFront.web-inf.dir}/web.xml">   	      	 
+	      	<lib dir="${CMUPayBankFront.web-inf.dir}/lib"/>   
+	      	 <classes dir="${CMUPayBankFront.web-inf.classes.dir}"/> 
+	      	<fileset dir="src/main/webapp" excludes="WEB-INF/lib/*.jar,WEB-INF/web.xml"/>
+	      
+		</war>
+	</target>
+</project>
+
