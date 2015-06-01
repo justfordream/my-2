@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 客户端Hessian代理工厂Bean -->
+	<bean id="SecurityHandle" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<!-- 请求代理Servlet路径 -->
+		<property name="serviceUrl">
+			 <value>http://${SECURITY_IP}:${SECURITY_PORT}/CMUPaySecurity/remote/SecurityHandle</value> 
+			<!--<value>http://localhost:8086/CMUPaySecurity/remote/SecurityHandle</value>-->
+		</property>
+		<!-- 接口定义 -->
+		<property name="serviceInterface">
+			<value>com.huateng.cmupay.security.adapter.SecurityHandle</value>
+		</property>
+	</bean> 
+	
+	
+	<bean id="UpayKeyUpdateService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<!-- 请求代理Servlet路径 -->
+		<property name="serviceUrl">
+		    <value>http://${CONSOLE_IP}:${CONSOLE_PORT}/CMUPayConsole/UpayKeyUpdateService.service</value>
+			<!-- <value>http://localhost:8086/CMUPayConsole/UpayKeyUpdateService.service</value> -->
+		</property>
+		<!-- 接口定义 -->
+		<property name="serviceInterface">
+			<value>com.huateng.upay.service.UpayKeyUpdateService</value>
+		</property>
+	</bean>
+</beans> 

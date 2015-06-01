@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-3.1.xsd ">
+               
+	<!-- 提供Hessian服务(密钥更新入库申请) -->
+ 	<bean name="/UpayKeyUpdateApplyService" class="com.huateng.upay.serviceExporter.AuthHessianServiceExporter"> 
+	   <property name="service" ref="upayKeyUpdateApplyService"></property>
+	   <property name="serviceInterface" value="com.huateng.upay.service.UpayKeyUpdateApplyService"></property>
+	</bean>	 
+	
+<!-- 	<bean id="upayKeyUpdateApplyService" class="com.huateng.upay.service.impl.UpayKeyUpdateApplyServiceImpl">	
+		<property name="SecurityHandle" ref="SecurityHandle" />
+		<property name="upayKeyUpdateService" ref="UpayKeyUpdateService" /> 
+	</bean>	 -->
+				
+	<bean name="/CrmRemoting" class="com.huateng.core.common.AuthHessianServiceExporter">
+		<property name="service" ref="crmRemoting" />
+		<property name="serviceInterface" value="com.huateng.core.remoting.CrmRemoting"/>
+	</bean> 
+	
+<!-- 	<bean id="crmRemoting"  class="com.huateng.core.remoting.impl.CrmRemotingImpl">
+	    <property name="SecurityHandle" ref="SecurityHandle" />
+		<property name="logHandle" ref="logHandle"/>
+	</bean> -->
+	
+	<!-- <bean id="crmTiCatRemoting"  class="com.huateng.core.remoting.impl.CrmTianCatRemotingImpl">
+		<property name="logHandle" ref="logHandle"/>
+	</bean>
+	
+	<bean name="/CrmTiCatRemoting" class="com.huateng.core.common.AuthHessianServiceExporter">
+		<property name="service" ref="crmTiCatRemoting" />
+		<property name="serviceInterface" value="com.huateng.core.remoting.CrmTiCatRemoting"/>
+	</bean>  -->
+	
+<!-- 	<bean id="crmTmallRemoting"  class="com.huateng.core.remoting.impl.CrmTmallRemotingImpl">
+		<property name="logHandle" ref="logHandle"/>
+	</bean> -->
+	
+	<bean name="/CrmTmallRemoting" class="com.huateng.core.common.AuthHessianServiceExporter">
+		<property name="service" ref="crmTmallRemoting" />
+		<property name="serviceInterface" value="com.huateng.core.remoting.CrmTmallRemoting"/>
+	</bean> 
+					
+</beans>
