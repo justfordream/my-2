@@ -1,0 +1,33 @@
+<Body>
+   <version>3.0.0</version>
+   <certId></certId>
+   <signature></signature>
+   <encoding></encoding>
+   <txnType><txnType>
+   <txnSubType></txnSubType>
+   <bizType></bizType>
+   <accessType></accessType>
+   <merId></merId>
+   <txnTime></txnTime>
+   <orderId></orderId>
+   <origQryId></origQryId>
+   <reqReserved></reqReserved>
+   <reserved></reserved>
+   <queryId></queryId>
+   <traceNo></traceNo>
+   <traceTime></traceTime>
+   <settleDate></settleDate>
+   <settleCurrencyCode></settleCurrencyCode>
+   <settleAmt></settleAmt>
+   <exchangeRate></exchangeRate>
+   <exchangeDate></exchangeDate>
+   <accNo></accNo>
+   <payCardType></payCardType>
+   <payType></payType>
+   <origRespCode></origRespCode>
+   <origRespMsg></origRespMsg>
+   <respCode></respCode>
+   <respMsg></respMsg>
+   <respTime></respTime>
+</Body>
+

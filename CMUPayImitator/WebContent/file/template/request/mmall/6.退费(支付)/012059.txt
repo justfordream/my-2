@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GPay>
+	<Header>
+		<ActivityCode>012059</ActivityCode>
+		<ReqSys>0055</ReqSys>
+		<ReqChannel>07</ReqChannel>
+		<ReqDate>20130508</ReqDate>
+		<ReqTransID>10000043129817909260</ReqTransID>
+		<ReqDateTime>20130508123022001</ReqDateTime>
+		<ActionCode>0</ActionCode>
+		<RcvSys>0001</RcvSys>
+		<RcvDate></RcvDate>
+		<RcvTransID></RcvTransID>
+		<RcvDateTime></RcvDateTime>
+		<RspCode></RspCode>
+		<RspDesc></RspDesc>
+	</Header>
+	<Body>
+		<OrderId>90326754123478569098765421234523</OrderId>
+		<OriReqSys>0055</OriReqSys>
+		<OriOrderID></OriOrderID>
+		<Payment></Payment>
+		<OriReqDate>20140505</OriReqDate>
+		<RevokeReason>test</RevokeReason>
+		<OriActivityCode>012059</OriActivityCode>
+		<OriBankID>0057</OriBankID>
+		<Reserve1></Reserve1>
+		<Reserve2></Reserve2>
+		<Reserve3></Reserve3>
+	</Body>
+	<Sign>
+		<SignFlag></SignFlag>
+		<CerID></CerID>
+		<SignValue></SignValue>
+	</Sign>
+</GPay>

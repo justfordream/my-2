@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>报文记录</title>
+<style>
+	.input2{font-size:15px;width:760px;height:18px}
+</style>
+<script src="js/consultReceiveMsg.js" type="text/javascript"></script>
+
+</head>
+<body>
+	<div id="result" align="center"></div>
+    <fieldset style="width:99%;padding-bottom:5px;">
+    	<legend id="a" title="报文记录" class="small" align="top">报文记录</legend>
+    	<table width="99%" height="40%" align="left" border="1" bgcolor="#CCCCCC" bordercolor="#00FFFF">
+    		<tr>
+    			<td width="80%">
+    				<textarea name="getMsg" id="getMsg" rows="35" cols="125" readonly="readonly"></textarea>
+    			</td>
+    			<td>
+					<table width="20%">
+						<tr>
+							<td>
+								<input type="button" value="查看" onclick="GetAllReceiveMsg()"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<select name="serverID" id="serverID">
+									<option value="0">--请选择--</option>
+									<option value="1">--银行报文--</option>
+									<option value="2">--CRM报文--</option>
+									<option value="3">--Tmall报文--</option>
+									<option value="4">--Mmall报文--</option>
+								</select>
+							</td>
+						</tr>	
+					</table>
+    			</td>
+    		</tr>
+
+    	</table>
+    </fieldset>
+</body>
+</html>

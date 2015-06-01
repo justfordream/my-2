@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>报文仿真器控制台</title>
+</head>
+<body>
+	<br><br>
+	<fieldset style="width:70%;padding-bottom:10px;" >
+    	<legend id="a" title="" class="big" align="top">控制台</legend>
+    	<table width="70%" height="40%" align="center" border="1" bgcolor="#CCCCCC" bordercolor="#00FFFF">
+    		<tr>
+    			<td align="center">
+					<input type="button" name="" value="模拟发送报文(银行->UPAY)" onclick="javascript:window.open('msgClient/httpPostMsg.html')" />
+    			</td>
+    			<td align="center" rowspan="4">
+    				<input type="button" name="address" value="查看已接收报文" onclick="javascript:window.open('msgServer/consultReceiveMsg.html')"/><br/><br/>
+					<input type="button" name="" value="修改返回报文模板" onclick="javascript:window.open('msgServer/modifyRspTemplate.html')" />
+    			</td>  			
+    		</tr>
+    		
+    		<tr>
+    			<td align="center">
+					<input type="button" name="" value="模拟发送报文(省BOSS->UPAY)" onclick="javascript:window.open('msgClient/sendMsg_Multipart.html')" />
+    			</td>
+    			<!-- <td align="center" rowspan="3">
+    			<input type="button" name="address" value="查看已接收报文" onclick="javascript:window.open('msgServer/consultReceiveMsg.html')"/>
+					<input type="button" name="" value="修改返回报文模板" onclick="javascript:window.open('msgServer/modifyRspTemplate.html')" />
+    			</td> -->
+    		</tr>
+    		
+    		<tr>
+    			<td align="center">
+					<input type="button" name="" value="模拟发送报文(移动商城->UPAY)" onclick="javascript:window.open('msgClient/httpPostMMallMsg.html')" />
+    			</td>
+    			<!-- <td align="center">
+					<input type="button" name="" value="修改返回报文模板" onclick="javascript:window.open('msgServer/modifyRspTemplate.html')" />
+    			</td> -->
+    		</tr>
+    		<tr>
+    			<td align="center">
+					<input type="button" name="" value="模拟发送报文(天猫->UPAY)" onclick="javascript:window.open('msgClient/httpPostTMallMsg.html')" />
+    			</td>
+    			<!-- <td align="center">
+					<input type="button" name="" value="修改返回报文模板" onclick="javascript:window.open('msgServer/modifyRspTemplate.html')" />
+    			</td> -->
+    		</tr>
+    	</table>
+    </fieldset>
+</body>
+</html>

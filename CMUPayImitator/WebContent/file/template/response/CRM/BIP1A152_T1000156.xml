@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InterBOSS>
+	<Version>0100</Version>
+	<TestFlag>1</TestFlag>
+	<BIPType>
+		<BIPCode>BIP1A152</BIPCode>
+		<ActivityCode>T1000156</ActivityCode>
+		<ActionCode>1</ActionCode>
+	</BIPType>
+	<RoutingInfo>
+		<OrigDomain>UPSS</OrigDomain>
+		<RouteType>01</RouteType>
+		<Routing>
+			<HomeDomain>BOSS</HomeDomain>
+			<RouteValue>14757399124</RouteValue>
+		</Routing>
+	</RoutingInfo>
+	<TransInfo>
+		<SessionID>12345678901234567890</SessionID>
+		<TransIDO>1234562008</TransIDO>
+		<TransIDOTime>20130407105410</TransIDOTime>
+		<TransIDH>12312312312312</TransIDH>
+		<TransIDHTime>20130325200235</TransIDHTime>
+	</TransInfo>
+	<SNReserve>
+		<TransIDC>9970771320130407141345119000001</TransIDC>
+		<ConvID>fe33abc2-b5b3-4691-b7cb-f2386e476793</ConvID>
+		<CutOffDay>20130407</CutOffDay>
+		<OSNTime>20130407141345</OSNTime>
+		<OSNDUNS>9970</OSNDUNS>
+		<HSNDUNS>5710</HSNDUNS>
+		<MsgSender>9972</MsgSender>
+		<MsgReceiver>5711</MsgReceiver>
+		<Priority>3</Priority>
+		<ServiceLevel>6</ServiceLevel>
+	</SNReserve>
+	<Response>
+		<RspType>0</RspType>
+		<RspCode>0000</RspCode>
+		<RspDesc>OK</RspDesc>
+	</Response>
+</InterBOSS>

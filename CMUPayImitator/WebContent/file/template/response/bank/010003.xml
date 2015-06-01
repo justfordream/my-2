@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GPay>
+	<Header>
+		<ActivityCode>010003</ActivityCode>
+		<ReqSys>0009</ReqSys>
+		<ReqChannel>50</ReqChannel>
+		<ReqDate>20130409</ReqDate>
+		<ReqTransID>100000817909113</ReqTransID>
+		<ReqDateTime>20130409123022001</ReqDateTime>
+		<ActionCode>1</ActionCode>
+		<RcvSys>0001</RcvSys>
+		<RcvDate>20130410</RcvDate>
+		<RcvTransID>1242201304101655420001</RcvTransID>
+		<RcvDateTime>20130410165542</RcvDateTime>
+		<RspCode>999999</RspCode>
+		<RspDesc>未知错误</RspDesc>
+	</Header>
+	<Body>
+		<BankID></BankID>
+	</Body>
+	<Sign>
+		<SignFlag>0</SignFlag>
+		<CerID>12314252657689069879645</CerID>
+	</Sign>
+</GPay>

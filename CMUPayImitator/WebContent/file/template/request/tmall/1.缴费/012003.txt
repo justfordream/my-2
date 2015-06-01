@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GPay>
+	<Header>
+		<ActivityCode>012003</ActivityCode>
+		<ReqSys>0051</ReqSys>
+		<ReqChannel>81</ReqChannel>
+		<ReqDate>20131115</ReqDate>
+		<ReqTransID>010012201311151651518135841478</ReqTransID>
+		<ReqDateTime>20131115165151814</ReqDateTime>
+		<ActionCode>0</ActionCode>
+		<RcvSys>0001</RcvSys>
+		<RcvDate></RcvDate>
+		<RcvTransID></RcvTransID>
+		<RcvDateTime></RcvDateTime>
+		<RspCode></RspCode>
+		<RspDesc></RspDesc>
+	</Header>
+	<Body>
+		<OrderID>00000000000000000000000000000001</OrderID>
+		<PayTransID></PayTransID>
+		<IDType>01</IDType>
+		<IDValue>13430544515</IDValue>
+		<HomeProv>200</HomeProv>
+		<Payment>3000</Payment>
+		<ChargeMoney>3000</ChargeMoney>
+		<ProdCnt>1</ProdCnt>
+		<ProdID>0088</ProdID>
+		<Commision>200</Commision>
+		<RebateFee>200</RebateFee>
+		<ProdDiscount>200</ProdDiscount>
+		<CreditCardFee>200</CreditCardFee>
+		<ServiceFee>200</ServiceFee>
+		<PayedType>01</PayedType>
+		<ActivityNO>2001222</ActivityNO>
+		<ProdShelfNO></ProdShelfNO>
+		<Reserve1></Reserve1>
+		<Reserve2></Reserve2>
+		<Reserve3></Reserve3>
+		<Reserve4></Reserve4>
+	</Body>
+	<Sign>
+		<SignFlag></SignFlag>
+		<CerID></CerID>
+		<SignValue></SignValue>
+	</Sign>
+</GPay>

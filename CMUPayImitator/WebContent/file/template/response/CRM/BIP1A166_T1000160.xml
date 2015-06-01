@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InterBOSS>
+	<Version>0100</Version>
+	<TestFlag>1</TestFlag>
+	<BIPType>
+		<BIPCode>BIP1A166</BIPCode>
+		<ActivityCode>T1000160</ActivityCode>
+		<ActionCode>1</ActionCode>
+	</BIPType>
+	<RoutingInfo>
+		<OrigDomain>BOSS</OrigDomain>
+		<RouteType>00</RouteType>
+		<Routing>
+			<HomeDomain>UPSS</HomeDomain>
+			<RouteValue>997</RouteValue>
+		</Routing>
+	</RoutingInfo>
+	<TransInfo>
+		<SessionID>ss1111</SessionID>
+		<TransIDO>3333322222222</TransIDO>
+		<TransIDOTime>20130410100235</TransIDOTime>
+		<TransIDH>12312312312312</TransIDH>
+		<TransIDHTime>20130410171135</TransIDHTime>
+	</TransInfo>
+	<SNReserve>
+		<TransIDC>111111</TransIDC>
+		<ConvID>11111</ConvID>
+		<CutOffDay>20120410</CutOffDay>
+		<OSNTime>20130410103035</OSNTime>
+		<OSNDUNS>2100</OSNDUNS>
+		<HSNDUNS>0099</HSNDUNS>
+		<MsgSender>2101</MsgSender>
+		<MsgReceiver>0001</MsgReceiver>
+		<Priority></Priority>
+		<ServiceLevel></ServiceLevel>
+		<SvcContType></SvcContType>
+	</SNReserve>
+	<Response>
+		<RspType>1</RspType>
+		<RspCode>0000</RspCode>
+		<RspDesc>success</RspDesc>
+	</Response>
+	<SvcCont>
+<![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+		<PayStateRsp>
+			<OriActionDate>20130410</OriActionDate>
+			<OriTransactionID>100001</OriTransactionID>
+			<RspCode>0000</RspCode>
+			<RspInfo>succses</RspInfo>
+		</PayStateRsp>]]>
+	</SvcCont>
+</InterBOSS>

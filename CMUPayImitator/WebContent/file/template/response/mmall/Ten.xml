@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="gb2312"?>
+<root>
+		<sign_type>MD5</sign_type>
+	<service_version>1.0</service_version>
+	<input_charset>GBK</input_charset>
+	<sign></sign>
+	<sign_key_index>1</sign_key_index>
+	<retcode>0</retcode>
+	<retmsg></retmsg>
+	<trade_state>0</trade_state>
+	<trade_mode>1</trade_mode>
+	<partner></partner>
+	<bank_type>0004</bank_type>
+	<bank_billno></bank_billno>
+	<total_fee>1000</total_fee>
+	<fee_type>1</fee_type>
+	<transaction_id></transaction_id>
+	<out_trade_no></out_trade_no>
+	<attach></attach>
+	<time_end></time_end>
+	<transport_fee></transport_fee>
+	<product_fee></product_fee>
+	<discount></discount>
+	<buyer_alias></buyer_alias>
+</root>

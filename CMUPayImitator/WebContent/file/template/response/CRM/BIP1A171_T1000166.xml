@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InterBOSS>
+	<Version>0100</Version>
+	<TestFlag>1</TestFlag>
+	<BIPType>
+		<BIPCode>BIP1A171</BIPCode>
+		<ActivityCode>T1000166</ActivityCode>
+		<ActionCode>1</ActionCode>
+	</BIPType>
+	<RoutingInfo>
+		<OrigDomain>UPSS</OrigDomain>
+		<RouteType>01</RouteType>
+		<Routing>
+			<HomeDomain>BOSS</HomeDomain>
+			<RouteValue>13903242144</RouteValue>
+		</Routing>
+	</RoutingInfo>
+	<TransInfo>
+		<SessionID>1234567890</SessionID>
+		<TransIDO>10234567890130</TransIDO>
+		<TransIDOTime>20130315120512</TransIDOTime>
+		<TransIDH>20130410111006218890</TransIDH>
+		<TransIDHTime>20130410111006</TransIDHTime>
+	</TransInfo>
+	<SNReserve>
+		<TransIDC>9970771320130410111812444000279</TransIDC>
+		<ConvID>46adb64a-9b34-40c8-a27b-e380aa759fc7</ConvID>
+		<CutOffDay>20130410</CutOffDay>
+		<OSNTime>20130410111812</OSNTime>
+		<OSNDUNS>9970</OSNDUNS>
+		<HSNDUNS>3110</HSNDUNS>
+		<MsgSender>9972</MsgSender>
+		<MsgReceiver>3111</MsgReceiver>
+		<Priority>3</Priority>
+		<ServiceLevel>6</ServiceLevel>
+	</SNReserve>
+	<Response>
+		<RspType>0</RspType>
+		<RspCode>0000</RspCode>
+		<RspDesc>Biz Proc Successed!</RspDesc>
+	</Response>
+	<SvcCont>
+		<![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+		<IdentityCheckRsp>  
+		<RspCode>0000</RspCode>  
+		<RspInfo>success</RspInfo>
+		</IdentityCheckRsp>]]>
+	</SvcCont>
+</InterBOSS>

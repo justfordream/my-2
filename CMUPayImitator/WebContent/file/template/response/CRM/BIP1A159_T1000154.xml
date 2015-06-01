@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InterBOSS>
+	<Version>0100</Version>
+	<TestFlag>1</TestFlag>
+	<BIPType>
+		<BIPCode>BIP1A159</BIPCode>
+		<ActivityCode>T1000154</ActivityCode>
+		<ActionCode>1</ActionCode>
+	</BIPType>
+	<RoutingInfo>
+		<OrigDomain>UPSS</OrigDomain>
+		<RouteType>01</RouteType>
+		<Routing>
+			<HomeDomain>BOSS</HomeDomain>
+			<RouteValue>13705051111</RouteValue>
+		</Routing>
+	</RoutingInfo>
+	<TransInfo>
+		<SessionID>101120130531153006000442351346</SessionID>
+		<TransIDO>101220130531153006000542818610</TransIDO>
+		<TransIDOTime>20130531153006</TransIDOTime>
+		<TransIDH>100008182283</TransIDH>
+		<TransIDHTime>20130531152930</TransIDHTime>
+	</TransInfo>
+	<SNReserve>
+		<TransIDC>9970771320130531152741063001152</TransIDC>
+		<ConvID>2f96999c-c456-4f90-ac7e-4f428295b3d3</ConvID>
+		<CutOffDay>20130531</CutOffDay>
+		<OSNTime>20130531152741</OSNTime>
+		<OSNDUNS>9970</OSNDUNS>
+		<HSNDUNS>5910</HSNDUNS>
+		<MsgSender>0233</MsgSender>
+		<MsgReceiver>5911</MsgReceiver>
+		<Priority>3</Priority>
+		<ServiceLevel>5</ServiceLevel>
+	</SNReserve>
+	<Response>
+		<RspType>0</RspType>
+		<RspCode>0000</RspCode>
+		<RspDesc>success</RspDesc>
+	</Response>
+	<SvcCont>
+		<![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+	<ReversalRsp>
+			<RspCode>0000</RspCode>
+			<RspInfo>sucess</RspInfo>
+			<TransactionID>101220130531153006000342272362</TransactionID>
+			<ActionDate>20130531</ActionDate>
+			<SubID>0100040120130528000512</SubID>
+	</ReversalRsp>
+	]]>
+	</SvcCont>
+</InterBOSS>

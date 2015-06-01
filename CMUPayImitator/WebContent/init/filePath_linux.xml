@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pathlist>
+	<!--  存放备份文件   -->
+	<backupfilepath>file/backup</backupfilepath>
+	
+	<!--  存放接收到的文件   -->
+	<receivefilepath>file/receive</receivefilepath>
+	
+	<!--  存放已发送报文的记录文件   -->
+	<sendfilepath>file/send</sendfilepath>
+	
+	<!--  模拟银行，存放请求报文模板文件   -->
+	<bankreqtempreqfilepath>file/template/request/bank</bankreqtempreqfilepath>
+	
+	<!--  模拟省CRM，存放请求报文模板文件   -->
+	<CRMreqtempreqfilepath>file/template/request/CRM</CRMreqtempreqfilepath>
+	
+	<!--  模拟省CRM，存放自动应答报文模板文件      -->
+	<CRMtemprepfilepath>file/template/response/CRM</CRMtemprepfilepath>
+	
+	<!--  模拟银行，存放自动应答报文模板文件      -->
+	<banktemprepfilepath>file/template/response/bank</banktemprepfilepath>
+	
+	<!--  模拟省CRM，存放请求报文模板文件   -->
+	<mmallreqtempreqfilepath>file/template/request/mmall</mmallreqtempreqfilepath>
+	<!--  模拟省CRM，存放自动应答报文模板文件      -->
+	<mmalltemprepfilepath>file/template/response/mmall</mmalltemprepfilepath>
+	
+	<!--  模拟省CRM，存放请求报文模板文件   -->
+	<tmallreqtempreqfilepath>file/template/request/tmall</tmallreqtempreqfilepath>
+	<!--  模拟省CRM，存放自动应答报文模板文件      -->
+	<tmalltemprepfilepath>file/template/response/tmall</tmalltemprepfilepath>
+</pathlist>

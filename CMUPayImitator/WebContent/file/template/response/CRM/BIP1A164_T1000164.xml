@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InterBOSS>
+	<Version>0100</Version>
+	<TestFlag>1</TestFlag>
+	<BIPType>
+		<BIPCode>BIP1A164</BIPCode>
+		<ActivityCode>T1000164</ActivityCode>
+		<ActionCode>1</ActionCode>
+	</BIPType>
+	<RoutingInfo>
+		<OrigDomain>UPSS</OrigDomain>
+		<RouteType>01</RouteType>
+		<Routing>
+			<HomeDomain>BOSS</HomeDomain>
+			<RouteValue>13402000190</RouteValue>
+		</Routing>
+	</RoutingInfo>
+	<TransInfo>
+		<SessionID>1142201304111131000003</SessionID>
+		<TransIDO>1234567890319</TransIDO>
+		<TransIDOTime>20130403120512</TransIDOTime>
+		<TransIDH>12312312312312</TransIDH>
+		<TransIDHTime>20130325200235</TransIDHTime>
+	</TransInfo>
+	<SNReserve>
+		<TransIDC>9970771320130408154526660000101</TransIDC>
+		<ConvID>93ed23b9-538f-4e5d-927c-4d50b36ee36e</ConvID>
+		<CutOffDay>20130408</CutOffDay>
+		<OSNTime>20130408154526</OSNTime>
+		<OSNDUNS>9970</OSNDUNS>
+		<HSNDUNS>5910</HSNDUNS>
+		<MsgSender>9972</MsgSender>
+		<MsgReceiver>5911</MsgReceiver>
+		<Priority>3</Priority>
+		<ServiceLevel>5</ServiceLevel>
+	</SNReserve>
+	<Response>
+		<RspType>0</RspType>
+		<RspCode>0000</RspCode>
+		<RspDesc>OSN ACCEPT NOTICE OK</RspDesc>
+	</Response>
+</InterBOSS>

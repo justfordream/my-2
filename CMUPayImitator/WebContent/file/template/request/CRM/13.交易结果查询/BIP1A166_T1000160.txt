@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InterBOSS>
+<Version>0100</Version>
+<TestFlag>1</TestFlag>
+<BIPType>
+<BIPCode>BIP1A166</BIPCode>
+<ActivityCode>T1000160</ActivityCode>
+<ActionCode>0</ActionCode>
+</BIPType>
+<RoutingInfo>
+<OrigDomain>BOSS</OrigDomain>
+<RouteType>00</RouteType>
+<Routing>
+<HomeDomain>UPSS</HomeDomain>
+<RouteValue>997</RouteValue>
+</Routing>
+</RoutingInfo>
+<TransInfo>
+<SessionID>1231234567912</SessionID>
+<TransIDO>23000000043457345832</TransIDO>
+<TransIDOTime>20130515120512</TransIDOTime>
+</TransInfo>
+<SNReserve>
+<TransIDC>12312323132</TransIDC>
+<ConvID>1231231</ConvID>
+<CutOffDay>20130515</CutOffDay>
+<OSNTime>20130305150512</OSNTime>
+<OSNDUNS>2000</OSNDUNS>
+<HSNDUNS>9970</HSNDUNS>
+<MsgSender>1001</MsgSender>
+<MsgReceiver>0233</MsgReceiver>
+<Priority>11</Priority>
+<SvcContType>01</SvcContType>
+</SNReserve>
+</InterBOSS>
+<?xml version="1.0"  encoding="UTF-8"?>
+<InterBOSS><SvcCont><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<PayStateReq>
+<OriReqSys>2001</OriReqSys>
+<OriActionDate>20130525</OriActionDate>
+<OriTransactionID>210201306261422990009909900085</OriTransactionID>
+<OriActivityCode>T1000157</OriActivityCode>
+</PayStateReq>]]></SvcCont>
+</InterBOSS>

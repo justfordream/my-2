@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="gb2312"?>
+<project basedir="." default="init" name="upaycore">
+
+	<property name="debug" value="off" />
+	<property name="optimize" value="on" />
+	<property name="deprecation" value="on" />
+
+	<property name="CMUPayImitator.dir" value="./CMUPayImitator" />
+	<property name="CMUPayImitator.src.dir" value="./CMUPayImitator/src" />
+	<property name="CMUPayImitator.web-inf.dir" value="${CMUPayImitator.dir}/WEB-INF" />
+	<property name="CMUPayImitator.web-inf.classes.dir" value="${CMUPayImitator.dir}/WEB-INF/classes" />
+	<property name="CMUPayImitator.web-inf.lib.dir" value="${CMUPayImitator.dir}/WEB-INF/lib" />
+	<property name="src.dir" value="./src" />
+	<property name="src.resources" value="./resources" />
+	<property name="src.web-inf" value="./src/main/webapp/WEB-INF" />
+	<property name="src.WebContent" value="./WebContent" />
+	<property name="src.lib" value="./WebContent/WEB-INF/lib"/>
+	<property name="src.classes" value="./WebContent/WEB-INF/classes"/>
+	<property name="src.web-info" value="./WebContent/WEB-INF"/>
+	<!--其他jar包路径 -->
+	<path id="lib">
+		<fileset dir="${src.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<target name="init">
+		<delete dir="${CMUPayImitator.dir}" />
+		<mkdir dir="${CMUPayImitator.dir}" />
+		<mkdir dir="${CMUPayImitator.src.dir}" />
+		<mkdir dir="${CMUPayImitator.web-inf.dir}" />
+		<mkdir dir="${CMUPayImitator.web-inf.classes.dir}" />
+		<mkdir dir="${CMUPayImitator.web-inf.lib.dir}" />
+		<copy todir="${CMUPayImitator.src.dir}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</copy>
+
+		<javac encoding="UTF-8" fork="true" memoryInitialSize="256m" memoryMaximumSize="256m" includeantruntime="false" debug="on" optimize="${optimize}" destdir="${CMUPayImitator.web-inf.classes.dir}" srcdir="${CMUPayImitator.src.dir}">
+			<classpath refid="lib" />
+		</javac>
+
+		<copy todir="${CMUPayImitator.web-inf.lib.dir}">
+			<fileset dir="${src.lib}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${CMUPayImitator.web-inf.dir}">
+		    <fileset dir="${src.web-info}">
+				<include name="*.xml" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${CMUPayImitator.dir}">
+			<fileset dir="${src.WebContent}">
+	      		<include name="file/**"/>
+	      		<include name="init/**"/>
+	      		<include name="js/**"/>
+	      		<include name="META-INF/**"/>
+	      		<include name="msgClient/**"/>
+	      		<include name="msgServer/**"/>
+				<include name="*.*"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${CMUPayImitator.web-inf.classes.dir}">
+			<fileset dir="${src.resources}">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${src.classes}">
+				<include name="server.properties" />
+			</fileset>
+			<fileset dir="${src.dir}">
+				<include name="*.properties,**/*.xml,**/*.properties" />
+				<include name="log4j.properties" />
+			</fileset>
+		</copy>
+		<delete dir="${CMUPayImitator.src.dir}" />
+
+	</target>
+</project>
+

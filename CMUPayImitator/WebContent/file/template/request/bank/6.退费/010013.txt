@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GPay>
+	<Header>
+		<ActivityCode>010013</ActivityCode>
+		<ReqSys>0009</ReqSys>
+		<ReqChannel>52</ReqChannel>
+		<ReqDate>20130607</ReqDate>
+		<ReqTransID>53000000043457345881</ReqTransID>
+		<ReqDateTime>20130607113030000</ReqDateTime>
+		<ActionCode>0</ActionCode>
+		<RcvSys>0001</RcvSys>
+		<RcvDate></RcvDate>
+		<RcvTransID></RcvTransID>
+		<RcvDateTime></RcvDateTime>
+		<RspCode></RspCode>
+		<RspDesc></RspDesc>
+	</Header>
+	<Body>
+		<OriReqSys>0009</OriReqSys>
+		<OriReqDate>20130508</OriReqDate>
+		<OriReqTransID></OriReqTransID>
+		<RevokeReason> 撤单 </RevokeReason>
+	</Body>
+	<Sign>
+		<SignFlag>0</SignFlag>
+		<CerID></CerID>
+		<SignValue></SignValue>
+	</Sign>
+</GPay>

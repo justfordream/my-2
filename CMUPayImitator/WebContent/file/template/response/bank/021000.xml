@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GPay>
+	<Header>
+		<ActivityCode>021000</ActivityCode>
+		<ReqSys>0001</ReqSys>
+		<ReqChannel>01</ReqChannel>
+		<ReqDate>20130313</ReqDate>
+		<ReqTransID>00012013032010889899</ReqTransID>
+		<ReqDateTime>20130320094525324</ReqDateTime>
+		<ActionCode>1</ActionCode>
+		<RcvSys>0005</RcvSys>
+		<RcvDate>20130328</RcvDate>
+		<RcvTransID>000520130328094517500038078</RcvTransID>
+		<RcvDateTime>20130328094517726</RcvDateTime>
+		<RspCode>020A00</RspCode>
+		<RspDesc>交易状态查询成功</RspDesc>
+	</Header>
+	<Body>
+		<OriRcvDate>20130327</OriRcvDate>
+		<OriRcvTransID>000520130327143914186038056</OriRcvTransID>
+		<OriRspCode>020A00</OriRspCode>
+		<OriRspDesc>支付成功</OriRspDesc>
+	</Body>
+	<Sign>
+		<SignFlag>0</SignFlag>
+		<CerID></CerID>
+		<SignValue></SignValue>
+	</Sign>
+</GPay>

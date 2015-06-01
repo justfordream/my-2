@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GPay>
+	<Header>
+		<ActivityCode>010021</ActivityCode>
+		<ReqSys>0009</ReqSys>
+		<ReqChannel>52</ReqChannel>
+		<ReqDate>20130624</ReqDate>
+		<ReqTransID>1000000043129817909257</ReqTransID>
+		<ReqDateTime>20130624123022001</ReqDateTime>
+		<ActionCode>0</ActionCode>
+		<RcvSys>0001</RcvSys>
+		<RcvDate></RcvDate>
+		<RcvTransID></RcvTransID>
+		<RcvDateTime></RcvDateTime>
+		<RspCode></RspCode>
+		<RspDesc></RspDesc>
+	</Header>
+	<Body>
+		<BankProv>200</BankProv>
+		<OriReqSys>0009</OriReqSys>
+		<OriReqDate>20130508</OriReqDate>
+		<OriReqTransID>10000043129817909259</OriReqTransID>
+	</Body>
+	<Sign>
+		<SignFlag></SignFlag>
+		<CerID></CerID>
+		<SignValue></SignValue>
+	</Sign>
+</GPay>
