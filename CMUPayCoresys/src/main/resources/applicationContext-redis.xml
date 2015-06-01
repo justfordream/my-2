@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:core="http://activemq.apache.org/schema/core" xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://activemq.apache.org/schema/core http://activemq.org/config/1.0/1.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+	<!-- 对象池配置： -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxActive" value="${redis.pool.maxActive}" />
+		<property name="maxIdle" value="${redis.pool.maxIdle}" />
+		<property name="minIdle" value="${redis.pool.minIdle}" />
+		<property name="maxWait" value="${redis.pool.maxWait}" />
+		<property name="testOnBorrow" value="${redis.pool.testOnBorrow}" />
+	</bean>
+	<!-- 工厂实现： -->
+	<bean id="jedisConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		destroy-method="destroy">
+		<property name="hostName" value="${redis.ip}" />
+		<property name="port" value="${redis.port}" />
+		<property name="poolConfig" ref="jedisPoolConfig" />
+		<property name="database" value="${redis.default.db}" />
+	</bean>
+
+	<!--模板类： -->
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+		p:connection-factory-ref="jedisConnectionFactory">
+		<property name="keySerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
+		</property>
+		<property name="hashKeySerializer">
+			<bean
+				class="com.huateng.cmupay.tools.IntegerRedisSerializer"></bean>
+		</property>
+		<property name="hashValueSerializer">
+			<!-- 现在帐户类型存json，是string，如果hvalue中有数值型，用stringserializer会报错 
+				而是用spring自带的JacksonJsonRedisSerializer不灵活，还是自己用jackson api做序列化与反序列化
+			-->
+			<!-- <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" 
+				/> -->
+			<bean
+				class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	 <bean id="redisTemplateTool" class="com.huateng.cmupay.tools.RedisTemplateTool">
+		<property name="template" ref="redisTemplate"></property>
+		<property name="writeManager" ref="threadPoolManager" />
+		<property name="jsonMapper" ref="jsonMapper" />
+	</bean> 
+	
+	<!-- AOP transaction definition -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="do*" propagation="REQUIRED" rollback-for="java.lang.Exception"
+                isolation="DEFAULT" />
+            <tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" />
+        </tx:attributes>
+    </tx:advice>
+    <!-- ============================================================= -->
+    <!-- aspect bean def -->
+    <aop:config>
+        <aop:pointcut id="doPointCut" expression="execution(* *..*ServiceImpl.do*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="doPointCut" />
+        <aop:aspect id="redisAop" ref="redis2DaoAop">
+            <aop:pointcut id="getAccountPointcut"
+                expression="execution(* com.huateng.cmupay.business.dao.AccountDaoImpl.getAccount(String))" />
+            <aop:pointcut id="insertAccountPointcut"
+                expression="execution(* com.huateng.cmupay.business.dao.AccountDaoImpl.insertAccount(..))" />
+            <aop:pointcut id="updateAccountPointcut"
+                expression="execution(* com.huateng.cmupay.business.dao.AccountDaoImpl.updateAccount(..))" />
+            <aop:pointcut id="getVipPassportByVipPassportCut"
+                expression="execution(* com.huateng.cmupay.business.dao.AccountDaoImpl.getVipPassportByVipPassport(..))" />
+            <aop:pointcut id="vipPassportChangePointCut"
+                expression="execution(* com.huateng.cmupay.business.dao.AccountDaoImpl.*VipPassport4Aop(..))" />
+            <aop:pointcut id="batchUpdateAcctPointCut"
+                expression="execution(* com.huateng.cmupay.business.dao.AccountDaoImpl.batchUpdateAccount(..))" />
+
+            <aop:around pointcut-ref="getAccountPointcut" method="getAccountDoAround" />
+            <aop:around pointcut-ref="getVipPassportByVipPassportCut"
+                method="getVipPassportByVipPassportDoAround" />
+            <aop:after pointcut-ref="insertAccountPointcut" method="insertAccountDoAfter" />
+
+            <aop:after pointcut-ref="updateAccountPointcut" method="updateAccountDoAfter" />
+            <aop:after pointcut-ref="vipPassportChangePointCut" method="insertOrUpdateVipPassportDoAfter" />
+            <aop:after pointcut-ref="batchUpdateAcctPointCut" method="batchUpdateAcctDoAfter" />
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="redis2DaoAop" class="com.huateng.cmupay.business.dao.Redis2DaoAop">
+        <property name="writeManager" ref="threadPoolManager" />
+        <property name="jsonMapper" ref="jsonMapper" />
+        <property name="redisTemplateTool" ref="redisTemplateTool" />
+        <property name="sysDao" ref="sysDao"/>
+    </bean>
+	
+</beans>

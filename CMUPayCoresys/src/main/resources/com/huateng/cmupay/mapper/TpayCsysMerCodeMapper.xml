@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huateng.cmupay.controller.mapper.TpayCsysMerCodeMapper">
+   <cache flushInterval="3600000" size="1536" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.TpayCsysMerCodeInfo">
+    <result column="mer_id" jdbcType="VARCHAR" property="merId" />
+    <result column="thr_org_code" jdbcType="VARCHAR" property="thrOrgCode" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgCode" />
+    <result column="mer_type" jdbcType="VARCHAR" property="merType" />
+    <result column="mer_name" jdbcType="VARCHAR" property="merName" />
+    <result column="mer_short_name" jdbcType="VARCHAR" property="merShortName" />
+    <result column="mer_note" jdbcType="VARCHAR" property="merNote" />
+    <result column="mer_level" jdbcType="VARCHAR" property="merLevel" />
+    <result column="father_mer_id" jdbcType="VARCHAR" property="fatherMerId" />
+    <result column="reserved1" jdbcType="VARCHAR" property="reserved1" />
+    <result column="reserved2" jdbcType="VARCHAR" property="reserved2" />
+    <result column="reserved3" jdbcType="VARCHAR" property="reserved3" />
+  </resultMap>
+
+    <select id="selectByParams" resultType="list"  resultMap="BaseResultMap" >
+    select
+       *
+        from TPAY_CSYS_MER_CODE
+        where 1=1
+        <if test="params.merId !=null">
+            and mer_id=#{params.merId}
+        </if>
+        <if test="params.thrOrgCode !=null">
+            and thr_org_code=#{params.thrOrgCode}
+        </if>
+         <if test="params.orgCode !=null">
+            and org_code=#{params.orgCode}
+        </if>
+        <if test="params.merType !=null">
+            and mer_type=#{params.merType}
+        </if>
+        <if test="params.fatherMerId !=null">
+            and father_mer_id=#{params.fatherMerId}
+        </if>
+    </select>
+    
+    <select id="selectAllListByParams" resultType="list" resultMap="BaseResultMap" >
+    	select * from TPAY_CSYS_MER_CODE
+    </select>
+
+</mapper>

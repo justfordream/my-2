@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="${jms.broker.url}" />
+		<!-- ActiveMQ缺省支持批量确认消息。由于批量确认会提高性能，因此这是缺省的确认方式 -->
+		<property name="optimizeAcknowledge" value="true" />
+		<!-- If this flag is set then a seperate thread is not used for dispatching 
+			messages for each Session in the Connection. However, a separate thread is 
+			always used if there is more than one session, or the session isn't in auto 
+			acknowledge or dups ok mode -->
+		<property name="alwaysSessionAsync" value="true" />
+		<!-- 
+		<property name="userName" value="${jms.username}" />
+		<property name="password" value="${jms.password}" />
+		 -->
+		<!-- 是否压缩 -->
+		<property name="useCompression" value="false" />
+		<property name="useAsyncSend" value="true" />
+		<property name="copyMessageOnSend" value="false" />
+	</bean>
+
+	<bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
+		<constructor-arg ref="connectionFactory" />
+	</bean>
+
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="pooledConnectionFactory" />
+		<!-- deliveryMode, priority, timeToLive 的开关，要生效，必须配置为true，默认false -->
+		<property name="explicitQosEnabled" value="true" />
+		<!-- 发送模式 DeliveryMode.NON_PERSISTENT=1:非持久 ; DeliveryMode.PERSISTENT=2:持久 -->
+		<property name="deliveryMode" value="1" />
+		<property name="receiveTimeout" value="${jms.revieve.timeout}" />
+        
+		<!-- 消息存活时间 -->
+		<property name="timeToLive" value="${jms.time.tolive}" />
+		<!-- <property name="sessionTransacted" value=""></property> -->
+        <!-- <property name="producerWindowSize"></property>-->		
+	</bean>
+
+
+	
+
+
+        <!-- begin 支付网关配置 -->
+    <bean id="webgate2CoreQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${webgate.core.queue.request}" />
+    </bean>
+
+    <bean id="webgate2CoreCrmQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${webgate.core.queue.response}" />
+    </bean>
+    
+    <bean id="core2WebgateQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${webgate.queue.request}" />
+       
+    </bean>
+     <!-- <bean id="core2WebgateQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${webgate.queue.response}" />
+    </bean> -->
+	<bean id="Crm2CoreQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${crm.core.queue.request}" />
+
+	</bean>
+	<!-- <bean id="Crm2CoreQueue1" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${crm.core.queue.request1}" />
+
+    </bean> -->
+
+	<bean id="Crm2CoreCrmQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${crm.core.queue.response}" />
+	</bean>
+
+
+	<bean id="Bank2CoreQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${bank.core.queue.request}" />
+	</bean>
+
+	<bean id="Bank2CoreCrmQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${bank.core.queue.response}" />
+	</bean>
+	<!-- 商城队列 -->
+	<bean id="MMarketQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${mmarket.queue.request}" />
+    </bean>
+    <bean id="MMarketQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${mmarket.queue.response}" />
+    </bean>
+    <bean id="MMarketPay2CoreQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${mmarket.queue.reqShopToCore}" />
+	</bean>
+	<bean id="MMarketPay2CoreCrmQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${mmarket.queue.resqCoreToShop}" />
+	</bean>
+	<!-- 银行队列 -->
+	<bean id="bankQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${bank.queue.request}" />
+	</bean>
+
+
+	<!-- 返回银行队列 -->
+	<bean id="bankQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${bank.queue.response}" />
+	</bean>
+
+	<!-- crm队列 -->
+	<bean id="crmQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${crm.queue.request}" />
+	</bean>
+	
+	<!--  网关接受队列-->
+	<bean id="core2GateQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${webgate.queue.request}" />
+	</bean>
+
+
+	<!-- 返回crm队列 -->
+	<bean id="crmQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${crm.queue.response}" />
+	</bean>
+
+	<!-- 天猫  begin-->
+	<bean id="Tmall2CoreQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${tmall.core.queue.request}" />
+	</bean>
+	<bean id="Tmall2CoreCrmQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${tmall.core.queue.response}" />
+	</bean>
+	
+	<bean id="TmallQuer2CoreQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${tmall.core.queue.queryRequest}" />
+	</bean>
+	<bean id="TmallQuery2CoreCrmQueueRtn" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${tmall.core.queue.queryResponse}" />
+	</bean>
+	
+	<!-- 天猫  end-->
+
+	<bean id="transactionMapCrm" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+                <!-- add by cmt -->
+                <entry key="11200010" value-ref="crmConsumeAciton" />
+                <entry key="11200020" value-ref="crmConsumeAciton" />
+                <entry key="11200030" value-ref="crmConsumeAciton" />
+                <entry key="11200040" value-ref="crmConsumeAciton" />
+                <!-- add by jiangzeng -->
+                <entry key="11100030" value-ref="crmMainUnbindAction" />
+                <entry key="11100041" value-ref="crmSubUnbindAction" />
+                <entry key="11100042" value-ref="crmReverseAction" />
+                <entry key="11100043" value-ref="crmTransQueryAction" />
+                <entry key="11100031" value-ref="crmAutoUnbindAction" />
+
+                <!-- add by fankui -->
+                <entry key="11100010" value-ref="crmCheckBankAccInfoAction"></entry>
+                <entry key="11100020" value-ref="crmMainMobileBindAction"></entry>
+                <!-- add by ning.z -->
+                <entry key="11100040" value-ref="crmSubConnectAction" />
+                <entry key="11100050" value-ref="crmSubBindCheckAction" />
+                <entry key="11100060" value-ref="crmBindChangeAction" />    
+                <!-- hdm -->
+                <entry key="12400010" value-ref="crmRefundAction" />
+                <!-- add by ning.z -->
+                <!-- <entry key="11100040" value-ref="subConnectAciton2" /> -->
+                <!-- <entry key="11100020" value-ref="bindInfoChangeAction2" /> -->
+            </map>
+		</constructor-arg>
+	</bean>
+    
+    <bean id="transactionMapBank" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <!-- add by hdm -->
+                <entry key="12300020" value-ref="bankReverseAction"></entry>
+                <entry key="12300010" value-ref="bankRevokeAction"></entry>
+
+                <!-- add by ning.z -->
+                <entry key="12100010" value-ref="bankBindPreSignAction" />
+                <entry key="12200010" value-ref="bankQueryMobileInfoAction" />
+                <entry key="12600010" value-ref="bankBindQueryAction" />
+                
+                <!-- add by zeng.j -->
+                <entry key="12100030" value-ref="bankUnbindAction"></entry>
+                <entry key="12200020" value-ref="bankPayAction"></entry>
+                <entry key="12020000" value-ref="bankTransQueryAction"></entry>
+                <!-- add by fan_kui -->
+                <entry key="12100020" value-ref="bankBindResultsAction"></entry>
+                <entry key="14100010" value-ref="bankCompareUserInfoAction"></entry>
+                <entry key="13100020" value-ref="bankPrintInvoinceAction"></entry>
+                <entry key="13100010" value-ref="bankInvoicePrintQueryAction"></entry>
+                <entry key="16100010" value-ref="bankPayNoticeAction"></entry>
+            </map>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="transactionMapGate" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <!-- crm签约 -->
+                <entry key="15100020" value-ref="gateSignAction" />
+                <!-- crm支付 -->
+                <entry key="15010012" value-ref="gatePayAction" />
+                <!-- 签约结果通知 -->
+                <entry key="15100010" value-ref="simpleGateSignNoticeAction" />
+                <!-- 支付结果通知 -->
+                <entry key="15010013" value-ref="simpleGatePayNoticeAction" />
+                <!-- 移动商城缴费 -->
+                <entry key="18100001" value-ref="gateShopPayAction" />
+                <!-- 移动商城缴费通知
+                <entry key="18100002" value-ref="simpleGatePayShopNoticeAction" /> -->
+                <!-- 银联缴费充值请求 -->
+                <entry key="18100011" value-ref="gateTUPayAction"></entry>
+                <!-- 银联缴费充值结果通知 -->
+                <entry key="18100012" value-ref="simpleTUPayNoticeAction"></entry>
+            </map>
+        </constructor-arg>
+    </bean>
+     <bean id="transactionMapMMarket" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="18100006" value-ref="mmarkertResultQueryAction"></entry>
+            </map>
+        </constructor-arg>
+    </bean>
+     <bean id="transactionMapMMarketPay" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+               <entry key="18100005" value-ref="mmarkertPayAction"></entry>
+            </map>
+        </constructor-arg>
+    </bean> 
+    <!-- tmall begin -->
+    <bean id="transactionMapTmall" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="17100010" value-ref="tmallPayAction"></entry>
+            </map>
+        </constructor-arg>
+    </bean>   
+    <bean id="transactionMapTmallQuery" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="17100011" value-ref="tmallTransResultQueryAction"></entry>
+            </map>
+        </constructor-arg>
+    </bean> 
+    <!-- tmall end --> 
+
+	<bean id="crmMessageListener" class="com.huateng.cmupay.listener.CrmMessageListener">
+		<property name="template" ref="jmsTemplate" />
+		<property name="md5key" value="${jms.md5key}" />
+		<property name="transactionMap">
+            <ref local="transactionMapCrm" />
+        </property>
+	</bean>
+	<bean id="crmListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 默认使用SimpleAsyncTaskExecutor 连接不可以重用，所以使用连接池（pooledConnectionFactory） -->
+		<property name="connectionFactory" ref="pooledConnectionFactory" />
+		<property name="destination" ref="Crm2CoreQueue" />
+		<!-- <property name="messageSelector" value="${crm.messageSelector}" /> -->
+		<property name="messageListener" ref="crmMessageListener" />
+		<property name="concurrentConsumers" value="10" />
+		<property name="maxConcurrentConsumers" value="100" />
+
+	</bean>
+
+    <bean id="bankMessageListener" class="com.huateng.cmupay.listener.BankMessageListener">
+		<property name="template" ref="jmsTemplate" />
+		<property name="md5key" value="${jms.md5key}" />
+		 <property name="transactionMap">
+            <ref local="transactionMapBank" />
+        </property>
+	</bean>
+	
+    <bean id="bankListenerContainer"
+        class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <!-- 默认使用SimpleAsyncTaskExecutor 连接不可以重用，所以使用连接池（pooledConnectionFactory） -->
+        <property name="connectionFactory" ref="pooledConnectionFactory" />
+        <property name="destination" ref="Bank2CoreQueue" />
+        <!-- <property name="messageSelector" value="${bank.messageSelector}" /> -->
+        <!-- <property name="messageSelector" value="msgClass=1 AND NodeId='5710' AND protocol='KZLL'"></property> -->
+        <property name="messageListener" ref="bankMessageListener" />
+        <property name="concurrentConsumers" value="10" />
+        <property name="maxConcurrentConsumers" value="100" />
+
+    </bean>
+
+
+	
+	<bean id="webgateMessageListener" class="com.huateng.cmupay.listener.WebGateMessageListener">
+        <property name="template" ref="jmsTemplate" />
+        <property name="md5key" value="${jms.md5key}" />
+         <property name="transactionMap">
+            <ref local="transactionMapGate" />
+        </property>
+    </bean>
+	
+	<bean id="webgateListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 默认使用SimpleAsyncTaskExecutor 连接不可以重用，所以使用连接池（pooledConnectionFactory） -->
+		<property name="connectionFactory" ref="pooledConnectionFactory" />
+		<property name="destination" ref="webgate2CoreQueue" />
+		<property name="messageListener" ref="webgateMessageListener" />
+		<property name="concurrentConsumers" value="10" />
+		<property name="maxConcurrentConsumers" value="100" />
+	</bean>
+
+	<!-- Tmall 天猫全网充值（异步） begin-->
+	<bean id="tmallMessageListener" class="com.huateng.cmupay.listener.TmallMessageListener">
+        <property name="template" ref="jmsTemplate" />
+        <property name="md5key" value="${jms.md5key}" />
+         <property name="transactionMap">
+            <ref local="transactionMapTmall" />
+        </property>
+    </bean>
+	<bean id="tmallListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 默认使用SimpleAsyncTaskExecutor 连接不可以重用，所以使用连接池（pooledConnectionFactory） -->
+		<property name="connectionFactory" ref="pooledConnectionFactory" />
+		<property name="destination" ref="Tmall2CoreQueue" />
+		<property name="messageListener" ref="tmallMessageListener" />
+		<property name="concurrentConsumers" value="10" />
+		<property name="maxConcurrentConsumers" value="100" />
+	</bean>
+	<!-- Tmall 天猫全网充值（异步） end-->
+	
+	<!-- Tmall 天猫全网查询（同步） begin-->
+	<bean id="tmallQueryMessageListener" class="com.huateng.cmupay.listener.TmallQueryMessageListener">
+        <property name="template" ref="jmsTemplate" />
+        <property name="md5key" value="${jms.md5key}" />
+         <property name="transactionMap">
+            <ref local="transactionMapTmallQuery" />
+        </property>
+    </bean>
+	<bean id="tmallQueryListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 默认使用SimpleAsyncTaskExecutor 连接不可以重用，所以使用连接池（pooledConnectionFactory） -->
+		<property name="connectionFactory" ref="pooledConnectionFactory" />
+		<property name="destination" ref="TmallQuer2CoreQueue" />
+		<property name="messageListener" ref="tmallQueryMessageListener" />
+		<property name="concurrentConsumers" value="10" />
+		<property name="maxConcurrentConsumers" value="100" />
+	</bean>
+	<!-- Tmall 天猫全网查询（同步） end-->
+	
+	
+	<!-- 商城 -->
+    <bean id="mmarketMessageListener" class="com.huateng.cmupay.listener.MobileMarketQueryMessageListener">
+        <property name="template" ref="jmsTemplate" />
+        <property name="md5key" value="${jms.md5key}" />
+         <property name="transactionMap">
+            <ref local="transactionMapMMarket" />
+        </property>
+    </bean>
+    <bean id="mmarketListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 默认使用SimpleAsyncTaskExecutor 连接不可以重用，所以使用连接池（pooledConnectionFactory） -->
+		<property name="connectionFactory" ref="pooledConnectionFactory" />
+		<property name="destination" ref="MMarketQueue" />
+		<property name="messageListener" ref="mmarketMessageListener" />
+		<property name="concurrentConsumers" value="10" />
+		<property name="maxConcurrentConsumers" value="100" />
+	</bean>
+	
+	<!-- mmarket 移动商城（同步） begin-->
+	<bean id="mmarketPayMessageListener" class="com.huateng.cmupay.listener.MobileMarketMessageListener">
+        <property name="template" ref="jmsTemplate" />
+        <property name="md5key" value="${jms.md5key}" />
+         <property name="transactionMap">
+            <ref local="transactionMapMMarketPay" />
+        </property>
+    </bean>
+	<bean id="mmarketPayListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 默认使用SimpleAsyncTaskExecutor 连接不可以重用，所以使用连接池（pooledConnectionFactory） -->
+		<property name="connectionFactory" ref="pooledConnectionFactory" />
+		<property name="destination" ref="MMarketPay2CoreQueue" />
+		<property name="messageListener" ref="mmarketPayMessageListener" />
+		<property name="concurrentConsumers" value="10" />
+		<property name="maxConcurrentConsumers" value="100" />
+	</bean>
+	<!-- mmarket 移动商城      end-->
+	
+<!--     <bean id="sendGateJmsMessage" class="com.huateng.cmupay.jms.message.SendGateJmsMessageImpl"
+        scope="prototype">
+        <property name="destination" ref="core2GateQueue" />
+        <property name="respDest" ref="crmQueueRtn" />
+        <property name="template" ref="jmsTemplate" />
+        <property name="upayCsysRouteInfoService" ref="upayCsysRouteInfoService" />
+    </bean>
+	<bean id="sendBankJmsMessage" class="com.huateng.cmupay.jms.message.SendBankJmsMessageImpl"
+		scope="prototype">
+		<property name="destination" ref="bankQueue" />
+		<property name="respDest" ref="bankQueueRtn" />
+		<property name="template" ref="jmsTemplate" />
+		<property name="upayCsysRouteInfoService" ref="upayCsysRouteInfoService" />
+	</bean>
+
+	<bean id="sendCrmJmsMessage" class="com.huateng.cmupay.jms.message.SendCrmJmsMessageImpl"
+		scope="prototype">
+		<property name="destination" ref="crmQueue" />
+		<property name="respDest" ref="crmQueueRtn" />
+		<property name="template" ref="jmsTemplate" />
+		<property name="upayCsysRouteInfoService" ref="upayCsysRouteInfoService" />
+	</bean>
+	
+	<bean id="sendCrmJmsNoticeMessage" class="com.huateng.cmupay.jms.message.SendCrmJmsNoticeMessageImpl"
+        scope="prototype">
+        <property name="destination" ref="crmQueue" />
+        <property name="respDest" ref="crmQueueRtn" />
+        <property name="template" ref="jmsTemplate" />
+        <property name="upayCsysRouteInfoService" ref="upayCsysRouteInfoService" />
+    </bean> -->
+
+<!-- 	<bean id="sendBankJmsMessage" class="com.huateng.cmupay.jms.business.SendBankJmsMessageImpl"
+		scope="prototype">
+		<property name="destinationMap">
+			<map>
+				<entry key="bankQueue" value-ref="bankQueue" />
+			</map>
+		</property>
+		<property name="respDestMap">
+			<map>
+				<entry key="bankQueueRtn" value-ref="bankQueueRtn" />
+			</map>
+		</property>
+		<property name="template" ref="jmsTemplate" />
+	</bean>
+	<bean id="sendCrmJmsMessage" class="com.huateng.cmupay.jms.business.SendCrmJmsMessageImpl"
+		scope="prototype">
+		<property name="destinationMap">
+			<map>
+				<entry key="crmQueue" value-ref="crmQueue" />
+			</map>
+		</property>
+		<property name="respDestMap">
+			<map>
+				<entry key="crmQueueRtn" value-ref="crmQueueRtn" />
+			</map>
+		</property>
+		<property name="template" ref="jmsTemplate" />
+	</bean>
+ -->
+
+<!-- <bean id="coreCrmQueue" class="org.apache.activemq.command.ActiveMQQueue"> 
+        <constructor-arg index="0" value="${core.crm.queue.request}" /> </bean> <bean 
+        id="coreCrmQueueRtn" class="org.apache.activemq.command.ActiveMQQueue"> <constructor-arg 
+        index="0" value="${core.crm.queue.response}" /> </bean> <bean id="coreBankQueue" 
+        class="org.apache.activemq.command.ActiveMQQueue"> <constructor-arg index="0" 
+        value="${core.bank.queue.request}" /> </bean> <bean id="coreBankQueueRtn" 
+        class="org.apache.activemq.command.ActiveMQQueue"> <constructor-arg index="0" 
+        value="${core.bank.queue.response}" /> </bean> -->
+
+
+</beans>

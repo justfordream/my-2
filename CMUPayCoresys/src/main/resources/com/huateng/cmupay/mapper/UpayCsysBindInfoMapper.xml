@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysBindInfoMapper">
+	<!-- <cache /> -->
+	<resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysBindInfo">
+		<id column="seq_id" property="seqId" jdbcType="NUMERIC" />
+		<id column="settle_date" property="settleDate" jdbcType="CHAR" />
+		<result column="pre_txn_seq" property="preTxnSeq" jdbcType="VARCHAR" />
+		<result column="pre_txn_date" property="preTxnDate" jdbcType="CHAR" />
+		<result column="pre_txn_time" property="preTxnTime" jdbcType="CHAR" />
+		<result column="sign_txn_seq" property="signTxnSeq" jdbcType="VARCHAR" />
+		<result column="sign_txn_date" property="signTxnDate" jdbcType="CHAR" />
+		<result column="sign_txn_time" property="signTxnTime" jdbcType="CHAR" />
+		<result column="sign_sub_time" property="signSubTime" jdbcType="CHAR" />
+		<result column="sign_org_id" property="signOrgId" jdbcType="VARCHAR" />
+		<result column="sign_cnl_type" property="signCnlType" jdbcType="CHAR" />
+		<result column="cl_txn_seq" property="clTxnSeq" jdbcType="VARCHAR" />
+		<result column="cl_txn_date" property="clTxnDate" jdbcType="CHAR" />
+		<result column="cl_txn_time" property="clTxnTime" jdbcType="CHAR" />
+		<result column="cl_sub_time" property="clSubTime" jdbcType="CHAR" />
+		<result column="cl_org_id" property="clOrgId" jdbcType="VARCHAR" />
+		<result column="cl_cnl_type" property="clCnlType" jdbcType="CHAR" />
+		<result column="sub_id" property="subId" jdbcType="VARCHAR" />
+		<result column="main_flag" property="mainFlag" jdbcType="CHAR" />
+		<result column="pre_org_id" property="preOrgId" jdbcType="VARCHAR" />
+		<result column="pre_cnl_type" property="preCnlType" jdbcType="CHAR" />
+		<result column="pre_org_idh" property="preOrgIdh" jdbcType="VARCHAR" />
+
+
+		<result column="pay_type" property="payType" jdbcType="CHAR" />
+		<result column="main_id_province" property="mainIdProvince"
+			jdbcType="CHAR" />
+		<result column="main_id_type" property="mainIdType" jdbcType="CHAR" />
+		<result column="main_id_value" property="mainIdValue" jdbcType="VARCHAR" />
+		<result column="id_province" property="idProvince" jdbcType="CHAR" />
+		<result column="id_type" property="idType" jdbcType="CHAR" />
+		<result column="user_cat" property="userCat" jdbcType="CHAR" />
+		<result column="id_value" property="idValue" jdbcType="VARCHAR" />
+		<result column="rech_amount" property="rechAmount" jdbcType="NUMERIC" />
+		<result column="rech_threshold" property="rechThreshold"
+			jdbcType="NUMERIC" />
+		<result column="max_rech_amount" property="maxRechAmount"
+			jdbcType="NUMERIC" />
+		<result column="max_rech_threshold" property="maxRechThreshold"
+			jdbcType="NUMERIC" />
+		<result column="bank_id" property="bankId" jdbcType="VARCHAR" />
+		<result column="bank_acct_type" property="bankAcctType"
+			jdbcType="CHAR" />
+		<result column="bank_acc_id" property="bankAccId" jdbcType="VARCHAR" />
+		<result column="user_type" property="userType" jdbcType="CHAR" />
+		<result column="user_id" property="userId" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="CHAR" />
+		<result column="last_upd_oprid" property="lastUpdOprid"
+			jdbcType="VARCHAR" />
+		<result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+		<result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+		<result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+		<result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="sub_num" property="subNum" jdbcType="NUMERIC" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		seq_id, settle_date,pre_txn_seq, pre_txn_date, pre_txn_time, sign_txn_seq, sign_txn_date,
+		sign_txn_time,
+		sign_sub_time, sign_org_id, sign_cnl_type, cl_txn_seq, cl_txn_date, cl_txn_time,
+		cl_sub_time, cl_org_id, cl_cnl_type, sub_id, main_flag,
+		pre_org_id,pre_cnl_type,pre_org_idh,
+		pay_type, main_id_province, main_id_type, main_id_value, id_province, id_type,
+		user_cat,
+		id_value, rech_amount, rech_threshold, max_rech_amount, max_rech_threshold,
+		bank_id,
+		bank_acct_type, bank_acc_id, user_type, user_id, status, last_upd_oprid,
+		last_upd_time, reserved1, reserved2, reserved3,user_name,sub_num
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.math.BigDecimal">
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_BIND_INFO
+		where seq_id = #{seqId,jdbcType=NUMERIC}
+	</select>
+	<select id="selectCountByParams" resultType="java.lang.Integer">
+		select count(*) from UPAY_CSYS_BIND_INFO
+		where 1=1
+		<if test="params.settleDate != null">
+			and settle_date = #{ params.settleDate}
+		</if>
+		<if test="params.preTxnSeq != null">
+			and pre_txn_seq = #{ params.preTxnSeq}
+		</if>
+		<if test="params.prepreTxnDate != null">
+			and pre_txn_date = #{ params.preTxnDate}
+		</if>
+		<if test="params.preTxnTime != null">
+			and pre_txn_time = #{ params.preTxnTime}
+		</if>
+		<if test="params.signTxnSeq != null">
+			and sign_txn_seq = #{ params.signTxnSeq}
+		</if>
+		<if test="params.signTxnDate != null">
+			and sign_txn_date = #{ params.signTxnDate}
+		</if>
+		<if test="params.signTxnTime != null">
+			and sign_txn_time = #{ params.signTxnTime}
+		</if>
+		<if test="params.signSubTime != null">
+			and sign_sub_time = #{ params.signSubTime}
+		</if>
+		<if test="params.signOrgId != null">
+			and sign_org_id = #{ params.signOrgId}
+		</if>
+		<if test="params.signCnlType != null">
+			and sign_cnl_type = #{ params.signOrgId}
+		</if>
+		<if test="params.clTxnSeq != null">
+			and cl_txn_seq = #{ params.clTxnSeq}
+		</if>
+		<if test="params.clTxnDate != null">
+			and cl_txn_date = #{ params.clTxnDate}
+		</if>
+		<if test="params.clTxnTime != null">
+			and cl_txn_time = #{ params.clTxnTime}
+		</if>
+		<if test="params.clSubTime != null">
+			and cl_sub_time = #{ params.clSubTime}
+		</if>
+		<if test="params.clOrgId != null">
+			and cl_org_id = #{ params.clOrgId}
+		</if>
+		<if test="params.clCnlType != null">
+			and cl_cnl_type = #{ params.clCnlType}
+		</if>
+		<if test="params.subId != null">
+			and sub_id = #{ params.subId}
+		</if>
+		<if test="params.mainFlag != null">
+			and main_flag = #{ params.mainFlag}
+		</if>
+		<if test="params.preOrgId != null">
+			and pre_org_id = #{ params.preOrgId}
+		</if>
+		<if test="params.preCnlType != null">
+			and pre_cnl_type = #{ params.preCnlType}
+		</if>
+		<if test="params.preOrgIdh != null">
+			and pre_org_idh = #{ params.preOrgIdh}
+		</if>
+
+
+		<if test="params.payType != null">
+			and pay_type = #{ params.payType}
+		</if>
+		<if test="params.mainIdProvince != null">
+			and main_id_province = #{ params.mainIdProvince}
+		</if>
+		<if test="params.mainIdType != null">
+			and main_id_type = #{ params.mainIdType}
+		</if>
+		<if test="params.mainIdValue != null">
+			and main_id_value = #{ params.mainIdValue}
+		</if>
+		<if test="params.idProvince != null">
+			and id_province = #{ params.idProvince}
+		</if>
+		<if test="params.idType != null">
+			and id_type = #{ params.idType}
+		</if>
+		<if test="params.userCat != null">
+			and user_cat = #{ params.userCat}
+		</if>
+		<if test="params.idValue != null">
+			and id_value = #{ params.idValue}
+		</if>
+		<if test="params.rechAmount != null">
+			and rech_amount = #{ params.rechAmount}
+		</if>
+		<if test="params.rechThreshold != null">
+			and rech_threshold = #{ params.rechThreshold}
+		</if>
+		<if test="params.maxRechAmount != null">
+			and max_rech_amount = #{ params.maxRechAmount}
+		</if>
+		<if test="params.maxRechThreshold != null">
+			and max_rech_threshold = #{ params.maxRechThreshold}
+		</if>
+		<if test="params.bankId != null">
+			and bank_id = #{ params.bankId}
+		</if>
+		<if test="params.bankAcctType != null">
+			and bank_acct_type = #{ params.bankAcctType }
+		</if>
+		<if test="params.bankAccId != null">
+			and bank_acc_id = #{ params.bankAccId }
+		</if>
+		<if test="params.userType != null">
+			and user_type = #{ params.userType }
+		</if>
+		<if test="params.userId != null">
+			and user_id = #{ params.userId }
+		</if>
+		<if test="params.status != null">
+			and status = #{ params.status }
+		</if>
+
+		<if test="params.lastUpdOprid != null">
+			and last_upd_oprid = #{ params.lastUpdOprid }
+		</if>
+		<if test="params.lastUpdTime != null">
+			and last_upd_time = #{ params.lastUpdTime }
+		</if>
+		<if test="params.reserved1 != null">
+			and reserved1 = #{ params.reserved1 }
+		</if>
+		<if test="params.reserved2 != null">
+			and reserved2 = #{ params.reserved2 }
+		</if>
+		<if test="params.reserved3 != null">
+			and reserved3 = #{ params.reserved3 }
+		</if>
+		<if test="params.userName != null">
+			and user_name = #{ params.userName }
+		</if>
+		<if test="params.subNum != null">
+			and sub_num = #{ params.subNum }
+		</if>
+	</select>
+	<select id="selectListByParams" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_BIND_INFO
+		where 1=1
+		<if test="params.settleDate != null">
+			and settle_date = #{ params.settleDate}
+		</if>
+		<if test="params.preTxnSeq != null">
+			and pre_txn_seq = #{ params.preTxnSeq}
+		</if>
+		<if test="params.prepreTxnDate != null">
+			and pre_txn_date = #{ params.preTxnDate}
+		</if>
+		<if test="params.preTxnTime != null">
+			and pre_txn_time = #{ params.preTxnTime}
+		</if>
+		<if test="params.signTxnSeq != null">
+			and sign_txn_seq = #{ params.signTxnSeq}
+		</if>
+		<if test="params.signTxnDate != null">
+			and sign_txn_date = #{ params.signTxnDate}
+		</if>
+		<if test="params.signTxnTime != null">
+			and sign_txn_time = #{ params.signTxnTime}
+		</if>
+		<if test="params.signSubTime != null">
+			and sign_sub_time = #{ params.signSubTime}
+		</if>
+		<if test="params.signOrgId != null">
+			and sign_org_id = #{ params.signOrgId}
+		</if>
+		<if test="params.signCnlType != null">
+			and sign_cnl_type = #{ params.signOrgId}
+		</if>
+		<if test="params.clTxnSeq != null">
+			and cl_txn_seq = #{ params.clTxnSeq}
+		</if>
+		<if test="params.clTxnDate != null">
+			and cl_txn_date = #{ params.clTxnDate}
+		</if>
+		<if test="params.clTxnTime != null">
+			and cl_txn_time = #{ params.clTxnTime}
+		</if>
+		<if test="params.clSubTime != null">
+			and cl_sub_time = #{ params.clSubTime}
+		</if>
+		<if test="params.clOrgId != null">
+			and cl_org_id = #{ params.clOrgId}
+		</if>
+		<if test="params.clCnlType != null">
+			and cl_cnl_type = #{ params.clCnlType}
+		</if>
+		<if test="params.subId != null">
+			and sub_id = #{ params.subId}
+		</if>
+		<if test="params.mainFlag != null">
+			and main_flag = #{ params.mainFlag}
+		</if>
+		<if test="params.preOrgId != null">
+			and pre_org_id = #{ params.preOrgId}
+		</if>
+		<if test="params.preCnlType != null">
+			and pre_cnl_type = #{ params.preCnlType}
+		</if>
+		<if test="params.preOrgIdh != null">
+			and pre_org_idh = #{ params.preOrgIdh}
+		</if>
+
+
+		<if test="params.payType != null">
+			and pay_type = #{ params.payType}
+		</if>
+		<if test="params.mainIdProvince != null">
+			and main_id_province = #{ params.mainIdProvince}
+		</if>
+		<if test="params.mainIdType != null">
+			and main_id_type = #{ params.mainIdType}
+		</if>
+		<if test="params.mainIdValue != null">
+			and main_id_value = #{ params.mainIdValue}
+		</if>
+		<if test="params.idProvince != null">
+			and id_province = #{ params.idProvince}
+		</if>
+		<if test="params.idType != null">
+			and id_type = #{ params.idType}
+		</if>
+		<if test="params.userCat != null">
+			and user_cat = #{ params.userCat}
+		</if>
+		<if test="params.idValue != null">
+			and id_value = #{ params.idValue}
+		</if>
+		<if test="params.rechAmount != null">
+			and rech_amount = #{ params.rechAmount}
+		</if>
+		<if test="params.rechThreshold != null">
+			and rech_threshold = #{ params.rechThreshold}
+		</if>
+		<if test="params.maxRechAmount != null">
+			and max_rech_amount = #{ params.maxRechAmount}
+		</if>
+		<if test="params.maxRechThreshold != null">
+			and max_rech_threshold = #{ params.maxRechThreshold}
+		</if>
+		<if test="params.bankId != null">
+			and bank_id = #{ params.bankId}
+		</if>
+		<if test="params.bankAcctType != null">
+			and bank_acct_type = #{ params.bankAcctType }
+		</if>
+		<if test="params.bankAccId != null">
+			and bank_acc_id = #{ params.bankAccId }
+		</if>
+		<if test="params.userType != null">
+			and user_type = #{ params.userType }
+		</if>
+		<if test="params.userId != null">
+			and user_id = #{ params.userId }
+		</if>
+		<if test="params.status != null">
+			and status = #{ params.status }
+		</if>
+
+		<if test="params.lastUpdOprid != null">
+			and last_upd_oprid = #{ params.lastUpdOprid }
+		</if>
+		<if test="params.lastUpdTime != null">
+			and last_upd_time = #{ params.lastUpdTime }
+		</if>
+		<if test="params.reserved1 != null">
+			and reserved1 = #{ params.reserved1 }
+		</if>
+		<if test="params.reserved2 != null">
+			and reserved2 = #{ params.reserved2 }
+		</if>
+		<if test="params.reserved3 != null">
+			and reserved3 = #{ params.reserved3 }
+		</if>
+		<if test="params.userName != null">
+			and user_name = #{ params.userName }
+		</if>
+		<if test="params.subNum != null">
+			and sub_num = #{ params.subNum }
+		</if>
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+		delete from UPAY_CSYS_BIND_INFO
+		where seq_id = #{seqId,jdbcType=NUMERIC}
+	</delete>
+	<insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysBindInfo">
+		insert into UPAY_CSYS_BIND_INFO (seq_id,settle_date,pre_txn_seq, pre_txn_date,
+		pre_txn_time, sign_txn_seq, sign_txn_date,
+		sign_txn_time, sign_sub_time, sign_org_id,
+		sign_cnl_type, cl_txn_seq, cl_txn_date,
+		cl_txn_time, cl_sub_time, cl_org_id,
+		cl_cnl_type, sub_id, main_flag,
+		pay_type, pre_org_id,pre_cnl_type,pre_org_idh,
+		main_id_province, main_id_type, main_id_value,
+		id_province, id_type, user_cat,
+		id_value, rech_amount, rech_threshold,
+		max_rech_amount, max_rech_threshold, bank_id,
+		bank_acct_type, bank_acc_id, user_type,
+		user_id, status,
+		last_upd_oprid, last_upd_time, reserved1,
+		reserved2, reserved3,user_name, sub_num)
+		values (#{seqId,jdbcType=NUMERIC}, #{settleDate,jdbcType=CHAR},#{preTxnSeq,jdbcType=VARCHAR},
+		#{preTxnDate,jdbcType=CHAR},
+		#{preTxnTime,jdbcType=CHAR}, #{signTxnSeq,jdbcType=VARCHAR}, #{signTxnDate,jdbcType=CHAR},
+		#{signTxnTime,jdbcType=CHAR}, #{signSubTime,jdbcType=CHAR},
+		#{signOrgId,jdbcType=VARCHAR},
+		#{signCnlType,jdbcType=CHAR}, #{clTxnSeq,jdbcType=VARCHAR}, #{clTxnDate,jdbcType=CHAR},
+		#{clTxnTime,jdbcType=CHAR}, #{clSubTime,jdbcType=CHAR},
+		#{clOrgId,jdbcType=VARCHAR},
+		#{clCnlType,jdbcType=CHAR}, #{subId,jdbcType=VARCHAR}, #{mainFlag,jdbcType=CHAR},
+		#{preOrgId,jdbcType=VARCHAR}, #{preCnlType,jdbcType=CHAR},
+		#{preOrgIdh,jdbcType=VARCHAR}, #{payType,jdbcType=CHAR},
+		#{mainIdProvince,jdbcType=CHAR}, #{mainIdType,jdbcType=CHAR},
+		#{mainIdValue,jdbcType=VARCHAR},
+		#{idProvince,jdbcType=CHAR}, #{idType,jdbcType=CHAR}, #{userCat,jdbcType=CHAR},
+		#{idValue,jdbcType=VARCHAR}, #{rechAmount,jdbcType=NUMERIC},
+		#{rechThreshold,jdbcType=NUMERIC},
+		#{maxRechAmount,jdbcType=NUMERIC}, #{maxRechThreshold,jdbcType=NUMERIC}, #{bankId,jdbcType=VARCHAR},
+		#{bankAcctType,jdbcType=CHAR}, #{bankAccId,jdbcType=VARCHAR},
+		#{userType,jdbcType=CHAR},
+		#{userId,jdbcType=VARCHAR}, #{status,jdbcType=CHAR},
+		#{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}, #{reserved1,jdbcType=VARCHAR},
+		#{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR},
+		#{userName}, #{subNum})
+	</insert>
+	<insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysBindInfo">
+		insert into UPAY_CSYS_BIND_INFO
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="seqId != null">
+				seq_id,
+			</if>
+			<if test="settleDate != null">
+				settle_date,
+			</if>
+			<if test="preTxnSeq != null">
+				pre_txn_seq,
+			</if>
+			<if test="preTxnDate != null">
+				pre_txn_date,
+			</if>
+			<if test="preTxnTime != null">
+				pre_txn_time,
+			</if>
+			<if test="signTxnSeq != null">
+				sign_txn_seq,
+			</if>
+			<if test="signTxnDate != null">
+				sign_txn_date,
+			</if>
+			<if test="signTxnTime != null">
+				sign_txn_time,
+			</if>
+			<if test="signSubTime != null">
+				sign_sub_time,
+			</if>
+			<if test="signOrgId != null">
+				sign_org_id,
+			</if>
+			<if test="signCnlType != null">
+				sign_cnl_type,
+			</if>
+			<if test="clTxnSeq != null">
+				cl_txn_seq,
+			</if>
+			<if test="clTxnDate != null">
+				cl_txn_date,
+			</if>
+			<if test="clTxnTime != null">
+				cl_txn_time,
+			</if>
+			<if test="clSubTime != null">
+				cl_sub_time,
+			</if>
+			<if test="clOrgId != null">
+				cl_org_id,
+			</if>
+			<if test="clCnlType != null">
+				cl_cnl_type,
+			</if>
+			<if test="subId != null">
+				sub_id,
+			</if>
+			<if test="mainFlag != null">
+				main_flag,
+			</if>
+			<if test="preOrgId != null">
+				pre_org_id,
+			</if>
+			<if test="preCnlType != null">
+				pre_cnl_type,
+			</if>
+			<if test="preOrgIdh != null">
+				pre_org_idh,
+			</if>
+
+
+			<if test="payType != null">
+				pay_type,
+			</if>
+			<if test="mainIdProvince != null">
+				main_id_province,
+			</if>
+			<if test="mainIdType != null">
+				main_id_type,
+			</if>
+			<if test="mainIdValue != null">
+				main_id_value,
+			</if>
+			<if test="idProvince != null">
+				id_province,
+			</if>
+			<if test="idType != null">
+				id_type,
+			</if>
+			<if test="userCat != null">
+				user_cat,
+			</if>
+			<if test="idValue != null">
+				id_value,
+			</if>
+			<if test="rechAmount != null">
+				rech_amount,
+			</if>
+			<if test="rechThreshold != null">
+				rech_threshold,
+			</if>
+			<if test="maxRechAmount != null">
+				max_rech_amount,
+			</if>
+			<if test="maxRechThreshold != null">
+				max_rech_threshold,
+			</if>
+			<if test="bankId != null">
+				bank_id,
+			</if>
+			<if test="bankAcctType != null">
+				bank_acct_type,
+			</if>
+			<if test="bankAccId != null">
+				bank_acc_id,
+			</if>
+			<if test="userType != null">
+				user_type,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+
+			<if test="lastUpdOprid != null">
+				last_upd_oprid,
+			</if>
+			<if test="lastUpdTime != null">
+				last_upd_time,
+			</if>
+			<if test="reserved1 != null">
+				reserved1,
+			</if>
+			<if test="reserved2 != null">
+				reserved2,
+			</if>
+			<if test="reserved3 != null">
+				reserved3,
+			</if>
+			<if test="userName != null">
+				user_name,
+			</if>
+			<if test="subNum != null">
+				sub_num,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="seqId != null">
+				#{seqId,jdbcType=NUMERIC},
+			</if>
+			<if test="settleDate != null">
+				#{settleDate,jdbcType=CHAR},
+			</if>
+			<if test="preTxnSeq != null">
+				#{preTxnSeq,jdbcType=VARCHAR},
+			</if>
+			<if test="preTxnDate != null">
+				#{preTxnDate,jdbcType=CHAR},
+			</if>
+			<if test="preTxnTime != null">
+				#{preTxnTime,jdbcType=CHAR},
+			</if>
+			<if test="signTxnSeq != null">
+				#{signTxnSeq,jdbcType=VARCHAR},
+			</if>
+			<if test="signTxnDate != null">
+				#{signTxnDate,jdbcType=CHAR},
+			</if>
+			<if test="signTxnTime != null">
+				#{signTxnTime,jdbcType=CHAR},
+			</if>
+			<if test="signSubTime != null">
+				#{signSubTime,jdbcType=CHAR},
+			</if>
+			<if test="signOrgId != null">
+				#{signOrgId,jdbcType=VARCHAR},
+			</if>
+			<if test="signCnlType != null">
+				#{signCnlType,jdbcType=CHAR},
+			</if>
+			<if test="clTxnSeq != null">
+				#{clTxnSeq,jdbcType=VARCHAR},
+			</if>
+			<if test="clTxnDate != null">
+				#{clTxnDate,jdbcType=CHAR},
+			</if>
+			<if test="clTxnTime != null">
+				#{clTxnTime,jdbcType=CHAR},
+			</if>
+			<if test="clSubTime != null">
+				#{clSubTime,jdbcType=CHAR},
+			</if>
+			<if test="clOrgId != null">
+				#{clOrgId,jdbcType=VARCHAR},
+			</if>
+			<if test="clCnlType != null">
+				#{clCnlType,jdbcType=CHAR},
+			</if>
+			<if test="subId != null">
+				#{subId,jdbcType=VARCHAR},
+			</if>
+			<if test="mainFlag != null">
+				#{mainFlag,jdbcType=CHAR},
+			</if>
+			<if test="preOrgId != null">
+				#{preOrgId,jdbcType=VARCHAR},
+			</if>
+			<if test="preCnlType != null">
+				#{preCnlType,jdbcType=CHAR},
+			</if>
+			<if test="preOrgIdh != null">
+				#{preOrgIdh,jdbcType=VARCHAR},
+			</if>
+
+
+			<if test="payType != null">
+				#{payType,jdbcType=CHAR},
+			</if>
+			<if test="mainIdProvince != null">
+				#{mainIdProvince,jdbcType=CHAR},
+			</if>
+			<if test="mainIdType != null">
+				#{mainIdType,jdbcType=CHAR},
+			</if>
+			<if test="mainIdValue != null">
+				#{mainIdValue,jdbcType=VARCHAR},
+			</if>
+			<if test="idProvince != null">
+				#{idProvince,jdbcType=CHAR},
+			</if>
+			<if test="idType != null">
+				#{idType,jdbcType=CHAR},
+			</if>
+			<if test="userCat != null">
+				#{userCat,jdbcType=CHAR},
+			</if>
+			<if test="idValue != null">
+				#{idValue,jdbcType=VARCHAR},
+			</if>
+			<if test="rechAmount != null">
+				#{rechAmount,jdbcType=NUMERIC},
+			</if>
+			<if test="rechThreshold != null">
+				#{rechThreshold,jdbcType=NUMERIC},
+			</if>
+			<if test="maxRechAmount != null">
+				#{maxRechAmount,jdbcType=NUMERIC},
+			</if>
+			<if test="maxRechThreshold != null">
+				#{maxRechThreshold,jdbcType=NUMERIC},
+			</if>
+			<if test="bankId != null">
+				#{bankId,jdbcType=VARCHAR},
+			</if>
+			<if test="bankAcctType != null">
+				#{bankAcctType,jdbcType=CHAR},
+			</if>
+			<if test="bankAccId != null">
+				#{bankAccId,jdbcType=VARCHAR},
+			</if>
+			<if test="userType != null">
+				#{userType,jdbcType=CHAR},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=CHAR},
+			</if>
+
+			<if test="lastUpdOprid != null">
+				#{lastUpdOprid,jdbcType=VARCHAR},
+			</if>
+			<if test="lastUpdTime != null">
+				#{lastUpdTime,jdbcType=CHAR},
+			</if>
+			<if test="reserved1 != null">
+				#{reserved1,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved2 != null">
+				#{reserved2,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved3 != null">
+				#{reserved3,jdbcType=VARCHAR},
+			</if>
+			<if test="userName != null">
+				#{userName},
+			</if>
+
+			<if test="subNum != null">
+				#{sub_num},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysBindInfo">
+		update UPAY_CSYS_BIND_INFO
+		<set>
+		     <if test="settleDate != null">
+				settle_date = #{settleDate,jdbcType=CHAR},
+			</if>
+			<if test="preTxnSeq != null">
+				pre_txn_seq = #{preTxnSeq,jdbcType=VARCHAR},
+			</if>
+			<if test="preTxnDate != null">
+				pre_txn_date = #{preTxnDate,jdbcType=CHAR},
+			</if>
+			<if test="preTxnTime != null">
+				pre_txn_time = #{preTxnTime,jdbcType=CHAR},
+			</if>
+			<if test="signTxnSeq != null">
+				sign_txn_seq = #{signTxnSeq,jdbcType=VARCHAR},
+			</if>
+			<if test="signTxnDate != null">
+				sign_txn_date = #{signTxnDate,jdbcType=CHAR},
+			</if>
+			<if test="signTxnTime != null">
+				sign_txn_time = #{signTxnTime,jdbcType=CHAR},
+			</if>
+			<if test="signSubTime != null">
+				sign_sub_time = #{signSubTime,jdbcType=CHAR},
+			</if>
+			<if test="signOrgId != null">
+				sign_org_id = #{signOrgId,jdbcType=VARCHAR},
+			</if>
+			<if test="signCnlType != null">
+				sign_cnl_type = #{signCnlType,jdbcType=CHAR},
+			</if>
+			<if test="clTxnSeq != null">
+				cl_txn_seq = #{clTxnSeq,jdbcType=VARCHAR},
+			</if>
+			<if test="clTxnDate != null">
+				cl_txn_date = #{clTxnDate,jdbcType=CHAR},
+			</if>
+			<if test="clTxnTime != null">
+				cl_txn_time = #{clTxnTime,jdbcType=CHAR},
+			</if>
+			<if test="clSubTime != null">
+				cl_sub_time = #{clSubTime,jdbcType=CHAR},
+			</if>
+			<if test="clOrgId != null">
+				cl_org_id = #{clOrgId,jdbcType=VARCHAR},
+			</if>
+			<if test="clCnlType != null">
+				cl_cnl_type = #{clCnlType,jdbcType=CHAR},
+			</if>
+			<if test="subId != null">
+				sub_id = #{subId,jdbcType=VARCHAR},
+			</if>
+			<if test="mainFlag != null">
+				main_flag = #{mainFlag,jdbcType=CHAR},
+			</if>
+			<if test="preOrgId != null">
+				pre_org_id = #{preOrgId,jdbcType=VARCHAR},
+			</if>
+			<if test="preCnlType != null">
+				pre_cnl_type = #{preCnlType,jdbcType=CHAR},
+			</if>
+			<if test="preOrgIdh != null">
+				pre_org_idh = #{preOrgIdh,jdbcType=VARCHAR},
+			</if>
+
+
+			<if test="payType != null">
+				pay_type = #{payType,jdbcType=CHAR},
+			</if>
+			<if test="mainIdProvince != null">
+				main_id_province = #{mainIdProvince,jdbcType=CHAR},
+			</if>
+			<if test="mainIdType != null">
+				main_id_type = #{mainIdType,jdbcType=CHAR},
+			</if>
+			<if test="mainIdValue != null">
+				main_id_value = #{mainIdValue,jdbcType=VARCHAR},
+			</if>
+			<if test="idProvince != null">
+				id_province = #{idProvince,jdbcType=CHAR},
+			</if>
+			<if test="idType != null">
+				id_type = #{idType,jdbcType=CHAR},
+			</if>
+			<if test="userCat != null">
+				user_cat = #{userCat,jdbcType=CHAR},
+			</if>
+			<if test="idValue != null">
+				id_value = #{idValue,jdbcType=VARCHAR},
+			</if>
+			<if test="rechAmount != null">
+				rech_amount = #{rechAmount,jdbcType=NUMERIC},
+			</if>
+			<if test="rechThreshold != null">
+				rech_threshold = #{rechThreshold,jdbcType=NUMERIC},
+			</if>
+			<if test="maxRechAmount != null">
+				max_rech_amount = #{maxRechAmount,jdbcType=NUMERIC},
+			</if>
+			<if test="maxRechThreshold != null">
+				max_rech_threshold = #{maxRechThreshold,jdbcType=NUMERIC},
+			</if>
+			<if test="bankId != null">
+				bank_id = #{bankId,jdbcType=VARCHAR},
+			</if>
+			<if test="bankAcctType != null">
+				bank_acct_type = #{bankAcctType,jdbcType=CHAR},
+			</if>
+			<if test="bankAccId != null">
+				bank_acc_id = #{bankAccId,jdbcType=VARCHAR},
+			</if>
+			<if test="userType != null">
+				user_type = #{userType,jdbcType=CHAR},
+			</if>
+			<if test="userId != null">
+				user_id = #{userId,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=CHAR},
+			</if>
+
+			<if test="lastUpdOprid != null">
+				last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+			</if>
+			<if test="lastUpdTime != null">
+				last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+			</if>
+			<if test="reserved1 != null">
+				reserved1 = #{reserved1,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved2 != null">
+				reserved2 = #{reserved2,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved3 != null">
+				reserved3 = #{reserved3,jdbcType=VARCHAR},
+			</if>
+			<if test="userName != null">
+				user_name = #{userName},
+			</if>
+			<if test="subNum != null">
+				sub_num = #{subNum},
+			</if>
+		</set>
+		where seq_id = #{seqId,jdbcType=NUMERIC}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysBindInfo">
+		update UPAY_CSYS_BIND_INFO
+		set settle_date = #{settleDate,jdbcType=CHAR},
+		pre_txn_seq = #{preTxnSeq,jdbcType=VARCHAR},
+		pre_txn_date = #{preTxnDate,jdbcType=CHAR},
+		pre_txn_time = #{preTxnTime,jdbcType=CHAR},
+		sign_txn_seq = #{signTxnSeq,jdbcType=VARCHAR},
+		sign_txn_date = #{signTxnDate,jdbcType=CHAR},
+		sign_txn_time = #{signTxnTime,jdbcType=CHAR},
+		sign_sub_time = #{signSubTime,jdbcType=CHAR},
+		sign_org_id = #{signOrgId,jdbcType=VARCHAR},
+		sign_cnl_type = #{signCnlType,jdbcType=CHAR},
+		cl_txn_seq = #{clTxnSeq,jdbcType=VARCHAR},
+		cl_txn_date = #{clTxnDate,jdbcType=CHAR},
+		cl_txn_time = #{clTxnTime,jdbcType=CHAR},
+		cl_sub_time = #{clSubTime,jdbcType=CHAR},
+		cl_org_id = #{clOrgId,jdbcType=VARCHAR},
+		cl_cnl_type = #{clCnlType,jdbcType=CHAR},
+		sub_id = #{subId,jdbcType=VARCHAR},
+		main_flag = #{mainFlag,jdbcType=CHAR},
+		pre_org_id = #{preOrgId,jdbcType=VARCHAR},
+		pre_cnl_type = #{preCnlType,jdbcType=CHAR},
+		pre_org_idh = #{preOrgIdh,jdbcType=VARCHAR},
+
+		pay_type = #{payType,jdbcType=CHAR},
+		main_id_province = #{mainIdProvince,jdbcType=CHAR},
+		main_id_type = #{mainIdType,jdbcType=CHAR},
+		main_id_value = #{mainIdValue,jdbcType=VARCHAR},
+		id_province = #{idProvince,jdbcType=CHAR},
+		id_type = #{idType,jdbcType=CHAR},
+		user_cat = #{userCat,jdbcType=CHAR},
+		id_value = #{idValue,jdbcType=VARCHAR},
+		rech_amount = #{rechAmount,jdbcType=NUMERIC},
+		rech_threshold = #{rechThreshold,jdbcType=NUMERIC},
+		max_rech_amount = #{maxRechAmount,jdbcType=NUMERIC},
+		max_rech_threshold = #{maxRechThreshold,jdbcType=NUMERIC},
+		bank_id = #{bankId,jdbcType=VARCHAR},
+		bank_acct_type = #{bankAcctType,jdbcType=CHAR},
+		bank_acc_id = #{bankAccId,jdbcType=VARCHAR},
+		user_type = #{userType,jdbcType=CHAR},
+		user_id = #{userId,jdbcType=VARCHAR},
+		status = #{status,jdbcType=CHAR},
+
+		last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+		last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+		reserved1 = #{reserved1,jdbcType=VARCHAR},
+		reserved2 = #{reserved2,jdbcType=VARCHAR},
+		user_name = #{userName},
+		sub_num = #{subNum},
+		reserved3 = #{reserved3,jdbcType=VARCHAR}
+		where seq_id = #{seqId,jdbcType=NUMERIC}
+	</update>
+	<select id="selectByParams" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_BIND_INFO
+		where 1=1
+		<if test="params.settleDate != null">
+			and settle_date = #{ params.settleDate}
+		</if>
+		<if test="params.preTxnSeq != null">
+			and pre_txn_seq = #{ params.preTxnSeq}
+		</if>
+		<if test="params.prepreTxnDate != null">
+			and pre_txn_date = #{ params.preTxnDate}
+		</if>
+		<if test="params.preTxnTime != null">
+			and pre_txn_time = #{ params.preTxnTime}
+		</if>
+		<if test="params.signTxnSeq != null">
+			and sign_txn_seq = #{ params.signTxnSeq}
+		</if>
+		<if test="params.signTxnDate != null">
+			and sign_txn_date = #{ params.signTxnDate}
+		</if>
+		<if test="params.signTxnTime != null">
+			and sign_txn_time = #{ params.signTxnTime}
+		</if>
+		<if test="params.signSubTime != null">
+			and sign_sub_time = #{ params.signSubTime}
+		</if>
+		<if test="params.signOrgId != null">
+			and sign_org_id = #{ params.signOrgId}
+		</if>
+		<if test="params.signCnlType != null">
+			and sign_cnl_type = #{ params.signOrgId}
+		</if>
+		<if test="params.clTxnSeq != null">
+			and cl_txn_seq = #{ params.clTxnSeq}
+		</if>
+		<if test="params.clTxnDate != null">
+			and cl_txn_date = #{ params.clTxnDate}
+		</if>
+		<if test="params.clTxnTime != null">
+			and cl_txn_time = #{ params.clTxnTime}
+		</if>
+		<if test="params.clSubTime != null">
+			and cl_sub_time = #{ params.clSubTime}
+		</if>
+		<if test="params.clOrgId != null">
+			and cl_org_id = #{ params.clOrgId}
+		</if>
+		<if test="params.clCnlType != null">
+			and cl_cnl_type = #{ params.clCnlType}
+		</if>
+		<if test="params.subId != null">
+			and sub_id = #{ params.subId}
+		</if>
+		<if test="params.mainFlag != null">
+			and main_flag = #{ params.mainFlag}
+		</if>
+		<if test="params.preOrgId != null">
+			and pre_org_id = #{ params.preOrgId}
+		</if>
+		<if test="params.preCnlType != null">
+			and pre_cnl_type = #{ params.preCnlType}
+		</if>
+		<if test="params.preOrgIdh != null">
+			and pre_org_idh = #{ params.preOrgIdh}
+		</if>
+
+
+		<if test="params.payType != null">
+			and pay_type = #{ params.payType}
+		</if>
+		<if test="params.mainIdProvince != null">
+			and main_id_province = #{ params.mainIdProvince}
+		</if>
+		<if test="params.mainIdType != null">
+			and main_id_type = #{ params.mainIdType}
+		</if>
+		<if test="params.mainIdValue != null">
+			and main_id_value = #{ params.mainIdValue}
+		</if>
+		<if test="params.idProvince != null">
+			and id_province = #{ params.idProvince}
+		</if>
+		<if test="params.idType != null">
+			and id_type = #{ params.idType}
+		</if>
+		<if test="params.userCat != null">
+			and user_cat = #{ params.userCat}
+		</if>
+		<if test="params.idValue != null">
+			and id_value = #{ params.idValue}
+		</if>
+		<if test="params.rechAmount != null">
+			and rech_amount = #{ params.rechAmount}
+		</if>
+		<if test="params.rechThreshold != null">
+			and rech_threshold = #{ params.rechThreshold}
+		</if>
+		<if test="params.maxRechAmount != null">
+			and max_rech_amount = #{ params.maxRechAmount}
+		</if>
+		<if test="params.maxRechThreshold != null">
+			and max_rech_threshold = #{ params.maxRechThreshold}
+		</if>
+		<if test="params.bankId != null">
+			and bank_id = #{ params.bankId}
+		</if>
+		<if test="params.bankAcctType != null">
+			and bank_acct_type = #{ params.bankAcctType }
+		</if>
+		<if test="params.bankAccId != null">
+			and bank_acc_id = #{ params.bankAccId }
+		</if>
+		<if test="params.userType != null">
+			and user_type = #{ params.userType }
+		</if>
+		<if test="params.userId != null">
+			and user_id = #{ params.userId }
+		</if>
+		<if test="params.status != null">
+			and status = #{ params.status }
+		</if>
+
+		<if test="params.lastUpdOprid != null">
+			and last_upd_oprid = #{ params.lastUpdOprid }
+		</if>
+		<if test="params.lastUpdTime != null">
+			and last_upd_time = #{ params.lastUpdTime }
+		</if>
+		<if test="params.reserved1 != null">
+			and reserved1 = #{ params.reserved1 }
+		</if>
+		<if test="params.reserved2 != null">
+			and reserved2 = #{ params.reserved2 }
+		</if>
+		<if test="params.reserved3 != null">
+			and reserved3 = #{ params.reserved3 }
+		</if>
+		<if test="params.userName != null">
+			and user_name = #{ params.userName }
+		</if>
+		<if test="params.subNum != null">
+			and sub_num = #{ params.subNum }
+		</if>
+	</select>
+</mapper>

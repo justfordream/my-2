@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysRouteInfoMapper" >
+   <cache flushInterval="3600000" size="512" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysRouteInfo" >
+    <id column="seq_id" property="seqId" jdbcType="NUMERIC" />
+    <result column="org_id" property="orgId" jdbcType="VARCHAR" />
+
+    <result column="route_info" property="routeInfo" jdbcType="CHAR" />
+    <result column="protocol" property="protocol" jdbcType="VARCHAR" />
+    <result column="req_ip" property="reqIp" jdbcType="VARCHAR" />
+    <result column="req_port" property="reqPort" jdbcType="VARCHAR" />
+    <result column="req_path" property="reqPath" jdbcType="VARCHAR" />
+    <result column="req_mq_id" property="reqMqId" jdbcType="VARCHAR" />
+    <result column="res_mq_id" property="resMqId" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="weight" property="weight" jdbcType="NUMERIC" />
+    <result column="misc" property="misc" jdbcType="VARCHAR" />  
+    <result column="host_ip" property="hostIp" jdbcType="VARCHAR" />
+    <result column="host_port" property="hostPort" jdbcType="VARCHAR" />
+    <result column="host_protocol" property="hostProtocol" jdbcType="VARCHAR" />
+    <result column="host_path" property="hostPath" jdbcType="VARCHAR" />
+    <result column="timeout" property="timeout" jdbcType="VARCHAR" /> 
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+     <result column="is_history" property="isHistory" jdbcType="CHAR" />
+    <result column="date_scale" property="dateScale" jdbcType="VARCHAR" />
+      <result column="mouth_scale" property="mouthScale" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seq_id, org_id,  route_info, protocol, req_ip, 
+    req_port, req_mq_id, res_mq_id, status, weight, misc, host_ip,host_port,host_protocol,host_path,timeout,
+    last_upd_oprid, last_upd_time, reserved1, reserved2, reserved3,is_history,date_scale,mouth_scale,req_path
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap"  >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_ROUTE_INFO
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from UPAY_CSYS_ROUTE_INFO
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysRouteInfo" >
+    insert into UPAY_CSYS_ROUTE_INFO (seq_id, org_id,  route_info, protocol, 
+      req_ip, req_port, req_mq_id, 
+      res_mq_id, status, weight, 
+      misc,host_ip,host_port,host_protocol,host_path,timeout,last_upd_oprid, last_upd_time, 
+      reserved1, reserved2, reserved3,is_history,date_scale,mouth_scale,req_path
+      )
+    values (#{seqId,jdbcType=NUMERIC}, #{orgId,jdbcType=VARCHAR},  #{routeInfo,jdbcType=CHAR}, #{protocol,jdbcType=VARCHAR}, 
+      #{reqIp,jdbcType=VARCHAR}, #{reqPort,jdbcType=VARCHAR}, #{reqMqId,jdbcType=VARCHAR}, 
+      #{resMqId,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{weight,jdbcType=NUMERIC}, 
+      #{misc,jdbcType=VARCHAR}, #{hostIp,jdbcType=VARCHAR},#{hostPort,jdbcType=VARCHAR},#{hostProtocol,jdbcType=VARCHAR},
+      #{hostPath,jdbcType=VARCHAR},#{timeout,jdbcType=VARCHAR},#{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}, 
+      #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR}
+      , #{isHistory}
+       , #{dateScale}
+        , #{mouthScale}
+        , #{reqPath}
+      )
+      
+     
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysRouteInfo" >
+    insert into UPAY_CSYS_ROUTE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        seq_id,
+      </if>
+      <if test="orgId != null" >
+        org_id,
+      </if>
+
+      <if test="routeInfo != null" >
+        route_info,
+      </if>
+      <if test="protocol != null" >
+        protocol,
+      </if>
+      <if test="reqIp != null" >
+        req_ip,
+      </if>
+      <if test="reqPort != null" >
+        req_port,
+      </if>
+      <if test="reqMqId != null" >
+        req_mq_id,
+      </if>
+      <if test="resMqId != null" >
+        res_mq_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="misc != null" >
+        misc,
+      </if>
+      <if test="hostIp != null" >
+        host_ip,
+      </if>
+      <if test="hostPort != null" >
+        host_port,
+      </if>
+      <if test="hostProtocol != null" >
+        host_protocol,
+      </if>
+      <if test="hostPath != null" >
+        host_path,
+      </if>
+      <if test="timeout != null" >
+        timeout,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>    
+       <if test="isHistory != null" >
+        is_history,
+      </if>
+        <if test="dateScale != null" >
+        date_scale,
+      </if>
+        <if test="mouthScale != null" >
+        mouth_scale,
+      </if>
+      <if test="reqPath != null" >
+        req_path,
+      </if>
+      
+      
+      
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        #{seqId,jdbcType=NUMERIC},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+     <!--  <if test="outerBipCode != null" >
+        #{outerBipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outerActivityCode != null" >
+        #{outerActivityCode,jdbcType=VARCHAR},
+      </if> -->
+      <if test="routeInfo != null" >
+        #{routeInfo,jdbcType=CHAR},
+      </if>
+      <if test="protocol != null" >
+        #{protocol,jdbcType=VARCHAR},
+      </if>
+      <if test="reqIp != null" >
+        #{reqIp,jdbcType=VARCHAR},
+      </if>
+      <if test="reqPort != null" >
+        #{reqPort,jdbcType=VARCHAR},
+      </if>
+      <if test="reqMqId != null" >
+        #{reqMqId,jdbcType=VARCHAR},
+      </if>
+      <if test="resMqId != null" >
+        #{resMqId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=NUMERIC},
+      </if>
+      <if test="misc != null" >
+        #{misc,jdbcType=VARCHAR},
+      </if>
+      <if test="hostIp != null" >
+        #{hostIp,jdbcType=VARCHAR},
+      </if>
+      <if test="hostPort != null" >
+        #{hostPort,jdbcType=VARCHAR},
+      </if>
+      <if test="hostProtocol != null" >
+        #{hostProtocol,jdbcType=VARCHAR},
+      </if>
+      <if test="hostPath != null" >
+        #{hostPath,jdbcType=VARCHAR},
+      </if>
+      <if test="timeout != null" >
+        #{timeout,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+      
+       <if test="isHistory != null" >
+        #{isHistory},
+      </if>
+      
+        <if test="dateScale != null" >
+        #{dateScale},
+      </if>
+      
+        <if test="mouthScale != null" >
+        #{mouthScale},
+      </if>
+       <if test="reqPath != null" >
+        #{reqPath},
+      </if>
+     
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysRouteInfo" >
+    update UPAY_CSYS_ROUTE_INFO
+    <set >
+      <if test="orgId != null" >
+        org_id = #{orgId,jdbcType=VARCHAR},
+      </if>
+   
+      <if test="routeInfo != null" >
+        route_info = #{routeInfo,jdbcType=CHAR},
+      </if>
+      <if test="protocol != null" >
+        protocol = #{protocol,jdbcType=VARCHAR},
+      </if>
+      <if test="reqIp != null" >
+        req_ip = #{reqIp,jdbcType=VARCHAR},
+      </if>
+      <if test="reqPort != null" >
+        req_port = #{reqPort,jdbcType=VARCHAR},
+      </if>
+      <if test="reqMqId != null" >
+        req_mq_id = #{reqMqId,jdbcType=VARCHAR},
+      </if>
+      <if test="resMqId != null" >
+        res_mq_id = #{resMqId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=NUMERIC},
+      </if>
+      <if test="misc != null" >
+        misc = #{misc,jdbcType=VARCHAR},
+      </if>
+      <if test="hostIp != null" >
+        host_ip = #{hostIp,jdbcType=VARCHAR},
+      </if>
+      <if test="hostPort != null" >
+        host_port = #{hostPort,jdbcType=VARCHAR},
+      </if>
+      <if test="hostProtocol != null" >
+        host_protocol = #{hostProtocol,jdbcType=VARCHAR},
+      </if>
+      <if test="hostPath != null" >
+        host_path = #{hostPath,jdbcType=VARCHAR},
+      </if>
+      <if test="timeout != null" >
+        timeout = #{timeout,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+      
+      
+       <if test="isHistory != null" >
+       is_history  = #{isHistory},
+      </if>
+      <if test="dateScale != null" >
+       date_scale  = #{dateScale},
+      </if>
+      <if test="mouthScale != null" >
+        mouth_scale = #{mouthScale},
+      </if>
+      
+      <if test="reqPath != null" >
+        req_path = #{reqPath},
+      </if>
+      
+       
+      
+      
+      
+    </set>
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysRouteInfo" >
+    update UPAY_CSYS_ROUTE_INFO
+    set org_id = #{orgId,jdbcType=VARCHAR},
+ 
+      route_info = #{routeInfo,jdbcType=CHAR},
+      protocol = #{protocol,jdbcType=VARCHAR},
+      req_ip = #{reqIp,jdbcType=VARCHAR},
+      req_port = #{reqPort,jdbcType=VARCHAR},
+      req_mq_id = #{reqMqId,jdbcType=VARCHAR},
+      res_mq_id = #{resMqId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      weight = #{weight,jdbcType=NUMERIC},
+      misc = #{misc,jdbcType=VARCHAR},
+      host_ip = #{hostIp,jdbcType=VARCHAR},
+      host_port = #{hostPort,jdbcType=VARCHAR},
+      host_protocol = #{hostProtocol,jdbcType=VARCHAR},
+      host_path = #{hostPath,jdbcType=VARCHAR},
+      timeout = #{timeout,jdbcType=VARCHAR},      
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      
+      
+    
+       is_history  = #{isHistory},
+    
+       date_scale  = #{dateScale},
+ 
+        mouth_scale = #{mouthScale},
+  req_path = #{reqPath},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  
+   <select id="selectAllListByParams" resultType="list"
+	resultMap="BaseResultMap" >
+	select
+        <include refid="Base_Column_List" />
+        from UPAY_CSYS_ROUTE_INFO
+        where 1=1
+  
+        <if test="params.isHistory !=null">
+            and is_history=#{params.isHistory}
+        </if>
+        <if test="params.status !=null">
+            and status=#{params.status}
+        </if>
+        <choose>
+            <when test="orderParam != null">
+                order by ${orderParam}
+                </when>
+            <otherwise>
+                order by last_upd_time desc
+            </otherwise>
+        </choose>
+
+    </select>
+
+	<select id="selectByParams" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_ROUTE_INFO
+		where 1=1
+		<if test="params.orgId != null">
+			and org_id = #{params.orgId}
+		</if>
+	
+		<if test="params.isHistory !=null">
+            and is_history=#{params.isHistory}
+        </if>
+        <if test="params.status !=null">
+            and status=#{params.status}
+        </if>
+	</select>
+  
+</mapper>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysPayLimitMapper" >
+  <!-- <cache/> -->
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysPayLimit" >
+    <id column="id_type" property="idType" jdbcType="CHAR" />
+    <id column="id_value" property="idValue" jdbcType="VARCHAR" />
+    <id column="pay_month" property="payMonth" jdbcType="CHAR" />
+    <result column="id_province" property="idProvince" jdbcType="CHAR" />
+    <result column="month_max_amount" property="monthMaxAmount" jdbcType="NUMERIC" />
+    <result column="month_amount" property="monthAmount" jdbcType="NUMERIC" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+    <result column="day_max_amount" property="dayMaxAmount" jdbcType="NUMERIC" />
+    <result column="day_amount" property="dayAmount" jdbcType="NUMERIC" />
+    <result column="amount_cat" property="amountCat" jdbcType="CHAR" />
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+     pay_month,  id_type, id_value, id_province, month_max_amount, month_amount, last_upd_oprid, 
+    last_upd_time, reserved1, reserved2, reserved3,day_max_amount,amount_cat, day_amount
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.huateng.cmupay.models.UpayCsysPayLimit" >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_PAY_LIMIT
+    where 
+    id_type = #{idType} 
+    and id_value = #{idValue,jdbcType=VARCHAR}
+    and pay_month = #{payMonth,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysPayLimit" >
+    delete from UPAY_CSYS_PAY_LIMIT
+    where 
+    id_type = #{idType} 
+    and id_value = #{idValue,jdbcType=VARCHAR}
+    and pay_month = #{payMonth,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysPayLimit" >
+    insert into UPAY_CSYS_PAY_LIMIT (id_value, pay_month, id_province, 
+      id_type, month_max_amount, month_amount, 
+      last_upd_oprid, last_upd_time, reserved1, day_max_amount,amount_cat
+      reserved2, reserved3,day_amount)
+    values (#{idValue,jdbcType=VARCHAR}, #{payMonth,jdbcType=CHAR}, #{idProvince,jdbcType=CHAR}, 
+      #{idType,jdbcType=CHAR}, #{monthMaxAmount,jdbcType=NUMERIC}, #{monthAmount,jdbcType=NUMERIC}, 
+      #{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}, #{reserved1,jdbcType=VARCHAR}, 
+      #{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR}, #{day_max_amount}, #{amount_cat}, #{dayAmount})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysPayLimit" >
+    insert into UPAY_CSYS_PAY_LIMIT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="idValue != null" >
+        id_value,
+      </if>
+      <if test="payMonth != null" >
+        pay_month,
+      </if>
+      <if test="idProvince != null" >
+        id_province,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="monthMaxAmount != null" >
+        month_max_amount,
+      </if>
+      <if test="monthAmount != null" >
+        month_amount,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+      <if test="dayMaxAmount != null" >
+        day_max_amount,
+      </if>
+      <if test="amountCat != null" >
+        amount_cat,
+      </if>
+      <if test="dayAmount != null" >
+        day_amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="idValue != null" >
+        #{idValue,jdbcType=VARCHAR},
+      </if>
+      <if test="payMonth != null" >
+        #{payMonth,jdbcType=CHAR},
+      </if>
+      <if test="idProvince != null" >
+        #{idProvince,jdbcType=CHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=CHAR},
+      </if>
+      <if test="monthMaxAmount != null" >
+        #{monthMaxAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="monthAmount != null" >
+        #{monthAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="dayMaxAmount != null" >
+       #{dayMaxAmount},
+      </if>
+      <if test="amountCat != null" >
+       #{amountCat},
+      </if>
+       <if test="dayAmount != null" >
+       #{dayAmount},
+      </if>
+      
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysPayLimit" >
+    update UPAY_CSYS_PAY_LIMIT
+    <set >
+      <!--     
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idValue != null" >
+        id_value = #{idValue},
+      </if>
+      <if test="payMonth !=null">
+          pay_month=#{payMonth},
+       </if>
+        -->
+      <if test="idProvince != null" >
+        id_province = #{idProvince,jdbcType=CHAR},
+      </if>
+      <if test="monthMaxAmount != null" >
+        month_max_amount = #{monthMaxAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="monthAmount != null" >
+        month_amount = #{monthAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+       <if test="dayMaxAmount != null" >
+         day_max_amount =  #{dayMaxAmount},
+      </if>
+      <if test="amountCat != null" >
+          amount_cat =  #{amountCat},
+      </if>
+       <if test="dayAmount != null" >
+          day_amount =  #{dayAmount},
+      </if>
+      
+    </set>
+    where 
+        1=1
+         <if test="idType != null" >
+           and id_type = #{idType}
+         </if>
+        <if test="idValue != null">
+            and id_value = #{idValue}
+        </if>
+        <if test="payMonth !=null">
+            and pay_month=#{payMonth}
+        </if>
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysPayLimit" >
+    update UPAY_CSYS_PAY_LIMIT
+    set 
+      <!--    
+      id_type = #{idType,jdbcType=CHAR},
+      id_value = #{idValue},
+      pay_month=#{payMonth}, 
+      -->
+      id_province = #{idProvince,jdbcType=CHAR},
+      month_max_amount = #{monthMaxAmount,jdbcType=NUMERIC},
+      month_amount = #{monthAmount,jdbcType=NUMERIC},
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      day_max_amount =  #{dayMaxAmount},
+      amount_cat =  #{amountCat},
+      day_amount =  #{dayAmount}, 
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where 
+         1=1
+         <if test="idType != null" >
+           and id_type = #{idType}
+         </if>
+        <if test="idValue != null">
+            and id_value = #{idValue}
+        </if>
+        <if test="payMonth !=null">
+            and pay_month=#{payMonth}
+        </if>
+      
+  </update>
+
+	<select id="selectByParams" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_PAY_LIMIT
+		where 1=1
+		  <if test="params.idType != null" >
+           and id_type = #{params.idType}
+         </if>
+		<if test="params.idValue != null">
+			and id_value =
+			#{params.idValue}
+		</if>
+		<if test="params.payMonth !=null">
+			and pay_month=#{params.payMonth}
+		</if>
+	</select>
+	
+	
+    <select id="selectByParamsLock" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from UPAY_CSYS_PAY_LIMIT
+        where 1=1
+         <if test="params.idType != null" >
+           and id_type = #{params.idType}
+         </if>
+        
+        <if test="params.idValue != null">
+            and id_value = #{params.idValue}
+        </if>
+        <if test="params.payMonth !=null">
+            and pay_month=#{params.payMonth}
+        </if>
+       at isolation 1
+       <!-- for update -->
+    </select>
+	
+	
+	
+	
+  
+</mapper>

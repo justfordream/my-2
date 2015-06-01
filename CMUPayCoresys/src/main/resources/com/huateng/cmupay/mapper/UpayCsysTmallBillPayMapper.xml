@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysTmallBillPayMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysTmallBillPay" >
+    <id column="seq_id" property="seqId" jdbcType="NUMERIC" />
+    <result column="int_txn_seq" property="intTxnSeq" jdbcType="VARCHAR" />
+    <result column="int_trans_code" property="intTransCode" jdbcType="VARCHAR" />
+    <result column="int_txn_date" property="intTxnDate" jdbcType="CHAR" />
+    <result column="int_txn_time" property="intTxnTime" jdbcType="VARCHAR" />
+    <result column="settle_date" property="settleDate" jdbcType="CHAR" />
+    <result column="pay_mode" property="payMode" jdbcType="CHAR" />
+    <result column="buss_type" property="bussType" jdbcType="CHAR" />
+    <result column="buss_chl" property="bussChl" jdbcType="CHAR" />
+    <result column="tmall_activity_code" property="tmallActivityCode" jdbcType="CHAR" />
+    <result column="tmall_org_id" property="tmallOrgId" jdbcType="CHAR" />
+    <result column="tmall_route_info" property="tmallRouteInfo" jdbcType="CHAR" />
+    <result column="tmall_trans_id" property="tmallTransId" jdbcType="VARCHAR" />
+    <result column="tmall_trans_dt" property="tmallTransDt" jdbcType="CHAR" />
+    <result column="tmall_trans_tm" property="tmallTransTm" jdbcType="VARCHAR" />
+    <result column="tmall_transh_id" property="tmallTranshId" jdbcType="VARCHAR" />
+    <result column="tmall_transh_dt" property="tmallTranshDt" jdbcType="CHAR" />
+    <result column="tmall_transh_tm" property="tmallTranshTm" jdbcType="VARCHAR" />
+    <result column="tmall_cnl_type" property="tmallCnlType" jdbcType="CHAR" />
+    <result column="crm_bip_code" property="crmBipCode" jdbcType="CHAR" />
+    <result column="crm_activity_code" property="crmActivityCode" jdbcType="CHAR" />
+    <result column="crm_org_id" property="crmOrgId" jdbcType="CHAR" />
+    <result column="crm_route_type" property="crmRouteType" jdbcType="CHAR" />
+    <result column="crm_route_val" property="crmRouteVal" jdbcType="VARCHAR" />
+    <result column="crm_route_info" property="crmRouteInfo" jdbcType="CHAR" />
+    <result column="crm_session_id" property="crmSessionId" jdbcType="VARCHAR" />
+    <result column="crm_trans_id" property="crmTransId" jdbcType="VARCHAR" />
+    <result column="crm_trans_dt" property="crmTransDt" jdbcType="CHAR" />
+    <result column="crm_trans_tm" property="crmTransTm" jdbcType="VARCHAR" />
+    <result column="crm_transh_id" property="crmTranshId" jdbcType="VARCHAR" />
+    <result column="crm_transh_dt" property="crmTranshDt" jdbcType="CHAR" />
+    <result column="crm_transh_tm" property="crmTranshTm" jdbcType="VARCHAR" />
+    <result column="crm_opr_id" property="crmOprId" jdbcType="VARCHAR" />
+    <result column="crm_opr_dt" property="crmOprDt" jdbcType="CHAR" />
+    <result column="crm_opr_tm" property="crmOprTm" jdbcType="VARCHAR" />
+    <result column="crm_cnl_type" property="crmCnlType" jdbcType="CHAR" />
+    <result column="crm_start_tm" property="crmStartTm" jdbcType="VARCHAR" />
+    <result column="crm_end_tm" property="crmEndTm" jdbcType="VARCHAR" />
+    <result column="id_province" property="idProvince" jdbcType="CHAR" />
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="pay_trans_id" property="payTransId" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="CHAR" />
+    <result column="id_value" property="idValue" jdbcType="VARCHAR" />
+    <result column="home_prov" property="homeProv" jdbcType="CHAR" />
+    <result column="payment" property="payment" jdbcType="NUMERIC" />
+    <result column="charge_money" property="chargeMoney" jdbcType="NUMERIC" />
+    <result column="prod_cnt" property="prodCnt" jdbcType="NUMERIC" />
+    <result column="prod_id" property="prodId" jdbcType="VARCHAR" />
+    <result column="commision" property="commision" jdbcType="NUMERIC" />
+    <result column="rebate_fee" property="rebateFee" jdbcType="NUMERIC" />
+    <result column="prod_discount" property="prodDiscount" jdbcType="NUMERIC" />
+    <result column="credit_card_fee" property="creditCardFee" jdbcType="NUMERIC" />
+    <result column="service_fee" property="serviceFee" jdbcType="NUMERIC" />
+    <result column="payed_type" property="payedType" jdbcType="CHAR" />
+    <result column="activity_no" property="activityNo" jdbcType="VARCHAR" />
+    <result column="prod_shelf_no" property="prodShelfNo" jdbcType="VARCHAR" />
+    <result column="resend_count" property="resendCount" jdbcType="NUMERIC" />
+    <result column="user_cat" property="userCat" jdbcType="CHAR" />
+    <result column="tmall_rsp_code" property="tmallRspCode" jdbcType="VARCHAR" />
+    <result column="tmall_rsp_desc" property="tmallRspDesc" jdbcType="VARCHAR" />
+    <result column="crm_rsp_type" property="crmRspType" jdbcType="CHAR" />
+    <result column="crm_rsp_code" property="crmRspCode" jdbcType="VARCHAR" />
+    <result column="crm_sub_rsp_code" property="crmSubRspCode" jdbcType="VARCHAR" />
+    <result column="crm_rsp_desc" property="crmRspDesc" jdbcType="VARCHAR" />
+    <result column="crm_sub_rsp_desc" property="crmSubRspDesc" jdbcType="VARCHAR" />
+    <result column="ori_org_id" property="oriOrgId" jdbcType="CHAR" />
+    <result column="ori_opr_trans_id" property="oriOprTransId" jdbcType="VARCHAR" />
+    <result column="ori_trans_date" property="oriTransDate" jdbcType="CHAR" />
+    <result column="back_flag" property="backFlag" jdbcType="CHAR" />
+    <result column="refund_flag" property="refundFlag" jdbcType="CHAR" />
+    <result column="reverse_flag" property="reverseFlag" jdbcType="CHAR" />
+    <result column="reconciliation_flag" property="reconciliationFlag" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="VARCHAR" />
+    <result column="l_seq_id" property="lSeqId" jdbcType="VARCHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+    <result column="reserved4" property="reserved4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seq_id, int_txn_seq, int_trans_code, int_txn_date, int_txn_time, settle_date, pay_mode, 
+    buss_type, buss_chl, tmall_activity_code, tmall_org_id, tmall_route_info, tmall_trans_id, 
+    tmall_trans_dt, tmall_trans_tm, tmall_transh_id, tmall_transh_dt, tmall_transh_tm, 
+    tmall_cnl_type, crm_bip_code, crm_activity_code, crm_org_id, crm_route_type, crm_route_val, 
+    crm_route_info, crm_session_id, crm_trans_id, crm_trans_dt, crm_trans_tm, crm_transh_id, 
+    crm_transh_dt, crm_transh_tm, crm_opr_id, crm_opr_dt, crm_opr_tm, crm_cnl_type, crm_start_tm, 
+    crm_end_tm, id_province, order_id, pay_trans_id, id_type, id_value, home_prov, payment, 
+    charge_money, prod_cnt, prod_id, commision, rebate_fee, prod_discount, credit_card_fee, 
+    service_fee, payed_type, activity_no, prod_shelf_no, resend_count, user_cat, tmall_rsp_code, 
+    tmall_rsp_desc, crm_rsp_type, crm_rsp_code, crm_sub_rsp_code, crm_rsp_desc, crm_sub_rsp_desc, 
+    ori_org_id, ori_opr_trans_id, ori_trans_date, back_flag, refund_flag, reverse_flag, 
+    reconciliation_flag, status, last_upd_oprid, last_upd_time, l_seq_id, reserved1, 
+    reserved2, reserved3, reserved4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_TMALL_BILL_PAY
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </select>
+
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysTmallBillPay" >
+    insert into UPAY_CSYS_TMALL_BILL_PAY (seq_id, int_txn_seq, int_trans_code, 
+      int_txn_date, int_txn_time, settle_date, 
+      pay_mode, buss_type, buss_chl, 
+      tmall_activity_code, tmall_org_id, tmall_route_info, 
+      tmall_trans_id, tmall_trans_dt, tmall_trans_tm, 
+      tmall_transh_id, tmall_transh_dt, tmall_transh_tm, 
+      tmall_cnl_type, crm_bip_code, crm_activity_code, 
+      crm_org_id, crm_route_type, crm_route_val, 
+      crm_route_info, crm_session_id, crm_trans_id, 
+      crm_trans_dt, crm_trans_tm, crm_transh_id, 
+      crm_transh_dt, crm_transh_tm, crm_opr_id, 
+      crm_opr_dt, crm_opr_tm, crm_cnl_type, 
+      crm_start_tm, crm_end_tm, id_province, 
+      order_id, pay_trans_id, id_type, 
+      id_value, home_prov, payment, 
+      charge_money, prod_cnt, prod_id, 
+      commision, rebate_fee, prod_discount, 
+      credit_card_fee, service_fee, payed_type, 
+      activity_no, prod_shelf_no, resend_count, 
+      user_cat, tmall_rsp_code, tmall_rsp_desc, 
+      crm_rsp_type, crm_rsp_code, crm_sub_rsp_code, 
+      crm_rsp_desc, crm_sub_rsp_desc, ori_org_id, 
+      ori_opr_trans_id, ori_trans_date, back_flag, 
+      refund_flag, reverse_flag, reconciliation_flag, 
+      status, last_upd_oprid, last_upd_time, 
+      l_seq_id, reserved1, reserved2, 
+      reserved3, reserved4)
+    values (#{seqId,jdbcType=NUMERIC}, #{intTxnSeq,jdbcType=VARCHAR}, #{intTransCode,jdbcType=VARCHAR}, 
+      #{intTxnDate,jdbcType=CHAR}, #{intTxnTime,jdbcType=VARCHAR}, #{settleDate,jdbcType=CHAR}, 
+      #{payMode,jdbcType=CHAR}, #{bussType,jdbcType=CHAR}, #{bussChl,jdbcType=CHAR}, 
+      #{tmallActivityCode,jdbcType=CHAR}, #{tmallOrgId,jdbcType=CHAR}, #{tmallRouteInfo,jdbcType=CHAR}, 
+      #{tmallTransId,jdbcType=VARCHAR}, #{tmallTransDt,jdbcType=CHAR}, #{tmallTransTm,jdbcType=VARCHAR}, 
+      #{tmallTranshId,jdbcType=VARCHAR}, #{tmallTranshDt,jdbcType=CHAR}, #{tmallTranshTm,jdbcType=VARCHAR}, 
+      #{tmallCnlType,jdbcType=CHAR}, #{crmBipCode,jdbcType=CHAR}, #{crmActivityCode,jdbcType=CHAR}, 
+      #{crmOrgId,jdbcType=CHAR}, #{crmRouteType,jdbcType=CHAR}, #{crmRouteVal,jdbcType=VARCHAR}, 
+      #{crmRouteInfo,jdbcType=CHAR}, #{crmSessionId,jdbcType=VARCHAR}, #{crmTransId,jdbcType=VARCHAR}, 
+      #{crmTransDt,jdbcType=CHAR}, #{crmTransTm,jdbcType=VARCHAR}, #{crmTranshId,jdbcType=VARCHAR}, 
+      #{crmTranshDt,jdbcType=CHAR}, #{crmTranshTm,jdbcType=VARCHAR}, #{crmOprId,jdbcType=VARCHAR}, 
+      #{crmOprDt,jdbcType=CHAR}, #{crmOprTm,jdbcType=VARCHAR}, #{crmCnlType,jdbcType=CHAR}, 
+      #{crmStartTm,jdbcType=VARCHAR}, #{crmEndTm,jdbcType=VARCHAR}, #{idProvince,jdbcType=CHAR}, 
+      #{orderId,jdbcType=VARCHAR}, #{payTransId,jdbcType=VARCHAR}, #{idType,jdbcType=CHAR}, 
+      #{idValue,jdbcType=VARCHAR}, #{homeProv,jdbcType=CHAR}, #{payment,jdbcType=NUMERIC}, 
+      #{chargeMoney,jdbcType=NUMERIC}, #{prodCnt,jdbcType=NUMERIC}, #{prodId,jdbcType=VARCHAR}, 
+      #{commision,jdbcType=NUMERIC}, #{rebateFee,jdbcType=NUMERIC}, #{prodDiscount,jdbcType=NUMERIC}, 
+      #{creditCardFee,jdbcType=NUMERIC}, #{serviceFee,jdbcType=NUMERIC}, #{payedType,jdbcType=CHAR}, 
+      #{activityNo,jdbcType=VARCHAR}, #{prodShelfNo,jdbcType=VARCHAR}, #{resendCount,jdbcType=NUMERIC}, 
+      #{userCat,jdbcType=CHAR}, #{tmallRspCode,jdbcType=VARCHAR}, #{tmallRspDesc,jdbcType=VARCHAR}, 
+      #{crmRspType,jdbcType=CHAR}, #{crmRspCode,jdbcType=VARCHAR}, #{crmSubRspCode,jdbcType=VARCHAR}, 
+      #{crmRspDesc,jdbcType=VARCHAR}, #{crmSubRspDesc,jdbcType=VARCHAR}, #{oriOrgId,jdbcType=CHAR}, 
+      #{oriOprTransId,jdbcType=VARCHAR}, #{oriTransDate,jdbcType=CHAR}, #{backFlag,jdbcType=CHAR}, 
+      #{refundFlag,jdbcType=CHAR}, #{reverseFlag,jdbcType=CHAR}, #{reconciliationFlag,jdbcType=CHAR}, 
+      #{status,jdbcType=CHAR}, #{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=VARCHAR}, 
+      #{lSeqId,jdbcType=VARCHAR}, #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, 
+      #{reserved3,jdbcType=VARCHAR}, #{reserved4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysTmallBillPay" timeout="60000">
+    insert into UPAY_CSYS_TMALL_BILL_PAY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        seq_id,
+      </if>
+      <if test="intTxnSeq != null" >
+        int_txn_seq,
+      </if>
+      <if test="intTransCode != null" >
+        int_trans_code,
+      </if>
+      <if test="intTxnDate != null" >
+        int_txn_date,
+      </if>
+      <if test="intTxnTime != null" >
+        int_txn_time,
+      </if>
+      <if test="settleDate != null" >
+        settle_date,
+      </if>
+      <if test="payMode != null" >
+        pay_mode,
+      </if>
+      <if test="bussType != null" >
+        buss_type,
+      </if>
+      <if test="bussChl != null" >
+        buss_chl,
+      </if>
+      <if test="tmallActivityCode != null" >
+        tmall_activity_code,
+      </if>
+      <if test="tmallOrgId != null" >
+        tmall_org_id,
+      </if>
+      <if test="tmallRouteInfo != null" >
+        tmall_route_info,
+      </if>
+      <if test="tmallTransId != null" >
+        tmall_trans_id,
+      </if>
+      <if test="tmallTransDt != null" >
+        tmall_trans_dt,
+      </if>
+      <if test="tmallTransTm != null" >
+        tmall_trans_tm,
+      </if>
+      <if test="tmallTranshId != null" >
+        tmall_transh_id,
+      </if>
+      <if test="tmallTranshDt != null" >
+        tmall_transh_dt,
+      </if>
+      <if test="tmallTranshTm != null" >
+        tmall_transh_tm,
+      </if>
+      <if test="tmallCnlType != null" >
+        tmall_cnl_type,
+      </if>
+      <if test="crmBipCode != null" >
+        crm_bip_code,
+      </if>
+      <if test="crmActivityCode != null" >
+        crm_activity_code,
+      </if>
+      <if test="crmOrgId != null" >
+        crm_org_id,
+      </if>
+      <if test="crmRouteType != null" >
+        crm_route_type,
+      </if>
+      <if test="crmRouteVal != null" >
+        crm_route_val,
+      </if>
+      <if test="crmRouteInfo != null" >
+        crm_route_info,
+      </if>
+      <if test="crmSessionId != null" >
+        crm_session_id,
+      </if>
+      <if test="crmTransId != null" >
+        crm_trans_id,
+      </if>
+      <if test="crmTransDt != null" >
+        crm_trans_dt,
+      </if>
+      <if test="crmTransTm != null" >
+        crm_trans_tm,
+      </if>
+      <if test="crmTranshId != null" >
+        crm_transh_id,
+      </if>
+      <if test="crmTranshDt != null" >
+        crm_transh_dt,
+      </if>
+      <if test="crmTranshTm != null" >
+        crm_transh_tm,
+      </if>
+      <if test="crmOprId != null" >
+        crm_opr_id,
+      </if>
+      <if test="crmOprDt != null" >
+        crm_opr_dt,
+      </if>
+      <if test="crmOprTm != null" >
+        crm_opr_tm,
+      </if>
+      <if test="crmCnlType != null" >
+        crm_cnl_type,
+      </if>
+      <if test="crmStartTm != null" >
+        crm_start_tm,
+      </if>
+      <if test="crmEndTm != null" >
+        crm_end_tm,
+      </if>
+      <if test="idProvince != null" >
+        id_province,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="payTransId != null" >
+        pay_trans_id,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="idValue != null" >
+        id_value,
+      </if>
+      <if test="homeProv != null" >
+        home_prov,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="chargeMoney != null" >
+        charge_money,
+      </if>
+      <if test="prodCnt != null" >
+        prod_cnt,
+      </if>
+      <if test="prodId != null" >
+        prod_id,
+      </if>
+      <if test="commision != null" >
+        commision,
+      </if>
+      <if test="rebateFee != null" >
+        rebate_fee,
+      </if>
+      <if test="prodDiscount != null" >
+        prod_discount,
+      </if>
+      <if test="creditCardFee != null" >
+        credit_card_fee,
+      </if>
+      <if test="serviceFee != null" >
+        service_fee,
+      </if>
+      <if test="payedType != null" >
+        payed_type,
+      </if>
+      <if test="activityNo != null" >
+        activity_no,
+      </if>
+      <if test="prodShelfNo != null" >
+        prod_shelf_no,
+      </if>
+      <if test="resendCount != null" >
+        resend_count,
+      </if>
+      <if test="userCat != null" >
+        user_cat,
+      </if>
+      <if test="tmallRspCode != null" >
+        tmall_rsp_code,
+      </if>
+      <if test="tmallRspDesc != null" >
+        tmall_rsp_desc,
+      </if>
+      <if test="crmRspType != null" >
+        crm_rsp_type,
+      </if>
+      <if test="crmRspCode != null" >
+        crm_rsp_code,
+      </if>
+      <if test="crmSubRspCode != null" >
+        crm_sub_rsp_code,
+      </if>
+      <if test="crmRspDesc != null" >
+        crm_rsp_desc,
+      </if>
+      <if test="crmSubRspDesc != null" >
+        crm_sub_rsp_desc,
+      </if>
+      <if test="oriOrgId != null" >
+        ori_org_id,
+      </if>
+      <if test="oriOprTransId != null" >
+        ori_opr_trans_id,
+      </if>
+      <if test="oriTransDate != null" >
+        ori_trans_date,
+      </if>
+      <if test="backFlag != null" >
+        back_flag,
+      </if>
+      <if test="refundFlag != null" >
+        refund_flag,
+      </if>
+      <if test="reverseFlag != null" >
+        reverse_flag,
+      </if>
+      <if test="reconciliationFlag != null" >
+        reconciliation_flag,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="lSeqId != null" >
+        l_seq_id,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+      <if test="reserved4 != null" >
+        reserved4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        #{seqId,jdbcType=NUMERIC},
+      </if>
+      <if test="intTxnSeq != null" >
+        #{intTxnSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="intTransCode != null" >
+        #{intTransCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intTxnDate != null" >
+        #{intTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="intTxnTime != null" >
+        #{intTxnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="settleDate != null" >
+        #{settleDate,jdbcType=CHAR},
+      </if>
+      <if test="payMode != null" >
+        #{payMode,jdbcType=CHAR},
+      </if>
+      <if test="bussType != null" >
+        #{bussType,jdbcType=CHAR},
+      </if>
+      <if test="bussChl != null" >
+        #{bussChl,jdbcType=CHAR},
+      </if>
+      <if test="tmallActivityCode != null" >
+        #{tmallActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="tmallOrgId != null" >
+        #{tmallOrgId,jdbcType=CHAR},
+      </if>
+      <if test="tmallRouteInfo != null" >
+        #{tmallRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="tmallTransId != null" >
+        #{tmallTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallTransDt != null" >
+        #{tmallTransDt,jdbcType=CHAR},
+      </if>
+      <if test="tmallTransTm != null" >
+        #{tmallTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallTranshId != null" >
+        #{tmallTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallTranshDt != null" >
+        #{tmallTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="tmallTranshTm != null" >
+        #{tmallTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallCnlType != null" >
+        #{tmallCnlType,jdbcType=CHAR},
+      </if>
+      <if test="crmBipCode != null" >
+        #{crmBipCode,jdbcType=CHAR},
+      </if>
+      <if test="crmActivityCode != null" >
+        #{crmActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="crmOrgId != null" >
+        #{crmOrgId,jdbcType=CHAR},
+      </if>
+      <if test="crmRouteType != null" >
+        #{crmRouteType,jdbcType=CHAR},
+      </if>
+      <if test="crmRouteVal != null" >
+        #{crmRouteVal,jdbcType=VARCHAR},
+      </if>
+      <if test="crmRouteInfo != null" >
+        #{crmRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="crmSessionId != null" >
+        #{crmSessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="crmTransId != null" >
+        #{crmTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="crmTransDt != null" >
+        #{crmTransDt,jdbcType=CHAR},
+      </if>
+      <if test="crmTransTm != null" >
+        #{crmTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="crmTranshId != null" >
+        #{crmTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="crmTranshDt != null" >
+        #{crmTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="crmTranshTm != null" >
+        #{crmTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="crmOprId != null" >
+        #{crmOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="crmOprDt != null" >
+        #{crmOprDt,jdbcType=CHAR},
+      </if>
+      <if test="crmOprTm != null" >
+        #{crmOprTm,jdbcType=VARCHAR},
+      </if>
+      <if test="crmCnlType != null" >
+        #{crmCnlType,jdbcType=CHAR},
+      </if>
+      <if test="crmStartTm != null" >
+        #{crmStartTm,jdbcType=VARCHAR},
+      </if>
+      <if test="crmEndTm != null" >
+        #{crmEndTm,jdbcType=VARCHAR},
+      </if>
+      <if test="idProvince != null" >
+        #{idProvince,jdbcType=CHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="payTransId != null" >
+        #{payTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idValue != null" >
+        #{idValue,jdbcType=VARCHAR},
+      </if>
+      <if test="homeProv != null" >
+        #{homeProv,jdbcType=CHAR},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=NUMERIC},
+      </if>
+      <if test="chargeMoney != null" >
+        #{chargeMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="prodCnt != null" >
+        #{prodCnt,jdbcType=NUMERIC},
+      </if>
+      <if test="prodId != null" >
+        #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="commision != null" >
+        #{commision,jdbcType=NUMERIC},
+      </if>
+      <if test="rebateFee != null" >
+        #{rebateFee,jdbcType=NUMERIC},
+      </if>
+      <if test="prodDiscount != null" >
+        #{prodDiscount,jdbcType=NUMERIC},
+      </if>
+      <if test="creditCardFee != null" >
+        #{creditCardFee,jdbcType=NUMERIC},
+      </if>
+      <if test="serviceFee != null" >
+        #{serviceFee,jdbcType=NUMERIC},
+      </if>
+      <if test="payedType != null" >
+        #{payedType,jdbcType=CHAR},
+      </if>
+      <if test="activityNo != null" >
+        #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prodShelfNo != null" >
+        #{prodShelfNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resendCount != null" >
+        #{resendCount,jdbcType=NUMERIC},
+      </if>
+      <if test="userCat != null" >
+        #{userCat,jdbcType=CHAR},
+      </if>
+      <if test="tmallRspCode != null" >
+        #{tmallRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallRspDesc != null" >
+        #{tmallRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crmRspType != null" >
+        #{crmRspType,jdbcType=CHAR},
+      </if>
+      <if test="crmRspCode != null" >
+        #{crmRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="crmSubRspCode != null" >
+        #{crmSubRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="crmRspDesc != null" >
+        #{crmRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crmSubRspDesc != null" >
+        #{crmSubRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="oriOrgId != null" >
+        #{oriOrgId,jdbcType=CHAR},
+      </if>
+      <if test="oriOprTransId != null" >
+        #{oriOprTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="oriTransDate != null" >
+        #{oriTransDate,jdbcType=CHAR},
+      </if>
+      <if test="backFlag != null" >
+        #{backFlag,jdbcType=CHAR},
+      </if>
+      <if test="refundFlag != null" >
+        #{refundFlag,jdbcType=CHAR},
+      </if>
+      <if test="reverseFlag != null" >
+        #{reverseFlag,jdbcType=CHAR},
+      </if>
+      <if test="reconciliationFlag != null" >
+        #{reconciliationFlag,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lSeqId != null" >
+        #{lSeqId,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved4 != null" >
+        #{reserved4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysTmallBillPay" >
+    update UPAY_CSYS_TMALL_BILL_PAY
+    <set >
+      <if test="intTxnSeq != null" >
+        int_txn_seq = #{intTxnSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="intTransCode != null" >
+        int_trans_code = #{intTransCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intTxnDate != null" >
+        int_txn_date = #{intTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="intTxnTime != null" >
+        int_txn_time = #{intTxnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="settleDate != null" >
+        settle_date = #{settleDate,jdbcType=CHAR},
+      </if>
+      <if test="payMode != null" >
+        pay_mode = #{payMode,jdbcType=CHAR},
+      </if>
+      <if test="bussType != null" >
+        buss_type = #{bussType,jdbcType=CHAR},
+      </if>
+      <if test="bussChl != null" >
+        buss_chl = #{bussChl,jdbcType=CHAR},
+      </if>
+      <if test="tmallActivityCode != null" >
+        tmall_activity_code = #{tmallActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="tmallOrgId != null" >
+        tmall_org_id = #{tmallOrgId,jdbcType=CHAR},
+      </if>
+      <if test="tmallRouteInfo != null" >
+        tmall_route_info = #{tmallRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="tmallTransId != null" >
+        tmall_trans_id = #{tmallTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallTransDt != null" >
+        tmall_trans_dt = #{tmallTransDt,jdbcType=CHAR},
+      </if>
+      <if test="tmallTransTm != null" >
+        tmall_trans_tm = #{tmallTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallTranshId != null" >
+        tmall_transh_id = #{tmallTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallTranshDt != null" >
+        tmall_transh_dt = #{tmallTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="tmallTranshTm != null" >
+        tmall_transh_tm = #{tmallTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallCnlType != null" >
+        tmall_cnl_type = #{tmallCnlType,jdbcType=CHAR},
+      </if>
+      <if test="crmBipCode != null" >
+        crm_bip_code = #{crmBipCode,jdbcType=CHAR},
+      </if>
+      <if test="crmActivityCode != null" >
+        crm_activity_code = #{crmActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="crmOrgId != null" >
+        crm_org_id = #{crmOrgId,jdbcType=CHAR},
+      </if>
+      <if test="crmRouteType != null" >
+        crm_route_type = #{crmRouteType,jdbcType=CHAR},
+      </if>
+      <if test="crmRouteVal != null" >
+        crm_route_val = #{crmRouteVal,jdbcType=VARCHAR},
+      </if>
+      <if test="crmRouteInfo != null" >
+        crm_route_info = #{crmRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="crmSessionId != null" >
+        crm_session_id = #{crmSessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="crmTransId != null" >
+        crm_trans_id = #{crmTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="crmTransDt != null" >
+        crm_trans_dt = #{crmTransDt,jdbcType=CHAR},
+      </if>
+      <if test="crmTransTm != null" >
+        crm_trans_tm = #{crmTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="crmTranshId != null" >
+        crm_transh_id = #{crmTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="crmTranshDt != null" >
+        crm_transh_dt = #{crmTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="crmTranshTm != null" >
+        crm_transh_tm = #{crmTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="crmOprId != null" >
+        crm_opr_id = #{crmOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="crmOprDt != null" >
+        crm_opr_dt = #{crmOprDt,jdbcType=CHAR},
+      </if>
+      <if test="crmOprTm != null" >
+        crm_opr_tm = #{crmOprTm,jdbcType=VARCHAR},
+      </if>
+      <if test="crmCnlType != null" >
+        crm_cnl_type = #{crmCnlType,jdbcType=CHAR},
+      </if>
+      <if test="crmStartTm != null" >
+        crm_start_tm = #{crmStartTm,jdbcType=VARCHAR},
+      </if>
+      <if test="crmEndTm != null" >
+        crm_end_tm = #{crmEndTm,jdbcType=VARCHAR},
+      </if>
+      <if test="idProvince != null" >
+        id_province = #{idProvince,jdbcType=CHAR},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="payTransId != null" >
+        pay_trans_id = #{payTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idValue != null" >
+        id_value = #{idValue,jdbcType=VARCHAR},
+      </if>
+      <if test="homeProv != null" >
+        home_prov = #{homeProv,jdbcType=CHAR},
+      </if>
+      <if test="payment != null" >
+        payment = #{payment,jdbcType=NUMERIC},
+      </if>
+      <if test="chargeMoney != null" >
+        charge_money = #{chargeMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="prodCnt != null" >
+        prod_cnt = #{prodCnt,jdbcType=NUMERIC},
+      </if>
+      <if test="prodId != null" >
+        prod_id = #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="commision != null" >
+        commision = #{commision,jdbcType=NUMERIC},
+      </if>
+      <if test="rebateFee != null" >
+        rebate_fee = #{rebateFee,jdbcType=NUMERIC},
+      </if>
+      <if test="prodDiscount != null" >
+        prod_discount = #{prodDiscount,jdbcType=NUMERIC},
+      </if>
+      <if test="creditCardFee != null" >
+        credit_card_fee = #{creditCardFee,jdbcType=NUMERIC},
+      </if>
+      <if test="serviceFee != null" >
+        service_fee = #{serviceFee,jdbcType=NUMERIC},
+      </if>
+      <if test="payedType != null" >
+        payed_type = #{payedType,jdbcType=CHAR},
+      </if>
+      <if test="activityNo != null" >
+        activity_no = #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prodShelfNo != null" >
+        prod_shelf_no = #{prodShelfNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resendCount != null" >
+        resend_count = #{resendCount,jdbcType=NUMERIC},
+      </if>
+      <if test="userCat != null" >
+        user_cat = #{userCat,jdbcType=CHAR},
+      </if>
+      <if test="tmallRspCode != null" >
+        tmall_rsp_code = #{tmallRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tmallRspDesc != null" >
+        tmall_rsp_desc = #{tmallRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crmRspType != null" >
+        crm_rsp_type = #{crmRspType,jdbcType=CHAR},
+      </if>
+      <if test="crmRspCode != null" >
+        crm_rsp_code = #{crmRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="crmSubRspCode != null" >
+        crm_sub_rsp_code = #{crmSubRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="crmRspDesc != null" >
+        crm_rsp_desc = #{crmRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crmSubRspDesc != null" >
+        crm_sub_rsp_desc = #{crmSubRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="oriOrgId != null" >
+        ori_org_id = #{oriOrgId,jdbcType=CHAR},
+      </if>
+      <if test="oriOprTransId != null" >
+        ori_opr_trans_id = #{oriOprTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="oriTransDate != null" >
+        ori_trans_date = #{oriTransDate,jdbcType=CHAR},
+      </if>
+      <if test="backFlag != null" >
+        back_flag = #{backFlag,jdbcType=CHAR},
+      </if>
+      <if test="refundFlag != null" >
+        refund_flag = #{refundFlag,jdbcType=CHAR},
+      </if>
+      <if test="reverseFlag != null" >
+        reverse_flag = #{reverseFlag,jdbcType=CHAR},
+      </if>
+      <if test="reconciliationFlag != null" >
+        reconciliation_flag = #{reconciliationFlag,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lSeqId != null" >
+        l_seq_id = #{lSeqId,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved4 != null" >
+        reserved4 = #{reserved4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysTmallBillPay" >
+    update UPAY_CSYS_TMALL_BILL_PAY
+    set int_txn_seq = #{intTxnSeq,jdbcType=VARCHAR},
+      int_trans_code = #{intTransCode,jdbcType=VARCHAR},
+      int_txn_date = #{intTxnDate,jdbcType=CHAR},
+      int_txn_time = #{intTxnTime,jdbcType=VARCHAR},
+      settle_date = #{settleDate,jdbcType=CHAR},
+      pay_mode = #{payMode,jdbcType=CHAR},
+      buss_type = #{bussType,jdbcType=CHAR},
+      buss_chl = #{bussChl,jdbcType=CHAR},
+      tmall_activity_code = #{tmallActivityCode,jdbcType=CHAR},
+      tmall_org_id = #{tmallOrgId,jdbcType=CHAR},
+      tmall_route_info = #{tmallRouteInfo,jdbcType=CHAR},
+      tmall_trans_id = #{tmallTransId,jdbcType=VARCHAR},
+      tmall_trans_dt = #{tmallTransDt,jdbcType=CHAR},
+      tmall_trans_tm = #{tmallTransTm,jdbcType=VARCHAR},
+      tmall_transh_id = #{tmallTranshId,jdbcType=VARCHAR},
+      tmall_transh_dt = #{tmallTranshDt,jdbcType=CHAR},
+      tmall_transh_tm = #{tmallTranshTm,jdbcType=VARCHAR},
+      tmall_cnl_type = #{tmallCnlType,jdbcType=CHAR},
+      crm_bip_code = #{crmBipCode,jdbcType=CHAR},
+      crm_activity_code = #{crmActivityCode,jdbcType=CHAR},
+      crm_org_id = #{crmOrgId,jdbcType=CHAR},
+      crm_route_type = #{crmRouteType,jdbcType=CHAR},
+      crm_route_val = #{crmRouteVal,jdbcType=VARCHAR},
+      crm_route_info = #{crmRouteInfo,jdbcType=CHAR},
+      crm_session_id = #{crmSessionId,jdbcType=VARCHAR},
+      crm_trans_id = #{crmTransId,jdbcType=VARCHAR},
+      crm_trans_dt = #{crmTransDt,jdbcType=CHAR},
+      crm_trans_tm = #{crmTransTm,jdbcType=VARCHAR},
+      crm_transh_id = #{crmTranshId,jdbcType=VARCHAR},
+      crm_transh_dt = #{crmTranshDt,jdbcType=CHAR},
+      crm_transh_tm = #{crmTranshTm,jdbcType=VARCHAR},
+      crm_opr_id = #{crmOprId,jdbcType=VARCHAR},
+      crm_opr_dt = #{crmOprDt,jdbcType=CHAR},
+      crm_opr_tm = #{crmOprTm,jdbcType=VARCHAR},
+      crm_cnl_type = #{crmCnlType,jdbcType=CHAR},
+      crm_start_tm = #{crmStartTm,jdbcType=VARCHAR},
+      crm_end_tm = #{crmEndTm,jdbcType=VARCHAR},
+      id_province = #{idProvince,jdbcType=CHAR},
+      order_id = #{orderId,jdbcType=VARCHAR},
+      pay_trans_id = #{payTransId,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=CHAR},
+      id_value = #{idValue,jdbcType=VARCHAR},
+      home_prov = #{homeProv,jdbcType=CHAR},
+      payment = #{payment,jdbcType=NUMERIC},
+      charge_money = #{chargeMoney,jdbcType=NUMERIC},
+      prod_cnt = #{prodCnt,jdbcType=NUMERIC},
+      prod_id = #{prodId,jdbcType=VARCHAR},
+      commision = #{commision,jdbcType=NUMERIC},
+      rebate_fee = #{rebateFee,jdbcType=NUMERIC},
+      prod_discount = #{prodDiscount,jdbcType=NUMERIC},
+      credit_card_fee = #{creditCardFee,jdbcType=NUMERIC},
+      service_fee = #{serviceFee,jdbcType=NUMERIC},
+      payed_type = #{payedType,jdbcType=CHAR},
+      activity_no = #{activityNo,jdbcType=VARCHAR},
+      prod_shelf_no = #{prodShelfNo,jdbcType=VARCHAR},
+      resend_count = #{resendCount,jdbcType=NUMERIC},
+      user_cat = #{userCat,jdbcType=CHAR},
+      tmall_rsp_code = #{tmallRspCode,jdbcType=VARCHAR},
+      tmall_rsp_desc = #{tmallRspDesc,jdbcType=VARCHAR},
+      crm_rsp_type = #{crmRspType,jdbcType=CHAR},
+      crm_rsp_code = #{crmRspCode,jdbcType=VARCHAR},
+      crm_sub_rsp_code = #{crmSubRspCode,jdbcType=VARCHAR},
+      crm_rsp_desc = #{crmRspDesc,jdbcType=VARCHAR},
+      crm_sub_rsp_desc = #{crmSubRspDesc,jdbcType=VARCHAR},
+      ori_org_id = #{oriOrgId,jdbcType=CHAR},
+      ori_opr_trans_id = #{oriOprTransId,jdbcType=VARCHAR},
+      ori_trans_date = #{oriTransDate,jdbcType=CHAR},
+      back_flag = #{backFlag,jdbcType=CHAR},
+      refund_flag = #{refundFlag,jdbcType=CHAR},
+      reverse_flag = #{reverseFlag,jdbcType=CHAR},
+      reconciliation_flag = #{reconciliationFlag,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=VARCHAR},
+      l_seq_id = #{lSeqId,jdbcType=VARCHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR},
+      reserved4 = #{reserved4,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  
+     <select id="selectByParams" resultMap="BaseResultMap">
+       select
+      <include refid="Base_Column_List" />
+      from UPAY_CSYS_TMALL_BILL_PAY
+      where 1=1
+      <if test="params.intTxnSeq != null">
+        and int_txn_seq = #{params.intTxnSeq}
+      </if>
+      <if test="params.intTransCode != null">
+        and int_trans_code = #{params.intTransCode}
+      </if>
+      <if test="params.intTxnDate != null">
+        and int_txn_date = #{params.intTxnDate}
+      </if>
+      <if test="params.settleDate != null">
+        and settle_date = #{params.settleDate}
+      </if>
+      <if test="params.tmallTransId != null">
+      and tmall_trans_id = #{params.tmallTransId}
+      </if>
+      <if test="params.tmallTransDt != null">
+      and tmall_trans_dt = #{params.tmallTransDt,jdbcType=CHAR}
+      </if>
+      <if test="params.tmallRspCode != null">
+      and  tmall_rsp_code = #{params.tmallRspCode,jdbcType=VARCHAR}
+      </if>
+      <if test="params.oriOprTransId != null">
+      and  ori_opr_trans_id = #{params.oriOprTransId,jdbcType=VARCHAR}
+      </if>
+      <if test="params.tmallRouteInfo != null">
+      and  tmall_route_info = #{params.tmallRouteInfo,jdbcType=VARCHAR}
+      </if>
+       <if test="params.tmallOrgId != null">
+      and  tmall_org_id = #{params.tmallOrgId,jdbcType=VARCHAR}
+      </if>
+       <if test="params.status != null">
+      and  status = #{params.status,jdbcType=VARCHAR}
+      </if>
+      
+      <choose>
+            <when test="params.orderParam != null">
+                order by ${params.orderParam}
+                </when>
+            <otherwise>
+                order by last_upd_time desc
+            </otherwise>
+        </choose>
+      
+    </select>
+  
+     <select id="selectListByParams" resultMap="BaseResultMap">
+       select
+      <include refid="Base_Column_List" />
+      from UPAY_CSYS_TMALL_BILL_PAY
+      where 1=1
+      <if test="params.intTxnSeq != null">
+        and int_txn_seq = #{params.intTxnSeq}
+      </if>
+      <if test="params.intTransCode != null">
+        and int_trans_code = #{params.intTransCode}
+      </if>
+      <if test="params.intTxnDate != null">
+        and int_txn_date = #{params.intTxnDate}
+      </if>
+      <if test="params.bussType != null">
+        and buss_type = #{params.bussType,jdbcType=CHAR}
+      </if>
+      <if test="params.settleDate != null">
+        and settle_date = #{params.settleDate}
+      </if>
+      <if test="params.tmallTransId != null">
+      and tmall_trans_id = #{params.tmallTransId}
+      </if>
+      <if test="params.tmallTransDt != null">
+      and tmall_trans_dt = #{params.tmallTransDt,jdbcType=CHAR}
+      </if>
+      <if test="params.tmallRspCode != null">
+      and  tmall_rsp_code = #{params.tmallRspCode,jdbcType=VARCHAR}
+      </if>
+      <if test="params.oriOprTransId != null">
+      and  ori_opr_trans_id = #{params.oriOprTransId,jdbcType=VARCHAR}
+      </if>
+      <if test="params.tmallRouteInfo != null">
+      and  tmall_route_info = #{params.tmallRouteInfo,jdbcType=VARCHAR}
+      </if>
+       <if test="params.tmallOrgId != null">
+      and  tmall_org_id = #{params.tmallOrgId,jdbcType=VARCHAR}
+      </if>
+       <if test="params.status != null">
+      and  status = #{params.status,jdbcType=VARCHAR}
+      </if>
+      
+      <choose>
+            <when test="params.orderParam != null">
+                order by ${params.orderParam}
+                </when>
+            <otherwise>
+                order by last_upd_time desc
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

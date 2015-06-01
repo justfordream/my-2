@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysImsiLdCdMapper" >
+   <cache flushInterval="1080000" size="50000" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysImsiLdCd" >
+    <id column="IMSI_AREA_ID" property="imsiAreaId" jdbcType="VARCHAR" />
+    <id column="EFFC_TM" property="effcTm" jdbcType="VARCHAR" />
+    <result column="MSISDN_AREA_ID" property="msisdnAreaId" jdbcType="VARCHAR" />
+    <result column="LD_AREA_CD" property="ldAreaCd" jdbcType="VARCHAR" />
+    <result column="IMSI_TYPE" property="imsiType" jdbcType="VARCHAR" />
+    <result column="EXPIRED_TM" property="expiredTm" jdbcType="VARCHAR" />
+    <result column="ACCORDING_FILE_NM" property="accordingFileNm" jdbcType="VARCHAR" />
+    <result column="LD_AREA_NM" property="ldAreaNm" jdbcType="VARCHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    IMSI_AREA_ID, EFFC_TM, MSISDN_AREA_ID, LD_AREA_CD, IMSI_TYPE, EXPIRED_TM, ACCORDING_FILE_NM, 
+    LD_AREA_NM, reserved1, reserved2, reserved3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.huateng.cmupay.models.UpayCsysImsiLdCd" >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_IMSI_LD_CD
+    where IMSI_AREA_ID = #{imsiAreaId,jdbcType=VARCHAR}
+      and EFFC_TM = #{effcTm,jdbcType=VARCHAR}
+       <![CDATA[  and (getdate() >= convert(datetime, effc_tm) and getdate() <= convert(datetime, expired_tm)) ]]>
+  </select>
+
+  <select id="selectProvNoSegment" parameterType="java.lang.String" resultType="java.util.List" >
+  	SELECT B.PROV_CD,A.MSISDN_AREA_ID FROM UPAY_CSYS_IMSI_LD_CD A,UPAY_CSYS_LD_AREA_CD_PROV_EXT B
+	WHERE A.LD_AREA_CD = B.LD_AREA_CD
+	 <![CDATA[  and (getdate() >= convert(datetime, A.effc_tm) and getdate() <= convert(datetime, A.expired_tm))
+	 	and (getdate() >= convert(datetime, B.effc_tm) and getdate() <= convert(datetime, B.expired_tm)) ]]>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysImsiLdCd" >
+    delete from UPAY_CSYS_IMSI_LD_CD
+    where IMSI_AREA_ID = #{imsiAreaId,jdbcType=VARCHAR}
+      and EFFC_TM = #{effcTm,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByUnionKey">
+  	 delete from UPAY_CSYS_IMSI_LD_CD
+    where IMSI_AREA_ID = #{imsiAreaId,jdbcType=VARCHAR}
+      and EFFC_TM = #{effcTm,jdbcType=VARCHAR}
+  </delete>
+  <select id="selectProvinceByMobileNumber" parameterType="java.lang.String" resultType="java.lang.String" >
+  	SELECT distinct(B.PROV_CD) FROM UPAY_CSYS_IMSI_LD_CD A,UPAY_CSYS_LD_AREA_CD_PROV_EXT B
+	WHERE A.LD_AREA_CD = B.LD_AREA_CD
+	and MSISDN_AREA_ID = #{msisdnAreaId,jdbcType=VARCHAR}
+	<![CDATA[  and (getdate() >= convert(datetime, A.effc_tm) and getdate() <= convert(datetime, A.expired_tm))
+	 	and (getdate() >= convert(datetime, B.effc_tm) and getdate() <= convert(datetime, B.expired_tm)) ]]>
+  </select>
+  <select id="selectProvincesByMobileNumber" parameterType="java.lang.String" resultType="java.lang.String" >
+  	SELECT B.PROV_CD FROM UPAY_CSYS_IMSI_LD_CD A,UPAY_CSYS_LD_AREA_CD_PROV_EXT B
+	WHERE A.LD_AREA_CD = B.LD_AREA_CD
+	and MSISDN_AREA_ID = #{msisdnAreaId,jdbcType=VARCHAR}
+	<![CDATA[  and (getdate() >= convert(datetime, A.effc_tm) and getdate() <= convert(datetime, A.expired_tm))
+	 	and (getdate() >= convert(datetime, B.effc_tm) and getdate() <= convert(datetime, B.expired_tm)) ]]>
+  </select>
+  
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysImsiLdCd" >
+    insert into UPAY_CSYS_IMSI_LD_CD (IMSI_AREA_ID, EFFC_TM, MSISDN_AREA_ID, 
+      LD_AREA_CD, IMSI_TYPE, EXPIRED_TM, 
+      ACCORDING_FILE_NM, LD_AREA_NM, reserved1, 
+      reserved2, reserved3)
+    values (#{imsiAreaId,jdbcType=VARCHAR}, #{effcTm,jdbcType=VARCHAR}, #{msisdnAreaId,jdbcType=VARCHAR}, 
+      #{ldAreaCd,jdbcType=VARCHAR}, #{imsiType,jdbcType=VARCHAR}, #{expiredTm,jdbcType=VARCHAR}, 
+      #{accordingFileNm,jdbcType=VARCHAR}, #{ldAreaNm,jdbcType=VARCHAR}, #{reserved1,jdbcType=VARCHAR}, 
+      #{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysImsiLdCd" >
+    insert into UPAY_CSYS_IMSI_LD_CD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="imsiAreaId != null" >
+        IMSI_AREA_ID,
+      </if>
+      <if test="effcTm != null" >
+        EFFC_TM,
+      </if>
+      <if test="msisdnAreaId != null" >
+        MSISDN_AREA_ID,
+      </if>
+      <if test="ldAreaCd != null" >
+        LD_AREA_CD,
+      </if>
+      <if test="imsiType != null" >
+        IMSI_TYPE,
+      </if>
+      <if test="expiredTm != null" >
+        EXPIRED_TM,
+      </if>
+      <if test="accordingFileNm != null" >
+        ACCORDING_FILE_NM,
+      </if>
+      <if test="ldAreaNm != null" >
+        LD_AREA_NM,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="imsiAreaId != null" >
+        #{imsiAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="effcTm != null" >
+        #{effcTm,jdbcType=VARCHAR},
+      </if>
+      <if test="msisdnAreaId != null" >
+        #{msisdnAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="ldAreaCd != null" >
+        #{ldAreaCd,jdbcType=VARCHAR},
+      </if>
+      <if test="imsiType != null" >
+        #{imsiType,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredTm != null" >
+        #{expiredTm,jdbcType=VARCHAR},
+      </if>
+      <if test="accordingFileNm != null" >
+        #{accordingFileNm,jdbcType=VARCHAR},
+      </if>
+      <if test="ldAreaNm != null" >
+        #{ldAreaNm,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysImsiLdCd" >
+    update UPAY_CSYS_IMSI_LD_CD
+    <set >
+      <if test="msisdnAreaId != null" >
+        MSISDN_AREA_ID = #{msisdnAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="ldAreaCd != null" >
+        LD_AREA_CD = #{ldAreaCd,jdbcType=VARCHAR},
+      </if>
+      <if test="imsiType != null" >
+        IMSI_TYPE = #{imsiType,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredTm != null" >
+        EXPIRED_TM = #{expiredTm,jdbcType=VARCHAR},
+      </if>
+      <if test="accordingFileNm != null" >
+        ACCORDING_FILE_NM = #{accordingFileNm,jdbcType=VARCHAR},
+      </if>
+      <if test="ldAreaNm != null" >
+        LD_AREA_NM = #{ldAreaNm,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where IMSI_AREA_ID = #{imsiAreaId,jdbcType=VARCHAR}
+      and EFFC_TM = #{effcTm,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysImsiLdCd" >
+    update UPAY_CSYS_IMSI_LD_CD
+    set MSISDN_AREA_ID = #{msisdnAreaId,jdbcType=VARCHAR},
+      LD_AREA_CD = #{ldAreaCd,jdbcType=VARCHAR},
+      IMSI_TYPE = #{imsiType,jdbcType=VARCHAR},
+      EXPIRED_TM = #{expiredTm,jdbcType=VARCHAR},
+      ACCORDING_FILE_NM = #{accordingFileNm,jdbcType=VARCHAR},
+      LD_AREA_NM = #{ldAreaNm,jdbcType=VARCHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where IMSI_AREA_ID = #{imsiAreaId,jdbcType=VARCHAR}
+      and EFFC_TM = #{effcTm,jdbcType=VARCHAR}
+  </update>
+  
+    <select id="selectAllListByParams" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_IMSI_LD_CD
+    <![CDATA[  where getdate() >= convert(datetime, effc_tm) and getdate() <= convert(datetime, expired_tm) ]]>
+  </select>
+  
+  
+</mapper>

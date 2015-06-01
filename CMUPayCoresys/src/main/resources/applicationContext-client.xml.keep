@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+    
+    <bean id="crmRemoting" class="com.huateng.cmupay.controller.intercepter.AuthHessianProxyFactory" scope="singleton">
+        <property name="connectTimeOut" value="${crm.connectTimeout}" />
+        <property name="readTimeOut" value="${crm.readTimeout}" />
+        <property name="serviceUrl" value="${crm.remoting.url}/CrmRemoting" />
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.CrmRemoting" />
+    </bean>
+ 
+    <bean id="mmarketRemoting" class="com.huateng.cmupay.controller.intercepter.AuthHessianProxyFactory" scope="singleton">
+        <property name="connectTimeOut" value="${mmarket.connectTimeout}" />
+        <property name="readTimeOut" value="${mmarket.readTimeout}" />
+        <property name="serviceUrl" value="http://localhost:8080/CMUPayMobileShopFront/remote/MMarketRemoting" />
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.MMarketRemoting" />
+    </bean>
+       
+<!--     <bean id="tupayRemoting" class="com.huateng.cmupay.controller.intercepter.AuthHessianProxyFactory" scope="singleton">
+        <property name="connectTimeOut" value="${tupay.connectTimeout}" />
+        <property name="readTimeOut" value="${tupay.readTimeout}" />
+        <property name="serviceUrl" value="${tupay.remoting.url}/TUpayRemoting" />
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.TUpayRemoting" />
+    </bean> -->
+
+    
+     <!-- 建设银行 -->
+    <!-- <bean id="0004_bankRemoting" class="com.huateng.cmupay.controller.intercepter.AuthHessianProxyFactory"  scope="singleton">
+        <property name="connectTimeOut" value="${bank.connectTimeout}" />
+        <property name="readTimeOut" value="${bank.readTimeout}" />
+        <property name="serviceUrl" value="${0004.bank.remoting.url}/BankRemoting" /> 
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.BankRemoting" />
+    </bean> -->
+    <!-- 浦发银行 -->
+    <!-- <bean id="0005_bankRemoting" class="com.huateng.cmupay.controller.intercepter.AuthHessianProxyFactory" scope="singleton">
+        <property name="connectTimeOut" value="${bank.connectTimeout}" />
+        <property name="readTimeOut" value="${bank.readTimeout}" />
+        <property name="serviceUrl" value="${0005.bank.remoting.url}/BankRemoting" /> 
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.BankRemoting" />
+    </bean> -->
+     <!-- 银行仿真 -->
+    <!-- <bean id="0009_bankRemoting" class="com.huateng.cmupay.controller.intercepter.AuthHessianProxyFactory" scope="singleton">
+        <property name="connectTimeOut" value="${bank.connectTimeout}" />
+        <property name="readTimeOut" value="${bank.readTimeout}" />
+        <property name="serviceUrl" value="${0009.bank.remoting.url}/BankRemoting" /> 
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.BankRemoting" />
+    </bean> -->
+    <!-- 银行仿真 -->
+    <!-- <bean id="9999_bankRemoting" class="com.huateng.cmupay.controller.intercepter.AuthHessianProxyFactory" scope="singleton">
+        <property name="connectTimeOut" value="${bank.connectTimeout}" />
+        <property name="readTimeOut" value="${bank.readTimeout}" />
+        <property name="serviceUrl" value="${9999.bank.remoting.url}/BankRemoting" /> 
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.BankRemoting" />
+    </bean> -->
+    <!-- 
+    <bean id="gateRemoting" class="com.huateng.cmupay.controller.intercepter.AuthHessianProxyFactory" scope="singleton">
+        <property name="connectTimeOut" value="${gate.connectTimeout}" />
+        <property name="readTimeOut" value="${gate.readTimeout}" />
+        <property name="serviceUrl" value="${gate.remoting.url}/GateRemoting" />
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.GateRemoting" />
+        
+    </bean>
+    
+    
+    按业务分接口， 拼接报文在前置 
+    
+      <bean id="gateRemoting" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl" value="${gate.remoting.url}/GateRemoting" />
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.GateRemoting" />
+        <property name="httpInvokerRequestExecutor">  
+                <bean class="com.huateng.cmupay.utils.HuatengCommonsHttpInvokerRequestExecutor"></bean>  
+        </property>  
+    </bean> 
+    
+      <bean id="gateRemoting" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl" value="${gate.remoting.url}/GateRemoting" />
+        <property name="serviceInterface" value="com.huateng.cmupay.remoting.client.GateRemoting" />
+        <property name="httpInvokerRequestExecutor">  
+                <bean class="com.huateng.cmupay.utils.HuatengCommonsHttpInvokerRequestExecutor"></bean>  
+        </property>  
+      </bean> 
+       -->
+</beans>

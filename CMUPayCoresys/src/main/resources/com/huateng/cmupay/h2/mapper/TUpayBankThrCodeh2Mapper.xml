@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.h2.mapper.TUpayBankThrCodeh2Mapper">
+	<cache flushInterval="3600000" size="512" readOnly="true"/>
+	<resultMap id="BaseResultMap" type="com.huateng.cmupay.models.TUpayBankThrCode" >
+		<result column="bank_id" property="bankId" jdbcType="VARCHAR" />
+		<result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+		<result column="thr_org_id" property="thrOrgId" jdbcType="VARCHAR" />
+		<result column="thr_bank_id" property="thrBankId" jdbcType="VARCHAR" />
+		<result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+		<result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+		<result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">bank_id,bank_name,thr_org_id,thr_bank_id,reserved1,reserved2,reserved3</sql>
+
+	<select id="selectByParams" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from TPAY_CSYS_THR_BANK_CODE
+		where 1=1
+		<if test="params.bankId != null" >
+       	 and bank_id = #{params.bankId}
+     	</if>
+        <if test="params.bankName != null" >
+         and bank_name = #{params.bankName}
+        </if>
+        <if test="params.thrOrgId != null" >
+         and thr_org_id = #{params.thrOrgId}
+        </if>
+        <if test="params.thrBankId != null" >
+         and thr_bank_id = #{params.thrBankId}
+        </if>
+        <if test="params.reserved1 != null" >
+         and reserved1 = #{params.reserved1}
+        </if>
+        <if test="params.reserved2 != null" >
+         and reserved2 = #{params.reserved2}
+        </if>
+        <if test="params.reserved3 != null" >
+         and reserved3 = #{params.reserved3}
+        </if> 
+	</select>
+	
+	<insert id="insertSelective" parameterType="com.huateng.cmupay.models.TUpayBankThrCode">
+		insert into TPAY_CSYS_THR_BANK_CODE
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+		  <if test="bankId != null" >
+	        bank_id,
+	      </if>
+	      <if test="bankName != null" >
+	        bank_name,
+	      </if>
+	      <if test="thrOrgId != null" >
+	        thr_org_id,
+	      </if>
+	      <if test="thrBankId != null" >
+	        thr_bank_id,
+	      </if>
+	      <if test="reserved1 != null" >
+	        reserved1,
+	      </if>
+	      <if test="reserved2 != null" >
+	        reserved2,
+	      </if>
+	      <if test="reserved3 != null" >
+	        reserved3,
+	      </if>
+	   </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+	   	  <if test="bankId != null" >
+	        #{bankId,jdbcType=VARCHAR},
+	      </if>
+	      <if test="bankName != null" >
+	        #{bankName,jdbcType=VARCHAR},
+	      </if>
+	      <if test="thrOrgId != null" >
+	        #{thrOrgId,jdbcType=VARCHAR},
+	      </if>
+	      <if test="thrBankId != null" >
+	        #{thrBankId,jdbcType=VARCHAR},
+	      </if>
+	      <if test="reserved1 != null" >
+	        #{reserved1,jdbcType=VARCHAR},
+	      </if>
+	      <if test="reserved2 != null" >
+	        #{reserved2,jdbcType=VARCHAR},
+	      </if>
+	      <if test="reserved3 != null" >
+	        #{reserved3,jdbcType=VARCHAR},
+	      </if>
+	   </trim>
+	</insert>
+	
+	<update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.TUpayBankThrCode">
+		update TPAY_CSYS_THR_BANK_CODE
+		<set>
+			<if test="bankId != null">
+				bank_id = #{bankId,jdbcType=VARCHAR},
+			</if>
+			<if test="bankName != null">
+				bank_name = #{bankName,jdbcType=VARCHAR},
+			</if>
+			<if test="thrOrgId != null">
+				thr_org_id = #{thrOrgId,jdbcType=VARCHAR},
+			</if>
+			<if test="thrBankId != null">
+				thr_bank_id = #{thrBankId,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved1 != null">
+				reserved1 = #{reserved1,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved2 != null">
+				reserved2 = #{reserved2,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved3 != null">
+				reserved3 = #{reserved3,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 1=1
+		<if test="bankId != null">
+		 and bank_id = #{bankId},
+		</if>
+		<if test="thrOrgId != null" >
+       	 and thr_org_id = #{thrOrgId}
+     	</if>
+        <if test="thrBankId != null" >
+         and thr_bank_id = #{thrBankId}
+        </if>
+	</update>
+	
+	<select id="selectAllListByParams" resultType="java.util.HashMap">
+		select
+		<include refid="Base_Column_List" />
+		from TPAY_CSYS_THR_BANK_CODE
+		where 1=1
+		<if test="params.bankId != null" >
+       	 and bank_id = #{params.bankId}
+     	</if>
+        <if test="params.bankName != null" >
+         and bank_name = #{params.bankName}
+        </if>
+        <if test="params.thrOrgId != null" >
+         and thr_org_id = #{params.thrOrgId}
+        </if>
+        <if test="params.thrBankId != null" >
+         and thr_bank_id = #{params.thrBankId}
+        </if>
+        <if test="params.reserved1 != null" >
+         and reserved1 = #{params.reserved1}
+        </if>
+        <if test="params.reserved2 != null" >
+         and reserved2 = #{params.reserved2}
+        </if>
+        <if test="params.reserved3 != null" >
+         and reserved3 = #{params.reserved3}
+        </if> 
+	</select>
+</mapper>

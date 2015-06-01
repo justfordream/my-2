@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tongweb-web-app PUBLIC '-//TONGTECH,CO.LTD//DTD TWNS 1.0 Servlet 2.5//EN' 
+'http://www.tongtech.com/j2ee/dtds/tongweb-web-app_2_5-0.dtd'>
+<tongweb-web-app>
+	<class-loader delegate="false" />
+</tongweb-web-app>

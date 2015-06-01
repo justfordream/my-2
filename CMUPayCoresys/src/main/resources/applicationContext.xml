@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+ 	
+ 	
+
+	<bean id="ApplicationContextBean" class="com.huateng.cmupay.tools.ApplicationContextBean" />
+    
+    <!-- JMS -->
+    <import resource="applicationContext-jms.xml" />
+    <!-- hessian -->
+    <import resource="applicationContext-client.xml" />
+    
+    
+    <import resource="applicationContext_h2.xml" /> 
+    <!-- <import resource="applicationContext-remoting.xml" /> -->
+    <!-- <import resource="applicationContext-redis.xml" /> -->
+    <!-- <import resource="applicationContext-memcached.xml" /> -->
+    
+    
+
+</beans>

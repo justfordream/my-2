@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysBankOuterErrcdMapper" >
+  <cache flushInterval="3600000" size="512" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysBankOuterErrcd" >
+    <id column="err_code" property="errCode" jdbcType="VARCHAR" />
+    <result column="platform_cd" property="platformCd" jdbcType="VARCHAR" />
+    <result column="err_flag" property="errFlag" jdbcType="CHAR" />
+    <result column="err_desc" property="errDesc" jdbcType="VARCHAR" />
+    <result column="inner_err_code" property="innerErrCode" jdbcType="VARCHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    err_code, platform_cd, err_flag, err_desc, inner_err_code, reserved1, reserved2, 
+    reserved3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String"  >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_BANK_OUTER_ERRCD
+    where err_code = #{errCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from UPAY_CSYS_BANK_OUTER_ERRCD
+    where err_code = #{errCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysBankOuterErrcd" >
+    insert into UPAY_CSYS_BANK_OUTER_ERRCD (err_code, platform_cd, err_flag, 
+      err_desc, inner_err_code, reserved1, 
+      reserved2, reserved3)
+    values (#{errCode,jdbcType=VARCHAR}, #{platformCd,jdbcType=VARCHAR}, #{errFlag,jdbcType=CHAR}, 
+      #{errDesc,jdbcType=VARCHAR}, #{innerErrCode,jdbcType=VARCHAR}, #{reserved1,jdbcType=VARCHAR}, 
+      #{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysBankOuterErrcd" >
+    insert into UPAY_CSYS_BANK_OUTER_ERRCD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="errCode != null" >
+        err_code,
+      </if>
+      <if test="platformCd != null" >
+        platform_cd,
+      </if>
+      <if test="errFlag != null" >
+        err_flag,
+      </if>
+      <if test="errDesc != null" >
+        err_desc,
+      </if>
+      <if test="innerErrCode != null" >
+        inner_err_code,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="errCode != null" >
+        #{errCode,jdbcType=VARCHAR},
+      </if>
+      <if test="platformCd != null" >
+        #{platformCd,jdbcType=VARCHAR},
+      </if>
+      <if test="errFlag != null" >
+        #{errFlag,jdbcType=CHAR},
+      </if>
+      <if test="errDesc != null" >
+        #{errDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="innerErrCode != null" >
+        #{innerErrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysBankOuterErrcd" >
+    update UPAY_CSYS_BANK_OUTER_ERRCD
+    <set >
+      <if test="platformCd != null" >
+        platform_cd = #{platformCd,jdbcType=VARCHAR},
+      </if>
+      <if test="errFlag != null" >
+        err_flag = #{errFlag,jdbcType=CHAR},
+      </if>
+      <if test="errDesc != null" >
+        err_desc = #{errDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="innerErrCode != null" >
+        inner_err_code = #{innerErrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where err_code = #{errCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysBankOuterErrcd" >
+    update UPAY_CSYS_BANK_OUTER_ERRCD
+    set platform_cd = #{platformCd,jdbcType=VARCHAR},
+      err_flag = #{errFlag,jdbcType=CHAR},
+      err_desc = #{errDesc,jdbcType=VARCHAR},
+      inner_err_code = #{innerErrCode,jdbcType=VARCHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where err_code = #{errCode,jdbcType=VARCHAR}
+  </update>
+  
+  
+  
+   <select id="selectAllListByParams" resultMap="BaseResultMap" useCache="false"  >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_BANK_OUTER_ERRCD
+  
+  </select>
+  <select id="selectByParams" resultMap="BaseResultMap"  >
+        select
+        *
+        from UPAY_CSYS_BANK_OUTER_ERRCD
+        where 1=1
+         <if test="params.platformCd != null" >
+         and   platform_cd = #{params.platformCd}
+         </if>
+        <if test="params.errCode != null">  
+           and err_code = #{params.errCode}
+        </if>
+        <if test="params.errFlag != null">  
+           and err_flag = #{params.errFlag}
+        </if>
+
+    </select>
+  
+</mapper>

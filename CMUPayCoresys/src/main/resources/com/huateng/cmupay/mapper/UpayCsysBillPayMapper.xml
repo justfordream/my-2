@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysBillPayMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysBillPay" >
+    <id column="seq_id" property="seqId" jdbcType="NUMERIC" />
+    <result column="int_txn_seq" property="intTxnSeq" jdbcType="VARCHAR" />
+    <result column="int_trans_code" property="intTransCode" jdbcType="VARCHAR" />
+    <result column="int_txn_date" property="intTxnDate" jdbcType="CHAR" />
+    <result column="int_txn_time" property="intTxnTime" jdbcType="CHAR" />
+    <result column="buss_type" property="bussType" jdbcType="CHAR" />
+    <result column="pay_mode" property="payMode" jdbcType="CHAR" />
+    <result column="settle_date" property="settleDate" jdbcType="CHAR" />
+    <result column="diff_power" property="diffPower" jdbcType="CHAR" />
+    <result column="buss_chl" property="bussChl" jdbcType="CHAR" />
+    <result column="req_domain" property="reqDomain" jdbcType="CHAR" />
+    <result column="req_cnl_type" property="reqCnlType" jdbcType="CHAR" />
+    <result column="req_bip_code" property="reqBipCode" jdbcType="CHAR" />
+    <result column="req_activity_code" property="reqActivityCode" jdbcType="CHAR" />
+    <result column="req_trans_id" property="reqTransId" jdbcType="VARCHAR" />
+    <result column="req_trans_dt" property="reqTransDt" jdbcType="CHAR" />
+    <result column="req_trans_tm" property="reqTransTm" jdbcType="CHAR" />
+    <result column="req_opr_id" property="reqOprId" jdbcType="VARCHAR" />
+    <result column="outer_domain" property="outerDomain" jdbcType="CHAR" />
+    <result column="outer_activity_code" property="outerActivityCode" jdbcType="CHAR" />
+    <result column="outer_trans_id" property="outerTransId" jdbcType="VARCHAR" />
+    <result column="outer_trans_dt" property="outerTransDt" jdbcType="CHAR" />
+    <result column="outer_trans_tm" property="outerTransTm" jdbcType="CHAR" />
+    <result column="outer_opr_id" property="outerOprId" jdbcType="VARCHAR" />
+    <result column="outer_route_info" property="outerRouteInfo" jdbcType="CHAR" />
+    <result column="rcv_domain" property="rcvDomain" jdbcType="CHAR" />
+    <result column="rcv_activity_code" property="rcvActivityCode" jdbcType="CHAR" />
+    <result column="rcv_trans_id" property="rcvTransId" jdbcType="VARCHAR" />
+    <result column="rcv_trans_dt" property="rcvTransDt" jdbcType="CHAR" />
+    <result column="rcv_trans_tm" property="rcvTransTm" jdbcType="CHAR" />
+    <result column="rcv_opr_id" property="rcvOprId" jdbcType="VARCHAR" />
+    <result column="rcv_route_info" property="rcvRouteInfo" jdbcType="CHAR" />
+    <result column="id_province" property="idProvince" jdbcType="CHAR" />
+    <result column="id_type" property="idType" jdbcType="CHAR" />
+    <result column="id_value" property="idValue" jdbcType="VARCHAR" />
+    <result column="bank_id" property="bankId" jdbcType="VARCHAR" />
+    <result column="bank_acct_type" property="bankAcctType" jdbcType="CHAR" />
+    <result column="bank_acc_id" property="bankAccId" jdbcType="VARCHAR" />
+    <result column="pay_type" property="payType" jdbcType="CHAR" />
+    <result column="payed_type" property="payedType" jdbcType="CHAR" />
+    <result column="need_pay_amt" property="needPayAmt" jdbcType="NUMERIC" />
+    <result column="pay_amt" property="payAmt" jdbcType="NUMERIC" />
+    <result column="commision_amt" property="commisionAmt" jdbcType="NUMERIC" />
+    <result column="back_flag" property="backFlag" jdbcType="CHAR" />
+    <result column="refund_flag" property="refundFlag" jdbcType="CHAR" />
+    <result column="reverse_flag" property="reverseFlag" jdbcType="CHAR" />
+    <result column="invoice_flag" property="invoiceFlag" jdbcType="CHAR" />
+    <result column="reconciliation_flag" property="reconciliationFlag" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+    <result column="l_seq_id" property="lSeqId" jdbcType="VARCHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seq_id, int_txn_seq, int_trans_code, int_txn_date, int_txn_time, buss_type, pay_mode, 
+    settle_date, diff_power, buss_chl, req_domain, req_cnl_type, req_bip_code, req_activity_code, 
+    req_trans_id, req_trans_dt, req_trans_tm, req_opr_id, outer_domain, outer_activity_code, 
+    outer_trans_id, outer_trans_dt, outer_trans_tm, outer_opr_id, outer_route_info, rcv_domain, 
+    rcv_activity_code, rcv_trans_id, rcv_trans_dt, rcv_trans_tm, rcv_opr_id, rcv_route_info, 
+    id_province, id_type, id_value, bank_id, bank_acct_type, bank_acc_id, pay_type, payed_type, 
+    need_pay_amt, pay_amt, commision_amt, back_flag, refund_flag, reverse_flag, invoice_flag, 
+    reconciliation_flag, status, last_upd_oprid, last_upd_time, l_seq_id, reserved1, 
+    reserved2, reserved3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_BILL_PAY
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long" >
+    delete from UPAY_CSYS_BILL_PAY
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysBillPay" >
+    insert into UPAY_CSYS_BILL_PAY (seq_id, int_txn_seq, int_trans_code, 
+      int_txn_date, int_txn_time, buss_type, 
+      pay_mode, settle_date, diff_power, 
+      buss_chl, req_domain, req_cnl_type, 
+      req_bip_code, req_activity_code, req_trans_id, 
+      req_trans_dt, req_trans_tm, req_opr_id, 
+      outer_domain, outer_activity_code, outer_trans_id, 
+      outer_trans_dt, outer_trans_tm, outer_opr_id, 
+      outer_route_info, rcv_domain, rcv_activity_code, 
+      rcv_trans_id, rcv_trans_dt, rcv_trans_tm, 
+      rcv_opr_id, rcv_route_info, id_province, 
+      id_type, id_value, bank_id, 
+      bank_acct_type, bank_acc_id, pay_type, 
+      payed_type, need_pay_amt, pay_amt, 
+      commision_amt, back_flag, refund_flag, 
+      reverse_flag, invoice_flag, reconciliation_flag, 
+      status, last_upd_oprid, last_upd_time, 
+      l_seq_id, reserved1, reserved2, 
+      reserved3)
+    values (#{seqId,jdbcType=NUMERIC}, #{intTxnSeq,jdbcType=VARCHAR}, #{intTransCode,jdbcType=VARCHAR}, 
+      #{intTxnDate,jdbcType=CHAR}, #{intTxnTime,jdbcType=CHAR}, #{bussType,jdbcType=CHAR}, 
+      #{payMode,jdbcType=CHAR}, #{settleDate,jdbcType=CHAR}, #{diffPower,jdbcType=CHAR}, 
+      #{bussChl,jdbcType=CHAR}, #{reqDomain,jdbcType=CHAR}, #{reqCnlType,jdbcType=CHAR}, 
+      #{reqBipCode,jdbcType=CHAR}, #{reqActivityCode,jdbcType=CHAR}, #{reqTransId,jdbcType=VARCHAR}, 
+      #{reqTransDt,jdbcType=CHAR}, #{reqTransTm,jdbcType=CHAR}, #{reqOprId,jdbcType=VARCHAR}, 
+      #{outerDomain,jdbcType=CHAR}, #{outerActivityCode,jdbcType=CHAR}, #{outerTransId,jdbcType=VARCHAR}, 
+      #{outerTransDt,jdbcType=CHAR}, #{outerTransTm,jdbcType=CHAR}, #{outerOprId,jdbcType=VARCHAR}, 
+      #{outerRouteInfo,jdbcType=CHAR}, #{rcvDomain,jdbcType=CHAR}, #{rcvActivityCode,jdbcType=CHAR}, 
+      #{rcvTransId,jdbcType=VARCHAR}, #{rcvTransDt,jdbcType=CHAR}, #{rcvTransTm,jdbcType=CHAR}, 
+      #{rcvOprId,jdbcType=VARCHAR}, #{rcvRouteInfo,jdbcType=CHAR}, #{idProvince,jdbcType=CHAR}, 
+      #{idType,jdbcType=CHAR}, #{idValue,jdbcType=VARCHAR}, #{bankId,jdbcType=VARCHAR}, 
+      #{bankAcctType,jdbcType=CHAR}, #{bankAccId,jdbcType=VARCHAR}, #{payType,jdbcType=CHAR}, 
+      #{payedType,jdbcType=CHAR}, #{needPayAmt,jdbcType=NUMERIC}, #{payAmt,jdbcType=NUMERIC}, 
+      #{commisionAmt,jdbcType=NUMERIC}, #{backFlag,jdbcType=CHAR}, #{refundFlag,jdbcType=CHAR}, 
+      #{reverseFlag,jdbcType=CHAR}, #{invoiceFlag,jdbcType=CHAR}, #{reconciliationFlag,jdbcType=CHAR}, 
+      #{status,jdbcType=CHAR}, #{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}, 
+      #{lSeqId,jdbcType=VARCHAR}, #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, 
+      #{reserved3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysBillPay" >
+    insert into UPAY_CSYS_BILL_PAY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        seq_id,
+      </if>
+      <if test="intTxnSeq != null" >
+        int_txn_seq,
+      </if>
+      <if test="intTransCode != null" >
+        int_trans_code,
+      </if>
+      <if test="intTxnDate != null" >
+        int_txn_date,
+      </if>
+      <if test="intTxnTime != null" >
+        int_txn_time,
+      </if>
+      <if test="bussType != null" >
+        buss_type,
+      </if>
+      <if test="payMode != null" >
+        pay_mode,
+      </if>
+      <if test="settleDate != null" >
+        settle_date,
+      </if>
+      <if test="diffPower != null" >
+        diff_power,
+      </if>
+      <if test="bussChl != null" >
+        buss_chl,
+      </if>
+      <if test="reqDomain != null" >
+        req_domain,
+      </if>
+      <if test="reqCnlType != null" >
+        req_cnl_type,
+      </if>
+      <if test="reqBipCode != null" >
+        req_bip_code,
+      </if>
+      <if test="reqActivityCode != null" >
+        req_activity_code,
+      </if>
+      <if test="reqTransId != null" >
+        req_trans_id,
+      </if>
+      <if test="reqTransDt != null" >
+        req_trans_dt,
+      </if>
+      <if test="reqTransTm != null" >
+        req_trans_tm,
+      </if>
+      <if test="reqOprId != null" >
+        req_opr_id,
+      </if>
+      <if test="outerDomain != null" >
+        outer_domain,
+      </if>
+      <if test="outerActivityCode != null" >
+        outer_activity_code,
+      </if>
+      <if test="outerTransId != null" >
+        outer_trans_id,
+      </if>
+      <if test="outerTransDt != null" >
+        outer_trans_dt,
+      </if>
+      <if test="outerTransTm != null" >
+        outer_trans_tm,
+      </if>
+      <if test="outerOprId != null" >
+        outer_opr_id,
+      </if>
+      <if test="outerRouteInfo != null" >
+        outer_route_info,
+      </if>
+      <if test="rcvDomain != null" >
+        rcv_domain,
+      </if>
+      <if test="rcvActivityCode != null" >
+        rcv_activity_code,
+      </if>
+      <if test="rcvTransId != null" >
+        rcv_trans_id,
+      </if>
+      <if test="rcvTransDt != null" >
+        rcv_trans_dt,
+      </if>
+      <if test="rcvTransTm != null" >
+        rcv_trans_tm,
+      </if>
+      <if test="rcvOprId != null" >
+        rcv_opr_id,
+      </if>
+      <if test="rcvRouteInfo != null" >
+        rcv_route_info,
+      </if>
+      <if test="idProvince != null" >
+        id_province,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="idValue != null" >
+        id_value,
+      </if>
+      <if test="bankId != null" >
+        bank_id,
+      </if>
+      <if test="bankAcctType != null" >
+        bank_acct_type,
+      </if>
+      <if test="bankAccId != null" >
+        bank_acc_id,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="payedType != null" >
+        payed_type,
+      </if>
+      <if test="needPayAmt != null" >
+        need_pay_amt,
+      </if>
+      <if test="payAmt != null" >
+        pay_amt,
+      </if>
+      <if test="commisionAmt != null" >
+        commision_amt,
+      </if>
+      <if test="backFlag != null" >
+        back_flag,
+      </if>
+      <if test="refundFlag != null" >
+        refund_flag,
+      </if>
+      <if test="reverseFlag != null" >
+        reverse_flag,
+      </if>
+      <if test="invoiceFlag != null" >
+        invoice_flag,
+      </if>
+      <if test="reconciliationFlag != null" >
+        reconciliation_flag,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="lSeqId != null" >
+        l_seq_id,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        #{seqId,jdbcType=NUMERIC},
+      </if>
+      <if test="intTxnSeq != null" >
+        #{intTxnSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="intTransCode != null" >
+        #{intTransCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intTxnDate != null" >
+        #{intTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="intTxnTime != null" >
+        #{intTxnTime,jdbcType=CHAR},
+      </if>
+      <if test="bussType != null" >
+        #{bussType,jdbcType=CHAR},
+      </if>
+      <if test="payMode != null" >
+        #{payMode,jdbcType=CHAR},
+      </if>
+      <if test="settleDate != null" >
+        #{settleDate,jdbcType=CHAR},
+      </if>
+      <if test="diffPower != null" >
+        #{diffPower,jdbcType=CHAR},
+      </if>
+      <if test="bussChl != null" >
+        #{bussChl,jdbcType=CHAR},
+      </if>
+      <if test="reqDomain != null" >
+        #{reqDomain,jdbcType=CHAR},
+      </if>
+      <if test="reqCnlType != null" >
+        #{reqCnlType,jdbcType=CHAR},
+      </if>
+      <if test="reqBipCode != null" >
+        #{reqBipCode,jdbcType=CHAR},
+      </if>
+      <if test="reqActivityCode != null" >
+        #{reqActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="reqTransId != null" >
+        #{reqTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTransDt != null" >
+        #{reqTransDt,jdbcType=CHAR},
+      </if>
+      <if test="reqTransTm != null" >
+        #{reqTransTm,jdbcType=CHAR},
+      </if>
+      <if test="reqOprId != null" >
+        #{reqOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerDomain != null" >
+        #{outerDomain,jdbcType=CHAR},
+      </if>
+      <if test="outerActivityCode != null" >
+        #{outerActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="outerTransId != null" >
+        #{outerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransDt != null" >
+        #{outerTransDt,jdbcType=CHAR},
+      </if>
+      <if test="outerTransTm != null" >
+        #{outerTransTm,jdbcType=CHAR},
+      </if>
+      <if test="outerOprId != null" >
+        #{outerOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerRouteInfo != null" >
+        #{outerRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="rcvDomain != null" >
+        #{rcvDomain,jdbcType=CHAR},
+      </if>
+      <if test="rcvActivityCode != null" >
+        #{rcvActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="rcvTransId != null" >
+        #{rcvTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTransDt != null" >
+        #{rcvTransDt,jdbcType=CHAR},
+      </if>
+      <if test="rcvTransTm != null" >
+        #{rcvTransTm,jdbcType=CHAR},
+      </if>
+      <if test="rcvOprId != null" >
+        #{rcvOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvRouteInfo != null" >
+        #{rcvRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="idProvince != null" >
+        #{idProvince,jdbcType=CHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idValue != null" >
+        #{idValue,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null" >
+        #{bankId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcctType != null" >
+        #{bankAcctType,jdbcType=CHAR},
+      </if>
+      <if test="bankAccId != null" >
+        #{bankAccId,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=CHAR},
+      </if>
+      <if test="payedType != null" >
+        #{payedType,jdbcType=CHAR},
+      </if>
+      <if test="needPayAmt != null" >
+        #{needPayAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="payAmt != null" >
+        #{payAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="commisionAmt != null" >
+        #{commisionAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="backFlag != null" >
+        #{backFlag,jdbcType=CHAR},
+      </if>
+      <if test="refundFlag != null" >
+        #{refundFlag,jdbcType=CHAR},
+      </if>
+      <if test="reverseFlag != null" >
+        #{reverseFlag,jdbcType=CHAR},
+      </if>
+      <if test="invoiceFlag != null" >
+        #{invoiceFlag,jdbcType=CHAR},
+      </if>
+      <if test="reconciliationFlag != null" >
+        #{reconciliationFlag,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="lSeqId != null" >
+        #{lSeqId,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysBillPay" >
+    update UPAY_CSYS_BILL_PAY
+    <set >
+      <if test="intTxnSeq != null" >
+        int_txn_seq = #{intTxnSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="intTransCode != null" >
+        int_trans_code = #{intTransCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intTxnDate != null" >
+        int_txn_date = #{intTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="intTxnTime != null" >
+        int_txn_time = #{intTxnTime,jdbcType=CHAR},
+      </if>
+      <if test="bussType != null" >
+        buss_type = #{bussType,jdbcType=CHAR},
+      </if>
+      <if test="payMode != null" >
+        pay_mode = #{payMode,jdbcType=CHAR},
+      </if>
+      <if test="settleDate != null" >
+        settle_date = #{settleDate,jdbcType=CHAR},
+      </if>
+      <if test="diffPower != null" >
+        diff_power = #{diffPower,jdbcType=CHAR},
+      </if>
+      <if test="bussChl != null" >
+        buss_chl = #{bussChl,jdbcType=CHAR},
+      </if>
+      <if test="reqDomain != null" >
+        req_domain = #{reqDomain,jdbcType=CHAR},
+      </if>
+      <if test="reqCnlType != null" >
+        req_cnl_type = #{reqCnlType,jdbcType=CHAR},
+      </if>
+      <if test="reqBipCode != null" >
+        req_bip_code = #{reqBipCode,jdbcType=CHAR},
+      </if>
+      <if test="reqActivityCode != null" >
+        req_activity_code = #{reqActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="reqTransId != null" >
+        req_trans_id = #{reqTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTransDt != null" >
+        req_trans_dt = #{reqTransDt,jdbcType=CHAR},
+      </if>
+      <if test="reqTransTm != null" >
+        req_trans_tm = #{reqTransTm,jdbcType=CHAR},
+      </if>
+      <if test="reqOprId != null" >
+        req_opr_id = #{reqOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerDomain != null" >
+        outer_domain = #{outerDomain,jdbcType=CHAR},
+      </if>
+      <if test="outerActivityCode != null" >
+        outer_activity_code = #{outerActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="outerTransId != null" >
+        outer_trans_id = #{outerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransDt != null" >
+        outer_trans_dt = #{outerTransDt,jdbcType=CHAR},
+      </if>
+      <if test="outerTransTm != null" >
+        outer_trans_tm = #{outerTransTm,jdbcType=CHAR},
+      </if>
+      <if test="outerOprId != null" >
+        outer_opr_id = #{outerOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerRouteInfo != null" >
+        outer_route_info = #{outerRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="rcvDomain != null" >
+        rcv_domain = #{rcvDomain,jdbcType=CHAR},
+      </if>
+      <if test="rcvActivityCode != null" >
+        rcv_activity_code = #{rcvActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="rcvTransId != null" >
+        rcv_trans_id = #{rcvTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTransDt != null" >
+        rcv_trans_dt = #{rcvTransDt,jdbcType=CHAR},
+      </if>
+      <if test="rcvTransTm != null" >
+        rcv_trans_tm = #{rcvTransTm,jdbcType=CHAR},
+      </if>
+      <if test="rcvOprId != null" >
+        rcv_opr_id = #{rcvOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvRouteInfo != null" >
+        rcv_route_info = #{rcvRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="idProvince != null" >
+        id_province = #{idProvince,jdbcType=CHAR},
+      </if>
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idValue != null" >
+        id_value = #{idValue,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null" >
+        bank_id = #{bankId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcctType != null" >
+        bank_acct_type = #{bankAcctType,jdbcType=CHAR},
+      </if>
+      <if test="bankAccId != null" >
+        bank_acc_id = #{bankAccId,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType,jdbcType=CHAR},
+      </if>
+      <if test="payedType != null" >
+        payed_type = #{payedType,jdbcType=CHAR},
+      </if>
+      <if test="needPayAmt != null" >
+        need_pay_amt = #{needPayAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="payAmt != null" >
+        pay_amt = #{payAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="commisionAmt != null" >
+        commision_amt = #{commisionAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="backFlag != null" >
+        back_flag = #{backFlag,jdbcType=CHAR},
+      </if>
+      <if test="refundFlag != null" >
+        refund_flag = #{refundFlag,jdbcType=CHAR},
+      </if>
+      <if test="reverseFlag != null" >
+        reverse_flag = #{reverseFlag,jdbcType=CHAR},
+      </if>
+      <if test="invoiceFlag != null" >
+        invoice_flag = #{invoiceFlag,jdbcType=CHAR},
+      </if>
+      <if test="reconciliationFlag != null" >
+        reconciliation_flag = #{reconciliationFlag,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="lSeqId != null" >
+        l_seq_id = #{lSeqId,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysBillPay" >
+    update UPAY_CSYS_BILL_PAY
+    set int_txn_seq = #{intTxnSeq,jdbcType=VARCHAR},
+      int_trans_code = #{intTransCode,jdbcType=VARCHAR},
+      int_txn_date = #{intTxnDate,jdbcType=CHAR},
+      int_txn_time = #{intTxnTime,jdbcType=CHAR},
+      buss_type = #{bussType,jdbcType=CHAR},
+      pay_mode = #{payMode,jdbcType=CHAR},
+      settle_date = #{settleDate,jdbcType=CHAR},
+      diff_power = #{diffPower,jdbcType=CHAR},
+      buss_chl = #{bussChl,jdbcType=CHAR},
+      req_domain = #{reqDomain,jdbcType=CHAR},
+      req_cnl_type = #{reqCnlType,jdbcType=CHAR},
+      req_bip_code = #{reqBipCode,jdbcType=CHAR},
+      req_activity_code = #{reqActivityCode,jdbcType=CHAR},
+      req_trans_id = #{reqTransId,jdbcType=VARCHAR},
+      req_trans_dt = #{reqTransDt,jdbcType=CHAR},
+      req_trans_tm = #{reqTransTm,jdbcType=CHAR},
+      req_opr_id = #{reqOprId,jdbcType=VARCHAR},
+      outer_domain = #{outerDomain,jdbcType=CHAR},
+      outer_activity_code = #{outerActivityCode,jdbcType=CHAR},
+      outer_trans_id = #{outerTransId,jdbcType=VARCHAR},
+      outer_trans_dt = #{outerTransDt,jdbcType=CHAR},
+      outer_trans_tm = #{outerTransTm,jdbcType=CHAR},
+      outer_opr_id = #{outerOprId,jdbcType=VARCHAR},
+      outer_route_info = #{outerRouteInfo,jdbcType=CHAR},
+      rcv_domain = #{rcvDomain,jdbcType=CHAR},
+      rcv_activity_code = #{rcvActivityCode,jdbcType=CHAR},
+      rcv_trans_id = #{rcvTransId,jdbcType=VARCHAR},
+      rcv_trans_dt = #{rcvTransDt,jdbcType=CHAR},
+      rcv_trans_tm = #{rcvTransTm,jdbcType=CHAR},
+      rcv_opr_id = #{rcvOprId,jdbcType=VARCHAR},
+      rcv_route_info = #{rcvRouteInfo,jdbcType=CHAR},
+      id_province = #{idProvince,jdbcType=CHAR},
+      id_type = #{idType,jdbcType=CHAR},
+      id_value = #{idValue,jdbcType=VARCHAR},
+      bank_id = #{bankId,jdbcType=VARCHAR},
+      bank_acct_type = #{bankAcctType,jdbcType=CHAR},
+      bank_acc_id = #{bankAccId,jdbcType=VARCHAR},
+      pay_type = #{payType,jdbcType=CHAR},
+      payed_type = #{payedType,jdbcType=CHAR},
+      need_pay_amt = #{needPayAmt,jdbcType=NUMERIC},
+      pay_amt = #{payAmt,jdbcType=NUMERIC},
+      commision_amt = #{commisionAmt,jdbcType=NUMERIC},
+      back_flag = #{backFlag,jdbcType=CHAR},
+      refund_flag = #{refundFlag,jdbcType=CHAR},
+      reverse_flag = #{reverseFlag,jdbcType=CHAR},
+      invoice_flag = #{invoiceFlag,jdbcType=CHAR},
+      reconciliation_flag = #{reconciliationFlag,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      l_seq_id = #{lSeqId,jdbcType=VARCHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  
+  
+   <select id="selectByParamsOld" resultMap="BaseResultMap">
+       select
+      <include refid="Base_Column_List" />
+      from UPAY_CSYS_BILL_PAY
+      where 1=1
+      <if test="params.intTxnSeq != null" >
+        and int_txn_seq = #{params.intTxnSeq}
+      </if>
+       <if test="params.seqId != null" >
+        and seq_id = #{params.seqId}
+      </if>
+       <if test="params.invoinceFlag != null" >
+        and invoice_flag = #{params.invoinceFlag}
+      </if>
+       
+  </select>
+  <select id="selectByParams" resultMap="BaseResultMap">
+       select BILL.invoice_flag 
+      from UPAY_CSYS_BILL_PAY BILL,UPAY_CSYS_TXN_LOG LOG 
+      where LOG.req_domain=#{params.oriOrgId} and 
+      LOG.req_trans_dt=#{params.oriReqDate} and 
+      LOG.req_opr_id=#{params.oriOprTransId} and 
+      LOG.int_txn_seq=BILL.int_txn_seq
+  </select>
+  
+</mapper>

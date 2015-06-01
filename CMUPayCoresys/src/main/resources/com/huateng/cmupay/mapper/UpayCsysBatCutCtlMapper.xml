@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysBatCutCtlMapper" >
+  <cache flushInterval="60000"/>
+  <!-- <cache type="org.mybatis.caches.ehcache.EhcacheCache"/> -->
+    <!-- <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+  
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysBatCutCtl" >
+    <id column="GLOBAL_IDX" property="globalIdx" jdbcType="NUMERIC" />
+    <result column="LAST_DATE" property="lastDate" jdbcType="VARCHAR" />
+    <result column="CURR_DATE" property="currDate" jdbcType="VARCHAR" />
+    <result column="CUT_FLAG" property="cutFlag" jdbcType="CHAR" />
+    <result column="DAY_CUT_STAT" property="dayCutStat" jdbcType="CHAR" />
+    <result column="DAY_CUT_TIME" property="dayCutTime" jdbcType="VARCHAR" />
+    <result column="RSVD_FLD1" property="rsvdFld1" jdbcType="VARCHAR" />
+    <result column="RSVD_FLD2" property="rsvdFld2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GLOBAL_IDX, LAST_DATE, CURR_DATE, CUT_FLAG, DAY_CUT_STAT, DAY_CUT_TIME, RSVD_FLD1, 
+    RSVD_FLD2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" useCache="true">
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_BAT_CUT_CTL
+    where GLOBAL_IDX = #{globalIdx,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from UPAY_CSYS_BAT_CUT_CTL
+    where GLOBAL_IDX = #{globalIdx,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysBatCutCtl" >
+    insert into UPAY_CSYS_BAT_CUT_CTL (GLOBAL_IDX, LAST_DATE, CURR_DATE, 
+      CUT_FLAG, DAY_CUT_STAT, DAY_CUT_TIME, 
+      RSVD_FLD1, RSVD_FLD2)
+    values (#{globalIdx,jdbcType=NUMERIC}, #{lastDate,jdbcType=VARCHAR}, #{currDate,jdbcType=VARCHAR}, 
+      #{cutFlag,jdbcType=CHAR}, #{dayCutStat,jdbcType=CHAR}, #{dayCutTime,jdbcType=VARCHAR}, 
+      #{rsvdFld1,jdbcType=VARCHAR}, #{rsvdFld2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysBatCutCtl" >
+    insert into UPAY_CSYS_BAT_CUT_CTL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="globalIdx != null" >
+        GLOBAL_IDX,
+      </if>
+      <if test="lastDate != null" >
+        LAST_DATE,
+      </if>
+      <if test="currDate != null" >
+        CURR_DATE,
+      </if>
+      <if test="cutFlag != null" >
+        CUT_FLAG,
+      </if>
+      <if test="dayCutStat != null" >
+        DAY_CUT_STAT,
+      </if>
+      <if test="dayCutTime != null" >
+        DAY_CUT_TIME,
+      </if>
+      <if test="rsvdFld1 != null" >
+        RSVD_FLD1,
+      </if>
+      <if test="rsvdFld2 != null" >
+        RSVD_FLD2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="globalIdx != null" >
+        #{globalIdx,jdbcType=NUMERIC},
+      </if>
+      <if test="lastDate != null" >
+        #{lastDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currDate != null" >
+        #{currDate,jdbcType=VARCHAR},
+      </if>
+      <if test="cutFlag != null" >
+        #{cutFlag,jdbcType=CHAR},
+      </if>
+      <if test="dayCutStat != null" >
+        #{dayCutStat,jdbcType=CHAR},
+      </if>
+      <if test="dayCutTime != null" >
+        #{dayCutTime,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdFld1 != null" >
+        #{rsvdFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdFld2 != null" >
+        #{rsvdFld2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysBatCutCtl" >
+    update UPAY_CSYS_BAT_CUT_CTL
+    <set >
+      <if test="lastDate != null" >
+        LAST_DATE = #{lastDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currDate != null" >
+        CURR_DATE = #{currDate,jdbcType=VARCHAR},
+      </if>
+      <if test="cutFlag != null" >
+        CUT_FLAG = #{cutFlag,jdbcType=CHAR},
+      </if>
+      <if test="dayCutStat != null" >
+        DAY_CUT_STAT = #{dayCutStat,jdbcType=CHAR},
+      </if>
+      <if test="dayCutTime != null" >
+        DAY_CUT_TIME = #{dayCutTime,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdFld1 != null" >
+        RSVD_FLD1 = #{rsvdFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdFld2 != null" >
+        RSVD_FLD2 = #{rsvdFld2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GLOBAL_IDX = #{globalIdx,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysBatCutCtl" >
+    update UPAY_CSYS_BAT_CUT_CTL
+    set LAST_DATE = #{lastDate,jdbcType=VARCHAR},
+      CURR_DATE = #{currDate,jdbcType=VARCHAR},
+      CUT_FLAG = #{cutFlag,jdbcType=CHAR},
+      DAY_CUT_STAT = #{dayCutStat,jdbcType=CHAR},
+      DAY_CUT_TIME = #{dayCutTime,jdbcType=VARCHAR},
+      RSVD_FLD1 = #{rsvdFld1,jdbcType=VARCHAR},
+      RSVD_FLD2 = #{rsvdFld2,jdbcType=VARCHAR}
+    where GLOBAL_IDX = #{globalIdx,jdbcType=NUMERIC}
+  </update>
+</mapper>

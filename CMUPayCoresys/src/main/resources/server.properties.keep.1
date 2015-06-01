@@ -1,0 +1,223 @@
+#\u62a5\u6587\u5b57\u6bb5check\u5f00\u5173
+checkflag=1
+#\u94f6\u884c\u901a\u9053\u5f00\u5173
+bankflag=0
+#crm\u901a\u9053\u5f00\u5173
+crmflag=0
+
+#\u672c\u5730\u6570\u636e\u5e93
+
+jdbc.driver=net.sourceforge.jtds.jdbc.Driver
+jdbc.jdbcUrl=jdbc:jtds:sybase://172.16.8.181:5000/upaynet;charset=utf8
+jdbc.user=upaynet
+jdbc.password=ENC(Icsn1Ps2B7hwlZt1gVK5eGmP+qegsRMt)
+
+#\u521d\u59cb\u5316\u65f6\u83b7\u53d6\u4e09\u4e2a\u8fde\u63a5\uff0c\u53d6\u503c\u5e94\u5728minPoolSize\u4e0emaxPoolSize\u4e4b\u95f4\u3002Default: 3
+jdbc.initialPoolSize=5
+#\u6700\u5927\u7a7a\u95f2\u65f6\u95f4,60\u79d2\u5185\u672a\u4f7f\u7528\u5219\u8fde\u63a5\u88ab\u4e22\u5f03\u3002\u82e5\u4e3a0\u5219\u6c38\u4e0d\u4e22\u5f03\u3002Default: 0
+jdbc.maxIdleTime=180
+#\u8fde\u63a5\u6c60\u4e2d\u4fdd\u7559\u7684\u6700\u5c0f\u8fde\u63a5\u6570\u3002
+jdbc.minPoolSize=5
+#\u8fde\u63a5\u6c60\u4e2d\u4fdd\u7559\u7684\u6700\u5927\u8fde\u63a5\u6570\u3002Default: 15
+jdbc.maxPoolSize=500
+#\u5f53\u8fde\u63a5\u6c60\u4e2d\u7684\u8fde\u63a5\u8017\u5c3d\u7684\u65f6\u5019c3p0\u4e00\u6b21\u540c\u65f6\u83b7\u53d6\u7684\u8fde\u63a5\u6570\u3002Default: 3
+jdbc.acquireIncrement=5
+#\u5b9a\u4e49\u5728\u4ece\u6570\u636e\u5e93\u83b7\u53d6\u65b0\u8fde\u63a5\u5931\u8d25\u540e\u91cd\u590d\u5c1d\u8bd5\u7684\u6b21\u6570\u3002Default: 30
+jdbc.acquireRetryAttempts=10
+#\u4e24\u6b21\u8fde\u63a5\u4e2d\u95f4\u9694\u65f6\u95f4\uff0c\u5355\u4f4d\u6beb\u79d2\u3002Default: 1000
+jdbc.acquireRetryDelay=1000
+#\u8fde\u63a5\u5173\u95ed\u65f6\u9ed8\u8ba4\u5c06\u6240\u6709\u672a\u63d0\u4ea4\u7684\u64cd\u4f5c\u56de\u6eda\u3002Default: false
+#jdbc.autoCommitOnClose=false
+#c3p0\u5c06\u5efa\u4e00\u5f20\u540d\u4e3aTest\u7684\u7a7a\u8868\uff0c\u5e76\u4f7f\u7528\u5176\u81ea\u5e26\u7684\u67e5\u8be2\u8bed\u53e5\u8fdb\u884c\u6d4b\u8bd5\u3002\u5982\u679c\u5b9a\u4e49\u4e86\u8fd9\u4e2a\u53c2\u6570\u90a3\u4e48 \u5c5e\u6027preferredTestQuery\u5c06\u88ab\u5ffd\u7565\u3002\u4f60\u4e0d\u80fd\u5728\u8fd9\u5f20Test\u8868\u4e0a\u8fdb\u884c\u4efb\u4f55\u64cd\u4f5c\uff0c\u5b83\u5c06\u53ea\u4f9bc3p0\u6d4b\u8bd5  \u4f7f\u7528\u3002Default: null
+#jdbc.automaticTestTable=Test
+#\u83b7\u53d6\u8fde\u63a5\u5931\u8d25\u5c06\u4f1a\u5f15\u8d77\u6240\u6709\u7b49\u5f85\u8fde\u63a5\u6c60\u6765\u83b7\u53d6\u8fde\u63a5\u7684\u7ebf\u7a0b\u629b\u51fa\u5f02\u5e38\u3002\u4f46\u662f\u6570\u636e\u6e90\u4ecd\u6709\u6548\u4fdd\u7559\uff0c\u5e76\u5728\u4e0b\u6b21\u8c03\u7528getConnection()\u7684\u65f6\u5019\u7ee7\u7eed\u5c1d\u8bd5\u83b7\u53d6\u8fde\u63a5\u3002\u5982\u679c\u8bbe\u4e3atrue\uff0c\u90a3\u4e48\u5728\u5c1d\u8bd5\u83b7\u53d6\u8fde\u63a5\u5931\u8d25\u540e\u8be5\u6570\u636e\u6e90\u5c06\u7533\u660e\u5df2\u65ad\u5f00\u5e76\u6c38\u4e45\u5173\u95ed\u3002Default: false
+jdbc.breakAfterAcquireFailure=false
+#\u5f53\u8fde\u63a5\u6c60\u7528\u5b8c\u65f6\u5ba2\u6237\u7aef\u8c03\u7528getConnection()\u540e\u7b49\u5f85\u83b7\u53d6\u65b0\u8fde\u63a5\u7684\u65f6\u95f4\uff0c\u8d85\u65f6\u540e\u5c06\u629b\u51faSQLException,\u5982\u8bbe\u4e3a0\u5219\u65e0\u9650\u671f\u7b49\u5f85\u3002\u5355\u4f4d\u6beb\u79d2\u3002Default: 0
+jdbc.checkoutTimeout=30000
+#\u901a\u8fc7\u5b9e\u73b0ConnectionTester\u6216QueryConnectionTester\u7684\u7c7b\u6765\u6d4b\u8bd5\u8fde\u63a5\u3002\u7c7b\u540d\u9700\u5236\u5b9a\u5168\u8def\u5f84\u3002Default: com.mchange.v2.c3p0.impl.DefaultConnectionTester
+#jdbc.connectionTesterClassName=
+#\u6307\u5b9ac3p0 libraries\u7684\u8def\u5f84\uff0c\u5982\u679c\uff08\u901a\u5e38\u90fd\u662f\u8fd9\u6837\uff09\u5728\u672c\u5730\u5373\u53ef\u83b7\u5f97\u90a3\u4e48\u65e0\u9700\u8bbe\u7f6e\uff0c\u9ed8\u8ba4null\u5373\u53efDefault: null
+#jdbc.factoryClassLocation=null
+#\u6bcf60\u79d2\u68c0\u67e5\u6240\u6709\u8fde\u63a5\u6c60\u4e2d\u7684\u7a7a\u95f2\u8fde\u63a5\u3002Default: 0  (\u5f53\u6570\u636e\u5e93\u91cd\u542f\u540e\uff0cC3P0\u4e0d\u4f1a\u81ea\u52a8\u91cd\u65b0\u521d\u59cb\u5316\u6570\u636e\u5e93\u8fde\u63a5\u6c60\uff0c\u5f53\u65b0\u7684\u8bf7\u6c42\u9700\u8981\u8bbf\u95ee\u6570\u636e\u5e93\u7684\u65f6\u5019\uff0c\u6b64\u65f6\u56de\u62a5\u9519\u8bef(\u56e0\u4e3a\u6570\u636e\u5e93\u91cd\u542f\uff0c\u8fde\u63a5\u5931\u6548)\uff0c\u540c\u65f6\u5237\u65b0\u6570\u636e\u5e93\u8fde\u63a5\u6c60\uff0c\u4e22\u5f03\u6389\u5df2\u7ecf\u5931\u6548\u7684\u8fde\u63a5\uff0c\u5f53\u7b2c\u4e8c\u4e2a\u8bf7\u6c42\u5230\u6765\u65f6\u6062\u590d\u6b63\u5e38\u3002C3P0\u76ee\u524d\u6ca1\u6709\u63d0\u4f9b\u5f53\u83b7\u53d6\u5df2\u5efa\u7acb\u8fde\u63a5\u5931\u8d25\u540e\u91cd\u8bd5\u6b21\u6570\u7684\u53c2\u6570\uff0c\u53ea\u6709\u83b7\u53d6\u65b0\u8fde\u63a5\u5931\u8d25\u540e\u91cd\u8bd5\u6b21\u6570\u7684\u53c2\u6570(acquireRetryAttempts )\u3002\u8981\u89e3\u51b3\u6b64\u95ee\u9898\uff0c\u53ef\u4ee5\u901a\u8fc7\u8bbe\u7f6eidleConnectionTestPeriod \u53c2\u6570\u6298\u4e2d\u89e3\u51b3\uff0c\u8be5\u53c2\u6570\u7684\u4f5c\u7528\u662f\u8bbe\u7f6e\u7cfb\u7edf\u81ea\u52a8\u68c0\u67e5\u8fde\u63a5\u6c60\u4e2d\u8fde\u63a5\u662f\u5426\u6b63\u5e38\u7684\u4e00\u4e2a\u9891\u7387\u53c2\u6570\uff0c\u65f6\u95f4\u5355\u4f4d\u662f\u79d2\u3002 )
+jdbc.idleConnectionTestPeriod=60
+#JDBC\u7684\u6807\u51c6\u53c2\u6570\uff0c\u7528\u4ee5\u63a7\u5236\u6570\u636e\u6e90\u5185\u52a0\u8f7d\u7684PreparedStatements\u6570\u91cf\u3002\u4f46\u7531\u4e8e\u9884\u7f13\u5b58\u7684statements\u5c5e\u4e8e\u5355\u4e2aconnection\u800c\u4e0d\u662f\u6574\u4e2a\u8fde\u63a5\u6c60\u3002\u6240\u4ee5\u8bbe\u7f6e\u8fd9\u4e2a\u53c2\u6570\u9700\u8981\u8003\u8651\u5230\u591a\u65b9\u9762\u7684\u56e0\u7d20\u3002\u5982\u679cmaxStatements\u4e0emaxStatementsPerConnection\u5747\u4e3a0\uff0c\u5219\u7f13\u5b58\u88ab\u5173\u95ed\u3002Default: 0
+jdbc.maxStatements=0
+#maxStatementsPerConnection\u5b9a\u4e49\u4e86\u8fde\u63a5\u6c60\u5185\u5355\u4e2a\u8fde\u63a5\u6240\u62e5\u6709\u7684\u6700\u5927\u7f13\u5b58statements\u6570\u3002Default: 0
+jdbc.maxStatementsPerConnection=0
+#jdbc.c3p0\u662f\u5f02\u6b65\u64cd\u4f5c\u7684\uff0c\u7f13\u6162\u7684JDBC\u64cd\u4f5c\u901a\u8fc7\u5e2e\u52a9\u8fdb\u7a0b\u5b8c\u6210\u3002\u6269\u5c55\u8fd9\u4e9b\u64cd\u4f5c\u53ef\u4ee5\u6709\u6548\u7684\u63d0\u5347\u6027\u80fd\u901a\u8fc7\u591a\u7ebf\u7a0b\u5b9e\u73b0\u591a\u4e2a\u64cd\u4f5c\u540c\u65f6\u88ab\u6267\u884c\u3002Default: 3
+#jdbc.numHelperThreads=3
+#\u5b9a\u4e49\u6240\u6709\u8fde\u63a5\u6d4b\u8bd5\u90fd\u6267\u884c\u7684\u6d4b\u8bd5\u8bed\u53e5\u3002\u5728\u4f7f\u7528\u8fde\u63a5\u6d4b\u8bd5\u7684\u60c5\u51b5\u4e0b\u8fd9\u4e2a\u4e00\u663e\u8457\u63d0\u9ad8\u6d4b\u8bd5\u901f\u5ea6\u3002\u6ce8\u610f\uff1a\u6d4b\u8bd5\u7684\u8868\u5fc5\u987b\u5728\u521d\u59cb\u6570\u636e\u6e90\u7684\u65f6\u5019\u5c31\u5b58\u5728\u3002Default: null
+#jdbc.preferredTestQuery=select id from test where id=1
+#\u7528\u6237\u4fee\u6539\u7cfb\u7edf\u914d\u7f6e\u53c2\u6570\u6267\u884c\u524d\u6700\u591a\u7b49\u5f85300\u79d2\u3002Default: 300
+#jdbc.propertyCycle=300
+#\u56e0\u6027\u80fd\u6d88\u8017\u5927\u8bf7\u53ea\u5728\u9700\u8981\u7684\u65f6\u5019\u4f7f\u7528\u5b83\u3002\u5982\u679c\u8bbe\u4e3atrue\u90a3\u4e48\u5728\u6bcf\u4e2aconnection\u63d0\u4ea4\u7684\u65f6\u5019\u90fd\u5c06\u6821\u9a8c\u5176\u6709\u6548\u6027\u3002\u5efa\u8bae\u4f7f\u7528idleConnectionTestPeriod\u6216automaticTestTable\u7b49\u65b9\u6cd5\u6765\u63d0\u5347\u8fde\u63a5\u6d4b\u8bd5\u7684\u6027\u80fd\u3002Default: false
+#jdbc.testConnectionOnCheckout=false
+#jdbc.\u5982\u679c\u8bbe\u4e3atrue\u90a3\u4e48\u5728\u53d6\u5f97\u8fde\u63a5\u7684\u540c\u65f6\u5c06\u6821\u9a8c\u8fde\u63a5\u7684\u6709\u6548\u6027\u3002Default: false 
+jdbc.testConnectionOnCheckin=false
+#\u8bbe\u7f6e\u8fde\u63a5\u88abcheckout\u540e\uff0c\u7ecf\u8fc7\u591a\u957f\u65f6\u95f4\u8fd8\u672a\u8fd4\u8fd8\u8fde\u63a5\u6c60\uff0c\u5219\u8fde\u63a5\u7f13\u51b2\u6c60\u76f4\u63a5Kill\u8be5\u8fde\u63a5\uff0c\u6b64\u65f6\uff0c\u7ed3\u5408debugUnretrunedConnectionStackTraces\uff0c\u6211\u4eec\u53ef\u4ee5\u77e5\u9053\u662f\u4ec0\u4e48\u7a0b\u5e8f\u6301\u6709\u4e86\u8fde\u63a5\uff0c\u5e76\u4e14\u6ca1\u6709\u8fd4\u56de,\u8fd9\u4e2a\u65b9\u6cd5\u5f88\u66b4\u529b\uff0c\u6709\u53ef\u80fd\u9020\u6210\u5e94\u7528\u7a0b\u5e8f\u4e0d\u7a33\u5b9a\uff0c\u6240\u4ee5\uff0c\u5982\u679c\u771f\u7684\u51fa\u73b0\u4e86\u8fde\u63a5\u6cc4\u6f0f\uff0c\u4e00\u65f6\u534a\u4f1a\u53c8\u627e
+jdbc.unreturnedConnectionTimeout=120
+#\u9ed8\u8ba4\u4e3afalse\uff0c\u5982\u679c\u6b64\u53c2\u6570\u8bbe\u7f6e\u4e3atrue\uff0c\u5f53\u6240\u6709\u8fde\u63a5\u7528\u5b8c\u7684\u65f6\u5019\uff0c\u4f1a\u4ee5\u5806\u6808\u4fe1\u606f\u663e\u793a\u54ea\u4e9b\u4ee3\u7801\u4f7f\u7528\u4e86\u8fde\u63a5\u3002\u7531\u4e8e\u8ddf\u8e2a\u8fde\u63a5\u72b6\u6001\u4f1a\u4ea7\u751f\u989d\u5916\u7684\u6d88\u8017\uff0c\u5982\u679c\u7a0b\u5e8f\u7a33\u5b9a\uff0c\u5e94\u8be5\u5c06\u6b64\u53c2\u6570\u6062\u590d\u4e3a\u9ed8\u8ba4\u503cfalse\u3002
+jdbc.debugUnreturnedConnectionStackTraces=false
+
+
+
+jdbc_his.driver=net.sourceforge.jtds.jdbc.Driver
+jdbc_his.jdbcUrl=jdbc:jtds:sybase://172.16.8.181:5000/upaynet;charset=utf8
+#jdbc_his.driver=com.sybase.jdbc4.jdbc.SybDriver
+#jdbc_his.jdbcUrl=jdbc:sybase:Tds:172.16.8.182:5000/upaytest?jconnect_version=4&charset=utf8&language=us_english
+jdbc_his.user=upaynet
+jdbc_his.password=ENC(Icsn1Ps2B7hwlZt1gVK5eGmP+qegsRMt)
+jdbc_his.filters=stat,webstat
+jdbc_his.alias=dbProxool
+jdbc_his.maxIdleTime=1800
+jdbc_his.prototypeCount=2
+jdbc_his.minPoolSize=5
+jdbc_his.maxPoolSize=20
+jdbc_his.trace=true
+jdbc_his.verbose=true
+
+
+h2.driver=org.h2.Driver
+h2.jdbcUrl=jdbc:h2:tcp://172.16.8.182:9005/test
+h2.h2u=sa
+h2.h2p=
+h2.initialPoolSize=5
+h2.maxIdleTime=180
+h2.minPoolSize=5
+h2.maxPoolSize=300
+h2.acquireIncrement=5
+h2.acquireRetryAttempts=10
+h2.acquireRetryDelay=1000
+h2.breakAfterAcquireFailure=false
+h2.checkoutTimeout=30000
+h2.idleConnectionTestPeriod=60
+h2.maxStatements=0
+h2.maxStatementsPerConnection=0
+h2.testConnectionOnCheckin=false
+h2.unreturnedConnectionTimeout=120
+h2.debugUnreturnedConnectionStackTraces=false
+
+
+
+
+jms.md5key=key4orderCen
+jms.revieve.timeout=25000
+jms.time.tolive=360000
+jms.broker.url=tcp://127.0.0.1:61616?jms.optimizeAcknowledge=true&jms.useAsyncSend=true
+#jms.broker.url=failover://(tcp://172.16.59.4:9010,tcp://172.16.59.5:9010)?jms.useAsyncSend=true&initialReconnectDelay=50&maxReconnectAttempts=1&timeout=1000&backup=true&tcpNoDelay=true&jms.optimizeAcknowledge=true&randomize=false
+#jms.broker.url=failover://(tcp://172.16.59.4:9010,tcp://172.16.59.5:9010)?jms.useAsyncSend=true&jms.optimizeAcknowledge=true&randomize=false
+#CRM ADDRESS
+crm.remoting.url=http\://localhost\:8080/CMUPayCrmFront/remote
+
+
+bank.connectTimeout=61500
+bank.readTimeout=61500
+crm.connectTimeout=61500
+crm.readTimeout=61500
+gate.connectTimeout=61500
+gate.readTimeout=61500
+
+tupay.connectTimeout=61500
+tupay.readTimeout=61500
+tupay.remoting.url=http\://localhost\:8080/CMUPayThirdFront/remote
+
+mmarket.connectTimeout=61500
+mmarket.readTimeout=61500
+mmarket.remoting.url=http\://localhost\:8080/CMUPayMobileShopFront/remote
+
+crm.core.queue.request=upay_crm_core?consumer.dispatchAsync=true&consumer.prefetchSize=1
+crm.core.queue.response=upay_crm_core_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+bank.core.queue.request=upay_bank_core?consumer.dispatchAsync=true&consumer.prefetchSize=1
+bank.core.queue.response=upay_bank_core_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+#tmall prepaid
+tmall.core.queue.request=upay_tmall_core?consumer.dispatchAsync=true&consumer.prefetchSize=1
+tmall.core.queue.response=upay_tmall_core_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+#tmall query
+tmall.core.queue.queryRequest=upay.tmall.core.query.req?consumer.dispatchAsync=true&consumer.prefetchSize=1
+tmall.core.queue.queryResponse=upay.tmall.core.query.res?consumer.dispatchAsync=true&consumer.prefetchSize=1
+
+webgate.core.queue.request=upay_webgate_core?consumer.dispatchAsync=true&consumer.prefetchSize=1
+webgate.core.queue.response=upay_webgate_core_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+
+mmarket.queue.request=upay_mmarket_req?consumer.dispatchAsync=true&consumer.prefetchSize=1
+mmarket.queue.response=upay_mmarket_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+
+mmarket.queue.reqShopToCore=upay_mmarket_core_req?consumer.dispatchAsync=true&consumer.prefetchSize=1
+mmarket.queue.resqCoreToShop=upay_mmarket_core_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+
+tupay.queue.request=upay_tupay_core?consumer.dispatchAsync=true&consumer.prefetchSize=1
+tupay.queue.response=upay_tupay_core_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+
+bank.queue.request=upay_bank?consumer.dispatchAsync=true&consumer.prefetchSize=1
+bank.queue.response=upay_bank_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+crm.queue.request=upay_crm?consumer.dispatchAsync=true&consumer.prefetchSize=1
+crm.queue.response=upay_crm_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+#\u8bf7\u6c42\u652f\u4ed8\u7f51\u5173\u961f\u5217 ie \u652f\u4ed8\u7f51\u5173\u76d1\u542c\u961f\u5217
+webgate.queue.request=upay_webgate?consumer.dispatchAsync=true&consumer.prefetchSize=1
+#\u8bf7\u6c42\u652f\u4ed8\u7f51\u5173\u8fd4\u56de\u961f\u5217 ie \u652f\u4ed8\u7f51\u5173\u5e94\u7b54\u6838\u5fc3\u961f\u5217
+webgate.queue.response=upay_webgate_rtn?consumer.dispatchAsync=true&consumer.prefetchSize=1
+
+
+
+#redis
+redis.pool.testOnBorrow=true
+redis.pool.maxActive=500
+redis.pool.maxIdle=500
+redis.pool.minIdle=10
+redis.pool.maxWait=2000
+redis.ip=127.0.0.1
+redis.port=6379
+redis.default.db=0
+redis.key.expireSeconds=5400
+
+
+
+#\u672c\u5730\u6570\u636e\u5e93
+db.driverClassName=net.sourceforge.jtds.jdbc.Driver
+db.url=jdbc:jtds:sybase://172.16.8.181:5000/upaynet;charset=utf8
+db.username=upaynet
+db.password=ENC(Icsn1Ps2B7hwlZt1gVK5eGmP+qegsRMt)
+#\u9010\u51fa\u8fde\u63a5\u7684\u68c0\u6d4b\u65f6\u95f4\u95f4\u9694
+db.timeBetweenEvictionRunsMillis=60
+db.initialSize=5
+db.minIdle=5
+#\u8fde\u63a5\u6c60\u6700\u5927\u7a7a\u95f2 
+db.maxIdle=800
+#\u8fde\u63a5\u6c60\u6700\u5927\u4f7f\u7528\u8fde\u63a5\u6570\u91cf 
+db.maxActive=1000
+#\u6700\u5c0f\u9010\u51fa\u65f6\u95f4 
+db.minEvictableIdleTimeMillis=60
+#\u5f00\u542f\u6c60\u7684prepared\uff08\u9ed8\u8ba4\u662ffalse\uff0c\u672a\u8c03\u6574\uff0c\u7ecf\u8fc7\u6d4b\u8bd5\uff0c\u5f00\u542f\u540e\u7684\u6027\u80fd\u6ca1\u6709\u5173\u95ed\u7684\u597d\u3002\uff09
+db.poolPreparedStatements=false
+#\u5f00\u542f\u6c60\u7684prepared \u540e\u7684\u540c\u65f6\u6700\u5927\u8fde\u63a5\u6570\uff08\u9ed8\u8ba4\u65e0\u9650\u5236\uff0c\u540c\u4e0a\uff0c\u672a\u914d\u7f6e\uff09
+db.maxPoolPreparedStatementPerConnectionSize=0
+#\u8d85\u8fc7removeAbandonedTimeout\u65f6\u95f4\u540e\uff0c\u662f\u5426\u8fdb \u884c\u6ca1\u7528\u8fde\u63a5\uff08\u5e9f\u5f03\uff09\u7684\u56de\u6536\uff08\u9ed8\u8ba4\u4e3afalse\uff0c\u8c03\u6574\u4e3atrue)
+db.removeAbandoned=true
+#\u8d85\u8fc7\u65f6\u95f4\u9650\u5236\uff0c\u56de\u6536\u6ca1\u6709\u7528(\u5e9f\u5f03)\u7684\u8fde\u63a5\uff08\u9ed8\u8ba4\u4e3a 300\u79d2\uff0c\u8c03\u6574\u4e3a180\uff09
+db.removeAbandonedTimeout=60
+#\u6307\u660e\u8fde\u63a5\u662f\u5426\u88ab\u7a7a\u95f2\u8fde\u63a5\u56de\u6536\u5668(\u5982\u679c\u6709) \u8fdb\u884c\u68c0\u9a8c.\u5982\u679c\u68c0\u6d4b\u5931\u8d25,\u5219\u8fde\u63a5\u5c06\u88ab\u4ece\u6c60\u4e2d\u53bb\u9664.  \u6ce8\u610f: \u8bbe\u7f6e\u4e3atrue\u540e\u5982\u679c\u8981\u751f\u6548,validationQuery\u53c2\u6570\u5fc5\u987b\u8bbe\u7f6e\u4e3a\u975e\u7a7a\u5b57\u7b26\u4e32 
+db.testWhileIdle=true
+
+
+
+
+
+#\u672c\u5730\u6570\u636e\u5e93
+db_his.driverClassName=net.sourceforge.jtds.jdbc.Driver
+db_his.url=jdbc:jtds:sybase://172.16.8.181:5000/upaynet;charset=utf8
+db_his.username=upaynet
+db_his.password=ENC(Icsn1Ps2B7hwlZt1gVK5eGmP+qegsRMt)
+db_his.timeBetweenEvictionRunsMillis=60
+db_his.initialSize=5
+db_his.minIdle=5
+db_his.maxIdle=800
+db_his.maxActive=1000
+
+crm.core.queue.request1=upay_crm_core1?consumer.dispatchAsync=true&consumer.prefetchSize=1
+test.queue=test_queue?consumer.dispatchAsync=true&consumer.prefetchSize=1
+
+#\u8d85\u65f6\u65f6\u95f4
+timeOut=60
+
+
+

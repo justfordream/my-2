@@ -1,0 +1,1654 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.his.mapper.UpayCsysTxnLogHisStlMapper" >
+  <!-- <cache/> -->
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.his.UpayCsysTxnLogHis" >
+    <id column="seq_id" property="seqId" jdbcType="NUMERIC" />
+    <result column="int_txn_seq" property="intTxnSeq" jdbcType="VARCHAR" />
+    <result column="int_trans_code" property="intTransCode" jdbcType="VARCHAR" />
+    <result column="int_txn_date" property="intTxnDate" jdbcType="CHAR" />
+    <result column="int_txn_time" property="intTxnTime" jdbcType="CHAR" />
+    <result column="settle_date" property="settleDate" jdbcType="CHAR" />
+    <result column="pay_mode" property="payMode" jdbcType="CHAR" />
+    <result column="buss_type" property="bussType" jdbcType="CHAR" />
+    <result column="buss_chl" property="bussChl" jdbcType="CHAR" />
+    <result column="req_version" property="reqVersion" jdbcType="CHAR" />
+    <result column="req_bip_code" property="reqBipCode" jdbcType="CHAR" />
+    <result column="req_activity_code" property="reqActivityCode" jdbcType="CHAR" />
+    <result column="req_domain" property="reqDomain" jdbcType="CHAR" />
+    <result column="req_route_type" property="reqRouteType" jdbcType="CHAR" />
+    <result column="req_route_val" property="reqRouteVal" jdbcType="VARCHAR" />
+    <result column="req_session_id" property="reqSessionId" jdbcType="VARCHAR" />
+    <result column="req_trans_id" property="reqTransId" jdbcType="VARCHAR" />
+    <result column="req_trans_dt" property="reqTransDt" jdbcType="CHAR" />
+    <result column="req_trans_tm" property="reqTransTm" jdbcType="VARCHAR" />
+    <result column="req_transh_id" property="reqTranshId" jdbcType="VARCHAR" />
+    <result column="req_transh_dt" property="reqTranshDt" jdbcType="CHAR" />
+    <result column="req_transh_tm" property="reqTranshTm" jdbcType="VARCHAR" />
+    <result column="req_opr_id" property="reqOprId" jdbcType="VARCHAR" />
+    <result column="req_opr_dt" property="reqOprDt" jdbcType="CHAR" />
+    <result column="req_opr_tm" property="reqOprTm" jdbcType="VARCHAR" />
+    <result column="req_cnl_type" property="reqCnlType" jdbcType="CHAR" />
+    <result column="outer_version" property="outerVersion" jdbcType="CHAR" />
+    <result column="outer_bip_code" property="outerBipCode" jdbcType="CHAR" />
+    <result column="outer_activity_code" property="outerActivityCode" jdbcType="CHAR" />
+    <result column="outer_domain" property="outerDomain" jdbcType="CHAR" />
+    <result column="outer_route_info" property="outerRouteInfo" jdbcType="CHAR" />
+    <result column="outer_route_type" property="outerRouteType" jdbcType="CHAR" />
+    <result column="outer_route_val" property="outerRouteVal" jdbcType="VARCHAR" />
+    <result column="outer_session_id" property="outerSessionId" jdbcType="VARCHAR" />
+    <result column="outer_trans_id" property="outerTransId" jdbcType="VARCHAR" />
+    <result column="outer_trans_dt" property="outerTransDt" jdbcType="CHAR" />
+    <result column="outer_trans_tm" property="outerTransTm" jdbcType="VARCHAR" />
+    <result column="outer_transh_id" property="outerTranshId" jdbcType="VARCHAR" />
+    <result column="outer_transh_dt" property="outerTranshDt" jdbcType="CHAR" />
+    <result column="outer_transh_tm" property="outerTranshTm" jdbcType="VARCHAR" />
+    <result column="outer_opr_id" property="outerOprId" jdbcType="VARCHAR" />
+    <result column="outer_opr_dt" property="outerOprDt" jdbcType="CHAR" />
+    <result column="outer_opr_tm" property="outerOprTm" jdbcType="VARCHAR" />
+    <result column="outer_cnl_type" property="outerCnlType" jdbcType="CHAR" />
+    <result column="rcv_version" property="rcvVersion" jdbcType="CHAR" />
+    <result column="rcv_bip_code" property="rcvBipCode" jdbcType="CHAR" />
+    <result column="rcv_activity_code" property="rcvActivityCode" jdbcType="CHAR" />
+    <result column="rcv_domain" property="rcvDomain" jdbcType="CHAR" />
+    <result column="rcv_route_type" property="rcvRouteType" jdbcType="CHAR" />
+    <result column="rcv_route_val" property="rcvRouteVal" jdbcType="VARCHAR" />
+    <result column="rcv_route_info" property="rcvRouteInfo" jdbcType="CHAR" />
+    <result column="rcv_session_id" property="rcvSessionId" jdbcType="VARCHAR" />
+    <result column="rcv_trans_id" property="rcvTransId" jdbcType="VARCHAR" />
+    <result column="rcv_trans_dt" property="rcvTransDt" jdbcType="CHAR" />
+    <result column="rcv_trans_tm" property="rcvTransTm" jdbcType="VARCHAR" />
+    <result column="rcv_transh_id" property="rcvTranshId" jdbcType="VARCHAR" />
+    <result column="rcv_transh_dt" property="rcvTranshDt" jdbcType="CHAR" />
+    <result column="rcv_transh_tm" property="rcvTranshTm" jdbcType="VARCHAR" />
+    <result column="rcv_opr_id" property="rcvOprId" jdbcType="VARCHAR" />
+    <result column="rcv_opr_dt" property="rcvOprDt" jdbcType="CHAR" />
+    <result column="rcv_opr_tm" property="rcvOprTm" jdbcType="VARCHAR" />
+    <result column="rcv_cnl_type" property="rcvCnlType" jdbcType="CHAR" />
+    <result column="sn_trans_idc" property="snTransIdc" jdbcType="VARCHAR" />
+    <result column="sn_conv_id" property="snConvId" jdbcType="VARCHAR" />
+    <result column="sn_cut_off_day" property="snCutOffDay" jdbcType="CHAR" />
+    <result column="sn_osn_tm" property="snOsnTm" jdbcType="CHAR" />
+    <result column="sn_osnduns" property="snOsnduns" jdbcType="VARCHAR" />
+    <result column="sn_hsnduns" property="snHsnduns" jdbcType="VARCHAR" />
+    <result column="sn_orgi_org_id" property="snOrgiOrgId" jdbcType="CHAR" />
+    <result column="sn_home_org_id" property="snHomeOrgId" jdbcType="CHAR" />
+    <result column="main_flag" property="mainFlag" jdbcType="CHAR" />
+    <result column="main_id_province" property="mainIdProvince" jdbcType="CHAR" />
+    <result column="main_id_type" property="mainIdType" jdbcType="CHAR" />
+    <result column="main_id_value" property="mainIdValue" jdbcType="VARCHAR" />
+    <result column="id_province" property="idProvince" jdbcType="CHAR" />
+    <result column="id_type" property="idType" jdbcType="CHAR" />
+    <result column="id_value" property="idValue" jdbcType="VARCHAR" />
+    <result column="user_status" property="userStatus" jdbcType="CHAR" />
+    <result column="user_cat" property="userCat" jdbcType="CHAR" />
+    <result column="balance" property="balance" jdbcType="NUMERIC" />
+    <result column="sign_status" property="signStatus" jdbcType="CHAR" />
+    <result column="user_type" property="userType" jdbcType="CHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="bank_id" property="bankId" jdbcType="CHAR" />
+    <result column="bank_acct_type" property="bankAcctType" jdbcType="CHAR" />
+    <result column="bank_acc_id" property="bankAccId" jdbcType="VARCHAR" />
+    <result column="ori_org_id" property="oriOrgId" jdbcType="CHAR" />
+    <result column="ori_opr_trans_id" property="oriOprTransId" jdbcType="VARCHAR" />
+    <result column="ori_req_date" property="oriReqDate" jdbcType="CHAR" />
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="sub_id" property="subId" jdbcType="VARCHAR" />
+    <result column="sub_time" property="subTime" jdbcType="CHAR" />
+    <result column="pay_type" property="payType" jdbcType="CHAR" />
+    <result column="rech_amount" property="rechAmount" jdbcType="NUMERIC" />
+    <result column="rech_threshold" property="rechThreshold" jdbcType="NUMERIC" />
+    <result column="max_rech_amount" property="maxRechAmount" jdbcType="NUMERIC" />
+    <result column="max_rech_threshold" property="maxRechThreshold" jdbcType="NUMERIC" />
+    <result column="need_pay_amt" property="needPayAmt" jdbcType="NUMERIC" />
+    <result column="pay_amt" property="payAmt" jdbcType="NUMERIC" />
+    <result column="payed_type" property="payedType" jdbcType="CHAR" />
+    <result column="chl_rsp_type" property="chlRspType" jdbcType="CHAR" />
+    <result column="chl_rsp_code" property="chlRspCode" jdbcType="VARCHAR" />
+    <result column="chl_sub_rsp_code" property="chlSubRspCode" jdbcType="VARCHAR" />
+    <result column="chl_rsp_desc" property="chlRspDesc" jdbcType="VARCHAR" />
+    <result column="chl_sub_rsp_desc" property="chlSubRspDesc" jdbcType="VARCHAR" />
+    <result column="outer_rsp_type" property="outerRspType" jdbcType="CHAR" />
+    <result column="outer_rsp_code" property="outerRspCode" jdbcType="VARCHAR" />
+    <result column="outer_sub_rsp_code" property="outerSubRspCode" jdbcType="VARCHAR" />
+    <result column="outer_rsp_desc" property="outerRspDesc" jdbcType="VARCHAR" />
+    <result column="outer_sub_rsp_desc" property="outerSubRspDesc" jdbcType="VARCHAR" />
+    <result column="rcv_rsp_type" property="rcvRspType" jdbcType="CHAR" />
+    <result column="rcv_rsp_code" property="rcvRspCode" jdbcType="VARCHAR" />
+    <result column="rcv_sub_rsp_code" property="rcvSubRspCode" jdbcType="VARCHAR" />
+    <result column="rcv_rsp_desc" property="rcvRspDesc" jdbcType="VARCHAR" />
+    <result column="rcv_sub_rsp_desc" property="rcvSubRspDesc" jdbcType="VARCHAR" />
+    <result column="back_flag" property="backFlag" jdbcType="CHAR" />
+    <result column="refund_flag" property="refundFlag" jdbcType="CHAR" />
+    <result column="reverse_flag" property="reverseFlag" jdbcType="CHAR" />
+    <result column="reconciliation_flag" property="reconciliationFlag" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="VARCHAR" />
+    <result column="back_url" property="backUrl" jdbcType="VARCHAR" />
+    <result column="server_url" property="serverUrl" jdbcType="VARCHAR" />
+    <result column="l_seq_id" property="lSeqId" jdbcType="VARCHAR" />
+    
+    <result column="order_tm" property="orderTm" jdbcType="CHAR" />
+    <result column="mer_id" property="merId" jdbcType="VARCHAR" />
+    <result column="mer_var" property="merVar" jdbcType="VARCHAR" />
+    <result column="client_ip" property="clientIp" jdbcType="VARCHAR" />
+    
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seq_id,  int_txn_seq, int_trans_code, int_txn_date, int_txn_time, settle_date,
+    pay_mode, buss_type, buss_chl, req_version, req_bip_code, req_activity_code, req_domain, 
+    req_route_type, req_route_val, req_session_id, req_trans_id, req_trans_dt, req_trans_tm, 
+    req_transh_id, req_transh_dt, req_transh_tm, req_opr_id, req_opr_dt, req_opr_tm, 
+    req_cnl_type, outer_version, outer_bip_code, outer_activity_code, outer_domain, outer_route_info, 
+    outer_route_type, outer_route_val, outer_session_id, outer_trans_id, outer_trans_dt, 
+    outer_trans_tm, outer_transh_id, outer_transh_dt, outer_transh_tm, outer_opr_id, 
+    outer_opr_dt, outer_opr_tm, outer_cnl_type, rcv_version, rcv_bip_code, rcv_activity_code, 
+    rcv_domain, rcv_route_type, rcv_route_val, rcv_route_info, rcv_session_id, rcv_trans_id, 
+    rcv_trans_dt, rcv_trans_tm, rcv_transh_id, rcv_transh_dt, rcv_transh_tm, rcv_opr_id, 
+    rcv_opr_dt, rcv_opr_tm, rcv_cnl_type, sn_trans_idc, sn_conv_id, sn_cut_off_day, sn_osn_tm, 
+    sn_osnduns, sn_hsnduns, sn_orgi_org_id, sn_home_org_id, main_flag, main_id_province, 
+    main_id_type, main_id_value, id_province, id_type, id_value, user_status, user_cat, 
+    balance, sign_status, user_type, user_id, user_name, bank_id, bank_acct_type, bank_acc_id, 
+    ori_org_id, ori_opr_trans_id, ori_req_date, order_id, sub_id, sub_time, pay_type, 
+    rech_amount, rech_threshold, max_rech_amount, max_rech_threshold, need_pay_amt, pay_amt, 
+    payed_type, chl_rsp_type, chl_rsp_code, chl_sub_rsp_code, chl_rsp_desc, chl_sub_rsp_desc, 
+    outer_rsp_type, outer_rsp_code, outer_sub_rsp_code, outer_rsp_desc, outer_sub_rsp_desc, 
+    rcv_rsp_type, rcv_rsp_code, rcv_sub_rsp_code, rcv_rsp_desc, rcv_sub_rsp_desc, back_flag, 
+    refund_flag, reverse_flag, reconciliation_flag, status, last_upd_oprid, last_upd_time, 
+    back_url, server_url, l_seq_id,order_tm, mer_id, mer_var,client_ip, reserved1, reserved2, reserved3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_TXN_LOG_HIS_STL
+    where seq_id = #{seqId,jdbcType=NUMERIC} and (is_del = null or is_del != '01')
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long" >
+    delete from UPAY_CSYS_TXN_LOG_HIS_STL
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.his.UpayCsysTxnLogHis" >
+    insert into UPAY_CSYS_TXN_LOG_HIS_STL (seq_id,  int_txn_seq, 
+      int_trans_code, int_txn_date, int_txn_time, 
+      pay_mode, buss_type, 
+      buss_chl, req_version, req_bip_code, 
+      req_activity_code, req_domain, req_route_type, 
+      req_route_val, req_session_id, req_trans_id, 
+      req_trans_dt, req_trans_tm, req_transh_id, 
+      req_transh_dt, req_transh_tm, req_opr_id, 
+      req_opr_dt, req_opr_tm, req_cnl_type, 
+      outer_version, outer_bip_code, outer_activity_code, 
+      outer_domain, outer_route_info, outer_route_type, 
+      outer_route_val, outer_session_id, outer_trans_id, 
+      outer_trans_dt, outer_trans_tm, outer_transh_id, 
+      outer_transh_dt, outer_transh_tm, outer_opr_id, 
+      outer_opr_dt, outer_opr_tm, outer_cnl_type, 
+      rcv_version, rcv_bip_code, rcv_activity_code, 
+      rcv_domain, rcv_route_type, rcv_route_val, 
+      rcv_route_info, rcv_session_id, rcv_trans_id, 
+      rcv_trans_dt, rcv_trans_tm, rcv_transh_id, 
+      rcv_transh_dt, rcv_transh_tm, rcv_opr_id, 
+      rcv_opr_dt, rcv_opr_tm, rcv_cnl_type, 
+      sn_trans_idc, sn_conv_id, sn_cut_off_day, 
+      sn_osn_tm, sn_osnduns, sn_hsnduns, 
+      sn_orgi_org_id, sn_home_org_id, main_flag, 
+      main_id_province, main_id_type, main_id_value, 
+      id_province, id_type, id_value, 
+      user_status, user_cat, balance, 
+      sign_status, user_type, user_id, 
+      user_name, bank_id, bank_acct_type, 
+      bank_acc_id, ori_org_id, ori_opr_trans_id, 
+      ori_req_date, order_id, sub_id, 
+      sub_time, pay_type, rech_amount, 
+      rech_threshold, max_rech_amount, max_rech_threshold, 
+      need_pay_amt, pay_amt, payed_type, 
+      chl_rsp_type, chl_rsp_code, chl_sub_rsp_code, 
+      chl_rsp_desc, chl_sub_rsp_desc, outer_rsp_type, 
+      outer_rsp_code, outer_sub_rsp_code, outer_rsp_desc, 
+      outer_sub_rsp_desc, rcv_rsp_type, rcv_rsp_code, 
+      rcv_sub_rsp_code, rcv_rsp_desc, rcv_sub_rsp_desc, 
+      back_flag, refund_flag, reverse_flag, 
+      reconciliation_flag, status, last_upd_oprid, 
+      last_upd_time, back_url, server_url, 
+      l_seq_id, order_tm, mer_id, mer_var,client_ip,reserved1, reserved2, 
+      reserved3)
+    values (#{seqId,jdbcType=NUMERIC},  #{intTxnSeq,jdbcType=VARCHAR}, 
+      #{intTransCode,jdbcType=VARCHAR}, #{intTxnDate,jdbcType=CHAR}, #{intTxnTime,jdbcType=CHAR}, 
+      #{payMode,jdbcType=CHAR}, #{bussType,jdbcType=CHAR}, 
+      #{bussChl,jdbcType=CHAR}, #{reqVersion,jdbcType=CHAR}, #{reqBipCode,jdbcType=CHAR}, 
+      #{reqActivityCode,jdbcType=CHAR}, #{reqDomain,jdbcType=CHAR}, #{reqRouteType,jdbcType=CHAR}, 
+      #{reqRouteVal,jdbcType=VARCHAR}, #{reqSessionId,jdbcType=VARCHAR}, #{reqTransId,jdbcType=VARCHAR}, 
+      #{reqTransDt,jdbcType=CHAR}, #{reqTransTm,jdbcType=VARCHAR}, #{reqTranshId,jdbcType=VARCHAR}, 
+      #{reqTranshDt,jdbcType=CHAR}, #{reqTranshTm,jdbcType=VARCHAR}, #{reqOprId,jdbcType=VARCHAR}, 
+      #{reqOprDt,jdbcType=CHAR}, #{reqOprTm,jdbcType=VARCHAR}, #{reqCnlType,jdbcType=CHAR}, 
+      #{outerVersion,jdbcType=CHAR}, #{outerBipCode,jdbcType=CHAR}, #{outerActivityCode,jdbcType=CHAR}, 
+      #{outerDomain,jdbcType=CHAR}, #{outerRouteInfo,jdbcType=CHAR}, #{outerRouteType,jdbcType=CHAR}, 
+      #{outerRouteVal,jdbcType=VARCHAR}, #{outerSessionId,jdbcType=VARCHAR}, #{outerTransId,jdbcType=VARCHAR}, 
+      #{outerTransDt,jdbcType=CHAR}, #{outerTransTm,jdbcType=VARCHAR}, #{outerTranshId,jdbcType=VARCHAR}, 
+      #{outerTranshDt,jdbcType=CHAR}, #{outerTranshTm,jdbcType=VARCHAR}, #{outerOprId,jdbcType=VARCHAR}, 
+      #{outerOprDt,jdbcType=CHAR}, #{outerOprTm,jdbcType=VARCHAR}, #{outerCnlType,jdbcType=CHAR}, 
+      #{rcvVersion,jdbcType=CHAR}, #{rcvBipCode,jdbcType=CHAR}, #{rcvActivityCode,jdbcType=CHAR}, 
+      #{rcvDomain,jdbcType=CHAR}, #{rcvRouteType,jdbcType=CHAR}, #{rcvRouteVal,jdbcType=VARCHAR}, 
+      #{rcvRouteInfo,jdbcType=CHAR}, #{rcvSessionId,jdbcType=VARCHAR}, #{rcvTransId,jdbcType=VARCHAR}, 
+      #{rcvTransDt,jdbcType=CHAR}, #{rcvTransTm,jdbcType=VARCHAR}, #{rcvTranshId,jdbcType=VARCHAR}, 
+      #{rcvTranshDt,jdbcType=CHAR}, #{rcvTranshTm,jdbcType=VARCHAR}, #{rcvOprId,jdbcType=VARCHAR}, 
+      #{rcvOprDt,jdbcType=CHAR}, #{rcvOprTm,jdbcType=VARCHAR}, #{rcvCnlType,jdbcType=CHAR}, 
+      #{snTransIdc,jdbcType=VARCHAR}, #{snConvId,jdbcType=VARCHAR}, #{snCutOffDay,jdbcType=CHAR}, 
+      #{snOsnTm,jdbcType=CHAR}, #{snOsnduns,jdbcType=VARCHAR}, #{snHsnduns,jdbcType=VARCHAR}, 
+      #{snOrgiOrgId,jdbcType=CHAR}, #{snHomeOrgId,jdbcType=CHAR}, #{mainFlag,jdbcType=CHAR}, 
+      #{mainIdProvince,jdbcType=CHAR}, #{mainIdType,jdbcType=CHAR}, #{mainIdValue,jdbcType=VARCHAR}, 
+      #{idProvince,jdbcType=CHAR}, #{idType,jdbcType=CHAR}, #{idValue,jdbcType=VARCHAR}, 
+      #{userStatus,jdbcType=CHAR}, #{userCat,jdbcType=CHAR}, #{balance,jdbcType=NUMERIC}, 
+      #{signStatus,jdbcType=CHAR}, #{userType,jdbcType=CHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{bankId,jdbcType=CHAR}, #{bankAcctType,jdbcType=CHAR}, 
+      #{bankAccId,jdbcType=VARCHAR}, #{oriOrgId,jdbcType=CHAR}, #{oriOprTransId,jdbcType=VARCHAR}, 
+      #{oriReqDate,jdbcType=CHAR}, #{orderId,jdbcType=VARCHAR}, #{subId,jdbcType=VARCHAR}, 
+      #{subTime,jdbcType=CHAR}, #{payType,jdbcType=CHAR}, #{rechAmount,jdbcType=NUMERIC}, 
+      #{rechThreshold,jdbcType=NUMERIC}, #{maxRechAmount,jdbcType=NUMERIC}, #{maxRechThreshold,jdbcType=NUMERIC}, 
+      #{needPayAmt,jdbcType=NUMERIC}, #{payAmt,jdbcType=NUMERIC}, #{payedType,jdbcType=CHAR}, 
+      #{chlRspType,jdbcType=CHAR}, #{chlRspCode,jdbcType=VARCHAR}, #{chlSubRspCode,jdbcType=VARCHAR}, 
+      #{chlRspDesc,jdbcType=VARCHAR}, #{chlSubRspDesc,jdbcType=VARCHAR}, #{outerRspType,jdbcType=CHAR}, 
+      #{outerRspCode,jdbcType=VARCHAR}, #{outerSubRspCode,jdbcType=VARCHAR}, #{outerRspDesc,jdbcType=VARCHAR}, 
+      #{outerSubRspDesc,jdbcType=VARCHAR}, #{rcvRspType,jdbcType=CHAR}, #{rcvRspCode,jdbcType=VARCHAR}, 
+      #{rcvSubRspCode,jdbcType=VARCHAR}, #{rcvRspDesc,jdbcType=VARCHAR}, #{rcvSubRspDesc,jdbcType=VARCHAR}, 
+      #{backFlag,jdbcType=CHAR}, #{refundFlag,jdbcType=CHAR}, #{reverseFlag,jdbcType=CHAR}, 
+      #{reconciliationFlag,jdbcType=CHAR}, #{status,jdbcType=CHAR}, #{lastUpdOprid,jdbcType=VARCHAR}, 
+      #{lastUpdTime,jdbcType=VARCHAR}, #{backUrl,jdbcType=VARCHAR}, #{serverUrl,jdbcType=VARCHAR}, 
+      #{lSeqId,jdbcType=VARCHAR},
+      #{orderTm,jdbcType=VARCHAR}, #{merId,jdbcType=VARCHAR}, #{merVar,jdbcType=VARCHAR},#{clientIp,jdbcType=VARCHAR},
+      #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, 
+      #{reserved3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.his.UpayCsysTxnLogHis" >
+    insert into UPAY_CSYS_TXN_LOG_HIS_STL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        seq_id,
+      </if>
+      <if test="intTxnSeq != null" >
+        int_txn_seq,
+      </if>
+      <if test="intTransCode != null" >
+        int_trans_code,
+      </if>
+      <if test="intTxnDate != null" >
+        int_txn_date,
+      </if>
+      <if test="intTxnTime != null" >
+        int_txn_time,
+      </if>
+      <if test="payMode != null" >
+        pay_mode,
+      </if>
+      <if test="bussType != null" >
+        buss_type,
+      </if>
+      <if test="bussChl != null" >
+        buss_chl,
+      </if>
+      <if test="reqVersion != null" >
+        req_version,
+      </if>
+      <if test="reqBipCode != null" >
+        req_bip_code,
+      </if>
+      <if test="reqActivityCode != null" >
+        req_activity_code,
+      </if>
+      <if test="reqDomain != null" >
+        req_domain,
+      </if>
+      <if test="reqRouteType != null" >
+        req_route_type,
+      </if>
+      <if test="reqRouteVal != null" >
+        req_route_val,
+      </if>
+      <if test="reqSessionId != null" >
+        req_session_id,
+      </if>
+      <if test="reqTransId != null" >
+        req_trans_id,
+      </if>
+      <if test="reqTransDt != null" >
+        req_trans_dt,
+      </if>
+      <if test="reqTransTm != null" >
+        req_trans_tm,
+      </if>
+      <if test="reqTranshId != null" >
+        req_transh_id,
+      </if>
+      <if test="reqTranshDt != null" >
+        req_transh_dt,
+      </if>
+      <if test="reqTranshTm != null" >
+        req_transh_tm,
+      </if>
+      <if test="reqOprId != null" >
+        req_opr_id,
+      </if>
+      <if test="reqOprDt != null" >
+        req_opr_dt,
+      </if>
+      <if test="reqOprTm != null" >
+        req_opr_tm,
+      </if>
+      <if test="reqCnlType != null" >
+        req_cnl_type,
+      </if>
+      <if test="outerVersion != null" >
+        outer_version,
+      </if>
+      <if test="outerBipCode != null" >
+        outer_bip_code,
+      </if>
+      <if test="outerActivityCode != null" >
+        outer_activity_code,
+      </if>
+      <if test="outerDomain != null" >
+        outer_domain,
+      </if>
+      <if test="outerRouteInfo != null" >
+        outer_route_info,
+      </if>
+      <if test="outerRouteType != null" >
+        outer_route_type,
+      </if>
+      <if test="outerRouteVal != null" >
+        outer_route_val,
+      </if>
+      <if test="outerSessionId != null" >
+        outer_session_id,
+      </if>
+      <if test="outerTransId != null" >
+        outer_trans_id,
+      </if>
+      <if test="outerTransDt != null" >
+        outer_trans_dt,
+      </if>
+      <if test="outerTransTm != null" >
+        outer_trans_tm,
+      </if>
+      <if test="outerTranshId != null" >
+        outer_transh_id,
+      </if>
+      <if test="outerTranshDt != null" >
+        outer_transh_dt,
+      </if>
+      <if test="outerTranshTm != null" >
+        outer_transh_tm,
+      </if>
+      <if test="outerOprId != null" >
+        outer_opr_id,
+      </if>
+      <if test="outerOprDt != null" >
+        outer_opr_dt,
+      </if>
+      <if test="outerOprTm != null" >
+        outer_opr_tm,
+      </if>
+      <if test="outerCnlType != null" >
+        outer_cnl_type,
+      </if>
+      <if test="rcvVersion != null" >
+        rcv_version,
+      </if>
+      <if test="rcvBipCode != null" >
+        rcv_bip_code,
+      </if>
+      <if test="rcvActivityCode != null" >
+        rcv_activity_code,
+      </if>
+      <if test="rcvDomain != null" >
+        rcv_domain,
+      </if>
+      <if test="rcvRouteType != null" >
+        rcv_route_type,
+      </if>
+      <if test="rcvRouteVal != null" >
+        rcv_route_val,
+      </if>
+      <if test="rcvRouteInfo != null" >
+        rcv_route_info,
+      </if>
+      <if test="rcvSessionId != null" >
+        rcv_session_id,
+      </if>
+      <if test="rcvTransId != null" >
+        rcv_trans_id,
+      </if>
+      <if test="rcvTransDt != null" >
+        rcv_trans_dt,
+      </if>
+      <if test="rcvTransTm != null" >
+        rcv_trans_tm,
+      </if>
+      <if test="rcvTranshId != null" >
+        rcv_transh_id,
+      </if>
+      <if test="rcvTranshDt != null" >
+        rcv_transh_dt,
+      </if>
+      <if test="rcvTranshTm != null" >
+        rcv_transh_tm,
+      </if>
+      <if test="rcvOprId != null" >
+        rcv_opr_id,
+      </if>
+      <if test="rcvOprDt != null" >
+        rcv_opr_dt,
+      </if>
+      <if test="rcvOprTm != null" >
+        rcv_opr_tm,
+      </if>
+      <if test="rcvCnlType != null" >
+        rcv_cnl_type,
+      </if>
+      <if test="snTransIdc != null" >
+        sn_trans_idc,
+      </if>
+      <if test="snConvId != null" >
+        sn_conv_id,
+      </if>
+      <if test="snCutOffDay != null" >
+        sn_cut_off_day,
+      </if>
+      <if test="snOsnTm != null" >
+        sn_osn_tm,
+      </if>
+      <if test="snOsnduns != null" >
+        sn_osnduns,
+      </if>
+      <if test="snHsnduns != null" >
+        sn_hsnduns,
+      </if>
+      <if test="snOrgiOrgId != null" >
+        sn_orgi_org_id,
+      </if>
+      <if test="snHomeOrgId != null" >
+        sn_home_org_id,
+      </if>
+      <if test="mainFlag != null" >
+        main_flag,
+      </if>
+      <if test="mainIdProvince != null" >
+        main_id_province,
+      </if>
+      <if test="mainIdType != null" >
+        main_id_type,
+      </if>
+      <if test="mainIdValue != null" >
+        main_id_value,
+      </if>
+      <if test="idProvince != null" >
+        id_province,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="idValue != null" >
+        id_value,
+      </if>
+      <if test="userStatus != null" >
+        user_status,
+      </if>
+      <if test="userCat != null" >
+        user_cat,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="signStatus != null" >
+        sign_status,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="bankId != null" >
+        bank_id,
+      </if>
+      <if test="bankAcctType != null" >
+        bank_acct_type,
+      </if>
+      <if test="bankAccId != null" >
+        bank_acc_id,
+      </if>
+      <if test="oriOrgId != null" >
+        ori_org_id,
+      </if>
+      <if test="oriOprTransId != null" >
+        ori_opr_trans_id,
+      </if>
+      <if test="oriReqDate != null" >
+        ori_req_date,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="subId != null" >
+        sub_id,
+      </if>
+      <if test="subTime != null" >
+        sub_time,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="rechAmount != null" >
+        rech_amount,
+      </if>
+      <if test="rechThreshold != null" >
+        rech_threshold,
+      </if>
+      <if test="maxRechAmount != null" >
+        max_rech_amount,
+      </if>
+      <if test="maxRechThreshold != null" >
+        max_rech_threshold,
+      </if>
+      <if test="needPayAmt != null" >
+        need_pay_amt,
+      </if>
+      <if test="payAmt != null" >
+        pay_amt,
+      </if>
+      <if test="payedType != null" >
+        payed_type,
+      </if>
+      <if test="chlRspType != null" >
+        chl_rsp_type,
+      </if>
+      <if test="chlRspCode != null" >
+        chl_rsp_code,
+      </if>
+      <if test="chlSubRspCode != null" >
+        chl_sub_rsp_code,
+      </if>
+      <if test="chlRspDesc != null" >
+        chl_rsp_desc,
+      </if>
+      <if test="chlSubRspDesc != null" >
+        chl_sub_rsp_desc,
+      </if>
+      <if test="outerRspType != null" >
+        outer_rsp_type,
+      </if>
+      <if test="outerRspCode != null" >
+        outer_rsp_code,
+      </if>
+      <if test="outerSubRspCode != null" >
+        outer_sub_rsp_code,
+      </if>
+      <if test="outerRspDesc != null" >
+        outer_rsp_desc,
+      </if>
+      <if test="outerSubRspDesc != null" >
+        outer_sub_rsp_desc,
+      </if>
+      <if test="rcvRspType != null" >
+        rcv_rsp_type,
+      </if>
+      <if test="rcvRspCode != null" >
+        rcv_rsp_code,
+      </if>
+      <if test="rcvSubRspCode != null" >
+        rcv_sub_rsp_code,
+      </if>
+      <if test="rcvRspDesc != null" >
+        rcv_rsp_desc,
+      </if>
+      <if test="rcvSubRspDesc != null" >
+        rcv_sub_rsp_desc,
+      </if>
+      <if test="backFlag != null" >
+        back_flag,
+      </if>
+      <if test="refundFlag != null" >
+        refund_flag,
+      </if>
+      <if test="reverseFlag != null" >
+        reverse_flag,
+      </if>
+      <if test="reconciliationFlag != null" >
+        reconciliation_flag,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="backUrl != null" >
+        back_url,
+      </if>
+      <if test="serverUrl != null" >
+        server_url,
+      </if>
+      <if test="lSeqId != null" >
+        l_seq_id,
+      </if>
+      
+      
+      
+      <if test="orderTm != null" >
+        order_tm,
+      </if>
+      <if test="merId != null" >
+        mer_id,
+      </if>
+      <if test="merVar != null" >
+        mer_var,
+      </if>
+      <if test="clientIp != null" >
+        client_ip,
+      </if>
+      
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        #{seqId,jdbcType=NUMERIC},
+      </if>
+      <if test="intTxnSeq != null" >
+        #{intTxnSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="intTransCode != null" >
+        #{intTransCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intTxnDate != null" >
+        #{intTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="intTxnTime != null" >
+        #{intTxnTime,jdbcType=CHAR},
+      </if>
+      <if test="payMode != null" >
+        #{payMode,jdbcType=CHAR},
+      </if>
+      <if test="bussType != null" >
+        #{bussType,jdbcType=CHAR},
+      </if>
+      <if test="bussChl != null" >
+        #{bussChl,jdbcType=CHAR},
+      </if>
+      <if test="reqVersion != null" >
+        #{reqVersion,jdbcType=CHAR},
+      </if>
+      <if test="reqBipCode != null" >
+        #{reqBipCode,jdbcType=CHAR},
+      </if>
+      <if test="reqActivityCode != null" >
+        #{reqActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="reqDomain != null" >
+        #{reqDomain,jdbcType=CHAR},
+      </if>
+      <if test="reqRouteType != null" >
+        #{reqRouteType,jdbcType=CHAR},
+      </if>
+      <if test="reqRouteVal != null" >
+        #{reqRouteVal,jdbcType=VARCHAR},
+      </if>
+      <if test="reqSessionId != null" >
+        #{reqSessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTransId != null" >
+        #{reqTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTransDt != null" >
+        #{reqTransDt,jdbcType=CHAR},
+      </if>
+      <if test="reqTransTm != null" >
+        #{reqTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTranshId != null" >
+        #{reqTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTranshDt != null" >
+        #{reqTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="reqTranshTm != null" >
+        #{reqTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOprId != null" >
+        #{reqOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOprDt != null" >
+        #{reqOprDt,jdbcType=CHAR},
+      </if>
+      <if test="reqOprTm != null" >
+        #{reqOprTm,jdbcType=VARCHAR},
+      </if>
+      <if test="reqCnlType != null" >
+        #{reqCnlType,jdbcType=CHAR},
+      </if>
+      <if test="outerVersion != null" >
+        #{outerVersion,jdbcType=CHAR},
+      </if>
+      <if test="outerBipCode != null" >
+        #{outerBipCode,jdbcType=CHAR},
+      </if>
+      <if test="outerActivityCode != null" >
+        #{outerActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="outerDomain != null" >
+        #{outerDomain,jdbcType=CHAR},
+      </if>
+      <if test="outerRouteInfo != null" >
+        #{outerRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="outerRouteType != null" >
+        #{outerRouteType,jdbcType=CHAR},
+      </if>
+      <if test="outerRouteVal != null" >
+        #{outerRouteVal,jdbcType=VARCHAR},
+      </if>
+      <if test="outerSessionId != null" >
+        #{outerSessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransId != null" >
+        #{outerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransDt != null" >
+        #{outerTransDt,jdbcType=CHAR},
+      </if>
+      <if test="outerTransTm != null" >
+        #{outerTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTranshId != null" >
+        #{outerTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTranshDt != null" >
+        #{outerTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="outerTranshTm != null" >
+        #{outerTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="outerOprId != null" >
+        #{outerOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerOprDt != null" >
+        #{outerOprDt,jdbcType=CHAR},
+      </if>
+      <if test="outerOprTm != null" >
+        #{outerOprTm,jdbcType=VARCHAR},
+      </if>
+      <if test="outerCnlType != null" >
+        #{outerCnlType,jdbcType=CHAR},
+      </if>
+      <if test="rcvVersion != null" >
+        #{rcvVersion,jdbcType=CHAR},
+      </if>
+      <if test="rcvBipCode != null" >
+        #{rcvBipCode,jdbcType=CHAR},
+      </if>
+      <if test="rcvActivityCode != null" >
+        #{rcvActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="rcvDomain != null" >
+        #{rcvDomain,jdbcType=CHAR},
+      </if>
+      <if test="rcvRouteType != null" >
+        #{rcvRouteType,jdbcType=CHAR},
+      </if>
+      <if test="rcvRouteVal != null" >
+        #{rcvRouteVal,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvRouteInfo != null" >
+        #{rcvRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="rcvSessionId != null" >
+        #{rcvSessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTransId != null" >
+        #{rcvTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTransDt != null" >
+        #{rcvTransDt,jdbcType=CHAR},
+      </if>
+      <if test="rcvTransTm != null" >
+        #{rcvTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTranshId != null" >
+        #{rcvTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTranshDt != null" >
+        #{rcvTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="rcvTranshTm != null" >
+        #{rcvTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvOprId != null" >
+        #{rcvOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvOprDt != null" >
+        #{rcvOprDt,jdbcType=CHAR},
+      </if>
+      <if test="rcvOprTm != null" >
+        #{rcvOprTm,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvCnlType != null" >
+        #{rcvCnlType,jdbcType=CHAR},
+      </if>
+      <if test="snTransIdc != null" >
+        #{snTransIdc,jdbcType=VARCHAR},
+      </if>
+      <if test="snConvId != null" >
+        #{snConvId,jdbcType=VARCHAR},
+      </if>
+      <if test="snCutOffDay != null" >
+        #{snCutOffDay,jdbcType=CHAR},
+      </if>
+      <if test="snOsnTm != null" >
+        #{snOsnTm,jdbcType=CHAR},
+      </if>
+      <if test="snOsnduns != null" >
+        #{snOsnduns,jdbcType=VARCHAR},
+      </if>
+      <if test="snHsnduns != null" >
+        #{snHsnduns,jdbcType=VARCHAR},
+      </if>
+      <if test="snOrgiOrgId != null" >
+        #{snOrgiOrgId,jdbcType=CHAR},
+      </if>
+      <if test="snHomeOrgId != null" >
+        #{snHomeOrgId,jdbcType=CHAR},
+      </if>
+      <if test="mainFlag != null" >
+        #{mainFlag,jdbcType=CHAR},
+      </if>
+      <if test="mainIdProvince != null" >
+        #{mainIdProvince,jdbcType=CHAR},
+      </if>
+      <if test="mainIdType != null" >
+        #{mainIdType,jdbcType=CHAR},
+      </if>
+      <if test="mainIdValue != null" >
+        #{mainIdValue,jdbcType=VARCHAR},
+      </if>
+      <if test="idProvince != null" >
+        #{idProvince,jdbcType=CHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idValue != null" >
+        #{idValue,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null" >
+        #{userStatus,jdbcType=CHAR},
+      </if>
+      <if test="userCat != null" >
+        #{userCat,jdbcType=CHAR},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=NUMERIC},
+      </if>
+      <if test="signStatus != null" >
+        #{signStatus,jdbcType=CHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=CHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null" >
+        #{bankId,jdbcType=CHAR},
+      </if>
+      <if test="bankAcctType != null" >
+        #{bankAcctType,jdbcType=CHAR},
+      </if>
+      <if test="bankAccId != null" >
+        #{bankAccId,jdbcType=VARCHAR},
+      </if>
+      <if test="oriOrgId != null" >
+        #{oriOrgId,jdbcType=CHAR},
+      </if>
+      <if test="oriOprTransId != null" >
+        #{oriOprTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="oriReqDate != null" >
+        #{oriReqDate,jdbcType=CHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="subId != null" >
+        #{subId,jdbcType=VARCHAR},
+      </if>
+      <if test="subTime != null" >
+        #{subTime,jdbcType=CHAR},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=CHAR},
+      </if>
+      <if test="rechAmount != null" >
+        #{rechAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="rechThreshold != null" >
+        #{rechThreshold,jdbcType=NUMERIC},
+      </if>
+      <if test="maxRechAmount != null" >
+        #{maxRechAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="maxRechThreshold != null" >
+        #{maxRechThreshold,jdbcType=NUMERIC},
+      </if>
+      <if test="needPayAmt != null" >
+        #{needPayAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="payAmt != null" >
+        #{payAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="payedType != null" >
+        #{payedType,jdbcType=CHAR},
+      </if>
+      <if test="chlRspType != null" >
+        #{chlRspType,jdbcType=CHAR},
+      </if>
+      <if test="chlRspCode != null" >
+        #{chlRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chlSubRspCode != null" >
+        #{chlSubRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chlRspDesc != null" >
+        #{chlRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chlSubRspDesc != null" >
+        #{chlSubRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="outerRspType != null" >
+        #{outerRspType,jdbcType=CHAR},
+      </if>
+      <if test="outerRspCode != null" >
+        #{outerRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outerSubRspCode != null" >
+        #{outerSubRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outerRspDesc != null" >
+        #{outerRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="outerSubRspDesc != null" >
+        #{outerSubRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvRspType != null" >
+        #{rcvRspType,jdbcType=CHAR},
+      </if>
+      <if test="rcvRspCode != null" >
+        #{rcvRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvSubRspCode != null" >
+        #{rcvSubRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvRspDesc != null" >
+        #{rcvRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvSubRspDesc != null" >
+        #{rcvSubRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="backFlag != null" >
+        #{backFlag,jdbcType=CHAR},
+      </if>
+      <if test="refundFlag != null" >
+        #{refundFlag,jdbcType=CHAR},
+      </if>
+      <if test="reverseFlag != null" >
+        #{reverseFlag,jdbcType=CHAR},
+      </if>
+      <if test="reconciliationFlag != null" >
+        #{reconciliationFlag,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=VARCHAR},
+      </if>
+      <if test="backUrl != null" >
+        #{backUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="serverUrl != null" >
+        #{serverUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="lSeqId != null" >
+        #{lSeqId,jdbcType=VARCHAR},
+      </if>
+      
+      
+      <if test="orderTm != null" >
+        #{orderTm,jdbcType=VARCHAR},
+      </if>
+      <if test="merId != null" >
+        #{merId,jdbcType=VARCHAR},
+      </if>
+      <if test="merVar != null" >
+        #{merVar,jdbcType=VARCHAR},
+      </if>
+      <if test="clientIp != null" >
+        #{clientIp,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.his.UpayCsysTxnLogHis" >
+    update UPAY_CSYS_TXN_LOG_HIS_STL
+    <set >
+     
+      <if test="intTxnSeq != null" >
+        int_txn_seq = #{intTxnSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="intTransCode != null" >
+        int_trans_code = #{intTransCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intTxnDate != null" >
+        int_txn_date = #{intTxnDate,jdbcType=CHAR},
+      </if>
+      <if test="intTxnTime != null" >
+        int_txn_time = #{intTxnTime,jdbcType=CHAR},
+      </if>
+      <if test="payMode != null" >
+        pay_mode = #{payMode,jdbcType=CHAR},
+      </if>
+      <if test="bussType != null" >
+        buss_type = #{bussType,jdbcType=CHAR},
+      </if>
+      <if test="bussChl != null" >
+        buss_chl = #{bussChl,jdbcType=CHAR},
+      </if>
+      <if test="reqVersion != null" >
+        req_version = #{reqVersion,jdbcType=CHAR},
+      </if>
+      <if test="reqBipCode != null" >
+        req_bip_code = #{reqBipCode,jdbcType=CHAR},
+      </if>
+      <if test="reqActivityCode != null" >
+        req_activity_code = #{reqActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="reqDomain != null" >
+        req_domain = #{reqDomain,jdbcType=CHAR},
+      </if>
+      <if test="reqRouteType != null" >
+        req_route_type = #{reqRouteType,jdbcType=CHAR},
+      </if>
+      <if test="reqRouteVal != null" >
+        req_route_val = #{reqRouteVal,jdbcType=VARCHAR},
+      </if>
+      <if test="reqSessionId != null" >
+        req_session_id = #{reqSessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTransId != null" >
+        req_trans_id = #{reqTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTransDt != null" >
+        req_trans_dt = #{reqTransDt,jdbcType=CHAR},
+      </if>
+      <if test="reqTransTm != null" >
+        req_trans_tm = #{reqTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTranshId != null" >
+        req_transh_id = #{reqTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTranshDt != null" >
+        req_transh_dt = #{reqTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="reqTranshTm != null" >
+        req_transh_tm = #{reqTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOprId != null" >
+        req_opr_id = #{reqOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqOprDt != null" >
+        req_opr_dt = #{reqOprDt,jdbcType=CHAR},
+      </if>
+      <if test="reqOprTm != null" >
+        req_opr_tm = #{reqOprTm,jdbcType=VARCHAR},
+      </if>
+      <if test="reqCnlType != null" >
+        req_cnl_type = #{reqCnlType,jdbcType=CHAR},
+      </if>
+      <if test="outerVersion != null" >
+        outer_version = #{outerVersion,jdbcType=CHAR},
+      </if>
+      <if test="outerBipCode != null" >
+        outer_bip_code = #{outerBipCode,jdbcType=CHAR},
+      </if>
+      <if test="outerActivityCode != null" >
+        outer_activity_code = #{outerActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="outerDomain != null" >
+        outer_domain = #{outerDomain,jdbcType=CHAR},
+      </if>
+      <if test="outerRouteInfo != null" >
+        outer_route_info = #{outerRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="outerRouteType != null" >
+        outer_route_type = #{outerRouteType,jdbcType=CHAR},
+      </if>
+      <if test="outerRouteVal != null" >
+        outer_route_val = #{outerRouteVal,jdbcType=VARCHAR},
+      </if>
+      <if test="outerSessionId != null" >
+        outer_session_id = #{outerSessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransId != null" >
+        outer_trans_id = #{outerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransDt != null" >
+        outer_trans_dt = #{outerTransDt,jdbcType=CHAR},
+      </if>
+      <if test="outerTransTm != null" >
+        outer_trans_tm = #{outerTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTranshId != null" >
+        outer_transh_id = #{outerTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTranshDt != null" >
+        outer_transh_dt = #{outerTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="outerTranshTm != null" >
+        outer_transh_tm = #{outerTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="outerOprId != null" >
+        outer_opr_id = #{outerOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerOprDt != null" >
+        outer_opr_dt = #{outerOprDt,jdbcType=CHAR},
+      </if>
+      <if test="outerOprTm != null" >
+        outer_opr_tm = #{outerOprTm,jdbcType=VARCHAR},
+      </if>
+      <if test="outerCnlType != null" >
+        outer_cnl_type = #{outerCnlType,jdbcType=CHAR},
+      </if>
+      <if test="rcvVersion != null" >
+        rcv_version = #{rcvVersion,jdbcType=CHAR},
+      </if>
+      <if test="rcvBipCode != null" >
+        rcv_bip_code = #{rcvBipCode,jdbcType=CHAR},
+      </if>
+      <if test="rcvActivityCode != null" >
+        rcv_activity_code = #{rcvActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="rcvDomain != null" >
+        rcv_domain = #{rcvDomain,jdbcType=CHAR},
+      </if>
+      <if test="rcvRouteType != null" >
+        rcv_route_type = #{rcvRouteType,jdbcType=CHAR},
+      </if>
+      <if test="rcvRouteVal != null" >
+        rcv_route_val = #{rcvRouteVal,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvRouteInfo != null" >
+        rcv_route_info = #{rcvRouteInfo,jdbcType=CHAR},
+      </if>
+      <if test="rcvSessionId != null" >
+        rcv_session_id = #{rcvSessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTransId != null" >
+        rcv_trans_id = #{rcvTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTransDt != null" >
+        rcv_trans_dt = #{rcvTransDt,jdbcType=CHAR},
+      </if>
+      <if test="rcvTransTm != null" >
+        rcv_trans_tm = #{rcvTransTm,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTranshId != null" >
+        rcv_transh_id = #{rcvTranshId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvTranshDt != null" >
+        rcv_transh_dt = #{rcvTranshDt,jdbcType=CHAR},
+      </if>
+      <if test="rcvTranshTm != null" >
+        rcv_transh_tm = #{rcvTranshTm,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvOprId != null" >
+        rcv_opr_id = #{rcvOprId,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvOprDt != null" >
+        rcv_opr_dt = #{rcvOprDt,jdbcType=CHAR},
+      </if>
+      <if test="rcvOprTm != null" >
+        rcv_opr_tm = #{rcvOprTm,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvCnlType != null" >
+        rcv_cnl_type = #{rcvCnlType,jdbcType=CHAR},
+      </if>
+      <if test="snTransIdc != null" >
+        sn_trans_idc = #{snTransIdc,jdbcType=VARCHAR},
+      </if>
+      <if test="snConvId != null" >
+        sn_conv_id = #{snConvId,jdbcType=VARCHAR},
+      </if>
+      <if test="snCutOffDay != null" >
+        sn_cut_off_day = #{snCutOffDay,jdbcType=CHAR},
+      </if>
+      <if test="snOsnTm != null" >
+        sn_osn_tm = #{snOsnTm,jdbcType=CHAR},
+      </if>
+      <if test="snOsnduns != null" >
+        sn_osnduns = #{snOsnduns,jdbcType=VARCHAR},
+      </if>
+      <if test="snHsnduns != null" >
+        sn_hsnduns = #{snHsnduns,jdbcType=VARCHAR},
+      </if>
+      <if test="snOrgiOrgId != null" >
+        sn_orgi_org_id = #{snOrgiOrgId,jdbcType=CHAR},
+      </if>
+      <if test="snHomeOrgId != null" >
+        sn_home_org_id = #{snHomeOrgId,jdbcType=CHAR},
+      </if>
+      <if test="mainFlag != null" >
+        main_flag = #{mainFlag,jdbcType=CHAR},
+      </if>
+      <if test="mainIdProvince != null" >
+        main_id_province = #{mainIdProvince,jdbcType=CHAR},
+      </if>
+      <if test="mainIdType != null" >
+        main_id_type = #{mainIdType,jdbcType=CHAR},
+      </if>
+      <if test="mainIdValue != null" >
+        main_id_value = #{mainIdValue,jdbcType=VARCHAR},
+      </if>
+      <if test="idProvince != null" >
+        id_province = #{idProvince,jdbcType=CHAR},
+      </if>
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idValue != null" >
+        id_value = #{idValue,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null" >
+        user_status = #{userStatus,jdbcType=CHAR},
+      </if>
+      <if test="userCat != null" >
+        user_cat = #{userCat,jdbcType=CHAR},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=NUMERIC},
+      </if>
+      <if test="signStatus != null" >
+        sign_status = #{signStatus,jdbcType=CHAR},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=CHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null" >
+        bank_id = #{bankId,jdbcType=CHAR},
+      </if>
+      <if test="bankAcctType != null" >
+        bank_acct_type = #{bankAcctType,jdbcType=CHAR},
+      </if>
+      <if test="bankAccId != null" >
+        bank_acc_id = #{bankAccId,jdbcType=VARCHAR},
+      </if>
+      <if test="oriOrgId != null" >
+        ori_org_id = #{oriOrgId,jdbcType=CHAR},
+      </if>
+      <if test="oriOprTransId != null" >
+        ori_opr_trans_id = #{oriOprTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="oriReqDate != null" >
+        ori_req_date = #{oriReqDate,jdbcType=CHAR},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="subId != null" >
+        sub_id = #{subId,jdbcType=VARCHAR},
+      </if>
+      <if test="subTime != null" >
+        sub_time = #{subTime,jdbcType=CHAR},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType,jdbcType=CHAR},
+      </if>
+      <if test="rechAmount != null" >
+        rech_amount = #{rechAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="rechThreshold != null" >
+        rech_threshold = #{rechThreshold,jdbcType=NUMERIC},
+      </if>
+      <if test="maxRechAmount != null" >
+        max_rech_amount = #{maxRechAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="maxRechThreshold != null" >
+        max_rech_threshold = #{maxRechThreshold,jdbcType=NUMERIC},
+      </if>
+      <if test="needPayAmt != null" >
+        need_pay_amt = #{needPayAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="payAmt != null" >
+        pay_amt = #{payAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="payedType != null" >
+        payed_type = #{payedType,jdbcType=CHAR},
+      </if>
+      <if test="chlRspType != null" >
+        chl_rsp_type = #{chlRspType,jdbcType=CHAR},
+      </if>
+      <if test="chlRspCode != null" >
+        chl_rsp_code = #{chlRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chlSubRspCode != null" >
+        chl_sub_rsp_code = #{chlSubRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chlRspDesc != null" >
+        chl_rsp_desc = #{chlRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chlSubRspDesc != null" >
+        chl_sub_rsp_desc = #{chlSubRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="outerRspType != null" >
+        outer_rsp_type = #{outerRspType,jdbcType=CHAR},
+      </if>
+      <if test="outerRspCode != null" >
+        outer_rsp_code = #{outerRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outerSubRspCode != null" >
+        outer_sub_rsp_code = #{outerSubRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outerRspDesc != null" >
+        outer_rsp_desc = #{outerRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="outerSubRspDesc != null" >
+        outer_sub_rsp_desc = #{outerSubRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvRspType != null" >
+        rcv_rsp_type = #{rcvRspType,jdbcType=CHAR},
+      </if>
+      <if test="rcvRspCode != null" >
+        rcv_rsp_code = #{rcvRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvSubRspCode != null" >
+        rcv_sub_rsp_code = #{rcvSubRspCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvRspDesc != null" >
+        rcv_rsp_desc = #{rcvRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvSubRspDesc != null" >
+        rcv_sub_rsp_desc = #{rcvSubRspDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="backFlag != null" >
+        back_flag = #{backFlag,jdbcType=CHAR},
+      </if>
+      <if test="refundFlag != null" >
+        refund_flag = #{refundFlag,jdbcType=CHAR},
+      </if>
+      <if test="reverseFlag != null" >
+        reverse_flag = #{reverseFlag,jdbcType=CHAR},
+      </if>
+      <if test="reconciliationFlag != null" >
+        reconciliation_flag = #{reconciliationFlag,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=VARCHAR},
+      </if>
+      <if test="backUrl != null" >
+        back_url = #{backUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="serverUrl != null" >
+        server_url = #{serverUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="lSeqId != null" >
+        l_seq_id = #{lSeqId,jdbcType=VARCHAR},
+      </if>
+      
+      
+      
+      <if test="orderTm != null" >
+        order_tm = #{order_tm,jdbcType=VARCHAR},
+      </if>
+      <if test="merId != null" >
+        mer_id = #{mer_id,jdbcType=VARCHAR},
+      </if>
+      <if test="merVar != null" >
+        mer_var = #{mer_var,jdbcType=VARCHAR},
+      </if>
+      <if test="clientIp != null" >
+        client_ip = #{clientIp,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.his.UpayCsysTxnLogHis" >
+    update UPAY_CSYS_TXN_LOG_HIS_STL
+    set 
+      int_txn_seq = #{intTxnSeq,jdbcType=VARCHAR},
+      int_trans_code = #{intTransCode,jdbcType=VARCHAR},
+      int_txn_date = #{intTxnDate,jdbcType=CHAR},
+      int_txn_time = #{intTxnTime,jdbcType=CHAR},
+      pay_mode = #{payMode,jdbcType=CHAR},
+      buss_type = #{bussType,jdbcType=CHAR},
+      buss_chl = #{bussChl,jdbcType=CHAR},
+      req_version = #{reqVersion,jdbcType=CHAR},
+      req_bip_code = #{reqBipCode,jdbcType=CHAR},
+      req_activity_code = #{reqActivityCode,jdbcType=CHAR},
+      req_domain = #{reqDomain,jdbcType=CHAR},
+      req_route_type = #{reqRouteType,jdbcType=CHAR},
+      req_route_val = #{reqRouteVal,jdbcType=VARCHAR},
+      req_session_id = #{reqSessionId,jdbcType=VARCHAR},
+      req_trans_id = #{reqTransId,jdbcType=VARCHAR},
+      req_trans_dt = #{reqTransDt,jdbcType=CHAR},
+      req_trans_tm = #{reqTransTm,jdbcType=VARCHAR},
+      req_transh_id = #{reqTranshId,jdbcType=VARCHAR},
+      req_transh_dt = #{reqTranshDt,jdbcType=CHAR},
+      req_transh_tm = #{reqTranshTm,jdbcType=VARCHAR},
+      req_opr_id = #{reqOprId,jdbcType=VARCHAR},
+      req_opr_dt = #{reqOprDt,jdbcType=CHAR},
+      req_opr_tm = #{reqOprTm,jdbcType=VARCHAR},
+      req_cnl_type = #{reqCnlType,jdbcType=CHAR},
+      outer_version = #{outerVersion,jdbcType=CHAR},
+      outer_bip_code = #{outerBipCode,jdbcType=CHAR},
+      outer_activity_code = #{outerActivityCode,jdbcType=CHAR},
+      outer_domain = #{outerDomain,jdbcType=CHAR},
+      outer_route_info = #{outerRouteInfo,jdbcType=CHAR},
+      outer_route_type = #{outerRouteType,jdbcType=CHAR},
+      outer_route_val = #{outerRouteVal,jdbcType=VARCHAR},
+      outer_session_id = #{outerSessionId,jdbcType=VARCHAR},
+      outer_trans_id = #{outerTransId,jdbcType=VARCHAR},
+      outer_trans_dt = #{outerTransDt,jdbcType=CHAR},
+      outer_trans_tm = #{outerTransTm,jdbcType=VARCHAR},
+      outer_transh_id = #{outerTranshId,jdbcType=VARCHAR},
+      outer_transh_dt = #{outerTranshDt,jdbcType=CHAR},
+      outer_transh_tm = #{outerTranshTm,jdbcType=VARCHAR},
+      outer_opr_id = #{outerOprId,jdbcType=VARCHAR},
+      outer_opr_dt = #{outerOprDt,jdbcType=CHAR},
+      outer_opr_tm = #{outerOprTm,jdbcType=VARCHAR},
+      outer_cnl_type = #{outerCnlType,jdbcType=CHAR},
+      rcv_version = #{rcvVersion,jdbcType=CHAR},
+      rcv_bip_code = #{rcvBipCode,jdbcType=CHAR},
+      rcv_activity_code = #{rcvActivityCode,jdbcType=CHAR},
+      rcv_domain = #{rcvDomain,jdbcType=CHAR},
+      rcv_route_type = #{rcvRouteType,jdbcType=CHAR},
+      rcv_route_val = #{rcvRouteVal,jdbcType=VARCHAR},
+      rcv_route_info = #{rcvRouteInfo,jdbcType=CHAR},
+      rcv_session_id = #{rcvSessionId,jdbcType=VARCHAR},
+      rcv_trans_id = #{rcvTransId,jdbcType=VARCHAR},
+      rcv_trans_dt = #{rcvTransDt,jdbcType=CHAR},
+      rcv_trans_tm = #{rcvTransTm,jdbcType=VARCHAR},
+      rcv_transh_id = #{rcvTranshId,jdbcType=VARCHAR},
+      rcv_transh_dt = #{rcvTranshDt,jdbcType=CHAR},
+      rcv_transh_tm = #{rcvTranshTm,jdbcType=VARCHAR},
+      rcv_opr_id = #{rcvOprId,jdbcType=VARCHAR},
+      rcv_opr_dt = #{rcvOprDt,jdbcType=CHAR},
+      rcv_opr_tm = #{rcvOprTm,jdbcType=VARCHAR},
+      rcv_cnl_type = #{rcvCnlType,jdbcType=CHAR},
+      sn_trans_idc = #{snTransIdc,jdbcType=VARCHAR},
+      sn_conv_id = #{snConvId,jdbcType=VARCHAR},
+      sn_cut_off_day = #{snCutOffDay,jdbcType=CHAR},
+      sn_osn_tm = #{snOsnTm,jdbcType=CHAR},
+      sn_osnduns = #{snOsnduns,jdbcType=VARCHAR},
+      sn_hsnduns = #{snHsnduns,jdbcType=VARCHAR},
+      sn_orgi_org_id = #{snOrgiOrgId,jdbcType=CHAR},
+      sn_home_org_id = #{snHomeOrgId,jdbcType=CHAR},
+      main_flag = #{mainFlag,jdbcType=CHAR},
+      main_id_province = #{mainIdProvince,jdbcType=CHAR},
+      main_id_type = #{mainIdType,jdbcType=CHAR},
+      main_id_value = #{mainIdValue,jdbcType=VARCHAR},
+      id_province = #{idProvince,jdbcType=CHAR},
+      id_type = #{idType,jdbcType=CHAR},
+      id_value = #{idValue,jdbcType=VARCHAR},
+      user_status = #{userStatus,jdbcType=CHAR},
+      user_cat = #{userCat,jdbcType=CHAR},
+      balance = #{balance,jdbcType=NUMERIC},
+      sign_status = #{signStatus,jdbcType=CHAR},
+      user_type = #{userType,jdbcType=CHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      bank_id = #{bankId,jdbcType=CHAR},
+      bank_acct_type = #{bankAcctType,jdbcType=CHAR},
+      bank_acc_id = #{bankAccId,jdbcType=VARCHAR},
+      ori_org_id = #{oriOrgId,jdbcType=CHAR},
+      ori_opr_trans_id = #{oriOprTransId,jdbcType=VARCHAR},
+      ori_req_date = #{oriReqDate,jdbcType=CHAR},
+      order_id = #{orderId,jdbcType=VARCHAR},
+      sub_id = #{subId,jdbcType=VARCHAR},
+      sub_time = #{subTime,jdbcType=CHAR},
+      pay_type = #{payType,jdbcType=CHAR},
+      rech_amount = #{rechAmount,jdbcType=NUMERIC},
+      rech_threshold = #{rechThreshold,jdbcType=NUMERIC},
+      max_rech_amount = #{maxRechAmount,jdbcType=NUMERIC},
+      max_rech_threshold = #{maxRechThreshold,jdbcType=NUMERIC},
+      need_pay_amt = #{needPayAmt,jdbcType=NUMERIC},
+      pay_amt = #{payAmt,jdbcType=NUMERIC},
+      payed_type = #{payedType,jdbcType=CHAR},
+      chl_rsp_type = #{chlRspType,jdbcType=CHAR},
+      chl_rsp_code = #{chlRspCode,jdbcType=VARCHAR},
+      chl_sub_rsp_code = #{chlSubRspCode,jdbcType=VARCHAR},
+      chl_rsp_desc = #{chlRspDesc,jdbcType=VARCHAR},
+      chl_sub_rsp_desc = #{chlSubRspDesc,jdbcType=VARCHAR},
+      outer_rsp_type = #{outerRspType,jdbcType=CHAR},
+      outer_rsp_code = #{outerRspCode,jdbcType=VARCHAR},
+      outer_sub_rsp_code = #{outerSubRspCode,jdbcType=VARCHAR},
+      outer_rsp_desc = #{outerRspDesc,jdbcType=VARCHAR},
+      outer_sub_rsp_desc = #{outerSubRspDesc,jdbcType=VARCHAR},
+      rcv_rsp_type = #{rcvRspType,jdbcType=CHAR},
+      rcv_rsp_code = #{rcvRspCode,jdbcType=VARCHAR},
+      rcv_sub_rsp_code = #{rcvSubRspCode,jdbcType=VARCHAR},
+      rcv_rsp_desc = #{rcvRspDesc,jdbcType=VARCHAR},
+      rcv_sub_rsp_desc = #{rcvSubRspDesc,jdbcType=VARCHAR},
+      back_flag = #{backFlag,jdbcType=CHAR},
+      refund_flag = #{refundFlag,jdbcType=CHAR},
+      reverse_flag = #{reverseFlag,jdbcType=CHAR},
+      reconciliation_flag = #{reconciliationFlag,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=VARCHAR},
+      back_url = #{backUrl,jdbcType=VARCHAR},
+      server_url = #{serverUrl,jdbcType=VARCHAR},
+      l_seq_id = #{lSeqId,jdbcType=VARCHAR},
+      
+      
+      order_tm = #{orderTm,jdbcType=VARCHAR},
+      mer_id = #{merId,jdbcType=VARCHAR},
+      mer_var = #{merVar,jdbcType=VARCHAR},
+      client_ip = #{clientIp,jdbcType=VARCHAR},
+      
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  
+   <select id="selectByParams" resultMap="BaseResultMap">
+       select
+      <include refid="Base_Column_List" />
+      from UPAY_CSYS_TXN_LOG_HIS_STL
+      where 1=1 and (is_del = null or is_del != '01')
+      <if test="params.oriOrgId != null" >
+        and ori_org_id = #{params.oriOrgId}
+      </if>
+      <if test="params.oriOprTransId != null" >
+        and ori_opr_trans_id = #{params.oriOprTransId}
+      </if>
+      <if test="params.oriReqDate != null" >
+        and ori_req_date = #{params.oriReqDate}
+      </if>
+      <if test="params.orderId != null" >
+        and order_id = #{params.orderId}
+      </if>
+       <if test="params.status != null" >
+        and status = #{params.status}
+      </if>
+      <if test="params.reqTransDt != null" >
+        and req_trans_dt = #{params.reqTransDt}
+      </if>
+       <if test="params.reqDomain != null" >
+       and req_domain = #{params.reqDomain,jdbcType=CHAR}
+      </if>
+      <if test="params.reqSessionId != null" >
+      and  req_session_id = #{params.reqSessionId,jdbcType=VARCHAR}
+      </if>
+      <if test="params.reqTransId != null" >
+      and  req_trans_id = #{params.reqTransId,jdbcType=VARCHAR}
+      </if>
+      <if test="params.reqOprId != null" >
+      and  req_opr_id = #{params.reqOprId,jdbcType=VARCHAR}
+      </if>
+  </select>
+  
+</mapper>

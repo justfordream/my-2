@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.his.mapper.UpayBatParamMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.his.UpayBatParam" >
+    <result column="param_type" property="paramType" jdbcType="VARCHAR" />
+    <result column="param_code1" property="paramCode1" jdbcType="VARCHAR" />
+    <result column="param_code2" property="paramCode2" jdbcType="VARCHAR" />
+    <result column="param_value" property="paramValue" jdbcType="VARCHAR" />
+    <result column="type_desc" property="typeDesc" jdbcType="VARCHAR" />
+    <result column="display1" property="display1" jdbcType="VARCHAR" />
+    <result column="display2" property="display2" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+  </resultMap>
+   <sql id="Base_Column_List" >
+   	param_type, param_code1, param_code2, param_value, type_desc, display1, display2,
+   	status, reserved1, reserved2
+   </sql>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.his.UpayBatParam" >
+    insert into UPAY_BAT_PARAM (param_type, param_code1, param_code2, 
+      param_value, type_desc, display1, 
+      display2, status, reserved1, 
+      reserved2)
+    values (#{paramType,jdbcType=VARCHAR}, #{paramCode1,jdbcType=VARCHAR}, #{paramCode2,jdbcType=VARCHAR}, 
+      #{paramValue,jdbcType=VARCHAR}, #{typeDesc,jdbcType=VARCHAR}, #{display1,jdbcType=VARCHAR}, 
+      #{display2,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{reserved1,jdbcType=VARCHAR}, 
+      #{reserved2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.his.UpayBatParam" >
+    insert into UPAY_BAT_PARAM
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paramType != null" >
+        param_type,
+      </if>
+      <if test="paramCode1 != null" >
+        param_code1,
+      </if>
+      <if test="paramCode2 != null" >
+        param_code2,
+      </if>
+      <if test="paramValue != null" >
+        param_value,
+      </if>
+      <if test="typeDesc != null" >
+        type_desc,
+      </if>
+      <if test="display1 != null" >
+        display1,
+      </if>
+      <if test="display2 != null" >
+        display2,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paramType != null" >
+        #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="paramCode1 != null" >
+        #{paramCode1,jdbcType=VARCHAR},
+      </if>
+      <if test="paramCode2 != null" >
+        #{paramCode2,jdbcType=VARCHAR},
+      </if>
+      <if test="paramValue != null" >
+        #{paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="typeDesc != null" >
+        #{typeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="display1 != null" >
+        #{display1,jdbcType=VARCHAR},
+      </if>
+      <if test="display2 != null" >
+        #{display2,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+    <select id="selectByParams" resultMap="BaseResultMap">
+       select
+      <include refid="Base_Column_List" />
+      from UPAY_BAT_PARAM
+      where 1=1
+      <if test="params.paramType != null" >
+        and param_type = #{params.paramType}
+      </if>
+      <if test="params.paramCode1 != null" >
+        and param_code1 = #{params.paramCode1}
+      </if>
+      <if test="params.paramCode2 != null" >
+        and param_code2 = #{params.paramCode2}
+      </if>
+      <if test="params.paramValue != null" >
+        and param_value = #{params.paramValue}
+      </if>
+       <if test="params.typeDesc != null" >
+        and type_desc = #{params.typeDesc}
+      </if>
+      <if test="params.display1 != null" >
+        and display1 = #{params.display1}
+      </if>
+       <if test="params.display2 != null" >
+       and display2 = #{params.display2}
+      </if>
+      <if test="params.status != null" >
+      and  status = #{params.status}
+      </if>
+      <if test="params.reserved1 != null" >
+      and  reserved1 = #{params.reserved1}
+      </if>
+      <if test="params.reserved2 != null" >
+      and  reserved2 = #{params.reserved2}
+      </if>
+  </select>
+</mapper>

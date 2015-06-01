@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysTransCodeMapper" >
+  <cache flushInterval="3600000" size="512" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysTransCode" >
+    <id column="trans_code" property="transCode" jdbcType="CHAR" />
+    <result column="req_bip_code" property="reqBipCode" jdbcType="VARCHAR" />
+    <result column="req_activity_code" property="reqActivityCode" jdbcType="CHAR" />
+    <result column="pay_mode" property="payMode" jdbcType="CHAR" />
+    <result column="buss_type" property="bussType" jdbcType="CHAR" />
+    <result column="buss_chl" property="bussChl" jdbcType="CHAR" />
+    <result column="trans_name" property="transName" jdbcType="VARCHAR" />
+    <result column="misc" property="misc" jdbcType="VARCHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    trans_code, req_bip_code, req_activity_code, pay_mode, buss_type,  trans_name, 
+    misc, last_upd_oprid, last_upd_time, reserved1, reserved2, reserved3,buss_chl
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_TRANS_CODE
+    where trans_code = #{transCode,jdbcType=CHAR}
+  </select>
+  <select id="selectByParams" resultMap="BaseResultMap" > 
+  	select 
+    <include refid="Base_Column_List" /> 
+    from UPAY_CSYS_TRANS_CODE
+    where 1=1  
+    <if test="params.transCode != null">
+    	and trans_code = #{ params.transCode }
+    </if>
+    <if test="params.reqBipCode != null">
+    	and req_bip_code = #{ params.reqBipCode }
+    </if>
+    <if test="params.reqActivityCode != null">
+    	and req_activity_code = #{ params.reqActivityCode }
+    </if>
+    <if test="params.payMode != null">
+    	and pay_mode = #{ params.payMode }
+    </if>
+    <if test="params.bussType != null">
+    	and buss_type = #{ params.bussType }
+    </if>
+  
+    <if test="params.transName != null">
+    	and trans_name = #{ params.transName }
+    </if>
+    <if test="params.misc != null">
+    	and misc = #{ params.misc }
+    </if>
+    <if test="params.lasuUpdOprId != null">
+    	and last_upd_oprid = #{ params.lasuUpdOprId }
+    </if>
+    <if test="params.lastUpdTime != null">
+    	and last_upd_time = #{ params.lastUpdTime }
+    </if>
+    <if test="params.reserved1 != null">
+    	and reserved1 = #{ params.reserved1 }
+    </if>
+    <if test="params.reserved2 != null">
+    	and reserved2 = #{ params.reserved2 }
+    </if>
+    <if test="params.reserved3 != null">
+    	and reserved3 = #{ params.reserved3 }
+    </if>
+    <if test="params.bussChl != null">
+        and buss_chl = #{ params.bussChl }
+    </if>
+    
+    
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from UPAY_CSYS_TRANS_CODE
+    where trans_code = #{transCode,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysTransCode" >
+    insert into UPAY_CSYS_TRANS_CODE (trans_code, req_bip_code, req_activity_code, 
+      pay_mode, buss_type, 
+      trans_name, misc, last_upd_oprid, 
+      last_upd_time, reserved1, reserved2, 
+      reserved3,buss_chl)
+    values (#{transCode,jdbcType=CHAR}, #{reqBipCode,jdbcType=VARCHAR}, #{reqActivityCode,jdbcType=CHAR}, 
+      #{payMode,jdbcType=CHAR}, #{bussType,jdbcType=CHAR}, 
+      #{transName,jdbcType=VARCHAR}, #{misc,jdbcType=VARCHAR}, #{lastUpdOprid,jdbcType=VARCHAR}, 
+      #{lastUpdTime,jdbcType=CHAR}, #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, 
+      #{reserved3,jdbcType=VARCHAR},#{ bussChl })
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysTransCode" >
+    insert into UPAY_CSYS_TRANS_CODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="transCode != null" >
+        trans_code,
+      </if>
+      <if test="reqBipCode != null" >
+        req_bip_code,
+      </if>
+      <if test="reqActivityCode != null" >
+        req_activity_code,
+      </if>
+      <if test="payMode != null" >
+        pay_mode,
+      </if>
+      <if test="bussType != null" >
+        buss_type,
+      </if>
+     
+      <if test="transName != null" >
+        trans_name,
+      </if>
+      <if test="misc != null" >
+        misc,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+      <if test="bussChl != null" >
+        buss_chl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="transCode != null" >
+        #{transCode,jdbcType=CHAR},
+      </if>
+      <if test="reqBipCode != null" >
+        #{reqBipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reqActivityCode != null" >
+        #{reqActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="payMode != null" >
+        #{payMode,jdbcType=CHAR},
+      </if>
+      <if test="bussType != null" >
+        #{bussType,jdbcType=CHAR},
+      </if>
+      
+      <if test="transName != null" >
+        #{transName,jdbcType=VARCHAR},
+      </if>
+      <if test="misc != null" >
+        #{misc,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="bussChl != null" >
+        #{bussChl},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysTransCode" >
+    update UPAY_CSYS_TRANS_CODE
+    <set >
+      <if test="reqBipCode != null" >
+        req_bip_code = #{reqBipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reqActivityCode != null" >
+        req_activity_code = #{reqActivityCode,jdbcType=CHAR},
+      </if>
+      <if test="payMode != null" >
+        pay_mode = #{payMode,jdbcType=CHAR},
+      </if>
+      <if test="bussType != null" >
+        buss_type = #{bussType,jdbcType=CHAR},
+      </if>
+     
+      <if test="transName != null" >
+        trans_name = #{transName,jdbcType=VARCHAR},
+      </if>
+      <if test="misc != null" >
+        misc = #{misc,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+       <if test="bussChl != null" >
+        buss_chl = #{bussChl},
+      </if>
+    </set>
+    where trans_code = #{transCode,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysTransCode" >
+    update UPAY_CSYS_TRANS_CODE
+    set req_bip_code = #{reqBipCode,jdbcType=VARCHAR},
+      req_activity_code = #{reqActivityCode,jdbcType=CHAR},
+      pay_mode = #{payMode,jdbcType=CHAR},
+      buss_type = #{bussType,jdbcType=CHAR},
+     
+      trans_name = #{transName,jdbcType=VARCHAR},
+      misc = #{misc,jdbcType=VARCHAR},
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+       buss_chl = #{bussChl},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where trans_code = #{transCode,jdbcType=CHAR}
+  </update>
+  
+   <select id="selectAllListByParams" resultType="list" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from
+        UPAY_CSYS_TRANS_CODE  
+        <choose>
+            <when test="orderParam != null">
+                ${orderParam}
+            </when>
+            
+        </choose>
+    </select>
+</mapper>

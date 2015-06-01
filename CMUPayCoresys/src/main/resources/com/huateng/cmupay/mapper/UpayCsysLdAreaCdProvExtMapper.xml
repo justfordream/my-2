@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysLdAreaCdProvExtMapper" >
+  <!-- <cache flushInterval="990000"/> -->
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysLdAreaCdProvExt" >
+    <id column="LD_AREA_CD" property="ldAreaCd" jdbcType="VARCHAR" />
+    <id column="EFFC_TM" property="effcTm" jdbcType="VARCHAR" />
+    <id column="EXT_FLAG" property="extFlag" jdbcType="NUMERIC" />
+    <result column="PROV_CD" property="provCd" jdbcType="VARCHAR" />
+    <result column="LD_AREA_NM" property="ldAreaNm" jdbcType="VARCHAR" />
+    <result column="EXPIRED_TM" property="expiredTm" jdbcType="VARCHAR" />
+    <result column="ACCORDING_FILE_NM" property="accordingFileNm" jdbcType="VARCHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    LD_AREA_CD, EFFC_TM, EXT_FLAG, PROV_CD, LD_AREA_NM, EXPIRED_TM, ACCORDING_FILE_NM, 
+    reserved1, reserved2, reserved3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.huateng.cmupay.models.UpayCsysLdAreaCdProvExt">
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_LD_AREA_CD_PROV_EXT
+    where LD_AREA_CD = #{ldAreaCd,jdbcType=VARCHAR}
+      and EFFC_TM = #{effcTm,jdbcType=VARCHAR}
+      and EXT_FLAG = #{extFlag,jdbcType=NUMERIC}
+      <![CDATA[  and (getdate() >= convert(datetime, effc_tm) and getdate() <= convert(datetime, expired_tm)) ]]>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysLdAreaCdProvExt" >
+    delete from UPAY_CSYS_LD_AREA_CD_PROV_EXT
+    where LD_AREA_CD = #{ldAreaCd,jdbcType=VARCHAR}
+      and EFFC_TM = #{effcTm,jdbcType=VARCHAR}
+      and EXT_FLAG = #{extFlag,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysLdAreaCdProvExt" >
+    insert into UPAY_CSYS_LD_AREA_CD_PROV_EXT (LD_AREA_CD, EFFC_TM, EXT_FLAG, 
+      PROV_CD, LD_AREA_NM, EXPIRED_TM, 
+      ACCORDING_FILE_NM, reserved1, reserved2, 
+      reserved3)
+    values (#{ldAreaCd,jdbcType=VARCHAR}, #{effcTm,jdbcType=VARCHAR}, #{extFlag,jdbcType=NUMERIC}, 
+      #{provCd,jdbcType=VARCHAR}, #{ldAreaNm,jdbcType=VARCHAR}, #{expiredTm,jdbcType=VARCHAR}, 
+      #{accordingFileNm,jdbcType=VARCHAR}, #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, 
+      #{reserved3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysLdAreaCdProvExt" >
+    insert into UPAY_CSYS_LD_AREA_CD_PROV_EXT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ldAreaCd != null" >
+        LD_AREA_CD,
+      </if>
+      <if test="effcTm != null" >
+        EFFC_TM,
+      </if>
+      <if test="extFlag != null" >
+        EXT_FLAG,
+      </if>
+      <if test="provCd != null" >
+        PROV_CD,
+      </if>
+      <if test="ldAreaNm != null" >
+        LD_AREA_NM,
+      </if>
+      <if test="expiredTm != null" >
+        EXPIRED_TM,
+      </if>
+      <if test="accordingFileNm != null" >
+        ACCORDING_FILE_NM,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ldAreaCd != null" >
+        #{ldAreaCd,jdbcType=VARCHAR},
+      </if>
+      <if test="effcTm != null" >
+        #{effcTm,jdbcType=VARCHAR},
+      </if>
+      <if test="extFlag != null" >
+        #{extFlag,jdbcType=NUMERIC},
+      </if>
+      <if test="provCd != null" >
+        #{provCd,jdbcType=VARCHAR},
+      </if>
+      <if test="ldAreaNm != null" >
+        #{ldAreaNm,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredTm != null" >
+        #{expiredTm,jdbcType=VARCHAR},
+      </if>
+      <if test="accordingFileNm != null" >
+        #{accordingFileNm,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysLdAreaCdProvExt" >
+    update UPAY_CSYS_LD_AREA_CD_PROV_EXT
+    <set >
+      <if test="provCd != null" >
+        PROV_CD = #{provCd,jdbcType=VARCHAR},
+      </if>
+      <if test="ldAreaNm != null" >
+        LD_AREA_NM = #{ldAreaNm,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredTm != null" >
+        EXPIRED_TM = #{expiredTm,jdbcType=VARCHAR},
+      </if>
+      <if test="accordingFileNm != null" >
+        ACCORDING_FILE_NM = #{accordingFileNm,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LD_AREA_CD = #{ldAreaCd,jdbcType=VARCHAR}
+      and EFFC_TM = #{effcTm,jdbcType=VARCHAR}
+      and EXT_FLAG = #{extFlag,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysLdAreaCdProvExt" >
+    update UPAY_CSYS_LD_AREA_CD_PROV_EXT
+    set PROV_CD = #{provCd,jdbcType=VARCHAR},
+      LD_AREA_NM = #{ldAreaNm,jdbcType=VARCHAR},
+      EXPIRED_TM = #{expiredTm,jdbcType=VARCHAR},
+      ACCORDING_FILE_NM = #{accordingFileNm,jdbcType=VARCHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where LD_AREA_CD = #{ldAreaCd,jdbcType=VARCHAR}
+      and EFFC_TM = #{effcTm,jdbcType=VARCHAR}
+      and EXT_FLAG = #{extFlag,jdbcType=NUMERIC}
+  </update>
+    <select id="selectAllListByParams" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_LD_AREA_CD_PROV_EXT
+          <![CDATA[  where (getdate() >= convert(datetime, effc_tm) and getdate() <= convert(datetime, expired_tm)) ]]>
+  </select>
+  
+</mapper>

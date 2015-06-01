@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.h2.mapper.UpayCsysOrgCodeh2Mapper" >
+   <cache flushInterval="60000" size="512" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysOrgCode" >
+    <id column="org_id" property="orgId" jdbcType="VARCHAR" />
+    <result column="org_name" property="orgName" jdbcType="VARCHAR" />
+    <result column="org_type" property="orgType" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="fath_org_id" property="fathOrgId" jdbcType="VARCHAR" />
+    <result column="org_level" property="orgLevel" jdbcType="CHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+    <result column="contact_man" property="contactMan" jdbcType="VARCHAR" />
+    <result column="contact_tel" property="contactTel" jdbcType="VARCHAR" />
+    <result column="contact_addr" property="contactAddr" jdbcType="VARCHAR" />
+    <result column="misc" property="misc" jdbcType="VARCHAR" />
+    <result column="is_history" property="isHistory" jdbcType="CHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    org_id, org_name, org_type, status, fath_org_id, org_level, last_upd_oprid, last_upd_time, 
+    contact_man, contact_tel, contact_addr, misc, is_history, reserved1, reserved2, reserved3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_ORG_CODE
+    where org_id = #{orgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from UPAY_CSYS_ORG_CODE
+    where org_id = #{orgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysOrgCode" >
+    insert into UPAY_CSYS_ORG_CODE (org_id, org_name, org_type, 
+      status, fath_org_id, org_level, 
+      last_upd_oprid, last_upd_time, contact_man, 
+      contact_tel, contact_addr, misc, 
+      is_history, reserved1, reserved2, 
+      reserved3)
+    values (#{orgId,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{orgType,jdbcType=CHAR}, 
+      #{status,jdbcType=CHAR}, #{fathOrgId,jdbcType=VARCHAR}, #{orgLevel,jdbcType=CHAR}, 
+      #{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}, #{contactMan,jdbcType=VARCHAR}, 
+      #{contactTel,jdbcType=VARCHAR}, #{contactAddr,jdbcType=VARCHAR}, #{misc,jdbcType=VARCHAR}, 
+      #{isHistory,jdbcType=CHAR}, #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, 
+      #{reserved3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysOrgCode" >
+    insert into UPAY_CSYS_ORG_CODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orgId != null" >
+        org_id,
+      </if>
+      <if test="orgName != null" >
+        org_name,
+      </if>
+      <if test="orgType != null" >
+        org_type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="fathOrgId != null" >
+        fath_org_id,
+      </if>
+      <if test="orgLevel != null" >
+        org_level,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="contactMan != null" >
+        contact_man,
+      </if>
+      <if test="contactTel != null" >
+        contact_tel,
+      </if>
+      <if test="contactAddr != null" >
+        contact_addr,
+      </if>
+      <if test="misc != null" >
+        misc,
+      </if>
+      <if test="isHistory != null" >
+        is_history,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null" >
+        #{orgType,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="fathOrgId != null" >
+        #{fathOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgLevel != null" >
+        #{orgLevel,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="contactMan != null" >
+        #{contactMan,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTel != null" >
+        #{contactTel,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddr != null" >
+        #{contactAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="misc != null" >
+        #{misc,jdbcType=VARCHAR},
+      </if>
+      <if test="isHistory != null" >
+        #{isHistory,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysOrgCode" >
+    update UPAY_CSYS_ORG_CODE
+    <set >
+      <if test="orgName != null" >
+        org_name = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null" >
+        org_type = #{orgType,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="fathOrgId != null" >
+        fath_org_id = #{fathOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgLevel != null" >
+        org_level = #{orgLevel,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="contactMan != null" >
+        contact_man = #{contactMan,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTel != null" >
+        contact_tel = #{contactTel,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddr != null" >
+        contact_addr = #{contactAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="misc != null" >
+        misc = #{misc,jdbcType=VARCHAR},
+      </if>
+      <if test="isHistory != null" >
+        is_history = #{isHistory,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where org_id = #{orgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysOrgCode" >
+    update UPAY_CSYS_ORG_CODE
+    set org_name = #{orgName,jdbcType=VARCHAR},
+      org_type = #{orgType,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      fath_org_id = #{fathOrgId,jdbcType=VARCHAR},
+      org_level = #{orgLevel,jdbcType=CHAR},
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      contact_man = #{contactMan,jdbcType=VARCHAR},
+      contact_tel = #{contactTel,jdbcType=VARCHAR},
+      contact_addr = #{contactAddr,jdbcType=VARCHAR},
+      misc = #{misc,jdbcType=VARCHAR},
+      is_history = #{isHistory,jdbcType=CHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where org_id = #{orgId,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectAllListByParams" resultType="list" resultMap="BaseResultMap" >
+	select
+        <include refid="Base_Column_List" />
+        from UPAY_CSYS_ORG_CODE
+        where 1=1
+ 
+        <choose>
+            <when test="orderParam != null">
+                ${orderParam}
+            </when>
+            
+        </choose>
+    </select>
+  
+  	<select id="selectByParams" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_ORG_CODE
+		where 1=1
+		<if test="params.orgId != null">
+			and org_id = #{params.orgId}
+		</if>
+	</select>
+  
+</mapper>

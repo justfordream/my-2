@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>     
+<beans     
+    xmlns="http://www.springframework.org/schema/beans"     
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"     
+    xsi:schemaLocation="http://www.springframework.org/schema/beans      
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">     
+   
+    <bean name="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
+    	<constructor-arg>
+    		<list>
+    			<ref bean="server1"/>
+    			
+    		</list>
+    	</constructor-arg>  
+    	
+    	 <constructor-arg > 
+             <list> 
+                 <value > 1 </value > 
+             </list > 
+         </constructor-arg > 
+	 <property  name ="connectionPoolSize"  value ="10" ></property > 
+
+    	
+    </bean>
+    <bean name="memCachedClient" id="memCachedClient"  factory-bean="memcachedClientBuilder" factory-method="build" destroy-method="shutdown">
+    </bean>
+    <bean id="server1" class="java.net.InetSocketAddress">
+    				<constructor-arg>
+    					<value>130.251.10.103</value>
+    				</constructor-arg>
+    				<constructor-arg>
+    					<value>11211</value>
+    				</constructor-arg>
+   </bean>
+   <bean class="com.huateng.cmupay.utils.MyApplicationContextUtil"></bean>
+
+
+   
+</beans>    

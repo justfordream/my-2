@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysSeqMapInfoMapper">
+	<resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysSeqMapInfo">
+		<result column="seq_code" property="seqCode" jdbcType="NUMERIC" />
+		<result column="seq_eng" property="seqEng" jdbcType="CHAR" />
+		<result column="seq_chn" property="seqChn" jdbcType="CHAR" />
+		<result column="seq_value" property="seqValue" jdbcType="NUMERIC" />
+		<result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+		<result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+		<result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+	</resultMap>
+	<insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysSeqMapInfo">
+		insert into UPAY_CSYS_SEQ_MAP_INFO (seq_code, seq_eng, seq_chn,
+		seq_value, reserved1, reserved2,
+		reserved3)
+		values (#{seqCode,jdbcType=NUMERIC}, #{seqEng,jdbcType=CHAR},
+		#{seqChn,jdbcType=CHAR},
+		#{seqValue,jdbcType=NUMERIC}, #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR},
+		#{reserved3,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysSeqMapInfo">
+		insert into UPAY_CSYS_SEQ_MAP_INFO
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="seqCode != null">
+				seq_code,
+			</if>
+			<if test="seqEng != null">
+				seq_eng,
+			</if>
+			<if test="seqChn != null">
+				seq_chn,
+			</if>
+			<if test="seqValue != null">
+				seq_value,
+			</if>
+			<if test="reserved1 != null">
+				reserved1,
+			</if>
+			<if test="reserved2 != null">
+				reserved2,
+			</if>
+			<if test="reserved3 != null">
+				reserved3,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="seqCode != null">
+				#{seqCode,jdbcType=NUMERIC},
+			</if>
+			<if test="seqEng != null">
+				#{seqEng,jdbcType=CHAR},
+			</if>
+			<if test="seqChn != null">
+				#{seqChn,jdbcType=CHAR},
+			</if>
+			<if test="seqValue != null">
+				#{seqValue,jdbcType=NUMERIC},
+			</if>
+			<if test="reserved1 != null">
+				#{reserved1,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved2 != null">
+				#{reserved2,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved3 != null">
+				#{reserved3,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByParams" parameterType="com.huateng.cmupay.models.UpayCsysSeqMapInfo">
+		update UPAY_CSYS_SEQ_MAP_INFO
+		<set>
+
+			<if test="seqCode != null">
+				seq_code= #{seqCode},
+			</if>
+			<if test="seqEng != null">
+				seq_eng= #{seqEng},
+			</if>
+			<if test="seqChn != null">
+				seq_chn= #{seqChn},
+			</if>
+			<if test="seqValue != null">
+				seq_value= #{seqValue},
+			</if>
+			<if test="reserved1 != null">
+				reserved1=#{reserved1},
+			</if>
+			<if test="reserved2 != null">
+				reserved2= #{reserved2},
+			</if>
+			<if test="reserved3 != null">
+				reserved3= #{reserved3},
+			</if>
+		</set>
+		where seq_code = #{seqCode}
+	</update>
+
+
+	<select id="selectByParams" resultMap="BaseResultMap">
+		select
+		*
+		from UPAY_CSYS_SEQ_MAP_INFO
+		where 1=1
+		<if test="params.seqCode != null">
+			and seq_code = #{params.seqCode}
+		</if>
+
+	</select>
+
+	<update id="updateIdentity" parameterType="java.lang.Integer">
+		update UPAY_CSYS_SEQ_MAP_INFO
+		set seq_value = seq_value + 1
+		where seq_code = #{seqCode}
+	</update>
+	
+	<update id="updateIdsatity" parameterType="java.lang.Integer">
+		update UPAY_CSYS_SEQ_MAP_INFO
+		set seq_value = seq_value + 1
+		where seq_code = #{seqCode}
+	</update>
+
+	<select id="selectIdentity" parameterType="java.lang.Integer" resultType="java.lang.Long" >
+		select
+		seq_value
+		from UPAY_CSYS_SEQ_MAP_INFO
+		where seq_code = #{seqCode}
+
+	</select>
+	<select id="selectIdsatity" parameterType="java.lang.Integer" resultType="java.lang.Long" >
+		select
+		seq_value
+		from UPAY_CSYS_SEQ_MAP_INFO
+		where seq_code = #{seqCode}
+
+	</select>
+
+</mapper>

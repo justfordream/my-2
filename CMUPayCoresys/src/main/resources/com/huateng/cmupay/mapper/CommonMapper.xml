@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="common" >
+
+<!--   <sql id="Pagination_Head" >
+    <if test="startIndex != null and endIndex != null" >
+      <![CDATA[ select * from ( select row_.*, rownum rn from ( ]]>
+    </if>
+  </sql>
+  <sql id="Pagination_Foot" >
+    <if test="startIndex != null and endIndex != null" >
+      <![CDATA[ ) row_ where rownum <= #{endIndex} ) where rn > #{startIndex} ]]>
+    </if>
+  </sql> -->
+</mapper>

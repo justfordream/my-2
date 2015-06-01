@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="gb2312"?>
+<project basedir="." default="init" name="upaycore">
+
+	<property name="debug" value="off" />
+	<property name="optimize" value="on" />
+	<property name="deprecation" value="on" />
+
+	<property name="CMUPayCoresys.dir" value="./CMUPayCoresys" />
+	<property name="CMUPayCoresys.src.dir" value="./CMUPayCoresys/src" />
+	<property name="CMUPayCoresys.web-inf.dir" value="${CMUPayCoresys.dir}/WEB-INF" />
+	<property name="CMUPayCoresys.web-inf.classes.dir" value="${CMUPayCoresys.dir}/WEB-INF/classes" />
+	<property name="CMUPayCoresys.web-inf.lib.dir" value="${CMUPayCoresys.dir}/WEB-INF/lib" />
+	<property name="src.java" value="./src/main/java" />
+	<property name="src.resources" value="./src/main/resources" />
+	<property name="src.web-inf" value="./src/main/webapp/WEB-INF" />
+	<property name="src.lib" value="./src/main/webapp/WEB-INF/lib"/>
+	<!--其他jar包路径 -->
+	<path id="lib">
+		<fileset dir="${src.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<target name="init">
+		<delete dir="${CMUPayCoresys.dir}" />
+
+		<mkdir dir="${CMUPayCoresys.dir}" />
+		<mkdir dir="${CMUPayCoresys.src.dir}" />
+		<mkdir dir="${CMUPayCoresys.web-inf.dir}" />
+		<mkdir dir="${CMUPayCoresys.web-inf.classes.dir}" />
+		<mkdir dir="${CMUPayCoresys.web-inf.lib.dir}" />
+
+		<copy todir="${CMUPayCoresys.src.dir}">
+			<fileset dir="${src.java}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+
+		<javac encoding="UTF-8" fork="true" memoryInitialSize="256m" memoryMaximumSize="256m" includeantruntime="false" debug="on" optimize="${optimize}" destdir="${CMUPayCoresys.web-inf.classes.dir}" srcdir="${CMUPayCoresys.src.dir}">
+			<classpath refid="lib" />
+		</javac>
+
+		<copy todir="${CMUPayCoresys.web-inf.lib.dir}">
+			<fileset dir="${src.lib}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+
+		<copy todir="${CMUPayCoresys.web-inf.dir}">
+			<fileset dir="${src.web-inf}">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+
+		<copy todir="${CMUPayCoresys.web-inf.classes.dir}">
+			<fileset dir="${src.resources}">
+				<include name="**/" />
+			</fileset>
+			<fileset dir="${src.resources}">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+		<delete dir="${CMUPayCoresys.src.dir}" />
+
+	</target>
+</project>
+

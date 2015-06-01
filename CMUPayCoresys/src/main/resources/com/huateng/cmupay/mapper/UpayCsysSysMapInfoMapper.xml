@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysSysMapInfoMapper">
+   <cache flushInterval="3600000" size="1536" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysSysMapInfo">
+    <result column="sys_cd" jdbcType="CHAR" property="sysCd" />
+    <result column="sys_nm" jdbcType="VARCHAR" property="sysNm" />
+    <result column="duns_cd" jdbcType="CHAR" property="dunsCd" />
+    <result column="domain" jdbcType="CHAR" property="domain" />
+    <result column="area_cd" jdbcType="CHAR" property="areaCd" />
+    <result column="reserved" jdbcType="VARCHAR" property="reserved" />
+    <result column="reserved2" jdbcType="VARCHAR" property="reserved2" />
+  </resultMap>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysSysMapInfo">
+    insert into UPAY_CSYS_SYS_MAP_INFO (sys_cd, sys_nm, duns_cd, 
+      domain, area_cd, reserved, 
+      reserved2)
+    values (#{sysCd,jdbcType=CHAR}, #{sysNm,jdbcType=VARCHAR}, #{dunsCd,jdbcType=CHAR}, 
+      #{domain,jdbcType=CHAR}, #{areaCd,jdbcType=CHAR}, #{reserved,jdbcType=VARCHAR}, 
+      #{reserved2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysSysMapInfo">
+    insert into UPAY_CSYS_SYS_MAP_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sysCd != null">
+        sys_cd,
+      </if>
+      <if test="sysNm != null">
+        sys_nm,
+      </if>
+      <if test="dunsCd != null">
+        duns_cd,
+      </if>
+      <if test="domain != null">
+        domain,
+      </if>
+      <if test="areaCd != null">
+        area_cd,
+      </if>
+      <if test="reserved != null">
+        reserved,
+      </if>
+      <if test="reserved2 != null">
+        reserved2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sysCd != null">
+        #{sysCd,jdbcType=CHAR},
+      </if>
+      <if test="sysNm != null">
+        #{sysNm,jdbcType=VARCHAR},
+      </if>
+      <if test="dunsCd != null">
+        #{dunsCd,jdbcType=CHAR},
+      </if>
+      <if test="domain != null">
+        #{domain,jdbcType=CHAR},
+      </if>
+      <if test="areaCd != null">
+        #{areaCd,jdbcType=CHAR},
+      </if>
+      <if test="reserved != null">
+        #{reserved,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null">
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+    <select id="selectByParams" resultType="list"  resultMap="BaseResultMap" >
+    select
+       *
+        from UPAY_CSYS_SYS_MAP_INFO
+        where 1=1
+        <if test="params.sysCd !=null">
+            and sys_cd=#{params.sysCd}
+        </if>
+        <if test="params.dunsCd !=null">
+            and duns_cd=#{params.dunsCd}
+        </if>
+         <if test="params.areaCd !=null">
+            and area_cd=#{params.areaCd}
+        </if>
+      
+
+    </select>
+    
+     <select id="selectAllListByParams" resultType="list" resultMap="BaseResultMap" >
+    select
+       *
+        from UPAY_CSYS_SYS_MAP_INFO
+      
+
+    </select>
+
+</mapper>

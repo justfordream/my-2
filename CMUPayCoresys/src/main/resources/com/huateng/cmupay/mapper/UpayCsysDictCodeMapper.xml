@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysDictCodeMapper" >
+   <cache flushInterval="3600000" size="512" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysDictCode" >
+    <id column="code_id" property="codeId" jdbcType="NUMERIC" />
+    <result column="code_value_1" property="codeValue1" jdbcType="VARCHAR" />
+    <result column="code_value_2" property="codeValue2" jdbcType="VARCHAR" />
+    <result column="code_desc" property="codeDesc" jdbcType="VARCHAR" />
+    <result column="dict_id" property="dictId" jdbcType="VARCHAR" />
+    <result column="priority" property="priority" jdbcType="NUMERIC" />
+    <result column="dict_status" property="dictStatus" jdbcType="CHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code_id, code_value_1, code_value_2, code_desc, dict_id, priority, dict_status, last_upd_oprid, 
+    last_upd_time, reserved1, reserved2, reserved3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer"  >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_DICT_CODE
+    where code_id = #{codeId,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from UPAY_CSYS_DICT_CODE
+    where code_id = #{codeId,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysDictCode" >
+    insert into UPAY_CSYS_DICT_CODE (code_id, code_value_1, code_value_2, 
+      code_desc, dict_id, priority, 
+      dict_status, last_upd_oprid, last_upd_time, 
+      reserved1, reserved2, reserved3
+      )
+    values (#{codeId,jdbcType=NUMERIC}, #{codeValue1,jdbcType=VARCHAR}, #{codeValue2,jdbcType=VARCHAR}, 
+      #{codeDesc,jdbcType=VARCHAR}, #{dictId,jdbcType=VARCHAR}, #{priority,jdbcType=NUMERIC}, 
+      #{dictStatus,jdbcType=CHAR}, #{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}, 
+      #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysDictCode" >
+    insert into UPAY_CSYS_DICT_CODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="codeId != null" >
+        code_id,
+      </if>
+      <if test="codeValue1 != null" >
+        code_value_1,
+      </if>
+      <if test="codeValue2 != null" >
+        code_value_2,
+      </if>
+      <if test="codeDesc != null" >
+        code_desc,
+      </if>
+      <if test="dictId != null" >
+        dict_id,
+      </if>
+      <if test="priority != null" >
+        priority,
+      </if>
+      <if test="dictStatus != null" >
+        dict_status,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="codeId != null" >
+        #{codeId,jdbcType=NUMERIC},
+      </if>
+      <if test="codeValue1 != null" >
+        #{codeValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="codeValue2 != null" >
+        #{codeValue2,jdbcType=VARCHAR},
+      </if>
+      <if test="codeDesc != null" >
+        #{codeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dictId != null" >
+        #{dictId,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=NUMERIC},
+      </if>
+      <if test="dictStatus != null" >
+        #{dictStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysDictCode" >
+    update UPAY_CSYS_DICT_CODE
+    <set >
+      <if test="codeValue1 != null" >
+        code_value_1 = #{codeValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="codeValue2 != null" >
+        code_value_2 = #{codeValue2,jdbcType=VARCHAR},
+      </if>
+      <if test="codeDesc != null" >
+        code_desc = #{codeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dictId != null" >
+        dict_id = #{dictId,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        priority = #{priority,jdbcType=NUMERIC},
+      </if>
+      <if test="dictStatus != null" >
+        dict_status = #{dictStatus,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code_id = #{codeId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysDictCode" >
+    update UPAY_CSYS_DICT_CODE
+    set code_value_1 = #{codeValue1,jdbcType=VARCHAR},
+      code_value_2 = #{codeValue2,jdbcType=VARCHAR},
+      code_desc = #{codeDesc,jdbcType=VARCHAR},
+      dict_id = #{dictId,jdbcType=VARCHAR},
+      priority = #{priority,jdbcType=NUMERIC},
+      dict_status = #{dictStatus,jdbcType=CHAR},
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where code_id = #{codeId,jdbcType=NUMERIC}
+  </update>
+  
+   <select id="selectByParams" resultMap="BaseResultMap"  > 
+  	select 
+    <include refid="Base_Column_List" /> 
+    from UPAY_CSYS_DICT_CODE
+    where 1=1  
+      <if test="params.codeId != null" >
+        and code_id = #{params.codeId}
+      </if>
+      <if test="params.codeValue1 != null" >
+       and code_value_1 = #{params.codeValue1}
+      </if>
+      <if test="params.codeValue2 != null" >
+       and code_value_2 = #{params.codeValue2}
+      </if>
+      <if test="params.codeDesc != null" >
+      and  code_desc = #{params.codeDesc}
+      </if>
+      <if test="params.dictId != null" >
+      and  dict_id = #{params.dictId}
+      </if>
+      <if test="params.priority != null" >
+      and  priority = #{params.priority}
+      </if>
+      <if test="params.dictStatus != null" >
+      and  dict_status = #{params.dictStatus}
+      </if>
+      <if test="params.lastUpdOprid != null" >
+       and last_upd_oprid = #{params.lastUpdOprid}
+      </if>
+      <if test="params.lastUpdTime != null" >
+      and  last_upd_time = #{params.lastUpdTime}
+      </if>
+      <if test="params.reserved1 != null" >
+      and  reserved1 = #{params.reserved1}
+      </if>
+      <if test="params.reserved2 != null" >
+      and  reserved2 = #{params.reserved2}
+      </if>
+      <if test="params.reserved3 != null" >
+      and  reserved3 = #{params.reserved3}
+      </if>
+  </select>
+  
+   <select id="selectAllListByParams" resultType="list" resultMap="BaseResultMap"  >
+        select
+        c.code_id as codeId,
+        c.code_value_1 as codeValue1,
+        c.code_value_2 as codeValue2,
+        c.code_desc as codeDesc,
+        c.dict_id as dictId,
+        c.priority as priority,
+        c.dict_status as dictStatus,
+        c.last_upd_oprid as lastUpdOprid,
+        c.last_upd_time as lastUpdTime,
+        c.reserved1 as reserved1,
+        c.reserved2 as reserved2,
+        c.reserved3 as reserved3
+        <!-- <include refid="Base_Column_List" /> -->
+        from
+        UPAY_CSYS_DICT_CODE C ,UPAY_CSYS_DICT_INFO I
+        where C.dict_id=I.dict_id
+        <if test="params.dictId != null">
+            and C.dict_id = #{params.dictId}
+        </if>
+        <if test="params.dictStatus != null">
+            and C.dict_status = #{params.dictStatus}
+        </if>
+        <if test="params.dictStatus != null">
+            and I.dict_status = #{params.dictStatus}
+        </if>
+        <choose>
+            <when test="orderParam != null">
+                ${orderParam}
+            </when>
+            <otherwise>
+                order by C.priority
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

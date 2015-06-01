@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysOrgTransCodeMapper" >
+  <!-- <cache flushInterval="20000"/> -->
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysOrgTransCode" >
+    <id column="org_id" property="orgId" jdbcType="VARCHAR" />
+    <id column="trans_code" property="transCode" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+    <result column="is_history" property="isHistory" jdbcType="CHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    org_id, trans_code, status, last_upd_oprid, last_upd_time, reserved1, reserved2, 
+    reserved3,is_history
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.huateng.cmupay.models.UpayCsysOrgTransCode" >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_ORG_TRANS_CODE
+    where org_id = #{orgId,jdbcType=VARCHAR}
+      and trans_code = #{transCode,jdbcType=CHAR}
+  </select>
+  <select id="selectByParams" resultMap="BaseResultMap" >
+  	select 
+  	<include refid="Base_Column_List" />
+  	from UPAY_CSYS_ORG_TRANS_CODE
+  	where 1=1  	
+  	<if test="params.orgId != null">
+  		and org_id = #{ params.orgId}
+  	</if>
+  	<if test="params.transCode != null">
+  		and trans_code = #{ params.transCode}
+  	</if>
+  	<if test="params.status != null">
+  		and status = #{ params.status}
+  	</if>
+  	<if test="params.lastUpdOprId != null">
+  		and last_upd_oprid = #{ params.lastUpdOprId}
+  	</if>
+  	<if test="params.lastUpdTime != null">
+  		and last_upd_time = #{ params.lastUpdTime}
+  	</if>
+  	<if test="params.isHistory != null">
+  		and is_history = #{ params.isHistory}
+  	</if>
+  	<if test="params.reserve1 != null">
+  		and reserved1 = #{ params.reserve1}
+  	</if>
+  	<if test="params.reserve2 != null">
+  		and reserved2 = #{ params.reserve2}
+  	</if>
+  	<if test="params.reserve3 != null">
+  		and reserved3 = #{ params.reserve3}
+  	</if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysOrgTransCode" >
+    delete from UPAY_CSYS_ORG_TRANS_CODE
+    where org_id = #{orgId,jdbcType=VARCHAR}
+      and trans_code = #{transCode,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysOrgTransCode" >
+    insert into UPAY_CSYS_ORG_TRANS_CODE (org_id, trans_code, status, 
+      last_upd_oprid, last_upd_time, reserved1, 
+      reserved2, reserved3,is_history)
+    values (#{orgId,jdbcType=VARCHAR}, #{transCode,jdbcType=CHAR}, #{status,jdbcType=CHAR}, 
+      #{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}, #{reserved1,jdbcType=VARCHAR}, 
+      #{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR},#{isHistory})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysOrgTransCode" >
+    insert into UPAY_CSYS_ORG_TRANS_CODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orgId != null" >
+        org_id,
+      </if>
+      <if test="transCode != null" >
+        trans_code,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+       <if test="isHistory != null" >
+        is_history,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="transCode != null" >
+        #{transCode,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+       <if test="isHistory != null" >
+        #{isHistory},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysOrgTransCode" >
+    update UPAY_CSYS_ORG_TRANS_CODE
+    <set >
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="isHistory != null" >
+        is_history =  #{isHistory},
+      </if>
+    </set>
+    where org_id = #{orgId,jdbcType=VARCHAR}
+      and trans_code = #{transCode,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysOrgTransCode" >
+    update UPAY_CSYS_ORG_TRANS_CODE
+    set status = #{status,jdbcType=CHAR},
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+       is_history =  #{isHistory},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where org_id = #{orgId,jdbcType=VARCHAR}
+      and trans_code = #{transCode,jdbcType=CHAR}
+  </update>
+  
+   <select id="selectAllListByParams" resultType="list" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from
+        UPAY_CSYS_ORG_TRANS_CODE  
+        <choose>
+            <when test="orderParam != null">
+                ${orderParam}
+            </when>
+            
+        </choose>
+    </select>
+  
+  
+</mapper>

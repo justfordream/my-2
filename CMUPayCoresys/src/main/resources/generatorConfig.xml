@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <properties resource="server.properties" />
+  <context id="context1" targetRuntime="MyBatis3">
+  	<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+	<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+		<property name="searchString" value="Example$"/>
+		<property name="replaceString" value="Criteria"/>
+	</plugin>
+	<commentGenerator>
+  		<!-- 删除代码中带有 代码生成器的注释信息  -->
+  		<property name="suppressAllComments" value="true" />
+  		<property name="suppressDate" value="true" />
+  	</commentGenerator>
+  	
+  	
+<!-- 
+    <javaModelGenerator targetPackage="com.huateng.cmupay.models" targetProject="CMUPayCoresys/src/main/java" />
+    <sqlMapGenerator targetPackage="com.huateng.cmupay.mapper" targetProject="CMUPayCoresys/src/main/resources" />
+    <javaClientGenerator targetPackage="com.huateng.cmupay.controller.mapper" targetProject="CMUPayCoresys/src/main/java" type="XMLMAPPER" />
+    
+  -->
+    <jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver" connectionURL="jdbc:jtds:sybase://172.16.8.181:5000/upaynet;charset=utf8" userId="upaynet" password="cmsz@567" />
+    
+    <javaModelGenerator targetPackage="com.huateng.cmupay.models" targetProject="CMUPayCoresys/src/main/java" />
+    <sqlMapGenerator targetPackage="com.huateng.cmupay.mapper" targetProject="CMUPayCoresys/src/main/resources" />
+    <javaClientGenerator targetPackage="com.huateng.cmupay.controller.mapper" targetProject="CMUPayCoresys/src/main/java" type="XMLMAPPER" />
+     
+ 
+ 
+<table tableName="UPAY_CSYS_TMALL_TXN_LOG" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> 
+<!--  <table tableName="UPAY_CSYS_TRANS_CODE" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>-->
+<!--  <table tableName="UPAY_CSYS_BAT_CUT_CTL" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>-->
+<!-- <table tableName="UPAY_CSYS_ROUTE_INFO" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>   --> 
+<!-- <table tableName="UPAY_CSYS_PAY_LIMIT" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
+<!--  <table tableName="UPAY_CSYS_OUTER_ERRCODE" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> --> 
+<!-- <table tableName="UPAY_CSYS_ORG_TRANS_CODE" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> --> 
+ 
+ <!-- <table tableName="UPAY_CSYS_DICT_INFO" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
+<!--  <table tableName="UPAY_CSYS_DICT_CODE" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>  -->
+ <!--  <table tableName="UPAY_CSYS_BIND_INFO" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
+  <!-- <table tableName="UPAY_CSYS_BILL_PAY" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
+ <!-- <table tableName="UPAY_CSYS_TRANS_CODE" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>  -->
+  
+ <!--  <table tableName="UPAY_CSYS_SYS_MAP_INFO" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>  -->
+<!--  <table tableName="UPAY_CSYS_BILL_PAY" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
+<!--  <table tableName="UPAY_CSYS_TXN_LOG" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
+ <!-- <table tableName="UPAY_CSYS_TRANS_CODE" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>-->
+ <!-- <table tableName="UPAY_CSYS_TRANS_CODE" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>-->
+ <!-- <table tableName="UPAY_CSYS_BIND_INFO" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>-->
+  <!-- <table tableName="UPAY_CSYS_IMSI_LD_CD" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>-->
+ <!--  <table tableName="UPAY_CSYS_LD_AREA_CD_PROV_EXT" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
+<!--  <table tableName="UPAY_CSYS_SEQ_MAP_INFO" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table>  -->
+<!-- <table tableName="UPAY_CSYS_TXN_LOG" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> --> 
+  <!-- <table tableName="UPAY_CSYS_TMALL_BILL_PAY" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
+<!-- <table tableName="UPAY_CSYS_ORG_MAP_TRANS_CODE" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
+ </context>
+</generatorConfiguration>

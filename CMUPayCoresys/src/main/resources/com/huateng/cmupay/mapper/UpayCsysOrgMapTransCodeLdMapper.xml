@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysOrgMapTransCodeLdMapper">
+     <cache flushInterval="60000" size="512" readOnly="true"/>
+	<resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysOrgMapTransCode">
+		<result column="req_org_id" property="reqOrgId" jdbcType="VARCHAR" />
+		<result column="rcv_org_id" property="rcvOrgId" jdbcType="VARCHAR" />
+		<result column="req_org_name" property="reqOrgName" jdbcType="VARCHAR" />
+		<result column="rcv_org_name" property="rcvOrgName" jdbcType="VARCHAR" />
+		<result column="trans_code_collect" property="transCodeCollect"
+			jdbcType="NVARCHAR" />
+		<result column="trans_code_collect2" property="transCodeCollect2"
+			jdbcType="NVARCHAR" />
+		<result column="status" property="status" jdbcType="CHAR" />
+		<result column="last_upd_oprid" property="lastUpdOprid"
+			jdbcType="VARCHAR" />
+		<result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+		<result column="is_history" property="isHistory" jdbcType="CHAR" />
+		<result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+		<result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+		<result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		req_org_id,rcv_org_id,
+		req_org_name,rcv_org_name,
+		trans_code_collect,trans_code_collect2,
+		status,
+		last_upd_oprid,last_upd_time,
+		is_history,
+		reserved1,reserved2,reserved3
+	</sql>
+<!-- 	<sql id="commonWhere">
+		<if test="params.reqOrgId!=null">and req_org_id = #{params.reqOrgId}</if>
+		<if test="params.rcvOrgId!=null">and rcv_org_id = #{params.rcvOrgId}</if>
+		<if test="params.reqOrgName!=null">and req_org_name = #{params.reqOrgName}</if>
+		<if test="params.rcvOrgName!=null">and rcv_org_name = #{params.rcvOrgName}</if>
+		<if test="params.transCodeCollect!=null">and trans_code_collect = #{params.transCodeCollect}</if>
+		<if test="params.transCodeCollect2!=null">and trans_code_collect2 = #{params.transCodeCollect2}</if>
+		<if test="params.status!=null">and status = #{params.status}</if>
+		<if test="params.lastUpdOprid!=null">and last_upd_oprid = #{params.lastUpdOprid}</if>
+		<if test="params.lastUpdTime!=null">and last_upd_time = #{params.lastUpdTime}</if>
+		<if test="params.is_history!=null">and is_history = #{params.is_history}</if>
+		<if test="params.reserved1!=null">and reserved1 = #{params.reserved1}</if>
+		<if test="params.reserved2!=null">and reserved2 = #{params.reserved2}</if>
+		<if test="params.reserved3!=null">and reserved3 = #{params.reserved3}</if>
+	</sql> -->
+	<insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysOrgMapTransCode">
+		insert into
+		UPAY_CSYS_ORG_MAP_TRANS_LD (req_org_id, rcv_org_id,
+		req_org_name,
+		rcv_org_name, trans_code_collect, trans_code_collect2,
+		status,
+		last_upd_oprid, last_upd_time,
+		is_history, reserved1, reserved2,
+		reserved3)
+		values (#{reqOrgId,jdbcType=VARCHAR},
+		#{rcvOrgId,jdbcType=VARCHAR},
+		#{reqOrgName,jdbcType=VARCHAR},
+		#{rcvOrgName,jdbcType=VARCHAR}, #{transCodeCollect,jdbcType=VARCHAR},
+		#{transCodeCollect2,jdbcType=VARCHAR},
+		#{status,jdbcType=CHAR},
+		#{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR},
+		#{isHistory,jdbcType=CHAR}, #{reserved1,jdbcType=VARCHAR},
+		#{reserved2,jdbcType=VARCHAR},
+		#{reserved3,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysOrgMapTransCode">
+		insert into UPAY_CSYS_ORG_MAP_TRANS_LD
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="reqOrgId != null">
+				req_org_id,
+			</if>
+			<if test="rcvOrgId != null">
+				rcv_org_id,
+			</if>
+			<if test="reqOrgName != null">
+				req_org_name,
+			</if>
+			<if test="rcvOrgName != null">
+				rcv_org_name,
+			</if>
+			<if test="transCodeCollect != null">
+				trans_code_collect,
+			</if>
+			<if test="transCodeCollect2 != null">
+				trans_code_collect2,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="lastUpdOprid != null">
+				last_upd_oprid,
+			</if>
+			<if test="lastUpdTime != null">
+				last_upd_time,
+			</if>
+			<if test="isHistory != null">
+				is_history,
+			</if>
+			<if test="reserved1 != null">
+				reserved1,
+			</if>
+			<if test="reserved2 != null">
+				reserved2,
+			</if>
+			<if test="reserved3 != null">
+				reserved3,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="reqOrgId != null">
+				#{reqOrgId,jdbcType=VARCHAR},
+			</if>
+			<if test="rcvOrgId != null">
+				#{rcvOrgId,jdbcType=VARCHAR},
+			</if>
+			<if test="reqOrgName != null">
+				#{reqOrgName,jdbcType=VARCHAR},
+			</if>
+			<if test="rcvOrgName != null">
+				#{rcvOrgName,jdbcType=VARCHAR},
+			</if>
+			<if test="transCodeCollect != null">
+				#{transCodeCollect,jdbcType=VARCHAR},
+			</if>
+			<if test="transCodeCollect2 != null">
+				#{transCodeCollect2,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=CHAR},
+			</if>
+			<if test="lastUpdOprid != null">
+				#{lastUpdOprid,jdbcType=VARCHAR},
+			</if>
+			<if test="lastUpdTime != null">
+				#{lastUpdTime,jdbcType=CHAR},
+			</if>
+			<if test="isHistory != null">
+				#{isHistory,jdbcType=CHAR},
+			</if>
+			<if test="reserved1 != null">
+				#{reserved1,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved2 != null">
+				#{reserved2,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved3 != null">
+				#{reserved3,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	
+	<select id="selectByParams" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_ORG_MAP_TRANS_LD
+		where 1=1
+		<if test="params.reqOrgId != null">
+         and req_org_id = #{params.reqOrgId}
+        </if>
+        <if test="params.rcvOrgId != null">
+          and rcv_org_id = #{params.rcvOrgId}
+        </if>
+        <if test="params.status != null">
+           and status = #{params.status}
+        </if>
+
+        <if test="params.isHistory != null">
+         and is_history = #{params.isHistory}
+        </if>
+	</select>
+</mapper>

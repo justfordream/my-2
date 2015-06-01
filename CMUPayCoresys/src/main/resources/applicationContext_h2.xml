@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:core="http://activemq.apache.org/schema/core" xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://activemq.apache.org/schema/core http://activemq.org/config/1.0/1.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+		
+		
+	<bean id="dataSourceh2" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+		<property name="driverClass" value="${h2.driver}"></property>
+		<property name="jdbcUrl" value="${h2.jdbcUrl}"></property>
+		<property name="user" value="${h2.h2u}"></property>
+		<property name="password" value="${h2.h2p}"></property>
+		<property name="minPoolSize" value="${h2.minPoolSize}"></property>
+		<property name="maxPoolSize" value="${h2.maxPoolSize}"></property>
+		<property name="maxIdleTime" value="${h2.maxIdleTime}"></property>
+		<property name="idleConnectionTestPeriod" value="${h2.idleConnectionTestPeriod}"></property>
+		<property name="checkoutTimeout" value="${h2.checkoutTimeout}"></property>
+		<property name="testConnectionOnCheckin"  value="${h2.testConnectionOnCheckin}"></property>
+		<property name="acquireIncrement" value="${h2.acquireIncrement}"></property>
+		<property name="maxStatements" value="${h2.maxStatements}"></property>
+		<property name="maxStatementsPerConnection" value="${h2.maxStatementsPerConnection}"></property>
+        <property name="acquireRetryAttempts" value="${h2.acquireRetryAttempts}"></property>
+        <property name="acquireRetryDelay" value="${h2.acquireRetryDelay}"></property>
+        <property name="breakAfterAcquireFailure" value="${h2.breakAfterAcquireFailure}"></property> 
+	</bean>
+	
+	<bean id="sqlSessionFactoryh2" name="sqlSessionFactoryh2"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceh2" />
+		<property name="configLocation" value="classpath:mybatis.xml" />
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:com/huateng/cmupay/h2/mapper/*Mapper.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="sqlSessionFactoryTemplateh2" name="sqlSessionFactoryTemplateh2"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactoryh2" />
+	</bean>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.huateng.cmupay.controller.h2.mapper" />
+		<property name="sqlSessionTemplateBeanName" value="sqlSessionFactoryTemplateh2" />
+	</bean>
+	
+</beans>

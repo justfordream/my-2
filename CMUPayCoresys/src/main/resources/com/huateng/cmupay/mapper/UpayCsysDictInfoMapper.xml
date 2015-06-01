@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.cmupay.controller.mapper.UpayCsysDictInfoMapper" >
+   <cache flushInterval="3600000" size="512" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.cmupay.models.UpayCsysDictInfo" >
+    <id column="seq_id" property="seqId" jdbcType="NUMERIC" />
+    <result column="dict_id" property="dictId" jdbcType="VARCHAR" />
+    <result column="dict_eng" property="dictEng" jdbcType="VARCHAR" />
+    <result column="dict_chn" property="dictChn" jdbcType="VARCHAR" />
+    <result column="dict_status" property="dictStatus" jdbcType="CHAR" />
+    <result column="notes" property="notes" jdbcType="VARCHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seq_id, dict_id, dict_eng, dict_chn, dict_status, notes, last_upd_oprid, last_upd_time, 
+    reserved1, reserved2, reserved3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Long"  >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_DICT_INFO
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long" >
+    delete from UPAY_CSYS_DICT_INFO
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.cmupay.models.UpayCsysDictInfo" >
+    insert into UPAY_CSYS_DICT_INFO (seq_id, dict_id, dict_eng, 
+      dict_chn, dict_status, notes, 
+      last_upd_oprid, last_upd_time, reserved1, 
+      reserved2, reserved3)
+    values (#{seqId,jdbcType=NUMERIC}, #{dictId,jdbcType=VARCHAR}, #{dictEng,jdbcType=VARCHAR}, 
+      #{dictChn,jdbcType=VARCHAR}, #{dictStatus,jdbcType=CHAR}, #{notes,jdbcType=VARCHAR}, 
+      #{lastUpdOprid,jdbcType=VARCHAR}, #{lastUpdTime,jdbcType=CHAR}, #{reserved1,jdbcType=VARCHAR}, 
+      #{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.cmupay.models.UpayCsysDictInfo" >
+    insert into UPAY_CSYS_DICT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        seq_id,
+      </if>
+      <if test="dictId != null" >
+        dict_id,
+      </if>
+      <if test="dictEng != null" >
+        dict_eng,
+      </if>
+      <if test="dictChn != null" >
+        dict_chn,
+      </if>
+      <if test="dictStatus != null" >
+        dict_status,
+      </if>
+      <if test="notes != null" >
+        notes,
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+      <if test="reserved1 != null" >
+        reserved1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqId != null" >
+        #{seqId,jdbcType=NUMERIC},
+      </if>
+      <if test="dictId != null" >
+        #{dictId,jdbcType=VARCHAR},
+      </if>
+      <if test="dictEng != null" >
+        #{dictEng,jdbcType=VARCHAR},
+      </if>
+      <if test="dictChn != null" >
+        #{dictChn,jdbcType=VARCHAR},
+      </if>
+      <if test="dictStatus != null" >
+        #{dictStatus,jdbcType=CHAR},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.cmupay.models.UpayCsysDictInfo" >
+    update UPAY_CSYS_DICT_INFO
+    <set >
+      <if test="dictId != null" >
+        dict_id = #{dictId,jdbcType=VARCHAR},
+      </if>
+      <if test="dictEng != null" >
+        dict_eng = #{dictEng,jdbcType=VARCHAR},
+      </if>
+      <if test="dictChn != null" >
+        dict_chn = #{dictChn,jdbcType=VARCHAR},
+      </if>
+      <if test="dictStatus != null" >
+        dict_status = #{dictStatus,jdbcType=CHAR},
+      </if>
+      <if test="notes != null" >
+        notes = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdOprid != null" >
+        last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="reserved1 != null" >
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.cmupay.models.UpayCsysDictInfo" >
+    update UPAY_CSYS_DICT_INFO
+    set dict_id = #{dictId,jdbcType=VARCHAR},
+      dict_eng = #{dictEng,jdbcType=VARCHAR},
+      dict_chn = #{dictChn,jdbcType=VARCHAR},
+      dict_status = #{dictStatus,jdbcType=CHAR},
+      notes = #{notes,jdbcType=VARCHAR},
+      last_upd_oprid = #{lastUpdOprid,jdbcType=VARCHAR},
+      last_upd_time = #{lastUpdTime,jdbcType=CHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=NUMERIC}
+  </update>
+  
+   <select id="selectAllListByParams" resultType="list"  resultMap="BaseResultMap"  >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_DICT_INFO
+    where 
+         1=1
+	     <if test="params.dictStatus != null" >
+	      and dict_status = #{params.dictStatus}
+	     </if>
+     
+   </select>
+  
+     <select id="selectByParams" resultMap="BaseResultMap"  > 
+  	select 
+    <include refid="Base_Column_List" /> 
+    from UPAY_CSYS_DICT_INFO
+    where 1=1  
+      <if test="params.seqId != null" >
+        and seq_id = #{params.seqId}
+      </if>
+      <if test="params.dictId != null" >
+       and dict_id = #{params.dictId}
+      </if>
+      <if test="params.dictEng != null" >
+       and dict_eng = #{params.dictEng}
+      </if>
+      <if test="params.dictChn != null" >
+       and dict_chn = #{params.dictChn}
+      </if>
+      <if test="params.dictStatus != null" >
+       and dict_status = #{params.dictStatus}
+      </if>
+      <if test="params.notes != null" >
+       and notes = #{params.notes}
+      </if>
+      <if test="params.lastUpdOprid != null" >
+       and last_upd_oprid = #{params.lastUpdOprid}
+      </if>
+      <if test="params.lastUpdTime != null" >
+       and last_upd_time = #{params.lastUpdTime}
+      </if>
+      <if test="params.reserved1 != null" >
+       and reserved1 = #{params.reserved1}
+      </if>
+      <if test="params.reserved2 != null" >
+       and reserved2 = #{params.reserved2}
+      </if>
+      <if test="params.reserved3 != null" >
+       and reserved3 = #{params.reserved3}
+      </if>
+  </select>
+  
+  
+  
+</mapper>

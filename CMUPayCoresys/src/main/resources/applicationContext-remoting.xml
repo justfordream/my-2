@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	<bean name="/DictRemoting" class="com.huateng.cmupay.serviceExporter.AuthHessianServiceExporter">
+		<property name="service" ref="dictRemoting" />
+		<property name="serviceInterface" value="com.huateng.cmupay.remoting.dict.DictRemoting"/>
+	</bean> 
+	
+
+    
+</beans>

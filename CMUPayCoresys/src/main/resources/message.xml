@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+	<ErrorMsgList>
+		<!-- name列暂时不使用 -->
+
+		<BankMsgList>
+			<!-- 中国移动系统提供的应答码 -->
+			<Msg code="010A00" name="010A00" value="成功" />
+			<Msg code="019A01" name="019A01" value="ActivityCode参数不正确" />
+			<Msg code="019A02" name="019A02" value="ReqSys参数不正确" />
+			<Msg code="019A03" name="019A03" value="ReqChannel参数不正确" />
+			<Msg code="019A04" name="019A04" value="ReqDate参数不正确" />
+			<Msg code="019A05" name="019A05" value="ReqTransID参数不正确" />
+			<Msg code="019A06" name="019A06" value="ReqDateTime参数不正确" />
+			<Msg code="019A07" name="019A07" value="ActionCode参数不正确" />
+			<Msg code="019A08" name="019A08" value="RcvSys参数不正确" />
+			<Msg code="019A09" name="019A09" value="RcvDate参数不正确" />
+			<Msg code="019A10" name="019A10" value="RcvTransID参数不正确" />
+			<Msg code="019A11" name="019A11" value="RcvDateTime参数不正确" />
+			<Msg code="019A12" name="019A12" value="RspCode参数不正确" />
+			<Msg code="019A13" name="019A13" value="RspDesc参数不正确" />
+			<Msg code="019A14" name="019A14" value="SignFlag参数不正确" />
+			<Msg code="019A15" name="019A15" value="CerID参数不正确" />
+			<Msg code="019A16" name="019A16" value="SignValue参数不正确" />
+			<Msg code="019A17" name="019A17" value="IDType参数不正确" />
+			<Msg code="019A18" name="019A18" value="IDValue参数不正确" />
+			<Msg code="019A19" name="019A19" value="SessionID参数不正确" />
+			<Msg code="019A20" name="019A20" value="SubID参数不正确" />
+			<Msg code="019A21" name="019A21" value="SubTime参数不正确" />
+			<Msg code="019A22" name="019A22" value="BankAcctID参数不正确" />
+			<Msg code="019A23" name="019A23" value="BankAcctType参数不正确" />
+			<Msg code="019A24" name="019A24" value="PayType参数不正确" />
+			<Msg code="019A25" name="019A25" value="RechThreshold参数不正确" />
+			<Msg code="019A26" name="019A26" value="RechAmount参数不正确" />
+			<Msg code="019A27" name="019A27" value="OrderID参数不正确" />
+			<Msg code="019A28" name="019A28" value="MerVAR参数不正确" />
+			<Msg code="019A29" name="019A29" value="Payed参数不正确" />
+			<Msg code="019A30" name="019A30" value="OrigReqSys参数不正确" />
+			<Msg code="019A31" name="019A31" value="OriReqDate参数不正确" />
+			<Msg code="019A32" name="019A32" value="OriReqTransID参数不正确" />
+			<Msg code="019A33" name="019A33" value="RevokeReason参数不正确" />
+			<Msg code="019A34" name="019A34" value="BankProv参数不正确" />
+			<Msg code="019A35" name="019A35" value="InvoiceID参数不正确" />
+			<Msg code="019A36" name="019A36" value="PrintStatus参数不正确" />
+			<Msg code="019A37" name="019A37" value="InvoiceCode参数不正确" />
+			<Msg code="019A38" name="019A38" value="InvoiceNo参数不正确" />
+			<Msg code="019A39" name="019A39" value="PrintDate参数不正确" />
+			<Msg code="019A40" name="019A40" value="Opr参数不正确" />
+			<Msg code="019A41" name="019A41" value="UserName参数不正确" />
+			<Msg code="019A42" name="019A42" value="UserIDType参数不正确" />
+			<Msg code="019A43" name="019A43" value="UserID参数不正确" />
+			<Msg code="019A44" name="019A44" value="HomeProv参数不正确" />
+			<Msg code="019A45" name="019A45" value="TransType参数不正确" />
+			<Msg code="019A46" name="019A46" value="保留以后备用" />
+
+			<Msg code="012A00" name="012A00" value="签约信息为其它银行账号关联" />
+			<Msg code="012A01" name="012A01" value="用户已经签约其它账户" />
+			<Msg code="012A02" name="012A02" value="银行账户信息不存在" />
+			<Msg code="012A03" name="012A03" value="银行帐户异常" />
+			<Msg code="012A04" name="012A04" value="副号码状态异常" />
+			<Msg code="012A05" name="012A05" value="无权限" />
+			<Msg code="012A06" name="012A06" value="发票未打印" />
+			<Msg code="012A07" name="012A07" value="发票已打印" />
+			<Msg code="012A08" name="012A08" value="用户状态异常" />
+			<Msg code="012A09" name="012A09" value="不存在该用户的签约关系" />
+			<Msg code="012A10" name="012A10" value="该签约关系已存在" />
+			<Msg code="012A11" name="012A11" value="该用户不存在" />
+			<Msg code="012A12" name="012A12" value="银行账号余额不足" />
+
+			<Msg code="013A00" name="013A00" value="帐号签约已超过最大签约个数" />
+			<Msg code="013A01" name="013A01" value="账户的累计额度超限" />
+			<Msg code="013A02" name="013A02" value="退票需隔日" />
+			<Msg code="013A03" name="013A03" value="不容许加为副号码" />
+			<Msg code="013A04" name="013A04" value="原交易失败，不需要冲正/退款" />
+			<Msg code="013A05" name="013A05" value="非当天交易不允许冲正" />
+			<Msg code="013A06" name="013A06" value="无法打印非银行渠道缴费发票" />
+			<Msg code="013A07" name="013A07" value="无法打印其它银行缴费发票" />
+			<Msg code="013A08" name="013A08" value="非号码归属地银行无法打印发票" />
+			<Msg code="013A09" name="013A09" value="号码归属省不允许银行代打发票" />
+			<Msg code="013A10" name="013A10" value="不允许设置为副号" />
+			<Msg code="013A11" name="013A11" value="证件类型不符" />
+			<Msg code="013A12" name="013A12" value="副号码把主号码设置成黑名单了，导致失败" />
+			<Msg code="013A13" name="013A13" value="用户其它业务与签约存在冲突" />
+			<Msg code="013A14" name="013A14" value="该笔交易已被冲正" />
+			<Msg code="013A15" name="013A15" value="该笔交易已完成退费" />
+			<Msg code="013A16" name="013A16" value="账号长度不对" />
+			<Msg code="013A17" name="013A17" value="该交易为重复交易" />
+			<Msg code="013A18" name="013A18" value="此业务渠道无此权限" />
+			<Msg code="013A19" name="013A19" value="未完成对账" />
+			<!-- add by zn临时添加错误码 -->
+			<Msg code="013A20" name="013A20" value="超过时限，不允许退费" />
+			<Msg code="013A21" name="013A21" value="不允许冲正" />
+			<Msg code="013A22" name="013A22" value="该用户已绑定为副号，不能签约为主号" />
+			<Msg code="013A23" name="013A23" value="查询银行和签约银行不同，不允许查询" />
+			<Msg code="013A24" name="013A24" value="主号码设置关联副号码48小时内不可为副号码发起主动缴费" />
+			<Msg code="013A25" name="013A25" value="接收方交易权限关闭" />
+			<Msg code="013A30" name="013A30" value="sessionid重复" />
+			
+			
+
+			<Msg code="014A00" name="014A00" value="缴费记录不存在" />
+			<Msg code="014A01" name="014A01" value="非本省用户" />
+			<Msg code="014A02" name="014A02" value="交易类型错误" />
+			<Msg code="014A03" name="014A03" value="产品服务范围错误" />
+			<Msg code="014A04" name="014A04" value="请求报文数据错误" />
+			<Msg code="014A05" name="014A05" value="该笔交易不存在" />
+			<Msg code="014A06" name="014A06" value="签名验证失败" />
+
+		
+
+			<Msg code="015A00" name="015A00" value="计费记录错误" />
+			<Msg code="015A01" name="015A01" value="扣款失败" />
+			<Msg code="015A02" name="015A02" value="充值失败" />
+			<Msg code="015A03" name="015A03" value="系统错误" />
+			<Msg code="015A04" name="015A04" value="停机维护" />
+			<Msg code="015A05" name="015A05" value="解析报文失败" />
+			<Msg code="015A06" name="015A06" value="未知错误" />
+			<Msg code="015A07" name="015A07" value="超时未收到响应" />
+			<Msg code="015A08" name="015A08" value="超过每秒最大交易数量" />
+			<Msg code="015A09" name="015A09" value="系统繁忙" />
+			<!-- <Msg code="015A10" name="015A10" value="用户应缴费查询失败" /> -->
+			<!-- add by zhangning 临时添加错误码 -->
+			<Msg code="015A14" name="015A14" value="网状网错误" />
+   			<!-- add by jz-->
+			<Msg code="014A30" name="014A30" value="交易处理中" />
+
+			<!-- 银行系统提供的应答码 -->
+			<Msg code="020A00" name="020A00" value="成功" />
+			<Msg code="029A01" name="029A01" value="ActivityCode参数不正确" />
+			<Msg code="029A02" name="029A02" value="ReqSys参数不正确" />
+			<Msg code="029A03" name="029A03" value="ReqChannel参数不正确" />
+			<Msg code="029A04" name="029A04" value="ReqDate参数不正确" />
+			<Msg code="029A05" name="029A05" value="ReqTransID参数不正确" />
+			<Msg code="029A06" name="029A06" value="ReqDateTime参数不正确" />
+			<Msg code="029A07" name="029A07" value="ActionCode参数不正确" />
+			<Msg code="029A08" name="029A08" value="RcvSys参数不正确" />
+			<Msg code="029A09" name="029A09" value="RcvDate参数不正确" />
+			<Msg code="029A10" name="029A10" value="RcvTransID参数不正确" />
+			<Msg code="029A11" name="029A11" value="RcvDateTime参数不正确" />
+			<Msg code="029A12" name="029A12" value="RspCode参数不正确" />
+			<Msg code="029A13" name="029A13" value="RspDesc参数不正确" />
+			<Msg code="029A14" name="029A14" value="SignFlag参数不正确" />
+			<Msg code="029A15" name="029A15" value="CerID参数不正确" />
+			<Msg code="029A16" name="029A16" value="SignValue参数不正确" />
+			<Msg code="029A17" name="029A17" value="IDType参数不正确" />
+			<Msg code="029A18" name="029A18" value="IDValue参数不正确" />
+			<Msg code="029A19" name="029A19" value="SessionID参数不正确" />
+			<Msg code="029A20" name="029A20" value="SubID参数不正确" />
+			<Msg code="029A21" name="029A21" value="SubTime参数不正确" />
+			<Msg code="029A22" name="029A22" value="BankAcctID参数不正确" />
+			<Msg code="029A23" name="029A23" value="BankAcctType参数不正确" />
+			<Msg code="029A24" name="029A24" value="PayType参数不正确" />
+			<Msg code="029A25" name="029A25" value="RechThreshold参数不正确" />
+			<Msg code="029A26" name="029A26" value="RechAmount参数不正确" />
+			<Msg code="029A27" name="029A27" value="OrderID参数不正确" />
+			<Msg code="029A28" name="029A28" value="MerVAR参数不正确" />
+			<Msg code="029A29" name="029A29" value="Payed参数不正确" />
+			<Msg code="029A30" name="029A30" value="OrigReqSys参数不正确" />
+			<Msg code="029A31" name="029A31" value="OriReqDate参数不正确" />
+			<Msg code="029A32" name="029A32" value="OriReqTransID参数不正确" />
+			<Msg code="029A33" name="029A33" value="RevokeReason参数不正确" />
+			<Msg code="029A34" name="029A34" value="BankProv参数不正确" />
+			<Msg code="029A35" name="029A35" value="InvoiceID参数不正确" />
+			<Msg code="029A36" name="029A36" value="PrintStatus参数不正确" />
+			<Msg code="029A37" name="029A37" value="InvoiceCode参数不正确" />
+			<Msg code="029A38" name="029A38" value="InvoiceNo参数不正确" />
+			<Msg code="029A39" name="029A39" value="PrintDate参数不正确" />
+			<Msg code="029A40" name="029A40" value="Opr参数不正确" />
+			<Msg code="029A41" name="029A41" value="UserName参数不正确" />
+			<Msg code="029A42" name="029A42" value="UserIDType参数不正确" />
+			<Msg code="029A43" name="029A43" value="UserID参数不正确" />
+			<Msg code="029A44" name="029A44" value="HomeProv参数不正确" />
+			<Msg code="029A45" name="029A45" value="TransType参数不正确" />
+			<Msg code="029A46" name="029A46" value="保留以后备用" />
+
+			<Msg code="022A00" name="022A00" value="签约信息为其它银行账号关联" />
+			<Msg code="022A01" name="022A01" value="用户已经签约其它账户" />
+			<Msg code="022A02" name="022A02" value="银行账户信息不存在" />
+			<Msg code="022A03" name="022A03" value="银行帐户异常" />
+			<Msg code="022A04" name="022A04" value="副号码状态异常" />
+			<Msg code="022A05" name="022A05" value="无权限" />
+			<Msg code="022A06" name="022A06" value="发票未打印" />
+			<Msg code="022A07" name="022A07" value="发票已打印" />
+			<Msg code="022A08" name="022A08" value="用户状态异常" />
+			<Msg code="022A09" name="022A09" value="不存在该用户的签约关系" />
+			<Msg code="022A10" name="022A10" value="该签约关系已存在" />
+			<Msg code="022A11" name="022A11" value="该用户不存在" />
+			<Msg code="022A12" name="022A12" value="银行账号余额不足" />
+
+			<Msg code="023A00" name="023A00" value="帐号签约已超过最大签约个数" />
+			<Msg code="023A01" name="023A01" value="账户的累计额度超限" />
+			<Msg code="023A02" name="023A02" value="退票需隔日" />
+			<Msg code="023A03" name="023A03" value="不容许加为副号码" />
+			<Msg code="023A04" name="023A04" value="原交易失败，不需要冲正/退款" />
+			<Msg code="023A05" name="023A05" value="非当天交易不允许冲正" />
+			<Msg code="023A06" name="023A06" value="无法打印非银行渠道缴费发票" />
+			<Msg code="023A07" name="023A07" value="无法打印其它银行缴费发票" />
+			<Msg code="023A08" name="023A08" value="非号码归属地银行无法打印发票" />
+			<Msg code="023A09" name="023A09" value="号码归属省不允许银行代打发票" />
+			<Msg code="023A10" name="023A10" value="不允许设置为副号" />
+			<Msg code="023A11" name="023A11" value="证件类型不符" />
+			<Msg code="023A12" name="023A12" value="副号码把主号码设置成黑名单了，导致失败" />
+			<Msg code="023A13" name="023A13" value="用户其它业务与签约存在冲突" />
+			<Msg code="023A14" name="023A14" value="该笔交易已被冲正" />
+			<Msg code="023A15" name="023A15" value="该笔交易已完成退费" />
+			<Msg code="023A16" name="023A16" value="账号长度不对" />
+			<Msg code="023A17" name="023A17" value="该交易为重复交易" />
+			<Msg code="023A18" name="023A18" value="此业务渠道无此权限" />			
+			<Msg code="023A24" name="023A24" value="主号码设置关联副号码48小时内不可为副号码发起主动缴费" />
+
+			<Msg code="024A00" name="024A00" value="缴费记录不存在" />
+			<Msg code="024A01" name="024A01" value="非本省用户" />
+			<Msg code="024A02" name="024A02" value="交易类型错误" />
+			<Msg code="024A03" name="024A03" value="产品服务范围错误" />
+			<Msg code="024A04" name="024A04" value="请求报文数据错误" />
+			<Msg code="024A05" name="024A05" value="该笔交易不存在" />
+			<Msg code="024A06" name="024A06" value="签名验证失败" />
+
+			<Msg code="025A00" name="025A00" value="计费记录错误" />
+			<Msg code="025A01" name="025A01" value="扣款失败" />
+			<Msg code="025A02" name="025A02" value="充值失败" />
+			<Msg code="025A03" name="025A03" value="系统错误" />
+			<Msg code="025A04" name="025A04" value="停机维护" />
+			<Msg code="025A05" name="025A05" value="解析报文失败" />
+			<Msg code="025A06" name="025A06" value="未知错误" />
+			<Msg code="025A07" name="025A07" value="超时未收到响应" />
+			<Msg code="025A08" name="025A08" value="超过每秒最大交易数量" />
+			<Msg code="025A09" name="025A09" value="系统繁忙" />
+			
+			
+			<!-- add by fankui 用于身份验证报文体应答 -->
+			<Msg code="012A13" name="012A13" value="信息不一致" />
+			<Msg code="012A14" name="012A14" value="未实名登记" />
+			<Msg code="012A15" name="012A15" value="证件类型不符" />
+			<Msg code="012A99" name="012A99" value="其他错误" />
+			
+			
+		</BankMsgList>
+
+		<CrmMsgList>
+		    <Msg code="0000" name="0000" value="成功" />
+			<!-- 移动 2级返回码 -->
+			<Msg code="2A00" name="2A00" value="签约信息为其它银行账号关联" />
+			<Msg code="2A01" name="2A01" value="用户已经签约其它账户" />
+			<Msg code="2A02" name="2A02" value="银行账户信息不存在" />
+			<Msg code="2A03" name="2A03" value="银行帐户异常" />
+			<Msg code="2A04" name="2A04" value="副号码状态异常" />
+			<Msg code="2A05" name="2A05" value="无权限" />
+			<Msg code="2A06" name="2A06" value="发票未打印" />
+			<Msg code="2A07" name="2A07" value="发票已打印" />
+ 			
+			
+			<Msg code="3A31" name="3A31" value="单笔金额超限" />
+			<Msg code="3A32" name="3A32" value="日累计金额超限" />
+			<Msg code="3A33" name="3A33" value="月累计金额超限" />
+			<!-- add -->
+			<Msg code="2A08" name="2A08" value="用户状态异常" />
+			<Msg code="2A09" name="2A09" value="不存在该用户的签约关系" />
+			<Msg code="2A10" name="2A10" value="该签约关系已存在" />
+			<Msg code="2A11" name="2A11" value="该用户不存在" />
+			<Msg code="2A12" name="2A12" value="银行账号余额不足" />
+			<Msg code="2A13" name="2A13" value="主号签约信息不存在" />
+
+			<!-- add new 20130528 -->
+			<Msg code="2A14" name="2A14" value="副号不存在" />
+			<Msg code="2A15" name="2A15" value="主副号绑定关系已存在" />
+			<Msg code="2A16" name="2A16" value="副号已绑定其他主号" />
+			<Msg code="2A17" name="2A17" value="副号绑定信息不存在" />
+
+			<!-- add new 20130625  by fankui-->
+			<!--增加身份验证返回码  -->
+			<Msg code="2A18" name="2A18" value="信息不一致"/>
+			<Msg code="2A19" name="2A19" value="未实名登记"/>
+			<Msg code="2A20" name="2A20" value="证件类型不符"/>
+			<Msg code="2A99" name="2A99" value="其他错误"/>
+			
+			
+			<Msg code="3A00" name="3A00" value="帐号签约已超过最大签约个数" />
+			<Msg code="3A01" name="3A01" value="账户的累计额度超限" />
+			<Msg code="3A02" name="3A02" value="退票需隔日" />
+			<Msg code="3A03" name="3A03" value="不容许加为副号码" />
+			<Msg code="3A04" name="3A04" value="原交易失败，不需要冲正/退款" />
+			<Msg code="3A05" name="3A05" value="非当天交易不允许冲正" />
+			<Msg code="3A06" name="3A06" value="无法打印非银行渠道缴费发票" />
+			<Msg code="3A07" name="3A07" value="无法打印其它银行缴费发票" />
+			<Msg code="3A08" name="3A08" value="非号码归属地银行无法打印发票" />
+			<Msg code="3A09" name="3A09" value="号码归属省不允许银行代打发票" />
+			<Msg code="3A10" name="3A10" value="不允许设置为副号" />
+			<Msg code="3A11" name="3A11" value="证件类型不符" />
+			<Msg code="3A12" name="3A12" value="副号码把主号码设置成黑名单了，导致失败" />
+
+
+			<!-- add -->
+			<Msg code="3A13" name="3A13" value="用户其它业务与签约存在冲突" />
+			<Msg code="3A14" name="3A14" value="该笔交易已被冲正" />
+			<Msg code="3A15" name="3A15" value="该笔交易已完成退费" />
+			<Msg code="3A16" name="3A16" value="账号长度不对" />
+			<Msg code="3A17" name="3A17" value="该交易为重复交易" />
+			<Msg code="3A18" name="3A18" value="此业务渠道无此权限" />
+			<Msg code="3A19" name="3A19" value="未完成对账" />
+			<!-- add new 20130528 -->
+			<Msg code="3A20" name="3A20" value="超过时限，不允许退费" />
+			<Msg code="3A21" name="3A21" value="主号绑定副号已超过最大绑定个数" />
+			<Msg code="3A22" name="3A22" value="该用户已签约为主号，不能绑定为副号" />
+			<Msg code="3A23" name="3A23" value="该用户已绑定为副号，不能签约为主号" />
+			<Msg code="3A24" name="3A24" value="主号码设置关联副号码48小时内不可为副号码发起主动缴费" />
+
+			<!-- add by zn -->
+			<Msg code="3A25" name="3A25" value="接收方机构权限关闭" />
+			<Msg code="3A26" name="3A26" value="主号解约失败" />
+			<Msg code="3A27" name="3A27" value="副号解约失败" />
+			<Msg code="3A28" name="3A28" value="后续费账户不允许更改阀值" />
+			<Msg code="3A29" name="3A29" value="主号填写错误" />
+			<Msg code="3A30" name="3A30" value="签约协议号填写错误" />
+
+
+			<Msg code="4A00" name="4A00" value="缴费记录不存在" />
+			<Msg code="4A01" name="4A01" value="非本省用户" />
+			<Msg code="4A02" name="4A02" value="交易类型错误" />
+			<Msg code="4A03" name="4A03" value="产品服务范围错误" />
+
+			<!-- add -->
+			<Msg code="4A04" name="4A04" value="请求报文数据错误" />
+			<Msg code="4A05" name="4A05" value="该笔交易不存在" />
+			<Msg code="4A06" name="4A06" value="签名验证失败" />
+			<Msg code="4A07" name="4A07" value="crm签名验证失败" />
+			<Msg code="4A08" name="4A08" value="银行端签名验证失败" />
+			<Msg code="4A99" name="4A99" value="参数不正确（参数有误的总的返回码）" />
+
+
+			<Msg code="5A00" name="5A00" value="计费记录错误" />
+			<Msg code="5A01" name="5A01" value="扣款失败" />
+			<Msg code="5A02" name="5A02" value="充值失败" />
+
+			<!-- add -->
+			<Msg code="5A03" name="5A03" value="系统错误" />
+			<Msg code="5A04" name="5A04" value="停机维护" />
+			<Msg code="5A05" name="5A05" value="解析报文失败" />
+			<Msg code="5A06" name="5A06" value="系统未知错误" />
+			<Msg code="5A07" name="5A07" value="超时未收到响应" />
+			<Msg code="5A08" name="5A08" value="超过每秒最大交易数量" />
+			<Msg code="5A09" name="5A09" value="系统繁忙" />
+			<Msg code="5A10" name="5A10" value="银行端返回失败" />
+			<Msg code="5A11" name="5A11" value="crm端返回失败" />
+			<Msg code="5A12" name="5A12" value="银行端交易超时" />
+			<Msg code="5A13" name="5A13" value="crm端交易超时" />
+			
+			
+			<!-- add by cmt 通用返回码-->
+			<Msg code="2004" name="2004" value="用户已单向停机" />
+            <Msg code="2005" name="2005" value="用户已停机" />
+            <Msg code="2006" name="2006" value="用户预销户" />
+            <Msg code="2007" name="2007" value="用户销户" />
+            <Msg code="2008" name="2008" value="用户预开通" />
+            <Msg code="2009" name="2009" value="用户状态非法" />
+            <Msg code="2010" name="2010" value="用户的业务已暂停" /> 
+            <!-- add by jz-->
+			<Msg code="4A30" name="4A30" value="交易处理中" />
+			
+			<Msg code="2998" name="2998" value="失败" />
+            <Msg code="0101" name="0101" value="OSN发现超时，根据交易属性已发冲正" />
+            <Msg code="0102" name="0102" value="OSN发现超时，根据交易属性不发冲正" />
+            <Msg code="0103" name="0103" value="OSN发现具有重复发起方交易流水号的交易" />
+            <Msg code="0104" name="0104" value="OSN无法根据请求报文找到落地方交换节点" />
+            <Msg code="0105" name="0105" value="OSN发现Message Header 格式错误" />
+            <Msg code="0106" name="0106" value="OSN发现Message Body格式错误" />
+            <Msg code="0108" name="0108" value="HSN发现落地方机构应答Message格式错误" />
+            <Msg code="0110" name="0110" value="OSN超时，冲正失败" />
+            <Msg code="0111" name="0111" value="OSN内部错误" />
+            <Msg code="0113" name="0113" value="HSN内部错误" />
+            <Msg code="0114" name="0114" value="OSN至HSN超时" />
+            <Msg code="0118" name="0118" value="OPARTY未签到此交易" />
+            <Msg code="0119" name="0119" value="HPARTY未签到此交易" />
+            <Msg code="0126" name="0126" value="请求报文的BIPcode和ACTIVITY CODE不一致" />
+            <Msg code="0127" name="0127" value="BMC缺少对应的对帐记录 CODE不一致" />
+            <Msg code="0128" name="0128" value="对帐结果报文中的数量字段与报文中实际的记录数不同" />
+            <Msg code="0129" name="0129" value="OSN拒绝发起方与落地方相同的业务" />
+            <Msg code="0130" name="0130" value="发起方节点拒绝请求" />
+            <Msg code="0131" name="0131" value="发起方节点已拥塞" />
+            <Msg code="0132" name="0132" value="落地方机构拥塞" />
+            <Msg code="0133" name="0133" value="落地方机构故障" />
+            <Msg code="0134" name="0134" value="请落地方机构超时" />
+            <Msg code="0202" name="0202" value="OSN已经对此交易发起冲正" />
+            <Msg code="0203" name="0203" value="未找到被冲正的交易" />
+            <Msg code="0205" name="0205" value="隔日冲正" />
+            <Msg code="0206" name="0206" value="根据交易类型定义被冲正的交易不可以冲正" />
+            <Msg code="0207" name="0207" value="OSN发现原交易已经失败,不需要冲正" />
+            <Msg code="0291" name="0291" value="冲正失败" />
+            <Msg code="0300" name="0300" value="MC密钥产生失败" />
+            <Msg code="0301" name="0301" value="OSN密码重加密失败" />
+            <Msg code="0310" name="0310" value="签到失败" />
+            <Msg code="0320" name="0320" value="签退失败" />
+            <Msg code="0401" name="0401" value="BMC未完成此交易日的报文处理" />
+            <Msg code="0402" name="0402" value="只允许查询前一逻辑交易日之前的报文" />
+            <Msg code="1001" name="1001" value="手续费计算错误" />
+            <Msg code="1002" name="1002" value="缴费实付总金额不等于分帐号缴费金额的和" />
+            <Msg code="1003" name="1003" value="智能网方式mzone用户不能异地缴费" />
+            <Msg code="2001" name="2001" value="标识类型错误" />
+            <Msg code="2002" name="2002" value="标识值错误" />
+            <Msg code="2003" name="2003" value="业务类型错误" />
+          <!--   <Msg code="2004" name="2004" value="操作代码错误" />
+            <Msg code="2005" name="2005" value="操作时间错误" />
+            <Msg code="2006" name="2006" value="SP企业代码错误" />
+            <Msg code="2007" name="2007" value="SP业务代码错误" />
+            <Msg code="2008" name="2008" value="用户无使用该业务的权限" />
+            <Msg code="2009" name="2009" value="业务暂停服务" />
+            <Msg code="2010" name="2010" value="业务尚未开通" /> -->
+            <Msg code="2011" name="2011" value="SP暂停服务" />
+            <Msg code="2012" name="2012" value="用户没有定购该业务" />
+            <Msg code="2013" name="2013" value="用户不能取消该业务" />
+            <Msg code="2014" name="2014" value="资料受理信息错误" />
+            <Msg code="2015" name="2015" value="非法用户状态，无法开通业务" />
+            <Msg code="2101" name="2101" value="服务级别错误" />
+            <Msg code="2102" name="2102" value="客服密码验证未通过" />
+            <Msg code="2103" name="2103" value="客户证件类型错误" />
+            <Msg code="2104" name="2104" value="客户证件号码错误" />
+            <Msg code="2105" name="2105" value="开始日期或终止日期错误" />
+            <Msg code="2106" name="2106" value="备卡sim卡号不存在" />
+            <Msg code="2107" name="2107" value="手机号对应的用户不存在" />
+            <Msg code="2108" name="2108" value="vip卡号对应的大客户不存在" />
+            <Msg code="2109" name="2109" value="重复进行17201业务受理，如已开通（注销、暂停）17201用户再次申请开通（注销、暂停）" />
+            <Msg code="2110" name="2110" value="重复进行WLAN业务受理，入已开通（注销、暂停）WLAN业务的用户再次申请开通（注销、暂停）" />
+            <Msg code="2111" name="2111" value="异地写卡业务中，获取写卡信息失败，失败原因：找不到该号码所述字段" />
+            <Msg code="2211" name="2212" value="异地写卡业务中，获取写卡信息失败，失败原因：该号段数据量不足" />
+            <Msg code="2212" name="2212" value="异地写卡业务中，获取写卡信息失败，失败原因：申请备拒绝" />
+            <Msg code="2112" name="2112" value="此手机号码已经成功申请过凭证式业务包开通" />
+            <Msg code="2113" name="2113" value="用户还未申请开通业务，就更改或申请密码" />
+            <Msg code="2114" name="2114" value="大客户卡过期" />
+            <Msg code="2115" name="2115" value="号码并没有对应的用户存在" />
+            <Msg code="2116" name="2116" value="客户已经欠费停机" />
+            <Msg code="2117" name="2117" value="客户已经销号" />
+            <Msg code="2118" name="2118" value="客户归属地限制业务，不能通过跨区为其服务" />
+            <Msg code="3001" name="3001" value="标识类型错误" />
+            <Msg code="3002" name="3002" value="标识值错误" />
+            <Msg code="3003" name="3003" value="业务类型错误" />
+            <Msg code="4001" name="4001" value="数据类型不匹配" />
+            <Msg code="4002" name="4002" value="数据不在规定的可选值(枚举)之内" />
+            <Msg code="4003" name="4003" value="数据长度小于规定的最小长度" />
+            <Msg code="4004" name="4004" value="数据长度大于规定的最大长度" />
+            <Msg code="4005" name="4005" value="数据不符合规定的格式(如日期格式)" />
+            <Msg code="4006" name="4006" value="数据值小于规定的最小值" />
+            <Msg code="4007" name="4007" value="数据值大于规定的最大值" />
+			
+		</CrmMsgList>
+		
+		<WzwMsgList>
+			<!-- 移动1和2级通用返回码 -->
+			<Msg code="0000" name="0000" value="交易成功" />
+
+			<!-- 移动1级返回码 -->
+			<Msg code="2998" name="2998" value="失败" />
+			<Msg code="0101" name="0101" value="OSN发现超时，根据交易属性已发冲正" />
+			<Msg code="0102" name="0102" value="OSN发现超时，根据交易属性不发冲正" />
+			<Msg code="0103" name="0103" value="OSN发现具有重复发起方交易流水号的交易" />
+			<Msg code="0104" name="0104" value="OSN无法根据请求报文找到落地方交换节点" />
+			<Msg code="0105" name="0105" value="OSN发现Message Header 格式错误" />
+			<Msg code="0106" name="0106" value="OSN发现Message Body格式错误" />
+			<Msg code="0108" name="0108" value="HSN发现落地方机构应答Message格式错误" />
+			<Msg code="0110" name="0110" value="OSN超时，冲正失败" />
+			<Msg code="0111" name="0111" value="OSN内部错误" />
+			<Msg code="0113" name="0113" value="HSN内部错误" />
+			<Msg code="0114" name="0114" value="OSN至HSN超时" />
+			<Msg code="0118" name="0118" value="OPARTY未签到此交易" />
+			<Msg code="0119" name="0119" value="HPARTY未签到此交易" />
+			<Msg code="0126" name="0126" value="请求报文的BIPcode和ACTIVITY CODE不一致" />
+			<Msg code="0127" name="0127" value="BMC缺少对应的对帐记录 CODE不一致" />
+			<Msg code="0128" name="0128" value="对帐结果报文中的数量字段与报文中实际的记录数不同" />
+			<Msg code="0129" name="0129" value="OSN拒绝发起方与落地方相同的业务" />
+			<Msg code="0130" name="0130" value="发起方节点拒绝请求" />
+			<Msg code="0131" name="0131" value="发起方节点已拥塞" />
+			<Msg code="0132" name="0132" value="落地方机构拥塞" />
+			<Msg code="0133" name="0133" value="落地方机构故障" />
+			<Msg code="0134" name="0134" value="请落地方机构超时" />
+			<Msg code="0202" name="0202" value="OSN已经对此交易发起冲正" />
+			<Msg code="0203" name="0203" value="未找到被冲正的交易" />
+			<Msg code="0205" name="0205" value="隔日冲正" />
+			<Msg code="0206" name="0206" value="根据交易类型定义被冲正的交易不可以冲正" />
+			<Msg code="0207" name="0207" value="OSN发现原交易已经失败,不需要冲正" />
+			<Msg code="0291" name="0291" value="冲正失败" />
+			<Msg code="0300" name="0300" value="MC密钥产生失败" />
+			<Msg code="0301" name="0301" value="OSN密码重加密失败" />
+			<Msg code="0310" name="0310" value="签到失败" />
+			<Msg code="0320" name="0320" value="签退失败" />
+			<Msg code="0401" name="0401" value="BMC未完成此交易日的报文处理" />
+			<Msg code="0402" name="0402" value="只允许查询前一逻辑交易日之前的报文" />
+			<Msg code="1001" name="1001" value="手续费计算错误" />
+			<Msg code="1002" name="1002" value="缴费实付总金额不等于分帐号缴费金额的和" />
+			<Msg code="1003" name="1003" value="智能网方式mzone用户不能异地缴费" />
+			<Msg code="2001" name="2001" value="标识类型错误" />
+			<Msg code="2002" name="2002" value="标识值错误" />
+			<Msg code="2003" name="2003" value="业务类型错误" />
+			<Msg code="2004" name="2004" value="操作代码错误" />
+			<Msg code="2005" name="2005" value="操作时间错误" />
+			<Msg code="2006" name="2006" value="SP企业代码错误" />
+			<Msg code="2007" name="2007" value="SP业务代码错误" />
+			<Msg code="2008" name="2008" value="用户无使用该业务的权限" />
+			<Msg code="2009" name="2009" value="业务暂停服务" />
+			<Msg code="2010" name="2010" value="业务尚未开通" />
+			<Msg code="2011" name="2011" value="SP暂停服务" />
+			<Msg code="2012" name="2012" value="用户没有定购该业务" />
+			<Msg code="2013" name="2013" value="用户不能取消该业务" />
+			<Msg code="2014" name="2014" value="资料受理信息错误" />
+			<Msg code="2015" name="2015" value="非法用户状态，无法开通业务" />
+			<Msg code="2101" name="2101" value="服务级别错误" />
+			<Msg code="2102" name="2102" value="客服密码验证未通过" />
+			<Msg code="2103" name="2103" value="客户证件类型错误" />
+			<Msg code="2104" name="2104" value="客户证件号码错误" />
+			<Msg code="2105" name="2105" value="开始日期或终止日期错误" />
+			<Msg code="2106" name="2106" value="备卡sim卡号不存在" />
+			<Msg code="2107" name="2107" value="手机号对应的用户不存在" />
+			<Msg code="2108" name="2108" value="vip卡号对应的大客户不存在" />
+			<Msg code="2109" name="2109"
+				value="重复进行17201业务受理，如已开通（注销、暂停）17201用户再次申请开通（注销、暂停）" />
+			<Msg code="2110" name="2110"
+				value="重复进行WLAN业务受理，入已开通（注销、暂停）WLAN业务的用户再次申请开通（注销、暂停）" />
+			<Msg code="2111" name="2111" value="异地写卡业务中，获取写卡信息失败，失败原因：找不到该号码所述字段" />
+			<Msg code="2211" name="2212" value="异地写卡业务中，获取写卡信息失败，失败原因：该号段数据量不足" />
+			<Msg code="2212" name="2212" value="异地写卡业务中，获取写卡信息失败，失败原因：申请备拒绝" />
+			<Msg code="2112" name="2112" value="此手机号码已经成功申请过凭证式业务包开通" />
+			<Msg code="2113" name="2113" value="用户还未申请开通业务，就更改或申请密码" />
+			<Msg code="2114" name="2114" value="大客户卡过期" />
+			<Msg code="2115" name="2115" value="号码并没有对应的用户存在" />
+			<Msg code="2116" name="2116" value="客户已经欠费停机" />
+			<Msg code="2117" name="2117" value="客户已经销号" />
+			<Msg code="2118" name="2118" value="客户归属地限制业务，不能通过跨区为其服务" />
+			<Msg code="3001" name="3001" value="标识类型错误" />
+			<Msg code="3002" name="3002" value="标识值错误" />
+			<Msg code="3003" name="3003" value="业务类型错误" />
+			<Msg code="4001" name="4001" value="数据类型不匹配" />
+			<Msg code="4002" name="4002" value="数据不在规定的可选值(枚举)之内" />
+			<Msg code="4003" name="4003" value="数据长度小于规定的最小长度" />
+			<Msg code="4004" name="4004" value="数据长度大于规定的最大长度" />
+			<Msg code="4005" name="4005" value="数据不符合规定的格式(如日期格式)" />
+			<Msg code="4006" name="4006" value="数据值小于规定的最小值" />
+			<Msg code="4007" name="4007" value="数据值大于规定的最大值" />
+		</WzwMsgList>
+
+		<UpayMsgList>
+			<!-- 其他错误 类 -->
+			<Msg code="U99999" name="U99999" value="未知错误" />
+			<Msg code="U99998" name="U99998" value="超时" />
+			<Msg code="U99997" name="U99997" value="缴费路由关闭" />
+		</UpayMsgList>
+
+	</ErrorMsgList>
+
+	<SuccessMsgList>
+
+	</SuccessMsgList>
+</Root>
