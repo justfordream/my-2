@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util-3.1.xsd ">
+
+	<bean name="/BankSecurityRemoting" class="com.huateng.cmupay.serviceExporter.AuthHessianServiceExporter">
+		<property name="service" ref="BankRemoteServiceImpl" />
+		<property name="serviceInterface" value="com.huateng.cmupay.service.RemoteService" />
+	</bean>
+	<bean name="/CmuSecurityRemoting" class="com.huateng.cmupay.serviceExporter.AuthHessianServiceExporter">
+		<property name="service" ref="CmuRemoteServiceImpl" />
+		<property name="serviceInterface" value="com.huateng.cmupay.service.RemoteService" />
+	</bean>
+	<bean name="/TupaySecurityRemoting" class="com.huateng.cmupay.serviceExporter.AuthHessianServiceExporter">
+		<property name="service" ref="TupayRemoteServiceImpl" />
+		<property name="serviceInterface" value="com.huateng.cmupay.service.TUPayRemoteService" />
+	</bean>
+	
+	<!-- 省端的加解密接口 -->
+	<bean name="/SecurityHandle" class="com.huateng.cmupay.serviceExporter.AuthHessianServiceExporter">
+		<property name="service" ref="SecurityHandleImpl" />
+		<property name="serviceInterface" value="com.huateng.cmupay.security.adapter.SecurityHandle" />
+	</bean>
+	
+	<!-- 银行端的加解密接口 -->
+	<bean name="/bankEncryptHandle" class="com.huateng.cmupay.serviceExporter.AuthHessianServiceExporter">
+		<property name="service" ref="bankSecurityHandleImpl" />
+		<property name="serviceInterface" value="com.huateng.cmupay.security.adapter.BankSecurityHandle" />
+	</bean>
+
+	<bean id="SecurityHandleImpl" class="com.huateng.cmupay.security.adapter.impl.SecurityHandleImpl"></bean>
+    <bean id="bankSecurityHandleImpl" class="com.huateng.cmupay.security.adapter.impl.BankSecurityHandleImpl"
+      p:ccbPayKey="${CCB_PAY_KEY}" p:spdbPayKey="${SPDB_PAY_KEY}"></bean>
+	
+	<bean id="CmuRemoteServiceImpl" class="com.huateng.cmupay.service.impl.CmuRemoteServiceImpl"
+	      p:certMaps-ref="certMaps" p:cmu_test_flag="${SINGURE_CMU_TEST_FLAG}" />
+
+	<bean id="BankRemoteServiceImpl" class="com.huateng.cmupay.service.impl.BankRemoteServiceImpl"
+	       p:ccb_send_pay_key="${CCB_SEND_B2C_PAY_KEY}" p:ccb_back_pay_key="${CCB_BACK_B2C_PAY_KEY}" p:bank_test_flag="${SINGURE_BANK_TEST_FLAG}"
+	       p:certMaps-ref="certMaps" />
+
+    <bean id="TupayRemoteServiceImpl" class="com.huateng.cmupay.service.impl.TUPayRemoteServiceImpl"
+	      p:tupay_cert_path="${TUPAY_CERT_PATH}" p:tenpay_key="${TENPAY_KEY}" p:tenpay_charset="${TENPAY_CHARSET}" p:alipay_key="${ALIPAY_KEY}" p:alipay_charset="${ALIPAY_CHARSET}"/>
+	      
+	<util:map id="certMaps">
+		<entry key="cmu">
+			<map>
+				<entry key="default">
+					<ref bean="defaultCertHelper" />
+				</entry>
+				<entry key="1001">
+					<ref bean="CertHelper_1001" />
+				</entry>
+				<entry key="2101">
+					<ref bean="CertHelper_2101" />
+				</entry>
+				<entry key="2201">
+					<ref bean="CertHelper_2201" />
+				</entry>
+				<entry key="2301">
+					<ref bean="CertHelper_2301" />
+				</entry>
+				<entry key="2401">
+					<ref bean="CertHelper_2401" />
+				</entry>
+				<entry key="2501">
+					<ref bean="CertHelper_2501" />
+				</entry>
+				<entry key="2801">
+					<ref bean="CertHelper_2801" />
+				</entry>
+				<entry key="2901">
+					<ref bean="CertHelper_2901" />
+				</entry>
+				
+				<entry key="3111">
+					<ref bean="CertHelper_3111" />
+				</entry>
+				<entry key="3511">
+					<ref bean="CertHelper_3511" />
+				</entry>
+				<entry key="3711">
+					<ref bean="CertHelper_3711" />
+				</entry>
+				<entry key="4711">
+					<ref bean="CertHelper_4711" />
+				</entry>
+				
+				<entry key="5311">
+					<ref bean="CertHelper_5311" />
+				</entry>
+				<entry key="5511">
+					<ref bean="CertHelper_5511" />
+				</entry>
+				<entry key="5711">
+					<ref bean="CertHelper_5711" />
+				</entry>
+				<entry key="5911">
+					<ref bean="CertHelper_5911" />
+				</entry>
+				
+				
+				<entry key="7311">
+					<ref bean="CertHelper_7311" />
+				</entry>
+				<entry key="7711">
+					<ref bean="CertHelper_7711" />
+				</entry>
+				<entry key="8711">
+					<ref bean="CertHelper_8711" />
+				</entry>
+				<entry key="8911">
+					<ref bean="CertHelper_8911" />
+				</entry>
+				<entry key="8981">
+					<ref bean="CertHelper_8981" />
+				</entry>
+				
+				<entry key="9311">
+					<ref bean="CertHelper_9311" />
+				</entry>
+				<entry key="9711">
+					<ref bean="CertHelper_9711" />
+				</entry>
+				
+				<entry key="4511">
+					<ref bean="CertHelper_4511" />
+				</entry>
+				<entry key="2701">
+					<ref bean="CertHelper_2701" />
+				</entry>
+				<entry key="2001">
+					<ref bean="CertHelper_2001" />
+				</entry>
+				<entry key="7911">
+					<ref bean="CertHelper_7911" />
+				</entry>
+				<entry key="8511">
+					<ref bean="CertHelper_8511" />
+				</entry>
+				<entry key="9511">
+					<ref bean="CertHelper_9511" />
+				</entry>
+				<entry key="9911">
+					<ref bean="CertHelper_9911" />
+				</entry>
+				<entry key="4311">
+					<ref bean="CertHelper_4311" />
+				</entry>				
+			</map>
+		</entry>
+		<entry key="bank">
+			<map>
+				<entry key="default">
+					<ref bean="defaultCertHelper" />
+				</entry>
+				<entry key="0004">
+					<ref bean="ccbCertHelper" />
+				</entry>
+				<entry key="0005">
+					<ref bean="spdbBankCertHelper" />
+				</entry>
+				<entry key="0051">
+					<ref bean="tmallCertHelper" />
+				</entry>
+				<entry key="0055">
+					<ref bean="shopCertHelper" />
+				</entry>
+			</map>
+		</entry>
+	</util:map>
+	<bean id="defaultCertHelper" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 北京 -->
+	<bean id="CertHelper_1001" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_1001}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 上海 -->
+	<bean id="CertHelper_2101" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_2101}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 天津 -->
+	<bean id="CertHelper_2201" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_2201}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 重庆 -->		
+	<bean id="CertHelper_2301" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_2301}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 辽宁 -->		
+	<bean id="CertHelper_2401" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_2401}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 江苏 -->
+	<bean id="CertHelper_2501" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_2501}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!-- 四川 -->	
+	<bean id="CertHelper_2801" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_2801}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!--  陕西-->	
+	<bean id="CertHelper_2901" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_2901}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!--  河北-->	
+	<bean id="CertHelper_3111" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_3111}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!--  山西-->	
+	<bean id="CertHelper_3511" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_3511}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!--  河南-->	
+	<bean id="CertHelper_3711" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_3711}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!--  内蒙古-->	
+	<bean id="CertHelper_4711" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_4711}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!--  山东-->	
+	<bean id="CertHelper_5311" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_5311}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!--  安徽-->	
+	<bean id="CertHelper_5511" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_5511}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!--  浙江-->	
+	<bean id="CertHelper_5711" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_5711}" p:keyStorePath="${KEY_STORY_FILE}" />
+		
+	<!-- 福建 -->
+	<bean id="CertHelper_5911" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_5911}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 湖南 -->
+	<bean id="CertHelper_7311" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_7311}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 广西 -->
+	<bean id="CertHelper_7711" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_7711}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 云南 -->
+	<bean id="CertHelper_8711" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_8711}" p:keyStorePath="${KEY_STORY_FILE}" />
+		
+	<!-- 西藏 -->
+	<bean id="CertHelper_8911" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_8911}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 海南 -->
+	<bean id="CertHelper_8981" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_8981}" p:keyStorePath="${KEY_STORY_FILE}" />
+    <!-- 甘肃 -->
+	<bean id="CertHelper_9311" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_9311}" p:keyStorePath="${KEY_STORY_FILE}" />
+     <!-- 青海 -->
+	<bean id="CertHelper_9711" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_9711}" p:keyStorePath="${KEY_STORY_FILE}" />
+		
+		
+		
+     <!-- 黑龙江 -->
+	<bean id="CertHelper_4511" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_4511}" p:keyStorePath="${KEY_STORY_FILE}" />
+		
+     <!-- 湖北 -->
+	<bean id="CertHelper_2701" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_2701}" p:keyStorePath="${KEY_STORY_FILE}" />
+		
+     <!-- 广东 -->
+	<bean id="CertHelper_2001" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_2001}" p:keyStorePath="${KEY_STORY_FILE}" />
+		
+     <!-- 江西 -->
+	<bean id="CertHelper_7911" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_7911}" p:keyStorePath="${KEY_STORY_FILE}" />	
+		
+     <!-- 贵州 -->
+	<bean id="CertHelper_8511" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_8511}" p:keyStorePath="${KEY_STORY_FILE}" />		
+
+     <!-- 宁夏 -->
+	<bean id="CertHelper_9511" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_9511}" p:keyStorePath="${KEY_STORY_FILE}" />	
+		
+     <!-- 新疆 -->
+	<bean id="CertHelper_9911" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_9911}" p:keyStorePath="${KEY_STORY_FILE}" />	
+		
+     <!-- 吉林 -->
+	<bean id="CertHelper_4311" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${CERT_FILE_4311}" p:keyStorePath="${KEY_STORY_FILE}" />	
+			
+	
+	<!-- 建设银行 -->
+	<bean id="ccbCertHelper" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}" p:keyPwd="${KEY_PWD}"
+		p:alias="${STORE_ALIAS}" p:certificatePath="${BANK_CERT_FILE_CCB}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 浦发银行 -->
+	<bean id="spdbBankCertHelper" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${BANK_CERT_FILE_SPDB}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 天猫 -->
+	<bean id="tmallCertHelper" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${TMALL_CERT_FILE}" p:keyStorePath="${KEY_STORY_FILE}" />
+	<!-- 移动商城 -->
+	<bean id="shopCertHelper" class="com.huateng.cmupay.cert.CertHelperImpl" p:keyStorePwd="${KEY_STORE_PWD}"
+		p:keyPwd="${KEY_PWD}" p:alias="${STORE_ALIAS}" p:certificatePath="${SHOP_CERT_FILE}" p:keyStorePath="${KEY_STORY_FILE}" />
+</beans>

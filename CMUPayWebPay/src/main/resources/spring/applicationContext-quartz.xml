@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+ http://www.springframework.org/schema/context 
+ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<!-- 要调用的工作类 -->
+	<bean id="logJob" class="com.huateng.quartz.LogJob">
+		<property name="logPath" value="${log.path}" />
+		<property name="logXmlPath" value="${log.xml.path}" />
+	</bean>
+	<!-- 定义调用对象和调用对象的方法 -->
+	<bean id="logTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="logJob" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>doLog</value>
+		</property>
+	</bean>
+	<!-- 定义触发时间 -->
+	<bean id="logTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="logTask" />
+		</property>
+		<!-- cron表达式 -->
+		<!-- Cron 表达式包括以下 7 个字段： 秒 分 小时 月内日期 月 周内日期 年（可选字段） -->
+		<property name="cronExpression">
+			<value>0 00,15,30,45 * * * ?</value>
+		</property>
+	</bean>
+	<!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序 -->
+	<bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="logTime" />
+			</list>
+		</property>
+	</bean>
+</beans>

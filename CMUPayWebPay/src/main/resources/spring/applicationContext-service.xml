@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util-2.5.xsd ">
+
+	<bean id="ApplicationContextBean" class="com.huateng.core.util.ApplicationContextBean" />
+
+	<bean id="cmuSwitchChannel" class="com.huateng.channel.impl.CmuSwitchChannelImpl"
+		p:switchMaps-ref="switchMaps" />
+
+	<bean id="ccbSwitchChannel" class="com.huateng.channel.impl.CCBSwitchChannelImpl" />
+
+	<bean id="tpaySwitchChannel" class="com.huateng.core.channel.impl.TpaySwitchChannelImpl" />
+
+	<bean id="tenPaySwitchChannel" class="com.huateng.core.channel.impl.TenPaySwitchChannelImpl" />
+	
+	<bean id="aliPaySwitchChannel" class="com.huateng.core.channel.impl.AliPaySwitchChannelImpl" />
+
+	<bean id="lingSignChannel" class="com.huateng.core.link.LingSignChannel" />
+
+	<util:map id="switchMaps">
+
+		<entry key="transfer">
+			<map>
+				<!-- 银行请求跳转网厅 -->
+				<!-- <entry key="bank"> <map> <entry key="0003"> <ref bean="shenzhenCmu" 
+					/> </entry> </map> </entry> -->
+				<!-- 网厅请求跳转银行 -->
+				<entry key="cmu">
+					<map>
+						<!-- 建设银行 -->
+						<entry key="0004">
+							<ref bean="ccbBank" />
+						</entry>
+						<!-- 浦发银行 -->
+						<entry key="0005">
+							<ref bean="spdbBank" />
+						</entry>
+						<!-- 模拟银行 -->
+						<entry key="0009">
+							<ref bean="testBank" />
+						</entry>
+						<!-- 银联 -->
+						<entry key="0057">
+							<ref bean="tPayBank" />
+						</entry>
+						<!-- 支付宝 -->
+						<entry key="0058">
+							<ref bean="aliBank" />
+						</entry>
+						<!-- 财付通 -->
+						<entry key="0059">
+							<ref bean="tenBank" />
+						</entry>
+					</map>
+				</entry>
+			</map>
+		</entry>
+	</util:map>
+</beans>

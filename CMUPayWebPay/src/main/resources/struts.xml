@@ -1,0 +1,24 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- 银行 -->
+	<include file="struts/struts-bank.xml"></include>
+	
+	<!-- 省级 -->
+	<include file="struts/struts-cmu.xml"></include>
+	
+	<!-- 核心 -->
+	<include file="struts/struts-csys.xml"></include>
+	
+	<!-- 公用 -->
+	<include file="struts/struts-public.xml"></include>
+	
+	<!-- 仿真 -->
+	<include file="struts/struts-test.xml"></include>
+	<!-- 测试JMS用 -->
+	<package name="test" extends="struts-default">
+		<action name="queryCust" class="queryCust" method="queryOrder"/>    
+	</package>
+</struts>

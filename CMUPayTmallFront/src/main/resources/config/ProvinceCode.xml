@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProvinceMsg>
+	<ProvinceList>
+		<Province code="2200" name="天津" osnDuns="2201" />
+		<Province code="5310" name="山东" osnDuns="5311" />
+	</ProvinceList>
+</ProvinceMsg>

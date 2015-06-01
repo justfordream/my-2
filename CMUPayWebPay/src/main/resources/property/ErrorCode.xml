@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ErrorConfig>
+	<!-- 银行错误码 [innerCode:内部错误码  outerCode:银行错误码  areaCode 省份错误码 errorMsg:错误描述] -->
+	<ErrorList type="bank">
+		<Msg innerCode="UPAY-B-B0000" outerCode="020A00" errorMsg="成功" />
+		<Msg innerCode="UPAY-B-B9999" outerCode="025A06" errorMsg="未知错误" />
+
+		<Msg innerCode="UPAY-C-A0001" outerCode="024A06" errorMsg="签名验证失败" />
+		<Msg innerCode="UPAY-C-A0002" outerCode="025A07" errorMsg="超时未收到响应" />
+		<Msg innerCode="UPAY-C-A0003" outerCode="025A05" errorMsg="解析报文失败" />
+		<Msg innerCode="UPAY-C-A0004" outerCode="025A03" errorMsg="系统错误" />
+		
+		<Msg innerCode="UPAY-B-A0008" outerCode="010A00"  errorMsg="成功" />                        
+		<Msg innerCode="UPAY-B-A0009" outerCode="019A01"  errorMsg="ActivityCode参数不正确" />      
+		<Msg innerCode="UPAY-B-A0010" outerCode="019A02"  errorMsg="ReqSys参数不正确" />            
+		<Msg innerCode="UPAY-B-A0011" outerCode="019A03"  errorMsg="ReqChannel参数不正确" />        
+		<Msg innerCode="UPAY-B-A0012" outerCode="019A04"  errorMsg="ReqDate参数不正确" />           
+		<Msg innerCode="UPAY-B-A0013" outerCode="019A05"  errorMsg="ReqTransID参数不正确" />        
+		<Msg innerCode="UPAY-B-A0014" outerCode="019A06"  errorMsg="ReqDateTime参数不正确" />       
+		<Msg innerCode="UPAY-B-A0015" outerCode="019A07"  errorMsg="ActionCode参数不正确" />        
+		<Msg innerCode="UPAY-B-A0016" outerCode="019A08"  errorMsg="RcvSys参数不正确" />            
+		<Msg innerCode="UPAY-B-A0017" outerCode="019A09"  errorMsg="RcvDate参数不正确" />           
+		<Msg innerCode="UPAY-B-A0018" outerCode="019A10"  errorMsg="RcvTransID参数不正确" />        
+		<Msg innerCode="UPAY-B-A0019" outerCode="019A11"  errorMsg="RcvDateTime参数不正确" />       
+		<Msg innerCode="UPAY-B-A0020" outerCode="019A12"  errorMsg="RspCode参数不正确" />           
+		<Msg innerCode="UPAY-B-A0021" outerCode="019A13"  errorMsg="RspDesc参数不正确" />           
+		<Msg innerCode="UPAY-B-A0022" outerCode="019A14"  errorMsg="SignFlag参数不正确" />          
+		<Msg innerCode="UPAY-B-A0023" outerCode="019A15"  errorMsg="CerID参数不正确" />             
+		<Msg innerCode="UPAY-B-A0024" outerCode="019A16"  errorMsg="SignValue参数不正确" />         
+		<Msg innerCode="UPAY-B-A0025" outerCode="019A17"  errorMsg="IDType参数不正确" />            
+		<Msg innerCode="UPAY-B-A0026" outerCode="019A18"  errorMsg="IDValue参数不正确" />           
+		<Msg innerCode="UPAY-B-A0027" outerCode="019A19"  errorMsg="SessionID参数不正确" />         
+		<Msg innerCode="UPAY-B-A0028" outerCode="019A20"  errorMsg="SubID参数不正确" />             
+		<Msg innerCode="UPAY-B-A0029" outerCode="019A21"  errorMsg="SubTime参数不正确" />           
+		<Msg innerCode="UPAY-B-A0030" outerCode="019A22"  errorMsg="BankAcctID参数不正确" />        
+		<Msg innerCode="UPAY-B-A0031" outerCode="019A23"  errorMsg="BankAcctType参数不正确" />      
+		<Msg innerCode="UPAY-B-A0032" outerCode="019A24"  errorMsg="PayType参数不正确" />           
+		<Msg innerCode="UPAY-B-A0033" outerCode="019A25"  errorMsg="RechThreshold参数不正确" />     
+		<Msg innerCode="UPAY-B-A0034" outerCode="019A26"  errorMsg="RechAmount参数不正确" />        
+		<Msg innerCode="UPAY-B-A0035" outerCode="019A27"  errorMsg="OrderID参数不正确" />           
+		<Msg innerCode="UPAY-B-A0036" outerCode="019A28"  errorMsg="MerVAR参数不正确" />            
+		<Msg innerCode="UPAY-B-A0037" outerCode="019A29"  errorMsg="Payed参数不正确" />             
+		<Msg innerCode="UPAY-B-A0038" outerCode="019A30"  errorMsg="OrigReqSys参数不正确" />        
+		<Msg innerCode="UPAY-B-A0039" outerCode="019A31"  errorMsg="OriReqDate参数不正确" />        
+		<Msg innerCode="UPAY-B-A0040" outerCode="019A32"  errorMsg="OriReqTransID参数不正确" />     
+		<Msg innerCode="UPAY-B-A0041" outerCode="019A33"  errorMsg="RevokeReason参数不正确" />      
+		<Msg innerCode="UPAY-B-A0042" outerCode="019A34"  errorMsg="BankProv参数不正确" />          
+		<Msg innerCode="UPAY-B-A0043" outerCode="019A35"  errorMsg="InvoiceID参数不正确" />         
+		<Msg innerCode="UPAY-B-A0044" outerCode="019A36"  errorMsg="PrintStatus参数不正确" />       
+		<Msg innerCode="UPAY-B-A0045" outerCode="019A37"  errorMsg="InvoiceCode参数不正确" />       
+		<Msg innerCode="UPAY-B-A0046" outerCode="019A38"  errorMsg="InvoiceNo参数不正确" />         
+		<Msg innerCode="UPAY-B-A0047" outerCode="019A39"  errorMsg="PrintDate参数不正确" />         
+		<Msg innerCode="UPAY-B-A0048" outerCode="019A40"  errorMsg="Opr参数不正确" />               
+		<Msg innerCode="UPAY-B-A0049" outerCode="019A41"  errorMsg="UserName参数不正确" />          
+		<Msg innerCode="UPAY-B-A0050" outerCode="019A42"  errorMsg="UserIDType参数不正确" />        
+		<Msg innerCode="UPAY-B-A0051" outerCode="019A43"  errorMsg="UserID参数不正确" />            
+		<Msg innerCode="UPAY-B-A0052" outerCode="019A44"  errorMsg="HomeProv参数不正确" />          
+		<Msg innerCode="UPAY-B-A0053" outerCode="019A45"  errorMsg="TransType参数不正确" />         
+		<Msg innerCode="UPAY-B-A0054" outerCode="019A46"  errorMsg="OriTransType参数不正确" />      
+		<Msg innerCode="UPAY-B-A0055" outerCode="019A47"  errorMsg="OriRcvDate参数不正确" />        
+		<Msg innerCode="UPAY-B-A0056" outerCode="019A48"  errorMsg="OriRcvTransID参数不正确" />     
+		<Msg innerCode="UPAY-B-A0057" outerCode="019A49"  errorMsg="OriRspCode参数不正确" />        
+		<Msg innerCode="UPAY-B-A0058" outerCode="019A50"  errorMsg="OriRspDesc参数不正确" />        
+		<Msg innerCode="UPAY-B-A0059" outerCode="019A51"  errorMsg="Payment 参数不正确" />          
+		<Msg innerCode="UPAY-B-A0060" outerCode="019A52"  errorMsg="ChargeMoney 参数不正确" />      
+		<Msg innerCode="UPAY-B-A0061" outerCode="019A53"  errorMsg="ProdCnt 参数不正确" />          
+		<Msg innerCode="UPAY-B-A0062" outerCode="019A54"  errorMsg="ProdID 参数不正确" />           
+		<Msg innerCode="UPAY-B-A0063" outerCode="019A55"  errorMsg="Commision 参数不正确" />        
+		<Msg innerCode="UPAY-B-A0064" outerCode="019A56"  errorMsg="RebateFee 参数不正确" />        
+		<Msg innerCode="UPAY-B-A0065" outerCode="019A57"  errorMsg="ProdDiscount 参数不正确" />     
+		<Msg innerCode="UPAY-B-A0066" outerCode="019A58"  errorMsg="CreditCardFee 参数不正确" />    
+		<Msg innerCode="UPAY-B-A0067" outerCode="019A59"  errorMsg="ServiceFee 参数不正确" />       
+		<Msg innerCode="UPAY-B-A0068" outerCode="019A60"  errorMsg="ActivityNO 参数不正确" />       
+		<Msg innerCode="UPAY-B-A0069" outerCode="019A61"  errorMsg="PayedType 参数不正确" />        
+		<Msg innerCode="UPAY-B-A0070" outerCode="019A62"  errorMsg="Reserve1 参数不正确" />         
+		<Msg innerCode="UPAY-B-A0071" outerCode="019A63"  errorMsg="Reserve2 参数不正确" />         
+		<Msg innerCode="UPAY-B-A0072" outerCode="019A64"  errorMsg="Reserve3 参数不正确" />         
+		<Msg innerCode="UPAY-B-A0073" outerCode="019A65"  errorMsg="Reserve4 参数不正确" />         
+		<Msg innerCode="UPAY-B-A0074" outerCode="019A66"  errorMsg="保留以后备用" />                
+		<Msg innerCode="UPAY-B-A0075" outerCode="012A00"  errorMsg="签约信息为其它银行账号关联" />  
+		<Msg innerCode="UPAY-B-A0076" outerCode="012A01"  errorMsg="用户已经签约其它账户" />        
+		<Msg innerCode="UPAY-B-A0077" outerCode="012A02"  errorMsg="银行账户信息不存在" />          
+		<Msg innerCode="UPAY-B-A0078" outerCode="012A03"  errorMsg="银行帐户异常" />                
+		<Msg innerCode="UPAY-B-A0079" outerCode="012A04"  errorMsg="副号码状态异常" />              
+		<Msg innerCode="UPAY-B-A0080" outerCode="012A05"  errorMsg="无权限" />                      
+		<Msg innerCode="UPAY-B-A0081" outerCode="012A06"  errorMsg="发票未打印" />                  
+		<Msg innerCode="UPAY-B-A0082" outerCode="012A07"  errorMsg="发票已打印" />                  
+		<Msg innerCode="UPAY-B-A0083" outerCode="012A08"  errorMsg="用户状态异常" />                
+		<Msg innerCode="UPAY-B-A0084" outerCode="012A09"  errorMsg="不存在该用户的签约关系" />      
+		<Msg innerCode="UPAY-B-A0085" outerCode="012A10"  errorMsg="该签约关系已存在" />            
+		<Msg innerCode="UPAY-B-A0086" outerCode="012A11"  errorMsg="该用户不存在" />                
+		<Msg innerCode="UPAY-B-A0087" outerCode="012A12"  errorMsg="银行账号余额不足" />            
+		<Msg innerCode="UPAY-B-A0088" outerCode="012A13"  errorMsg="信息不一致" />                  
+		<Msg innerCode="UPAY-B-A0089" outerCode="012A14"  errorMsg="未实名登记" />                  
+		<Msg innerCode="UPAY-B-A0090" outerCode="012A15"  errorMsg="证件类型不符" />                
+		<Msg innerCode="UPAY-B-A0091" outerCode="012A16"  errorMsg="非试点省用户" />                
+		<Msg innerCode="UPAY-B-A0092" outerCode="012A17"  errorMsg="非移动用户" />                  
+		<Msg innerCode="UPAY-B-A0093" outerCode="012A18"  errorMsg="该省该业务暂未开通" />          
+		<Msg innerCode="UPAY-B-A0094" outerCode="012A99"  errorMsg="其他错误" />                    
+		<Msg innerCode="UPAY-B-A0095" outerCode="013A00"  errorMsg="帐号签约已超过最大签约个数" />  
+		<Msg innerCode="UPAY-B-A0096" outerCode="013A01"  errorMsg="账户的累计额度超限" />          
+		<Msg innerCode="UPAY-B-A0097" outerCode="013A02"  errorMsg="退票需隔日" />                  
+		<Msg innerCode="UPAY-B-A0098" outerCode="013A03"  errorMsg="不容许加为副号码" />            
+		<Msg innerCode="UPAY-B-A0099" outerCode="013A04"  errorMsg="原交易失败，不需要冲正/退款" /> 
+		<Msg innerCode="UPAY-B-A0100" outerCode="013A05"  errorMsg="非当天交易不允许冲正" />        
+		<Msg innerCode="UPAY-B-A0101" outerCode="013A06"  errorMsg="无法打印非银行渠道缴费发票" />  
+		<Msg innerCode="UPAY-B-A0102" outerCode="013A07"  errorMsg="无法打印其它银行缴费发票" />    
+		<Msg innerCode="UPAY-B-A0103" outerCode="013A08"  errorMsg="非号码归属地银行无法打印发票" />
+		<Msg innerCode="UPAY-B-A0104" outerCode="013A09"  errorMsg="号码归属省不允许银行代打发票" />
+		<Msg innerCode="UPAY-B-A0105" outerCode="013A10"  errorMsg="不允许设置为副号" />            
+		<Msg innerCode="UPAY-B-A0106" outerCode="013A11"  errorMsg="证件类型不符" />                
+		<Msg innerCode="UPAY-B-A0107" outerCode="013A12"  errorMsg="号码把主号码设置成黑名单了，导致失败"/>
+		<Msg innerCode="UPAY-B-A0108" outerCode="013A13"  errorMsg="用户其它业务与签约存在冲突" />  
+		<Msg innerCode="UPAY-B-A0109" outerCode="013A14"  errorMsg="该笔交易已被冲正" />            
+		<Msg innerCode="UPAY-B-A0110" outerCode="013A15"  errorMsg="该笔交易已完成退费" />          
+		<Msg innerCode="UPAY-B-A0111" outerCode="013A16"  errorMsg="账号长度不对" />                
+		<Msg innerCode="UPAY-B-A0112" outerCode="013A17"  errorMsg="该交易为重复交易" />            
+		<Msg innerCode="UPAY-B-A0113" outerCode="013A18"  errorMsg="此业务渠道无此权限" />          
+		<Msg innerCode="UPAY-B-A0114" outerCode="013A19"  errorMsg="未完成对账" />                  
+		<Msg innerCode="UPAY-B-A0115" outerCode="013A20"  errorMsg="超过时限，不允许退费" />        
+		<Msg innerCode="UPAY-B-A0116" outerCode="013A21"  errorMsg="不允许冲正" />                  
+		<Msg innerCode="UPAY-B-A0117" outerCode="013A22"  errorMsg="该用户已绑定为副号，不能签约为主"/>
+		<Msg innerCode="UPAY-B-A0118" outerCode="013A23"  errorMsg="查询银行和签约银行不同，不允许查询"/>
+		<Msg innerCode="UPAY-B-A0119" outerCode="013A24"  errorMsg="主号码设置关联副号码48小时内不可为副号码发起主动缴费"/>
+		<Msg innerCode="UPAY-B-A0120" outerCode="013A25"  errorMsg="接收方机构权限关闭" />          
+		<Msg innerCode="UPAY-B-A0121" outerCode="013A26"  errorMsg="银行缴费成功，省公司充值失败" />
+		<Msg innerCode="UPAY-B-A0122" outerCode="013A28"  errorMsg="后付费账户不允许更改阀值" />    
+		<Msg innerCode="UPAY-B-A0123" outerCode="013A29"  errorMsg="主号填写错误" />                
+		<Msg innerCode="UPAY-B-A0124" outerCode="013A30"  errorMsg="签约协议号填写错误" />          
+		<Msg innerCode="UPAY-B-A0125" outerCode="013A31"  errorMsg="单笔金额超限" />                
+		<Msg innerCode="UPAY-B-A0126" outerCode="013A32"  errorMsg="日累计金额超限" />              
+		<Msg innerCode="UPAY-B-A0127" outerCode="013A33"  errorMsg="月累计金额超限" />              
+		<Msg innerCode="UPAY-B-A0128" outerCode="013A34"  errorMsg="重复交易，该交易已处理成功" />  
+		<Msg innerCode="UPAY-B-A0129" outerCode="013A35"  errorMsg="交易日期超过限制" />            
+		<Msg innerCode="UPAY-B-A0130" outerCode="013A36"  errorMsg="该营销活动不存在" />            
+		<Msg innerCode="UPAY-B-A0131" outerCode="013A37"  errorMsg="营销活动已过期" />              
+		<Msg innerCode="UPAY-B-A0132" outerCode="013A38"  errorMsg="不能查询三十天前的交易数据" />  
+		<Msg innerCode="UPAY-B-A0133" outerCode="014A00"  errorMsg="缴费记录不存在" />              
+		<Msg innerCode="UPAY-B-A0134" outerCode="014A01"  errorMsg="非本省用户" />                  
+		<Msg innerCode="UPAY-B-A0135" outerCode="014A02"  errorMsg="交易类型错误" />                
+		<Msg innerCode="UPAY-B-A0136" outerCode="014A03"  errorMsg="产品服务范围错误" />            
+		<Msg innerCode="UPAY-B-A0137" outerCode="014A04"  errorMsg="请求报文数据错误" />            
+		<Msg innerCode="UPAY-B-A0138" outerCode="014A05"  errorMsg="该笔交易不存在" />              
+		<Msg innerCode="UPAY-B-A0139" outerCode="014A06"  errorMsg="签名验证失败" />                
+		<Msg innerCode="UPAY-B-A0140" outerCode="014A07"  errorMsg="证书失效" />                    
+		<Msg innerCode="UPAY-B-A0141" outerCode="014A08"  errorMsg="该笔交易正在处理中" />          
+		<Msg innerCode="UPAY-B-A0142" outerCode="014A09"  errorMsg="交易信息与产品定义不符" />      
+		<Msg innerCode="UPAY-B-A0143" outerCode="014A10"  errorMsg="省代码和手机号码归属省不一致" />
+		<Msg innerCode="UPAY-B-A0144" outerCode="015A00"  errorMsg="计费记录错误" />                
+		<Msg innerCode="UPAY-B-A0145" outerCode="015A01"  errorMsg="扣款失败" />                    
+		<Msg innerCode="UPAY-B-A0146" outerCode="015A02"  errorMsg="充值失败" />                    
+		<Msg innerCode="UPAY-B-A0147" outerCode="015A03"  errorMsg="系统错误" />                    
+		<Msg innerCode="UPAY-B-A0148" outerCode="015A04"  errorMsg="停机维护" />                    
+		<Msg innerCode="UPAY-B-A0149" outerCode="015A05"  errorMsg="解析报文失败" />                
+		<Msg innerCode="UPAY-B-A0150" outerCode="015A06"  errorMsg="未知错误" />                    
+		<Msg innerCode="UPAY-B-A0151" outerCode="015A07"  errorMsg="超时未收到响应" />              
+		<Msg innerCode="UPAY-B-A0152" outerCode="015A08"  errorMsg="超过每秒最大交易数量" />        
+		<Msg innerCode="UPAY-B-A0153" outerCode="015A09"  errorMsg="系统繁忙" />                    
+		<Msg innerCode="UPAY-B-A0154" outerCode="015A10"  errorMsg="号码归属省该业务处于签退状态" />
+		
+	</ErrorList>
+	<!-- 网厅错误码 -->
+	<ErrorList type="cmu">
+		<Msg innerCode="UPAY-C-A0000" outerCode="0000" errorMsg="成功" />
+		<Msg innerCode="UPAY-C-A9999" outerCode="5A07" errorMsg="未知错误" />
+        <Msg innerCode="UPAY-C-A5A10" outerCode="5A10" errorMsg="失败" />
+        <Msg innerCode="UPAY-C-3A17" outerCode="3A17" errorMsg="该交易为重复交易" />
+        <Msg innerCode="UPAY-C-014A10" outerCode="4A10" errorMsg="省代码和手机号码归属省不一致" />
+        
+        
+		<Msg innerCode="UPAY-C-A0001" outerCode="4A99" errorMsg="IDType参数不正确" />
+		<Msg innerCode="UPAY-C-A0002" outerCode="4A99" errorMsg="IDValue参数不正确" />
+		<Msg innerCode="UPAY-C-A0003" outerCode="4A99" errorMsg="SessionID参数不正确" />
+		<Msg innerCode="UPAY-C-A0004" outerCode="4A99" errorMsg="ServerURL参数不正确" />
+		<Msg innerCode="UPAY-C-A0005" outerCode="4A99" errorMsg="BackURL参数不正确" />
+		<Msg innerCode="UPAY-C-A0006" outerCode="4A99" errorMsg="Lang参数不正确" />
+		<Msg innerCode="UPAY-C-A0007" outerCode="4A99" errorMsg="Sig参数不正确" />
+		<Msg innerCode="UPAY-C-A0008" outerCode="4A99" errorMsg="BankID参数不正确" />
+		<Msg innerCode="UPAY-C-A0009" outerCode="4A99" errorMsg="SubTime参数不正确" />
+		<Msg innerCode="UPAY-C-A0010" outerCode="4A99" errorMsg="TransactionID参数不正确" />
+		<Msg innerCode="UPAY-C-A0011" outerCode="4A99" errorMsg="OrigDomain参数不正确" />
+		<Msg innerCode="UPAY-C-A0012" outerCode="4A99" errorMsg="CLIENTIP参数不正确" />
+		<Msg innerCode="UPAY-C-A0013" outerCode="4A99" errorMsg="MCODE参数不正确" />
+        
+		<Msg innerCode="UPAY-C-A0014" outerCode="4A99" errorMsg="MerID参数不正确" />
+		<Msg innerCode="UPAY-C-A0015" outerCode="4A99" errorMsg="OrderID参数不正确" />
+		<Msg innerCode="UPAY-C-A0016" outerCode="4A99" errorMsg="OrderTime参数不正确" />
+		<Msg innerCode="UPAY-C-A0017" outerCode="4A99" errorMsg="Payed参数不正确" />
+		<Msg innerCode="UPAY-C-A0018" outerCode="4A99" errorMsg="CurType参数不正确" />
+		<Msg innerCode="UPAY-C-A0019" outerCode="4A99" errorMsg="MerURL参数不正确" />
+		<Msg innerCode="UPAY-C-A0020" outerCode="4A99" errorMsg="MerVAR参数不正确" />
+
+		<Msg innerCode="UPAY-C-A0021" outerCode="4A07" errorMsg="CRM签名验证失败" />
+		
+		<Msg innerCode="UPAY-C-A0023" outerCode="5A07" errorMsg="超时未收到响应" />
+		<Msg innerCode="UPAY-C-A0024" outerCode="015A05" errorMsg="解析报文失败" />
+		
+        <Msg innerCode="UPAY-C-A0025" outerCode="4A99" errorMsg="PayType参数不能为空" />
+        <Msg innerCode="UPAY-C-A0026" outerCode="4A99" errorMsg="RechAmount充值额度错误" />
+        <Msg innerCode="UPAY-C-A0027" outerCode="4A99" errorMsg="RechThreshold充值阀值错误" />
+        
+        <Msg innerCode="UPAY-C-2A22" outerCode="2A22" errorMsg="非移动用户" />
+        <Msg innerCode="UPAY-C-2A10" outerCode="2A10" errorMsg="该签约关系已存在" />
+        <Msg innerCode="UPAY-C-2A18" outerCode="2A18" errorMsg="交易代码错误" />
+        <Msg innerCode="UPAY-C-3A25" outerCode="3A25" errorMsg="接收方机构权限关闭" />
+        <Msg innerCode="UPAY-C-4A99" outerCode="4A99" errorMsg="参数不正确" />
+        
+        <Msg innerCode="UPAY-C-9999" outerCode="9999" errorMsg="未知错误" />
+        
+	</ErrorList>
+</ErrorConfig>

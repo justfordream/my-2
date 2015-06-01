@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.tmall.bean.mapper.TMallEmergencyInfoMapper" >
+
+  <cache flushInterval="1000" size="512" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.tmall.bean.TMallEmergencyInfo" >
+    <id column="seq_id" property="seqId" jdbcType="NUMERIC" />
+    <result column="flag" property="flag" jdbcType="CHAR" />
+    <result column="is_his" property="isHis" jdbcType="CHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="VARCHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    seq_id, flag, is_his, last_upd_oprid, last_upd_time, reserved1 reserved2, reserved3
+  </sql> 
+  
+<!--   <select id="selectTmallEmergencyFlag" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_TMALL_EMERGENCY_INFO  where is_his="0" order by last_upd_time desc 
+  </select> -->
+  
+  
+  <select id="selectTmallEmergencyFlag" resultType="String">
+    SELECT TOP 1 FLAG from UPAY_CSYS_TMALL_EMERGENCY_INFO  where IS_HIS='0' order by LAST_UPD_TIME desc 
+  </select>
+  
+  
+</mapper>

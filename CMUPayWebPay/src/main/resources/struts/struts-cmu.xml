@@ -1,0 +1,23 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="cmu" extends="struts-default">
+	
+		<!-- 网厅签约 -->
+		<action name="rcvCmuSign" class="com.huateng.action.cmu.RcvSignCmuAction" method="recieve"> </action>
+		
+		<!-- 网厅支付 -->
+		<action name="rcvCmuPay" class="com.huateng.action.cmu.RcvPayCmuAction" method="recieve"></action>
+	
+	</package>
+	
+	<package name="shop" extends="struts-default">
+	
+	    <!-- 移动商城网厅缴费 -->
+		<action name="rcvShopPay" class="com.huateng.action.shop.RcvPayShopAction" method="recieve"></action>
+		<!-- 移动商城开通认证支付-->
+		<action name="rcvPayShopOpen" class="com.huateng.action.shop.RcvPayShopOpenAction" method="recieve"></action>
+	
+	</package>
+</struts>

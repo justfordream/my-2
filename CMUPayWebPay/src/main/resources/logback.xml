@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <configuration scan="true" scanPeriod="60 seconds"> -->
+<configuration>
+    <property name="app_name" value="CMUPayWebPay" />
+    
+	<contextName>${app_name}</contextName>
+	
+	<!-- 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder >
+			<pattern>%date %level [%thread] %logger{36} [%file : %line] %msg%n
+			</pattern>
+			 <charset class="java.nio.charset.Charset">UTF-8</charset> 
+		</encoder>
+	</appender> -->
+	
+	 <appender name="FILE"  
+        class="ch.qos.logback.core.rolling.RollingFileAppender">  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${GLOBAL_LOG_BASE}/${app_name}/${app_name}_%d{yyyy-MM-dd}_%i.log</FileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+            <maxFileSize>500MB</maxFileSize> 
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <MaxHistory>365</MaxHistory>  
+        </rollingPolicy>  
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> 
+            <immediateFlush>true</immediateFlush>  
+            <pattern>[%p] [%d{yyyy-MM-dd HH:mm:ss.SSS}] %C.%M [%file : %line] | %msg%n</pattern>
+             <charset>UTF-8</charset> 
+        </encoder>  
+    </appender>  
+    
+    <appender name="OPERATE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${MCB_HOME}/${MCB_APPID}/var/log/CMUWebPaySys_%i.log.%d{yyyyMMdd}</FileNamePattern> 
+       <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+            <maxFileSize>500MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <MaxHistory>365</MaxHistory>  
+        </rollingPolicy>  
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> 
+            <immediateFlush>true</immediateFlush>   
+            <pattern>%msg%n</pattern>
+            <charset>GBK</charset> 
+        </encoder>
+    </appender>
+
+ 	<!-- additivity="false"这个最重要，指定日志不向上一级输入。 -->
+	<logger name="com.huateng.log.LogHandleImpl" level="INFO" additivity="false">
+		 <!--  <appender-ref ref="STDOUT" />   -->
+		<appender-ref ref="FILE" />
+		<appender-ref ref="OPERATE_FILE" />
+	</logger>
+	
+	 <!-- additivity="false"这个最重要，指定日志不向上一级输入。 -->
+    <logger name="com.huateng.log.MessageLogger" level="INFO" additivity="false">
+        <appender-ref ref="OPERATE_FILE" />
+         <!--  <appender-ref ref="STDOUT" />   -->
+    </logger>
+    <root level="INFO">
+        <appender-ref ref="FILE" />
+      <!--  <appender-ref ref="STDOUT" />   -->
+    </root>
+</configuration>
+

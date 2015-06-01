@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 客户端Hessian代理工厂Bean -->
+	<bean id="cmuSecurityRemoting" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<!-- 请求代理Servlet路径 -->
+		<property name="serviceUrl">
+			<value>${CMU_SECURITY_URL}</value>
+		</property>
+		<!-- 接口定义 -->
+		<property name="serviceInterface">
+			<value>com.huateng.cmupay.service.RemoteService</value>
+		</property>
+	</bean>
+
+	<!-- 客户端Hessian代理工厂Bean -->
+	<bean id="bankSecurityRemoting" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<!-- 请求代理Servlet路径 -->
+		<property name="serviceUrl">
+			<value>${BANK_SECURITY_URL}</value>
+		</property>
+		<!-- 接口定义 -->
+		<property name="serviceInterface">
+			<value>com.huateng.cmupay.service.RemoteService</value>
+		</property>
+	</bean>
+	
+	<!-- 客户端Hessian代理工厂Bean -->
+	<bean id="tPaySecurityService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<!-- 请求代理Servlet路径 -->
+		<property name="serviceUrl">
+			<value>${TUPAY_SECURITY_URL}</value>
+		</property>
+		<!-- 接口定义 -->
+		<property name="serviceInterface">
+			<value>com.huateng.cmupay.service.TUPayRemoteService</value>
+		</property>
+	</bean>
+</beans> 

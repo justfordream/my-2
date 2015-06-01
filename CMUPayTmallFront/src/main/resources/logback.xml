@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!-- <configuration scan="true" scanPeriod="60 seconds"> -->
+    <!-- 日志文件路径需要从配置文件中读取 -->
+   <!--  <property resource="jms.properties" /> -->
+   <!--  <property file="${CMUPAYTMALLFRONT_JMSFILE_LOG}" />  -->
+    
+	<property name="app_name"  value="CMUPayTMallFront" />
+	<property name="track_log" value="CMUPayTMallFrontTrackLog" />
+	<contextName>${app_name}</contextName>
+
+
+	<!-- <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date %level [%thread] %logger{36} [%file : %line] %msg%n</pattern>
+		</encoder>
+	</appender> -->
+	
+	
+	<!-- 每天生成一个日志文件，保存30天的日志文件。 -->
+	<!-- 	
+     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${GLOBAL_LOG_BASE}/${app_name}/${app_name}_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+                 <maxFileSize>500MB</maxFileSize> 
+            </timeBasedFileNamingAndTriggeringPolicy>		
+			<maxHistory>365</maxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> 
+            <immediateFlush>false</immediateFlush>  
+            <pattern>%date %level [%thread] %logger{36} [%file : %line] %msg%n</pattern>
+            <charset>UTF-8</charset> 
+        </encoder> 
+	</appender> -->
+	
+	
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${GLOBAL_LOG_BASE}/${app_name}/${app_name}_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+                 <maxFileSize>500MB</maxFileSize> 
+            </timeBasedFileNamingAndTriggeringPolicy>		
+			<maxHistory>365</maxHistory>
+		</rollingPolicy>
+		<encoder>
+            <pattern>%date %level [%thread] %logger{36} [%file : %line] %msg%n</pattern>
+            <charset>UTF-8</charset> 
+        </encoder> 
+	</appender>
+	
+
+	<appender name="OPERATE_FILE" class="ch.qos.logback.core.FileAppender">
+		<Encoding>UTF-8</Encoding>
+		<file>${LOG_XML_PATH}/${app_name}.txt</file>		
+		<encoder >  
+			 <pattern>%msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	
+	<appender name="OPERATE_FILE_DAILY" class="ch.qos.logback.core.rolling.RollingFileAppender">
+         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${MCB_HOME}/${MCB_APPID}/var/log/${app_name}_%i.log.%d{yyyyMMdd}</FileNamePattern>  
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+                 <maxFileSize>500MB</maxFileSize> 
+            </timeBasedFileNamingAndTriggeringPolicy>        
+            <MaxHistory>365</MaxHistory>  
+        </rollingPolicy>  
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> 
+            <immediateFlush>false</immediateFlush>   
+            <pattern>%msg%n</pattern>
+            <charset>GBK</charset> 
+        </encoder>
+    </appender>
+
+	<appender name="TRACK_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<Encoding>UTF-8</Encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${TMALL_EMERGENCY_PATH}/${track_log}_%d{yyyyMMdd}_%i.txt
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>500MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<MaxHistory>365</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	</appender>
+	   
+	<!-- 天猫监控日志 -->
+	<logger name="com.huateng.log.MessageLogger" level="INFO" additivity="false">
+		<!-- <appender-ref ref="STDOUT" /> -->
+		<!-- <appender-ref ref="FILE" /> -->
+		<appender-ref ref="OPERATE_FILE_DAILY" />
+	</logger>
+	<!-- 天猫追踪日志 -->
+	<logger name="com.huateng.log.TMallMessageLogger" level="INFO" additivity="false">
+		<!-- <appender-ref ref="STDOUT" /> -->
+		<!-- <appender-ref ref="FILE" />		 -->
+		<appender-ref ref="TRACK_FILE" />
+	</logger>
+	
+	<!-- additivity="false"这个最重要，指定日志不向上一级输入。 -->
+	<logger name="com.huateng.log.LogHandleImpl" level="INFO" additivity="false">
+		<!-- <appender-ref ref="STDOUT" /> -->
+		<!-- <appender-ref ref="FILE" /> -->
+		<appender-ref ref="OPERATE_FILE" />
+	</logger>
+	<logger name="com.huateng"/>
+	<root level="INFO">
+		<!-- <appender-ref ref="STDOUT" /> -->
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.tmall.bean.mapper.UpayCsysImsiLdCdMapper" >
+  <cache flushInterval="360000" size="40000" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.tmall.bean.UpayCsysImsiLdCd" >
+    <id column="IMSI_AREA_ID" property="imsiAreaId" jdbcType="VARCHAR" />
+    <id column="EFFC_TM" property="effcTm" jdbcType="VARCHAR" />
+    <result column="MSISDN_AREA_ID" property="msisdnAreaId" jdbcType="VARCHAR" />
+    <result column="LD_AREA_CD" property="ldAreaCd" jdbcType="VARCHAR" />
+    <result column="IMSI_TYPE" property="imsiType" jdbcType="VARCHAR" />
+    <result column="EXPIRED_TM" property="expiredTm" jdbcType="VARCHAR" />
+    <result column="ACCORDING_FILE_NM" property="accordingFileNm" jdbcType="VARCHAR" />
+    <result column="LD_AREA_NM" property="ldAreaNm" jdbcType="VARCHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    IMSI_AREA_ID, EFFC_TM, MSISDN_AREA_ID, LD_AREA_CD, IMSI_TYPE, EXPIRED_TM, ACCORDING_FILE_NM, 
+    LD_AREA_NM, reserved1, reserved2, reserved3
+  </sql>
+
+  <select id="selectProvinceByMobileNumber" parameterType="java.lang.String" resultType="java.lang.String" >
+  	SELECT distinct(B.PROV_CD) FROM UPAY_CSYS_IMSI_LD_CD A,UPAY_CSYS_LD_AREA_CD_PROV_EXT B
+	WHERE A.LD_AREA_CD = B.LD_AREA_CD
+	and MSISDN_AREA_ID = #{msisdnAreaId,jdbcType=VARCHAR}
+  </select> 
+    <select id="selectProvinceByUnicomNumber" parameterType="java.lang.String" resultType="java.lang.String" >
+  	SELECT distinct(B.PROV_CD) FROM UPAY_CSYS_UNICOM_MSISDN_LD_CD A,UPAY_CSYS_LD_AREA_CD_PROV_EXT B
+	WHERE A.LD_AREA_CD = B.LD_AREA_CD
+	and MSISDN_AREA_ID = #{msisdnAreaId,jdbcType=VARCHAR}
+  </select>  
+    <select id="selectErrcode" resultType="java.lang.String" >
+        select
+        inner_err_code
+        from UPAY_CSYS_BANK_OUTER_ERRCD
+        where 1=1
+         <if test="params.platformCd != null" >
+         and   platform_cd = #{params.platformCd}
+         </if>
+        <if test="params.errCode != null">  
+           and err_code = #{params.errCode}
+        </if>
+        <if test="params.errFlag != null">  
+           and err_flag = #{params.errFlag}
+        </if>
+
+    </select>
+</mapper>

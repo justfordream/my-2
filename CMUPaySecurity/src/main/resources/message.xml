@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+	<ErrorMsgList>
+	
+		<Msg code="E99999" value="未知异常!"  />
+		
+	</ErrorMsgList>
+	
+	<SuccessMsgList>
+		<Msg code="S00000" value="操作成功！"  />
+	</SuccessMsgList>
+</Root>

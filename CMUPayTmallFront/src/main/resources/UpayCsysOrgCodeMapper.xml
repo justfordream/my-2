@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.tmall.bean.mapper.UpayCsysOrgCodeMapper" >
+   <cache flushInterval="60000" size="512" readOnly="true"/>
+  <resultMap id="BaseResultMap" type="com.huateng.tmall.bean.UpayCsysOrgCode" >
+    <id column="org_id" property="orgId" jdbcType="VARCHAR" />
+    <result column="org_name" property="orgName" jdbcType="VARCHAR" />
+    <result column="org_type" property="orgType" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="fath_org_id" property="fathOrgId" jdbcType="VARCHAR" />
+    <result column="org_level" property="orgLevel" jdbcType="CHAR" />
+    <result column="last_upd_oprid" property="lastUpdOprid" jdbcType="VARCHAR" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+    <result column="contact_man" property="contactMan" jdbcType="VARCHAR" />
+    <result column="contact_tel" property="contactTel" jdbcType="VARCHAR" />
+    <result column="contact_addr" property="contactAddr" jdbcType="VARCHAR" />
+    <result column="misc" property="misc" jdbcType="VARCHAR" />
+    <result column="is_history" property="isHistory" jdbcType="CHAR" />
+    <result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    org_id, org_name, org_type, status, fath_org_id, org_level, last_upd_oprid, last_upd_time, 
+    contact_man, contact_tel, contact_addr, misc, is_history, reserved1, reserved2, reserved3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from UPAY_CSYS_ORG_CODE
+    where org_id = #{orgId,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectAllListByParams" resultType="list" resultMap="BaseResultMap" >
+	select
+        <include refid="Base_Column_List" />
+        from UPAY_CSYS_ORG_CODE
+        where 1=1
+ 
+        <choose>
+            <when test="orderParam != null">
+                ${orderParam}
+            </when>
+            
+        </choose>
+    </select>
+  
+  	<select id="selectByParams" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_ORG_CODE
+		where 1=1
+		<if test="params.orgId != null">
+			and org_id = #{params.orgId}
+		</if>
+	</select>
+  
+</mapper>

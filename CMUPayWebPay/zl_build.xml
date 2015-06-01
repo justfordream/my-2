@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="gb2312"?>
+<project basedir="." default="init" name="upaycore">
+
+	<property name="debug" value="off" />
+	<property name="optimize" value="on" />
+	<property name="deprecation" value="on" />
+
+	<property name="CMUPayWebPay.dir" value="./CMUPayWebPay" />
+	<property name="CMUPayWebPay.src.dir" value="./CMUPayWebPay/src" />
+	<property name="CMUPayWebPay.web-inf.dir" value="${CMUPayWebPay.dir}/WEB-INF" />
+	<property name="CMUPayWebPay.web-inf.classes.dir" value="${CMUPayWebPay.dir}/WEB-INF/classes" />
+	<property name="CMUPayWebPay.web-inf.lib.dir" value="${CMUPayWebPay.dir}/WEB-INF/lib" />
+	<property name="src.java" value="./src/main/java" />
+	<property name="src.resources" value="./src/main/resources" />
+	<property name="src.web-inf" value="./src/main/webapp/WEB-INF" />
+	<property name="src.lib" value="./src/main/webapp/WEB-INF/lib"/>
+	<property name="src.webapp" value="./src/main/webapp"/>
+	<!--其他jar包路径 -->
+	<path id="lib">
+		<fileset dir="${src.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<target name="init">
+		<delete dir="${CMUPayWebPay.dir}" />
+
+		<mkdir dir="${CMUPayWebPay.dir}" />
+		<mkdir dir="${CMUPayWebPay.src.dir}" />
+		<mkdir dir="${CMUPayWebPay.web-inf.dir}" />
+		<mkdir dir="${CMUPayWebPay.web-inf.classes.dir}" />
+		<mkdir dir="${CMUPayWebPay.web-inf.lib.dir}" />
+
+		<copy todir="${CMUPayWebPay.src.dir}">
+			<fileset dir="${src.java}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+
+		<javac encoding="UTF-8" fork="true" memoryInitialSize="256m" memoryMaximumSize="256m" includeantruntime="false" debug="on" optimize="${optimize}" destdir="${CMUPayWebPay.web-inf.classes.dir}" srcdir="${CMUPayWebPay.src.dir}">
+			<classpath refid="lib" />
+		</javac>
+
+		<copy todir="${CMUPayWebPay.web-inf.lib.dir}">
+			<fileset dir="${src.lib}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+
+		<copy todir="${CMUPayWebPay.web-inf.dir}">
+			<fileset dir="${src.web-inf}">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+
+		<copy todir="${CMUPayWebPay.web-inf.classes.dir}">
+			<fileset dir="${src.resources}">
+				<include name="**/" />
+				<include name="*.*" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${CMUPayWebPay.dir}">
+			<fileset dir="${src.webapp}">
+				<include name="bank/" />
+				<include name="cmu/" />
+				<include name="common/" />
+				<include name="*.jsp" />
+			</fileset>
+		</copy>
+		
+		<delete dir="${CMUPayWebPay.src.dir}" />
+
+	</target>
+</project>
+

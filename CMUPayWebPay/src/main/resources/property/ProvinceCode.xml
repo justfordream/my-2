@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProvinceMsg>
+	<ProvinceList>
+		<Province code="471" name="内蒙古" url="" />
+		<Province code="100" name="北京" url="" />
+		<Province code="220" name="天津" url="" />
+		<Province code="531" name="山东" url="" />
+		<Province code="311" name="河北" url="http://he1.ac.10086.cn/service/fee/yczPayNotifyPage.action" signUrl=""
+			payUrl="http://he1.ac.10086.cn/service/fee/yczPayNotifyPage.action" serverUrl="http://he1.ac.10086.cn/service/fee/yczPayNotify.action" />
+		<Province code="351" name="山西" url="" />
+		<Province code="551" name="安徽" url="" />
+		<Province code="210" name="上海" url="" />
+		<Province code="250" name="江苏" url="" />
+		<Province code="571" name="浙江" url="" />
+		<Province code="591" name="福建" url="" />
+		<Province code="898" name="海南" url="" />
+		<Province code="200" name="广东" url="" />
+		<Province code="771" name="广西" url="" />
+		<Province code="971" name="青海" url="" />
+		<Province code="270" name="湖北" url="" />
+		<Province code="731" name="湖南" url="" />
+		<Province code="791" name="江西" url="" />
+		<Province code="371" name="河南" url="" />
+		<Province code="891" name="西藏" url="" />
+		<Province code="280" name="四川" url="" />
+		<Province code="230" name="重庆" url="" />
+		<Province code="290" name="陕西" url="" />
+		<Province code="851" name="贵州" url="" />
+		<Province code="871" name="云南" url="" />
+		<Province code="931" name="甘肃" url="" />
+		<Province code="951" name="宁夏" url="" />
+		<Province code="991" name="新疆" url="" />
+		<Province code="431" name="吉林" url="" />
+		<Province code="240" name="辽宁" url="" />
+		<Province code="451" name="黑龙江" url="" />
+		<Province code="999" name="交换中心" url="" />
+		<Province code="997" name="南方基地" url="" />
+		<Province code="upay" name="统一支付测试模拟程序" url="" signUrl="http://192.168.106.83:8090/CMUPayWebPay/CmuSign.jsp"
+			payUrl="http://192.168.106.83:8090/CMUPayWebPay/CmuPay.jsp" serverUrl="http://192.168.106.83:8090/CMUPayWebPay/redirectCmu.action" />
+	</ProvinceList>
+</ProvinceMsg>

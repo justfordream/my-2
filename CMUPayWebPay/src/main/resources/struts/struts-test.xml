@@ -1,0 +1,36 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 测试网厅和银行 -->
+	<package name="BankTest" extends="struts-default">
+		<action name="CCBBankSign" class="com.huateng.action.test.CCBBankSignAction" method="receive">
+			<result name="success">/CCBBankSign.jsp</result>
+		</action>
+		<action name="CCBBankPay" class="com.huateng.action.test.CCBBankPayAction" method="receive">
+			<result name="success">/CCBBankPay.jsp</result>
+		</action>
+		<!-- 模拟网厅 -->
+		<action name="pageSign" class="com.huateng.demo.action.CMUPageAction" method="receiveSign">
+			<result name="sign">/CmuSign.jsp</result>
+		</action>
+		<action name="pagePay" class="com.huateng.demo.action.CMUPageAction" method="receivePay">
+			<result name="pay">/CmuPay.jsp</result>
+		</action>
+		<!-- 模拟银行发送结果通知 -->
+		<action name="CCBBank" class="com.huateng.action.test.CCBBankAction" method="receive">
+			<result name="sign">/CCBBankSign.jsp</result>
+			<result name="pay">/CCBBankPay.jsp</result>
+		</action>
+		<!-- 页面请求.重定向网厅 -->
+		<action name="redirectCmu" class="com.huateng.action.test.ShenZhenCmuAction" method="receive">
+			<result name="success">/CmuResult.jsp</result>
+		</action>
+		<!-- 后台请求.重定向网厅 -->
+		<action name="redirectResultCmu" class="com.huateng.action.test.ShenZhenCmuResultAction" method="receive">
+		</action>
+		
+		<action name="redirectResultTest" class="com.huateng.action.test.testAction" method="receive">
+		</action>
+	</package>
+</struts>

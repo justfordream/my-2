@@ -1,0 +1,16 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="customer-interceptors" extends="struts-default">
+    </package>
+    <!-- ============== constant field 			===================== -->
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.freemarker.templatesCache" value="true"/> 
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.custom.i18n.resources" value="resources"/>
+	<!-- ============== public package field 	===================== -->
+
+</struts>

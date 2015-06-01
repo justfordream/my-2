@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util-2.5.xsd ">
+	<!-- 浦发银行 -->
+	<bean id="spdbBank" class="com.huateng.link.bank.Link2SpdbImpl"
+		p:sendUrl="${SPDB.B2C.PAY.URL}" p:tradeCode="${SPDB.B2C.TRANABBR}" />
+
+	<!-- 建设银行 -->
+	<bean id="ccbBank" class="com.huateng.link.bank.Link2CcbImpl"
+		p:sendUrl="${CCB.B2C.PAY.URL}" p:tradeCode="${CCB.B2C.TRANABBR}"
+		p:merId="${CCB.B2C.MERCHANTID}" p:posId="${CCB.B2C.POSID}" p:branchId="${CCB.B2C.BRANCHID}" />
+
+	<!-- 银联 -->
+	<bean id="tPayBank" class="com.huateng.link.bank.Link2TPayImpl"
+		p:sendUrl="${TPAY.B2C.PAY.URL}" p:tradeCode="${TPAY.B2C.TRANABBR}"
+		p:merId="${TPAY.B2C.MERCHANTID}" p:posId="${TPAY.B2C.POSID}"
+		p:branchId="${TPAY.B2C.BRANCHID}" p:version="${TPAY.B2C.CCB_IBSVersion}"
+		p:txnType="${TPAY.B2C.TXNTYPE}" p:txnSubType="${TPAY.B2C.TXNSUBTYPE}"
+		p:bizType="${TPAY.B2C.BIZTYPE}" p:accessType="${TPAY.B2C.ACCESSTYPE}"
+		p:merType="${TPAY.B2C.MERTYPE}" p:frontUrl="${TPAY.B2C.FRONTURL}"
+		p:backUrl="${TPAY.B2C.BACKURL}" p:frontFailUrl="${TPAY.B2C.FRONTFAILURL}"
+		p:encoding="UTF-8" />
+
+	<!-- 模拟银行 -->
+	<bean id="testBank" class="com.huateng.link.bank.Link2TestImpl"
+		p:sendUrl="${SPDB.B2C.PAY.URL_TEST}" p:tradeCode="${SPDB.B2C.TRANABBR}"
+		p:merId="${CCB.B2C.MERCHANTID}" p:posId="${CCB.B2C.POSID}" p:branchId="${CCB.B2C.BRANCHID}" />
+</beans>

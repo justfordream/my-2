@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="gb2312"?>
+<project basedir="." default="init" name="upaycore">
+
+	<property name="debug" value="off" />
+	<property name="optimize" value="on" />
+	<property name="deprecation" value="on" />
+
+	<property name="CMUPayMobileShopFront.dir" value="./CMUPayMobileShopFront" />
+	<property name="CMUPayMobileShopFront.src.dir" value="./CMUPayMobileShopFront/src" />
+	<property name="CMUPayMobileShopFront.web-inf.dir" value="${CMUPayMobileShopFront.dir}/WEB-INF" />
+	<property name="CMUPayMobileShopFront.web-inf.classes.dir" value="${CMUPayMobileShopFront.dir}/WEB-INF/classes" />
+	<property name="CMUPayMobileShopFront.web-inf.lib.dir" value="${CMUPayMobileShopFront.dir}/WEB-INF/lib" />
+	<property name="src.java" value="./src/main/java" />
+	<property name="src.resources" value="./src/main/resources" />
+	<property name="src.web-inf" value="./src/main/webapp/WEB-INF" />
+	<property name="src.lib" value="./src/main/webapp/WEB-INF/lib"/>
+	<property name="src.webapp" value="./src/main/webapp"/>
+	<!--其他jar包路径 -->
+	<path id="lib">
+		<fileset dir="${src.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<target name="init">
+		<delete dir="${CMUPayMobileShopFront.dir}" />
+
+		<mkdir dir="${CMUPayMobileShopFront.dir}" />
+		<mkdir dir="${CMUPayMobileShopFront.src.dir}" />
+		<mkdir dir="${CMUPayMobileShopFront.web-inf.dir}" />
+		<mkdir dir="${CMUPayMobileShopFront.web-inf.classes.dir}" />
+		<mkdir dir="${CMUPayMobileShopFront.web-inf.lib.dir}" />
+
+		<copy todir="${CMUPayMobileShopFront.src.dir}">
+			<fileset dir="${src.java}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+
+		<javac encoding="UTF-8" fork="true" memoryInitialSize="256m" memoryMaximumSize="256m" includeantruntime="false" debug="on" optimize="${optimize}" destdir="${CMUPayMobileShopFront.web-inf.classes.dir}" srcdir="${CMUPayMobileShopFront.src.dir}">
+			<classpath refid="lib" />
+		</javac>
+
+		<copy todir="${CMUPayMobileShopFront.web-inf.lib.dir}">
+			<fileset dir="${src.lib}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+
+		<copy todir="${CMUPayMobileShopFront.web-inf.dir}">
+			<fileset dir="${src.web-inf}">
+				<include name="web.xml" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${CMUPayMobileShopFront.web-inf.dir}">
+			<fileset dir="${src.web-inf}">
+				<include name="spring-servlet.xml" />
+			</fileset>
+		</copy>
+
+		<copy todir="${CMUPayMobileShopFront.web-inf.classes.dir}">
+			<fileset dir="${src.resources}">
+				<include name="**/" />
+			</fileset>
+			<fileset dir="${src.resources}">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${CMUPayMobileShopFront.dir}">
+			<fileset dir="${src.webapp}">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+		<delete dir="${CMUPayMobileShopFront.src.dir}" />
+
+	</target>
+</project>
+

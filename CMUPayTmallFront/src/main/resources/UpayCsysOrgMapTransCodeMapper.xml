@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.tmall.bean.mapper.UpayCsysOrgMapTransCodeMapper">
+     <cache flushInterval="60000" size="512" readOnly="true"/>
+	<resultMap id="BaseResultMap" type="com.huateng.tmall.bean.UpayCsysOrgMapTransCode">
+		<result column="req_org_id" property="reqOrgId" jdbcType="VARCHAR" />
+		<result column="rcv_org_id" property="rcvOrgId" jdbcType="VARCHAR" />
+		<result column="req_org_name" property="reqOrgName" jdbcType="VARCHAR" />
+		<result column="rcv_org_name" property="rcvOrgName" jdbcType="VARCHAR" />
+		<result column="trans_code_collect" property="transCodeCollect"
+			jdbcType="NVARCHAR" />
+		<result column="trans_code_collect2" property="transCodeCollect2"
+			jdbcType="NVARCHAR" />
+		<result column="status" property="status" jdbcType="CHAR" />
+		<result column="last_upd_oprid" property="lastUpdOprid"
+			jdbcType="VARCHAR" />
+		<result column="last_upd_time" property="lastUpdTime" jdbcType="CHAR" />
+		<result column="is_history" property="isHistory" jdbcType="CHAR" />
+		<result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+		<result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+		<result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		req_org_id,rcv_org_id,
+		req_org_name,rcv_org_name,
+		trans_code_collect,trans_code_collect2,
+		status,
+		last_upd_oprid,last_upd_time,
+		is_history,
+		reserved1,reserved2,reserved3
+	</sql>
+<!-- 	<sql id="commonWhere">
+		<if test="params.reqOrgId!=null">and req_org_id = #{params.reqOrgId}</if>
+		<if test="params.rcvOrgId!=null">and rcv_org_id = #{params.rcvOrgId}</if>
+		<if test="params.reqOrgName!=null">and req_org_name = #{params.reqOrgName}</if>
+		<if test="params.rcvOrgName!=null">and rcv_org_name = #{params.rcvOrgName}</if>
+		<if test="params.transCodeCollect!=null">and trans_code_collect = #{params.transCodeCollect}</if>
+		<if test="params.transCodeCollect2!=null">and trans_code_collect2 = #{params.transCodeCollect2}</if>
+		<if test="params.status!=null">and status = #{params.status}</if>
+		<if test="params.lastUpdOprid!=null">and last_upd_oprid = #{params.lastUpdOprid}</if>
+		<if test="params.lastUpdTime!=null">and last_upd_time = #{params.lastUpdTime}</if>
+		<if test="params.is_history!=null">and is_history = #{params.is_history}</if>
+		<if test="params.reserved1!=null">and reserved1 = #{params.reserved1}</if>
+		<if test="params.reserved2!=null">and reserved2 = #{params.reserved2}</if>
+		<if test="params.reserved3!=null">and reserved3 = #{params.reserved3}</if>
+	</sql> -->
+	
+	<select id="selectByParams" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_ORG_MAP_TRANS_CODE
+		where 1=1
+		<if test="params.reqOrgId != null">
+         and req_org_id = #{params.reqOrgId}
+        </if>
+        <if test="params.rcvOrgId != null">
+          and rcv_org_id = #{params.rcvOrgId}
+        </if>
+        <if test="params.status != null">
+           and status = #{params.status}
+        </if>
+
+        <if test="params.isHistory != null">
+         and is_history = #{params.isHistory}
+        </if>
+        </select>
+        
+        
+      <select id="selectByUnParams" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from UPAY_CSYS_ORG_MAP_TRANS_LD 
+		where 1=1
+		<if test="params.reqOrgId != null">
+         and req_org_id = #{params.reqOrgId}
+        </if>
+        <if test="params.rcvOrgId != null">
+          and rcv_org_id = #{params.rcvOrgId}
+        </if>
+        <if test="params.status != null">
+           and status = #{params.status}
+        </if>
+
+        <if test="params.isHistory != null">
+         and is_history = #{params.isHistory}
+        </if>
+	</select>
+</mapper>

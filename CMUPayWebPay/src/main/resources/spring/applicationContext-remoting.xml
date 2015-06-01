@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+ -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util-2.5.xsd ">
+    <!-- 
+	<bean name="/GateRemoting" class="com.huateng.core.common.AuthHessianServiceExporter">
+		<property name="service" ref="gateRemotingImpl" />
+		<property name="serviceInterface"
+			value="com.huateng.core.hessian.server.remoting.GateRemoting" />
+	</bean>
+	
+	<bean id="gateRemotingImpl"
+		class="com.huateng.core.hessian.server.remoting.impl.GateRemotingImpl"
+		 p:checkSwitch="${CHECK_STATUS}" p:httTimeOut="${HTTP_TIME_OUT}">
+	</bean>
+	
+-->
+	
+	<bean id="personService" class="com.huateng.core.hessian.server.remoting.impl.GateRemotingImpl" 
+	p:checkSwitch="${CHECK_STATUS}" p:httTimeOut="${HTTP_TIME_OUT}"/> 
+         
+    <bean id="serviceExporter"  
+        class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">  
+        <property name="service" ref="personService" />  
+        <property name="serviceInterface" value="com.huateng.core.hessian.server.remoting.GateRemoting" />  
+    </bean>
+    
+    <bean id="urlMapping"  
+        class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">  
+        <property name="mappings">  
+            <props>  
+                <prop key="/GateRemoting">serviceExporter</prop>  
+            </props>  
+        </property>  
+    </bean>
+     
+</beans>

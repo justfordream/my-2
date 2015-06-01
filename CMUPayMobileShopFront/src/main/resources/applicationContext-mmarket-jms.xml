@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	<!-- 商城请求统一支付平台(同步) -->
+	<bean id="reqMarketToCMU" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${mmarket.queue.request}" />
+	</bean>
+	<!-- 统一支付平台应答商城(同步)-->
+	<bean id="resCMUToMarket" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${mmarket.queue.response}" />
+	</bean>
+	
+	<!-- 商城请求统一支付平台(异步)   -->
+	 
+	<bean id="req4MarketToCMU" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${mmarket.queue.reqShopToCore}" />
+	</bean> 
+	
+	<bean id="res4CMUToMarket" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${mmarket.queue.resqCoreToShop}" />
+	</bean>
+	
+	<bean id="mmarketService" class="com.huateng.mmarket.service.impl.MMarketServiceImpl"
+        scope="prototype">
+        <property name="logHandle" ref="logHandle" />
+        <property name="jmsSendUtil" ref="sendMessageUtils" />
+        <property name="sourceId" value="${source.id}" />
+    </bean>
+    
+    <!-- 同步 -->
+    <bean id="destinationMap" class="java.util.HashMap">
+        <constructor-arg>
+             <map>
+                <entry key="9999" value-ref="reqMarketToCMU" />
+            </map>
+        </constructor-arg>
+    </bean>
+    <bean id="respDestMap" class="java.util.HashMap">
+        <constructor-arg>
+             <map>
+                <entry key="9999" value-ref="resCMUToMarket" />
+            </map>
+        </constructor-arg>
+    </bean>
+    <!-- 异步-->
+     
+     <bean id="destination4Map" class="java.util.HashMap">
+        <constructor-arg>
+             <map>
+                <entry key="9999" value-ref="req4MarketToCMU" />
+            </map>
+        </constructor-arg>
+    </bean> 
+    <bean id="respDest4Map" class="java.util.HashMap">
+        <constructor-arg>
+             <map>
+                <entry key="9999" value-ref="res4CMUToMarket" />
+            </map>
+        </constructor-arg>
+    </bean>
+   
+    <bean id="sendMessageUtils"
+        class="com.huateng.core.common.SendMessageUtil"  scope="prototype">
+        <property name="template" ref="jmsTemplate" />
+        <property name="destinationMap">
+            <ref local="destinationMap" />
+        </property>
+        <property name="respDestMap">
+            <ref local="respDestMap" />
+        </property>
+         
+         <property name="destination4Map">
+            <ref local="destination4Map" />
+        </property>
+        <property name="respDest4Map">
+            <ref local="respDest4Map" />
+        </property> 
+        <property name="jmsTemplate4async" ref="jmsTemplate4async" />
+    </bean>
+
+
+  
+
+
+    <!-- 配置JMS连接工厂 -->
+    <!-- 采用TCP长连接方式, 避免每次建立短连接需要的额外工作时间 -->
+    <bean id="connectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory"
+        destroy-method="stop">
+       <!--  <property name="maxConnections" value="2" /> -->
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+                <property name="brokerURL" value="${jms.broker.url}" />
+                <property name="useCompression" value="false" />
+                <property name="useAsyncSend" value="true" />
+                <property name="userName" value="${jms.username}" />
+                <property name="password" value="${jms.password}" />
+                <property name="copyMessageOnSend" value="false" />
+                <property name="optimizeAcknowledge" value="true" />
+                <property name="alwaysSessionAsync" value="true" />
+            </bean>
+        </property>
+    </bean>
+    <!-- 采用TCP长连接方式, 避免每次建立短连接需要的额外工作时间 用于发送响应的 -->
+    <bean id="connectionFactory4reply" class="org.apache.activemq.pool.PooledConnectionFactory"
+        destroy-method="stop">
+        <property name="maxConnections" value="1" />
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+                <property name="brokerURL" value="${jms.broker.url}" />
+                <property name="useCompression" value="false" />
+                <property name="useAsyncSend" value="true" />
+                <property name="userName" value="${jms.username}" />
+                <property name="password" value="${jms.password}" />
+                <property name="copyMessageOnSend" value="false" />
+                <property name="optimizeAcknowledge" value="true" />
+                <property name="alwaysSessionAsync" value="true" />
+            </bean>
+        </property>
+    </bean>
+    <!-- 采用TCP长连接方式, 用于异步发送消息 -->
+    <bean id="connectionFactory4async" class="org.apache.activemq.pool.PooledConnectionFactory"
+        destroy-method="stop">
+        <property name="maxConnections" value="2" />
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+                <property name="brokerURL" value="${jms.broker.url}" />
+                <property name="useCompression" value="false" />
+                <property name="useAsyncSend" value="true" />
+                <property name="userName" value="${jms.username}" />
+                <property name="password" value="${jms.password}" />
+                <property name="copyMessageOnSend" value="false" />
+                <property name="optimizeAcknowledge" value="true" />
+                <property name="alwaysSessionAsync" value="true" />
+            </bean>
+        </property>
+    </bean>
+
+
+    <!-- 配置JMS模版 -->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory" />
+        <property name="receiveTimeout" value="${jms.revieve.timeout}" />
+        <property name="deliveryMode" value="2" />
+        <property name="explicitQosEnabled" value="true" />
+        <property name="timeToLive" value="${jms.time.tolive}" />
+    </bean>
+    <bean id="jmsTemplate4async" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory4async" />
+        <property name="receiveTimeout" value="${jms.revieve.timeout}" />
+        <property name="deliveryMode" value="1" />
+        <property name="explicitQosEnabled" value="true" />
+        <property name="timeToLive" value="${jms.async.tolive}" />
+    </bean>
+    
+    
+
+    <!-- 监听器 -->
+    <bean id="clientListenerContainer"
+        class="com.huateng.mmarket.listener.JifenReplyMsgListenerContainer">
+        <property name="concurrentConsumers" value="5" />
+        <property name="maxConcurrentConsumers" value="50" />
+        <property name="connectionFactory" ref="connectionFactory4reply" />
+        <property name="destination" ref="resCMUToMarket" />
+        <property name="messageListener" ref="txnListener" />
+    </bean>
+
+    <bean id="txnListener"
+        class="com.huateng.mmarket.listener.JmsClientRecvListener">
+        <property name="clientrecv" ref="sendMessageUtils" />
+    </bean>
+	<!-- 监听器，用于异步 -->
+	
+	<bean id="client4ListenerContainer"
+        class="com.huateng.mmarket.listener.Jifen4ReplyMsgListenerContainer">
+        <property name="concurrentConsumers" value="5" />
+        <property name="maxConcurrentConsumers" value="50" />
+        <property name="connectionFactory" ref="connectionFactory4reply" />
+        <property name="destination" ref="res4CMUToMarket" />
+        <property name="messageListener" ref="txn4Listener" />
+    </bean>
+
+    <bean id="txn4Listener"
+        class="com.huateng.mmarket.listener.Jms4ClientRecvListener">
+    </bean>
+	 
+</beans>

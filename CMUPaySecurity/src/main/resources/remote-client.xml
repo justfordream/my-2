@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 客户端Hessian代理工厂Bean -->
+	<bean id="CmuSecurityRemoting" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<!-- 请求代理Servlet路径 -->
+		<property name="serviceUrl">
+			<value>http://${SINGURE_IP}:${SINGURE_PORT}/CMUPaySecurity/remote/CmuSecurityRemoting</value>
+		</property>
+		<!-- 接口定义 -->
+		<property name="serviceInterface">
+			<value>com.huateng.cmupay.service.RemoteService</value>
+		</property>
+	</bean>
+
+	<!-- 客户端Hessian代理工厂Bean -->
+	<bean id="BankSecurityRemoting" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<!-- 请求代理Servlet路径 -->
+		<property name="serviceUrl">
+			<value>http://${SINGURE_IP}:${SINGURE_PORT}/CMUPaySecurity/remote/BankSecurityRemoting</value>
+		</property>
+		<!-- 接口定义 -->
+		<property name="serviceInterface">
+			<value>com.huateng.cmupay.service.RemoteService</value>
+		</property>
+	</bean>
+	
+	<!-- 客户端Hessian代理工厂Bean -->
+	<bean id="SecurityHandle" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<!-- 请求代理Servlet路径 -->
+		<property name="serviceUrl">
+			<value>http://${SECURITY_IP}:${SECURITY_PORT}/CMUPaySecurity/remote/SecurityHandle</value>
+		</property>
+		<!-- 接口定义 -->
+		<property name="serviceInterface">
+			<value>com.huateng.cmupay.security.adapter.SecurityHandle</value>
+		</property>
+	</bean>
+	
+	<!-- 客户端Hessian代理工厂Bean -->
+	<bean id="bankSecurityHandle" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<!-- 请求代理Servlet路径 -->
+		<property name="serviceUrl">
+			<value>http://${BANK_SECURITY_IP}:${BANK_SECURITY_PORT}/CMUPaySecurity/remote/bankEncryptHandle</value>
+		</property>
+		<!-- 接口定义 -->
+		<property name="serviceInterface">
+			<value>com.huateng.cmupay.security.adapter.BankSecurityHandle</value>
+		</property>
+	</bean>
+</beans> 

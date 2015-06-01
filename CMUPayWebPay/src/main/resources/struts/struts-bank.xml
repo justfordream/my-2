@@ -1,0 +1,77 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="bank" extends="struts-default">
+		<action name="rcvCcbSign" class="com.huateng.action.bank.RcvCCBSignAction"
+			method="receive">
+		</action>
+		<action name="rcvCcbPay" class="com.huateng.action.bank.RcvCCBPayAction"
+			method="receive"></action>
+
+
+		<!-- 建行前台通知 -->
+		<action name="rcvCCBPage" class="com.huateng.action.bank.RcvCCBPageAction"
+			method="receive"></action>
+
+		<!-- 模拟银联，接收请求参数 -->
+		<action name="rcvTUPayAction" class="com.huateng.action.tpay.RcvTUPayAction"
+			method="receive"></action>
+
+		<!-- 模拟银联，发送消息通知 -->
+		<action name="rcvTUPayResultAtction" class="com.huateng.action.tpay.RcvTUPayResultAtction"
+			method="receive"></action>
+
+		<!-- 模拟财付通，接收请求参数 -->
+		<action name="rcvTenPayAction" class="com.huateng.action.ten.RcvTenPayAction"
+			method="receive"></action>
+
+		<!-- 模拟财付通，发送消息通知 -->
+		<action name="rcvTenResultAction" class="com.huateng.action.ten.RcvTenResultAction"
+			method="receive"></action>
+
+		<!-- 模拟支付宝，接收请求参数 -->
+		<action name="rcvAliPayAction" class="com.huateng.action.alipay.RcvAliPayAction"
+			method="receive"></action>
+
+		<!-- 模拟支付宝，发送消息通知 -->
+		<action name="rcvAliResultAction" class="com.huateng.action.alipay.RcvAliResultAction"
+			method="receive"></action>
+
+		<!-- 模拟银联，开通认证支付，发送消息通知 -->
+		<action name="rcvTUPayShopOpenAction" class="com.huateng.action.tpay.RcvTUPayShopOpenAction"
+			method="receive"></action>
+
+
+		<!-- 银联通知 -->
+		<action name="rcvTUPayPageAction" class="com.huateng.action.tpay.RcvTUPayPageAction"
+			method="receive"></action>
+
+		<!-- 财付通通知 -->
+		<action name="rcvTenpayPageAction" class="com.huateng.action.ten.RcvTenpayPageAction"
+			method="receive"></action>
+
+		<!-- 支付宝通知 -->
+		<action name="rcvAlipayPageAction" class="com.huateng.action.alipay.RcvAlipayPageAction"
+			method="receive"></action>
+
+		<!-- 开通认证支付通知 -->
+		<action name="rcvTUPayShopOpenPageAction"
+			class="com.huateng.action.tpay.RcvTUPayShopOpenPageAction" method="receive"></action>
+
+		<!-- 模拟建行后台通知 -->
+
+		<action name="rcvCCBResult" class="com.huateng.action.bank.RcvCCBResultAction"
+			method="process">
+		</action>
+
+		<!-- 模拟建行接收通知 -->
+		<action name="rcvCCBpay" class="com.huateng.action.bank.RcvCCBPayAction"
+			method="recieve">
+			<result name="success">/CmuReturnPay.jsp</result>
+		</action>
+
+
+	</package>
+</struts>
